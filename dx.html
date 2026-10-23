@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta charset="utf-8"/>
+<meta content="quarto-1.10.0" name="generator"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport"/>
+<title>19  Diagnosis – Biostatistics for Biomedical Research</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta content="./" name="quarto:offset"/>
+<link href="hdata.html" rel="next"/>
+<link href="info.html" rel="prev"/>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet"/>
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-9c5e1a58ae97b3faeeb5cca0e0e2eaf1.css" id="quarto-text-highlighting-styles" rel="stylesheet"/>
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet"/>
+<link append-hash="true" data-mode="light" href="site_libs/bootstrap/bootstrap-39d25629837ca44e2eea0020ef944eda.min.css" id="quarto-bootstrap" rel="stylesheet"/>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FN79JJ28KR', { 'anonymize_ip': true});
+</script>
+<script class="js-hypothesis-config" type="application/json">
+{
+  "theme": "clean",
+  "openSidebar": false,
+  "enableExperimentalNewNoteButton": true
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+<link href="h.css" rel="stylesheet"/>
+<meta content="19  Diagnosis – Biostatistics for Biomedical Research" name="twitter:title"/>
+<meta content="" name="twitter:description"/>
+<meta content="https://hbiostat.org/bbr/images/movie.png" name="twitter:image"/>
+<meta content="f2harrell" name="twitter:creator"/>
+<meta content="f2harrell" name="twitter:site"/>
+<meta content="128" name="twitter:image-height"/>
+<meta content="128" name="twitter:image-width"/>
+<meta content="summary_large_image" name="twitter:card"/>
+</head>
+<body class="nav-sidebar floating nav-fixed slimcontent quarto-light">
+<div id="quarto-search-results"></div>
+<header class="headroom fixed-top" id="quarto-header">
+<nav class="navbar navbar-expand-xl" data-bs-theme="dark">
+<div class="navbar-container container-fluid">
+<div class="navbar-brand-container mx-auto">
+<a class="navbar-brand" href="index.html">
+<span class="navbar-title">Biostatistics for Biomedical Research</span>
+</a>
+</div>
+<div class="quarto-navbar-tools tools-end">
+</div>
+<div class="" id="quarto-search" title="Search"></div>
+</div> <!-- /container-fluid -->
+</nav>
+<nav class="quarto-secondary-nav">
+<div class="container-fluid d-flex">
+<button aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" class="quarto-btn-toggle btn" data-bs-target=".quarto-sidebar-collapse-item" data-bs-toggle="collapse" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }" role="button" type="button">
+<i class="bi bi-layout-text-sidebar-reverse"></i>
+</button>
+<nav aria-label="breadcrumb" class="quarto-page-breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="dx.html"><span class="chapter-number">19</span>  <span class="chapter-title">Diagnosis</span></a></li></ol></nav>
+<a aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" class="flex-grow-1" data-bs-target=".quarto-sidebar-collapse-item" data-bs-toggle="collapse" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }" role="navigation">
+</a>
+</div>
+</nav>
+</header>
+<!-- content -->
+<div class="quarto-container page-columns page-rows-contents page-layout-article page-navbar" id="quarto-content">
+<!-- sidebar -->
+<nav class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" id="quarto-sidebar">
+<div class="sidebar-menu-container">
+<ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="index.html">
+<span class="menu-text">Preface</span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="r.html">
+<span class="menu-text"><span class="chapter-number">1</span>  <span class="chapter-title"><code>R</code></span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="algebra.html">
+<span class="menu-text"><span class="chapter-number">2</span>  <span class="chapter-title">Algebra Review</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="overview.html">
+<span class="menu-text"><span class="chapter-number">3</span>  <span class="chapter-title">General Overview of Biostatistics</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="descript.html">
+<span class="menu-text"><span class="chapter-number">4</span>  <span class="chapter-title">Descriptive Statistics, Distributions, and Graphics</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="htest.html">
+<span class="menu-text"><span class="chapter-number">5</span>  <span class="chapter-title">Statistical Inference</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="prop.html">
+<span class="menu-text"><span class="chapter-number">6</span>  <span class="chapter-title">Comparing Two Proportions</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="nonpar.html">
+<span class="menu-text"><span class="chapter-number">7</span>  <span class="chapter-title">Nonparametric Statistical Tests</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="corr.html">
+<span class="menu-text"><span class="chapter-number">8</span>  <span class="chapter-title">Correlation and Nonparametric Regression</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="rmsintro.html">
+<span class="menu-text"><span class="chapter-number">9</span>  <span class="chapter-title">Introduction to the <code>R</code> <code>rms</code> Package: The Linear Model</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="reg.html">
+<span class="menu-text"><span class="chapter-number">10</span>  <span class="chapter-title">Simple and Multiple Regression Models and Overview of Model Validation</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="multgroup.html">
+<span class="menu-text"><span class="chapter-number">11</span>  <span class="chapter-title">Multiple Groups</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="infreview.html">
+<span class="menu-text"><span class="chapter-number">12</span>  <span class="chapter-title">Statistical Inference Review</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="ancova.html">
+<span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Analysis of Covariance in Randomized Studies</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="change.html">
+<span class="menu-text"><span class="chapter-number">14</span>  <span class="chapter-title">Transformations, Measuring Change, and Regression to the Mean</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="serial.html">
+<span class="menu-text"><span class="chapter-number">15</span>  <span class="chapter-title">Serial Data</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="obsvar.html">
+<span class="menu-text"><span class="chapter-number">16</span>  <span class="chapter-title">Analysis of Observer Variability and Measurement Agreement</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="propensity.html">
+<span class="menu-text"><span class="chapter-number">17</span>  <span class="chapter-title">Modeling for Observational Treatment Comparisons</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="info.html">
+<span class="menu-text"><span class="chapter-number">18</span>  <span class="chapter-title">Information Loss</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link active" href="dx.html">
+<span class="menu-text"><span class="chapter-number">19</span>  <span class="chapter-title">Diagnosis</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="hdata.html">
+<span class="menu-text"><span class="chapter-number">20</span>  <span class="chapter-title">Challenges of Analyzing High-Dimensional Data</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="repro.html">
+<span class="menu-text"><span class="chapter-number">21</span>  <span class="chapter-title">Reproducible Research</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="alpha.html">
+<span class="menu-text"><span class="chapter-number">22</span>  <span class="chapter-title">Controlling α vs. Probability of a Decision Error</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="figures.html">
+<span class="menu-text">List of Figures</span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="references.html">
+<span class="menu-text">Annotated References</span></a>
+</div>
+</li>
+</ul>
+</div>
+</nav>
+<div class="quarto-sidebar-collapse-item" data-bs-target=".quarto-sidebar-collapse-item" data-bs-toggle="collapse" id="quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+<div class="sidebar margin-sidebar" id="quarto-margin-sidebar">
+<nav class="toc-active" id="TOC" role="doc-toc">
+<h2 id="toc-title">Table of contents</h2>
+<ul>
+<li><a class="nav-link active" data-scroll-target="#problems-with-traditional-indexes-of-diagnostic-utility" href="#problems-with-traditional-indexes-of-diagnostic-utility" id="toc-problems-with-traditional-indexes-of-diagnostic-utility"><span class="header-section-number">19.1</span> Problems with Traditional Indexes of Diagnostic Utility</a></li>
+<li><a class="nav-link" data-scroll-target="#problems-with-roc-curves-and-cutoffs" href="#problems-with-roc-curves-and-cutoffs" id="toc-problems-with-roc-curves-and-cutoffs"><span class="header-section-number">19.2</span> Problems with ROC Curves and Cutoffs</a></li>
+<li><a class="nav-link" data-scroll-target="#optimum-individual-decision-making-and-forward-risk" href="#optimum-individual-decision-making-and-forward-risk" id="toc-optimum-individual-decision-making-and-forward-risk"><span class="header-section-number">19.3</span> Optimum Individual Decision Making and Forward Risk</a></li>
+<li><a class="nav-link" data-scroll-target="#diagnostic-risk-modeling" href="#diagnostic-risk-modeling" id="toc-diagnostic-risk-modeling"><span class="header-section-number">19.4</span> Diagnostic Risk Modeling</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#example-diagnostic-models" href="#example-diagnostic-models" id="toc-example-diagnostic-models"><span class="header-section-number">19.4.1</span> Example Diagnostic Models</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#assessing-diagnostic-yield" href="#assessing-diagnostic-yield" id="toc-assessing-diagnostic-yield"><span class="header-section-number">19.5</span> Assessing Diagnostic Yield</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#absolute-yield" href="#absolute-yield" id="toc-absolute-yield"><span class="header-section-number">19.5.1</span> Absolute Yield</a></li>
+<li><a class="nav-link" data-scroll-target="#assessing-relative-diagnostic-yield" href="#assessing-relative-diagnostic-yield" id="toc-assessing-relative-diagnostic-yield"><span class="header-section-number">19.5.2</span> Assessing Relative Diagnostic Yield</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#assessing-absolute-diagnostic-yield-cohort-study" href="#assessing-absolute-diagnostic-yield-cohort-study" id="toc-assessing-absolute-diagnostic-yield-cohort-study"><span class="header-section-number">19.6</span> Assessing Absolute Diagnostic Yield: Cohort Study</a></li>
+<li><a class="nav-link" data-scroll-target="#assessing-diagnostic-yield-case-control-other-oversampling-designs" href="#assessing-diagnostic-yield-case-control-other-oversampling-designs" id="toc-assessing-diagnostic-yield-case-control-other-oversampling-designs"><span class="header-section-number">19.7</span> Assessing Diagnostic Yield: Case-Control &amp; Other Oversampling Designs</a></li>
+<li><a class="nav-link" data-scroll-target="#example-diagnosis-of-coronary-artery-disease-cad" href="#example-diagnosis-of-coronary-artery-disease-cad" id="toc-example-diagnosis-of-coronary-artery-disease-cad"><span class="header-section-number">19.8</span> Example: Diagnosis of Coronary Artery Disease (CAD)</a></li>
+<li><a class="nav-link" data-scroll-target="#summary" href="#summary" id="toc-summary"><span class="header-section-number">19.9</span> Summary</a></li>
+<li><a class="nav-link" data-scroll-target="#notes" href="#notes" id="toc-notes">Notes</a></li>
+</ul>
+</nav>
+</div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+<header class="quarto-title-block default" id="title-block-header">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="quarto-section-identifier" id="sec-dx"><span class="chapter-number">19</span>  <span class="chapter-title">Diagnosis</span></span></h1><button aria-expanded="false" class="btn code-tools-button dropdown-toggle" data-bs-toggle="dropdown" id="quarto-code-tools-menu" type="button"><i class="bi"></i> Code</button><ul aria-labelelledby="quarto-code-tools-menu" class="dropdown-menu dropdown-menu-end"><li><a class="dropdown-item" href="javascript:void(0)" id="quarto-show-all-code" role="button">Show All Code</a></li><li><a class="dropdown-item" href="javascript:void(0)" id="quarto-hide-all-code" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"/></li><li><a class="dropdown-item" href="javascript:void(0)" id="quarto-view-source" role="button">View Source</a></li></ul></div></div>
+</div>
+<div class="quarto-title-meta">
+</div>
+</header>
+<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside"><a href="https://www.youtube.com/watch?v=uULhuuSjBww"><img src="images/movie.png" width="25"/></a></span></div></div>
+<div class="quoteit">
+<p>Sensitivity and specificity are far less useful than they seem, and they are properties not just of tests <strong>but of patients also</strong>. Probabilistic diagnosis is better developed through logistic regression models, which handle pre-test probabilities, tests with non-binary or multiple outputs, multiple correlated tests, and multiple disease stages/severities (using ordinal logistic regression).</p>
+</div>
+<p>Medical diagnostic research, as usually practiced, is prone to bias and even more importantly to yielding information that is not useful to patients or physicians and sometimes overstates the value of diagnostic tests. Important sources of these problems are conditioning on the wrong statistical information, reversing the flow of time, and categorization of inherently continuous test outputs and disease severity. It will be shown that sensitivity and specificity are not properties of tests in the usual sense of the word, and that they were never natural choices for describing test performance. This implies that ROC curves are unhelpful (although areas under them are sometimes useful). So is categorical thinking.</p>
+<p>This chapter outlines the many advantages of diagnostic risk modeling, showing how pre-and post-test diagnostic models give rise to clinically useful displays of pre-test vs. post-test probabilities that themselves quantify diagnostic utility in a way that is useful to patients, physicians, and diagnostic device makers. And unlike sensitivity and specificity, post-test probabilities are immune to certain biases, including workup bias.</p>
+<p>Case-control studies use a design where sampling is done on final disease status and patient exposures are “along for the ride.” In other words, one conditions on the outcome and considers the distribution of exposures using outcome-dependent sampling. Sensitivity and specificity are useful for proof-of-concept case-control studies because sensitivity and specificity also condition on the final diagnosis. The use of sensitivity and specificity in prospective cohort studies is the mathematical equivalent of making three left turns in order to turn right. Like the complex adjustments needed for <span class="math inline">\(P\)</span>-values when doing sequential trials, sensitivity and specificity require complex adjustments for workup bias just because of their backward consideration of time and information. In a cohort study one can use a vanilla regression model to estimate the probability of a final diagnostic outcome given patient characteristics and diagnostic test results.</p>
+<section class="level2 page-columns page-full" data-number="19.1" id="problems-with-traditional-indexes-of-diagnostic-utility">
+<h2 class="anchored" data-anchor-id="problems-with-traditional-indexes-of-diagnostic-utility" data-number="19.1"><span class="header-section-number">19.1</span> Problems with Traditional Indexes of Diagnostic Utility</h2>
+<p>sensitivity = Prob<span class="math inline">\([T^{+} | D^{+}]\)</span><br/></p>
+<p>specificity = Prob<span class="math inline">\([T^{-} | D^{-}]\)</span><br/></p>
+<p>Prob<span class="math inline">\([D^{+} | T^{+}] = \frac{\mathrm{sens} \times \mathrm{prev}}{\mathrm{sens} \times \mathrm{prev} +
+(1-\mathrm{spec})\times (1-\mathrm{prev})}\)</span></p>
+<p>Problems:</p>
+<ul>
+<li>Diagnosis forced to be binary</li>
+<li>Test force to be binary</li>
+<li>Sensitivity and specificity are in backwards time order</li>
+<li>Confuse decision making for groups vs. individuals</li>
+<li>Inadequate utilization of pre-test information</li>
+<li>Dichotomization of continuous variables in general</li>
+</ul>
+<section class="level4 page-columns page-full" id="example-bi-rads-score-in-mammography">
+<h4 class="anchored" data-anchor-id="example-bi-rads-score-in-mammography">Example: BI-RADS Score in Mammography</h4>
+<p>Does Category 4 Make <strong>Any</strong> Sense?</p>
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Breast Imaging Reporting and Data System, American College of Radiologists <a href="http://breastcancer.about.com/od/diagnosis/a/birads.htm">breastcancer.about.com/od/diagnosis/a/birads.htm</a>. American College of Radiology. BI-RADS US (PDF document) Copyright 2004. BI-RADS US. arc.org.</p>
+</div></div><table class="caption-top table">
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Diagnosis</th>
+<th>Number of Criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>Incomplete</td>
+<td>Your mammogram or ultrasound didn’t give the radiologist enough information to make a clear diagnosis; follow-up imaging is necessary</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Negative</td>
+<td>There is nothing to comment on; routine screening recommended</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Benign</td>
+<td>A definite benign finding; routine screening recommended</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Probably Benign</td>
+<td>Findings that have a high probability of being benign (<span class="math inline">\(&gt;98\)</span>%); six-month short interval follow-up</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>Suspicious Abnormality</td>
+<td>Not characteristic of breast cancer, but reasonable probability of being malignant (3 to 94%); biopsy should be considered</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>Highly Suspicious of Malignancy</td>
+<td>Lesion that has a high probability of being malignant (<span class="math inline">\(\geq 95\)</span>%); take appropriate action</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>Known Biopsy Proven Malignancy</td>
+<td>Lesions known to be malignant that are being imaged prior to definitive treatment; assure that treatment is completed</td>
+</tr>
+</tbody>
+</table>
+<p>How to Reduce False Positives and Negatives?</p>
+<ul>
+<li>Do away with “positive” and “negative”</li>
+<li>Provide risk estimates</li>
+<li>Defer decision to decision maker</li>
+<li>Risks have self-contained error rates</li>
+<li>Risk of 0.2 <span class="math inline">\(\rightarrow\)</span> Prob[error]=.2 if don’t treat</li>
+<li>Risk of 0.8 <span class="math inline">\(\rightarrow\)</span> Prob[error]=.2 if treat</li>
+</ul>
+<p>See <a href="http://thehealthcareblog.com/blog/2015/12/01/rethinking-about-diagnostic-tests-there-is-nothing-positive-or-negative-about-a-test-result">this</a> for a nice article on the subject.</p>
+</section>
+<section class="level4" id="binary-diagnosis-is-problematic-anyway">
+<h4 class="anchored" data-anchor-id="binary-diagnosis-is-problematic-anyway">Binary Diagnosis is Problematic Anyway</h4>
+<div class="quoteit">
+<p>The act of diagnosis requires that patients be placed in a binary category of either having or not having a certain disease. Accordingly, the diseases of particular concern for industrialized countries—such as type 2 diabetes, obesity, or depression—require that a somewhat arbitrary cut-point be chosen on a continuous scale of measurement (for example, a fasting glucose level <span class="math inline">\(&gt;6.9\)</span> mmol/L [<span class="math inline">\(&gt;125\)</span> mg/dL] for type 2 diabetes). These cut-points do not adequately reflect disease biology, may inappropriately treat patients on either side of the cut-point as 2 homogeneous risk groups, fail to incorporate other risk factors, and are invariable to patient preference. <br/><span style="color:black;font-style:normal;float:right;text-align:right;"> — <span class="citation" data-cites="vic08dia">Vickers et al. (<a href="references.html#ref-vic08dia" role="doc-biblioref">2008</a>)</span> </span><br/></p>
+</div>
+<p><span class="citation" data-cites="new09evi">Newman &amp; Kohn (<a href="references.html#ref-new09evi" role="doc-biblioref">2009</a>)</span> have a strong section about the problems with considering diagnosis to be binary.</p>
+</section>
+<section class="level4 page-columns page-full" id="back-to-sensitivity-and-specificity">
+<h4 class="anchored" data-anchor-id="back-to-sensitivity-and-specificity">Back to Sensitivity and Specificity</h4>
+<ul>
+<li>Backwards time order</li>
+<li>Irrelevant to both physician and patient</li>
+<li>Improper discontinuous scoring rules<a class="footnote-ref" href="#fn1" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+<li>Are not test characteristics
+<ul>
+<li>Are characteristics of the test <strong>and</strong> patients</li>
+</ul></li>
+<li><strong>Not constant</strong>; vary with patient characteristics
+<ul>
+<li>Sensitivity <span class="math inline">\(\uparrow\)</span> with any covariate related to disease severity if diagnosis is dichotomized</li>
+</ul></li>
+<li>Require adjustment for workup bias
+<ul>
+<li>Diagnostic risk models do not; only suffer from under-representation</li>
+</ul></li>
+<li>Good for proof of concept of a diagnostic method in a case–control study; not useful for utility </li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup> They are optimized by not correctly estimating risk of disease.</p></div><span class="margin-aside">See <a href="https://stats.stackexchange.com/questions/328550">here</a> for a discussion of how sensitivity and specificity change with prevalence.</span></div><p><span class="citation" data-cites="hla84fac">Hlatky et al. (<a href="references.html#ref-hla84fac" role="doc-biblioref">1984</a>)</span>; <span class="citation" data-cites="moo97lim">Moons et al. (<a href="references.html#ref-moo97lim" role="doc-biblioref">1997</a>)</span>; <span class="citation" data-cites="moo03sen">Moons &amp; Harrell (<a href="references.html#ref-moo03sen" role="doc-biblioref">2003</a>)</span>; <span class="citation" data-cites="gne07str">Gneiting &amp; Raftery (<a href="references.html#ref-gne07str" role="doc-biblioref">2007</a>)</span></p>
+</section>
+<section class="level4" id="sensitivity-of-exercise-ecg-for-diagnosing-cad">
+<h4 class="anchored" data-anchor-id="sensitivity-of-exercise-ecg-for-diagnosing-cad">Sensitivity of Exercise ECG for Diagnosing CAD</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Age</th>
+<th>Sensitivity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(&lt;40\)</span></td>
+<td>0.56</td>
+</tr>
+<tr class="even">
+<td>40–49</td>
+<td>0.65</td>
+</tr>
+<tr class="odd">
+<td>50–59</td>
+<td>0.74</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\geq\)</span> 60</td>
+<td>0.84</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Sex</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>male</td>
+<td>0.72</td>
+</tr>
+<tr class="even">
+<td>female</td>
+<td>0.57</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th># Diseased Coronary Arteries</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>0.48</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>0.68</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>0.85</td>
+</tr>
+</tbody>
+</table>
+<p><span class="citation" data-cites="hla84fac">Hlatky et al. (<a href="references.html#ref-hla84fac" role="doc-biblioref">1984</a>)</span> ; See also <a href="https://journals.sagepub.com/doi/10.1177/0272989X05275154">Janssens 2005</a></p>
+</section>
+</section>
+<section class="level2" data-number="19.2" id="problems-with-roc-curves-and-cutoffs">
+<h2 class="anchored" data-anchor-id="problems-with-roc-curves-and-cutoffs" data-number="19.2"><span class="header-section-number">19.2</span> Problems with ROC Curves and Cutoffs</h2>
+<div class="quoteit">
+<p>… statistics such as the AUC are not especially relevant to someone who must make a decision about a particular <span class="math inline">\(x_{c}\)</span>. … ROC curves lack or obscure several quantities that are necessary for evaluating the operational effectiveness of diagnostic tests. … ROC curves were first used to check how radio <em>receivers</em> (like radar receivers) operated over a range of frequencies. … This is not how most ROC curves are used now, particularly in medicine. The receiver of a diagnostic measurement … wants to make a decision based on some <span class="math inline">\(x_{c}\)</span>, and is not especially interested in how well he would have done had he used some different cutoff. <br/><span style="color:black;font-style:normal;float:right;text-align:right;"> — <span class="citation" data-cites="bri08ski">Briggs &amp; Zaretzki (<a href="references.html#ref-bri08ski" role="doc-biblioref">2008</a>)</span> </span><br/></p>
+</div>
+<p>In the discussion to this paper, David Hand states “when integrating to yield the overall AUC measure, it is necessary to decide what weight to give each value in the integration. The AUC implicitly does this using a weighting derived empirically from the data. This is nonsensical. The relative importance of misclassifying a case as a non-case, compared to the reverse, cannot come from the data itself. It must come externally, from considerations of the severity one attaches to the different kinds of misclassifications.”</p>
+</section>
+<section class="level2" data-number="19.3" id="optimum-individual-decision-making-and-forward-risk">
+<h2 class="anchored" data-anchor-id="optimum-individual-decision-making-and-forward-risk" data-number="19.3"><span class="header-section-number">19.3</span> Optimum Individual Decision Making and Forward Risk</h2>
+<ul>
+<li>Minimize expected loss/cost/disutility</li>
+<li>Uses
+<ul>
+<li>utility function (e.g., inverse of cost of missing a diagnosis, cost of over-treatment if disease is absent)</li>
+<li>probability of disease</li>
+</ul></li>
+</ul>
+<p><span class="math inline">\(d =\)</span> decision, <span class="math inline">\(o =\)</span> outcome<br/> Utility for outcome <span class="math inline">\(o = U(o)\)</span><br/> Expected utility of decision <span class="math inline">\(d = U(d) = \int p(o | d) U(o)do\)</span><br/> <span class="math inline">\(d_\mathrm{opt} = d\)</span> maximizing <span class="math inline">\(U(d)\)</span></p>
+<p>The steps for determining the optimum decision are:</p>
+<ol type="1">
+<li>Predict the outcome <span class="math inline">\(o\)</span> for every decision <span class="math inline">\(d\)</span></li>
+<li>Assign a utility <span class="math inline">\(U(o)\)</span> to every outcome <span class="math inline">\(o\)</span></li>
+<li>Find the decision <span class="math inline">\(d\)</span> that maximizes the expected utility</li>
+</ol>
+<p>See</p>
+<ul>
+<li><a href="https:bit.ly/datamethods-dm">https:bit.ly/datamethods-dm</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Optimal_decision">en.wikipedia.org/wiki/Optimal_decision</a></li>
+<li><a href="http://www.statsathome.com/2017/10/12/bayesian-decision-theory-made-ridiculously-simple">www.statsathome.com/2017/10/12/bayesian-decision-theory-made-ridiculously-simple</a> <!-- * [twitter.com/jim_savage_/status/989524417649807360](https://twitter.com/jim_savage_/status/989524417649807360)---> <!-- BROKEN LINK---></li>
+<li><span class="citation" data-cites="gov18int">Govers et al. (<a href="references.html#ref-gov18int" role="doc-biblioref">2018</a>)</span></li>
+<li><a href="https://stats.stackexchange.com/questions/368949">stats.stackexchange.com/questions/368949</a></li>
+</ul>
+<!--  From Chris Fonnesbeck 2015-10-26:--->
+<!--  The way decision analysts approach the problem is by considering the expected value of perfect information (EVPI), or in this case, the expected value of sample information (EVSI). It quantifies the value of additional information essentially by differencing the average of optimal values from the optimum of the average expected value. EVPI is related to the value of learning about an underlying model, whereas EVSI is the value of collecting additional data. Estimating the loss of information due to discretization would just be a special case of an EVSI calculation.--->
+<p>See <a href="https://www.nytimes.com/2018/09/01/opinion/sunday/how-make-big-decision.html">this NY Times article</a> about decision theory.</p>
+</section>
+<section class="level2 page-columns page-full" data-number="19.4" id="diagnostic-risk-modeling">
+<h2 class="anchored" data-anchor-id="diagnostic-risk-modeling" data-number="19.4"><span class="header-section-number">19.4</span> Diagnostic Risk Modeling</h2>
+<p>Assuming (Atypical) Binary Disease Status</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%"/>
+<col style="width: 50%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Y</th>
+<th>1:diseased, 0:normal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(X\)</span></td>
+<td>vector of subject characteristics (e.g., demographics, risk factors, symptoms)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(T\)</span></td>
+<td>vector of test (biomarker, …) outputs</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\alpha\)</span></td>
+<td>intercept</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\beta\)</span></td>
+<td>vector of coefficients of <span class="math inline">\(X\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\gamma\)</span></td>
+<td>vector of coefficients of <span class="math inline">\(T\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>pre<span class="math inline">\((X)\)</span> = Prob<span class="math inline">\([Y=1 | X] = \frac{1}{1 + \exp[-(\alpha^{*} + \beta^{*} X)]}\)</span> <br/> post<span class="math inline">\((X,T)\)</span> = Prob<span class="math inline">\([Y=1 | X,T] = \frac{1}{1 + \exp[-(\alpha + \beta X + \gamma T)]}\)</span></p>
+<p>Note: Proportional odds model extends to ordinal disease severity <span class="math inline">\(Y\)</span>.</p>
+<section class="level3 page-columns page-full" data-number="19.4.1" id="example-diagnostic-models">
+<h3 class="anchored" data-anchor-id="example-diagnostic-models" data-number="19.4.1"><span class="header-section-number">19.4.1</span> Example Diagnostic Models</h3>
+<div class="cell page-columns page-full">
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">'images/cad-nomo.png'</span>)</span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display page-columns page-full">
+<div class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-scap="Nomogram for estimating P(significant coronary disease)" id="fig-dx-cad-nomo">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-dx-cad-nomo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img class="img-fluid figure-img" data-fig-scap="Nomogram for estimating P(significant coronary disease)" src="images/cad-nomo.png" width="600"/>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-dx-cad-nomo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 19.1: A nomogram for estimating the likelihood of significant coronary artery disease (CAD) in women. ECG = electrocardiographic; MI = myocardial infarction. <span class="citation" data-cites="pry83est">Pryor et al. (<a href="references.html#ref-pry83est" role="doc-biblioref">1983</a>)</span>. Reprinted from American Journal of Medicine, Vol. 75, D.B. Pryor <em>et al</em>, “Estimating the likelihood of significant coronary artery disease,” p. 778, Copyright 1983, with permission from Excerpta Medica, Inc.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell page-columns page-full">
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">'images/abm-nomo.png'</span>)</span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display page-columns page-full">
+<div class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-scap="Nomogram for estimating probability of meningitis" id="fig-dx-abm-nomo">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-dx-abm-nomo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img class="img-fluid figure-img" data-fig-scap="Nomogram for estimating probability of meningitis" src="images/abm-nomo.png" width="600"/>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-dx-abm-nomo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 19.2: Nomogram for estimating probability of bacterial (ABM) versus viral (AVM) meningitis. Step 1, place ruler on reading lines for patient’s age and month of presentation and mark intersection with line A; step 2, place ruler on values for glucose ratio and total polymorphonuclear leukocyte (PMN) count in cerebrospinal fluid and mark intersection with line B; step 3, use ruler to join marks on lines A and B, then read off the probability of ABM versus AVM. From <span class="citation" data-cites="spa89dif">Spanos et al. (<a href="references.html#ref-spa89dif" role="doc-biblioref">1989</a>)</span>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell page-columns page-full">
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" href="#cb3-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">'images/bra91usiNomogram.png'</span>)</span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display page-columns page-full">
+<div class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" id="fig-dx-bra91usinomogram">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-dx-bra91usinomogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img class="img-fluid figure-img" src="images/bra91usiNomogram.png" width="600"/>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-dx-bra91usinomogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 19.3: Proportional odds ordinal logistic model for ordinal diagnostic classes from <span class="citation" data-cites="bra91usi">Brazer et al. (<a href="references.html#ref-bra91usi" role="doc-biblioref">1991</a>)</span>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="level2" data-number="19.5" id="assessing-diagnostic-yield">
+<h2 class="anchored" data-anchor-id="assessing-diagnostic-yield" data-number="19.5"><span class="header-section-number">19.5</span> Assessing Diagnostic Yield</h2>
+<section class="level3" data-number="19.5.1" id="absolute-yield">
+<h3 class="anchored" data-anchor-id="absolute-yield" data-number="19.5.1"><span class="header-section-number">19.5.1</span> Absolute Yield</h3>
+<p><span class="citation" data-cites="pen08eva">Pencina et al. (<a href="references.html#ref-pen08eva" role="doc-biblioref">2008</a>)</span>: Absolute incremental information in a new set of markers<br/> Consider change in predicted risk when add new variables:<br/></p>
+<p>Average increase in risk of disease when disease present<br/>+<br/>Average decrease in risk of disease when disease absent</p>
+<section class="level4" id="formal-test-of-added-absolute-and-relative-information">
+<h4 class="anchored" data-anchor-id="formal-test-of-added-absolute-and-relative-information">Formal Test of Added Absolute and Relative Information</h4>
+<p>Likelihood ratio <span class="math inline">\(\chi^{2}\)</span> test of partial association of new markers, adjusted for old markers</p>
+</section>
+</section>
+<section class="level3" data-number="19.5.2" id="assessing-relative-diagnostic-yield">
+<h3 class="anchored" data-anchor-id="assessing-relative-diagnostic-yield" data-number="19.5.2"><span class="header-section-number">19.5.2</span> Assessing Relative Diagnostic Yield</h3>
+<ul>
+<li>Variation in relative log odds of disease = <span class="math inline">\(T \hat{\gamma}\)</span>, holding <span class="math inline">\(X\)</span> constant</li>
+<li>Summarize with Gini’s mean difference or inter-quartile range, then anti-log</li>
+<li>E.g.: the typical modification of pre-test odds of disease is by a factor of 3.4<br/><br/><small>Gini’s mean difference = mean absolute difference between any pair of values</small></li>
+</ul>
+<p>See <a class="quarto-xref" href="ancova.html#fig-ancova-or-diff">Figure <span>13.6</span></a> for a graphical depiction of the relationship between odds ratio and absolute risk difference.</p>
+</section>
+</section>
+<section class="level2 page-columns page-full" data-number="19.6" id="assessing-absolute-diagnostic-yield-cohort-study">
+<h2 class="anchored" data-anchor-id="assessing-absolute-diagnostic-yield-cohort-study" data-number="19.6"><span class="header-section-number">19.6</span> Assessing Absolute Diagnostic Yield: Cohort Study</h2>
+<ul>
+<li>Patient <span class="math inline">\(i = 1, 2, 3, \ldots, n\)</span></li>
+<li>In-sample sufficient statistics: pre<span class="math inline">\((X_{1})\)</span>, …, pre<span class="math inline">\((X_{n})\)</span>, post<span class="math inline">\((X_{1}, T_{1})\)</span>, …, post<span class="math inline">\((X_{n}, T_{n})\)</span></li>
+</ul>
+<div class="cell page-columns page-full">
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" href="#cb4-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">'images/hla09criFig3.png'</span>)</span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display page-columns page-full">
+<div class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-scap="Pre vs. post-test probability" id="fig-dx-hla09crifig3">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-dx-hla09crifig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img class="img-fluid figure-img" data-fig-scap="Pre vs. post-test probability" src="images/hla09criFig3.png" width="600"/>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-dx-hla09crifig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 19.4: Pre vs. post-test probability. This may be summarized with quantile regression to estimate 0.1 and 0.9 quantiles of <strong>post</strong> as a function of <strong>pre</strong>. From <span class="citation" data-cites="hla09cri">Hlatky et al. (<a href="references.html#ref-hla09cri" role="doc-biblioref">2009</a>)</span>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Assessments assume that risk estimates are well calibrated, using, for example a high-resolution continuous calibration curve.</p>
+<p><img src="images/ordinal-calibrate-1.png" width="70%"/></p>
+<p>Out-of-sample assessment: compute pre<span class="math inline">\((X)\)</span> and post<span class="math inline">\((X,T)\)</span> for any <span class="math inline">\(X\)</span> and <span class="math inline">\(T\)</span> of interest</p>
+<section class="level4" id="summary-measures">
+<h4 class="anchored" data-anchor-id="summary-measures">Summary measures</h4>
+<ul>
+<li>quantile regression (<span class="citation" data-cites="koe78reg">Koenker &amp; Bassett (<a href="references.html#ref-koe78reg" role="doc-biblioref">1978</a>)</span>) curves as a function of pre</li>
+<li>overall mean <span class="math inline">\(|\)</span>post – pre<span class="math inline">\(|\)</span></li>
+<li>quantiles of post – pre</li>
+<li>du<span class="math inline">\(_{50}\)</span>: <strong>distribution</strong> of post when pre = 0.5 <br/> diagnostic utility at maximum pre-test uncertainty
+<ul>
+<li>Choose <span class="math inline">\(X\)</span> so that pre = 0.5</li>
+<li>Examine distribution of post at this pre</li>
+<li>Summarize with quantiles, Gini’s mean difference on prob. scale</li>
+<li>Special case where test is binary (atypical): compute post for <span class="math inline">\(T^{+}\)</span> and for <span class="math inline">\(T^{-}\)</span></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section class="level2" data-number="19.7" id="assessing-diagnostic-yield-case-control-other-oversampling-designs">
+<h2 class="anchored" data-anchor-id="assessing-diagnostic-yield-case-control-other-oversampling-designs" data-number="19.7"><span class="header-section-number">19.7</span> Assessing Diagnostic Yield: Case-Control &amp; Other Oversampling Designs</h2>
+<ul>
+<li>Intercept <span class="math inline">\(\alpha\)</span> is meaningless</li>
+<li>Choose <span class="math inline">\(X\)</span> and solve for <span class="math inline">\(\alpha\)</span> so that pre = 0.5</li>
+<li>Proceed as above to estimate du<span class="math inline">\(_{50}\)</span></li>
+</ul>
+</section>
+<section class="level2 page-columns page-full" data-number="19.8" id="example-diagnosis-of-coronary-artery-disease-cad">
+<h2 class="anchored" data-anchor-id="example-diagnosis-of-coronary-artery-disease-cad" data-number="19.8"><span class="header-section-number">19.8</span> Example: Diagnosis of Coronary Artery Disease (CAD)</h2>
+<p><strong>Test = Total Cholesterol</strong></p>
+<div class="cell page-columns page-full" data-cap="Relative effect of total cholesterol for age 40 and 70; Data from Duke Cardiovascular Disease Databank, $n=2258$" data-h="4.5" data-w="6">
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" href="#cb5-1" tabindex="-1"></a><span class="fu">require</span>(rms)</span>
+<span id="cb5-2"><a aria-hidden="true" href="#cb5-2" tabindex="-1"></a><span class="fu">getHdata</span>(acath)</span>
+<span id="cb5-3"><a aria-hidden="true" href="#cb5-3" tabindex="-1"></a>acath <span class="ot">&lt;-</span> <span class="fu">subset</span>(acath, <span class="sc">!</span><span class="fu">is.na</span>(choleste))</span>
+<span id="cb5-4"><a aria-hidden="true" href="#cb5-4" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">datadist</span>(acath);  <span class="fu">options</span>(<span class="at">datadist=</span><span class="st">'dd'</span>)</span>
+<span id="cb5-5"><a aria-hidden="true" href="#cb5-5" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">lrm</span>(sigdz <span class="sc">~</span> <span class="fu">rcs</span>(age,<span class="dv">5</span>)<span class="sc">*</span>sex, <span class="at">data=</span>acath)</span>
+<span id="cb5-6"><a aria-hidden="true" href="#cb5-6" tabindex="-1"></a>pre <span class="ot">&lt;-</span> <span class="fu">predict</span>(f, <span class="at">type=</span><span class="st">'fitted'</span>)</span>
+<span id="cb5-7"><a aria-hidden="true" href="#cb5-7" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">lrm</span>(sigdz <span class="sc">~</span> <span class="fu">rcs</span>(age,<span class="dv">4</span>)<span class="sc">*</span>sex <span class="sc">+</span> <span class="fu">rcs</span>(choleste,<span class="dv">4</span>) <span class="sc">+</span> <span class="fu">rcs</span>(age,<span class="dv">4</span>) <span class="sc">%ia%</span></span>
+<span id="cb5-8"><a aria-hidden="true" href="#cb5-8" tabindex="-1"></a>         <span class="fu">rcs</span>(choleste,<span class="dv">4</span>), <span class="at">data=</span>acath)</span>
+<span id="cb5-9"><a aria-hidden="true" href="#cb5-9" tabindex="-1"></a>ageg <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">70</span>)</span>
+<span id="cb5-10"><a aria-hidden="true" href="#cb5-10" tabindex="-1"></a>psig <span class="ot">&lt;-</span> <span class="fu">Predict</span>(g, choleste, <span class="at">age=</span>ageg)</span>
+<span id="cb5-11"><a aria-hidden="true" href="#cb5-11" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">lrm</span>(tvdlm <span class="sc">~</span> <span class="fu">rcs</span>(age,<span class="dv">4</span>)<span class="sc">*</span>sex <span class="sc">+</span> <span class="fu">rcs</span>(choleste,<span class="dv">4</span>) <span class="sc">+</span> <span class="fu">rcs</span>(age,<span class="dv">4</span>) <span class="sc">%ia%</span></span>
+<span id="cb5-12"><a aria-hidden="true" href="#cb5-12" tabindex="-1"></a>    <span class="fu">rcs</span>(choleste,<span class="dv">4</span>), <span class="at">data=</span>acath)</span>
+<span id="cb5-13"><a aria-hidden="true" href="#cb5-13" tabindex="-1"></a>psev <span class="ot">&lt;-</span> <span class="fu">Predict</span>(s, choleste, <span class="at">age=</span>ageg)</span>
+<span id="cb5-14"><a aria-hidden="true" href="#cb5-14" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">rbind</span>(<span class="st">'Significant CAD'</span><span class="ot">=</span>psig, <span class="st">'3 Vessel or Left Main CAD'</span><span class="ot">=</span>psev),</span>
+<span id="cb5-15"><a aria-hidden="true" href="#cb5-15" tabindex="-1"></a>    <span class="at">adj.subtitle=</span><span class="cn">FALSE</span>)</span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display page-columns page-full">
+<div class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" id="fig-dx-du">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-dx-du-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img class="img-fluid figure-img" src="dx_files/figure-html/fig-dx-du-1.png" width="672"/>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-dx-du-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 19.5: Relative effect of total cholesterol for age 40 and 70; Data from Duke Cardiovascular Disease Databank, <span class="math inline">\(n=2258\)</span>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell page-columns page-full" data-cap="Diagnostic Utility of Cholesterol for Diagnosing Significant CAD.  Curves are 0.1 and 0.9 quantiles from quantile regression using restricted cubic splines" data-h="4.5" data-w="4.5">
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" href="#cb6-1" tabindex="-1"></a>post <span class="ot">&lt;-</span> <span class="fu">predict</span>(g, <span class="at">type=</span><span class="st">'fitted'</span>)</span>
+<span id="cb6-2"><a aria-hidden="true" href="#cb6-2" tabindex="-1"></a><span class="fu">plot</span>(pre, post, <span class="at">xlab=</span><span class="st">'Pre-Test Probability (age + sex)'</span>,</span>
+<span id="cb6-3"><a aria-hidden="true" href="#cb6-3" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">'Post-Test Probability (age + sex + cholesterol)'</span>, <span class="at">pch=</span><span class="dv">46</span>)</span>
+<span id="cb6-4"><a aria-hidden="true" href="#cb6-4" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="dv">0</span>, <span class="at">b=</span><span class="dv">1</span>, <span class="at">col=</span><span class="fu">gray</span>(.<span class="dv">8</span>))</span>
+<span id="cb6-5"><a aria-hidden="true" href="#cb6-5" tabindex="-1"></a>lo <span class="ot">&lt;-</span> <span class="fu">Rq</span>(post <span class="sc">~</span> <span class="fu">rcs</span>(pre, <span class="dv">7</span>), <span class="at">tau=</span><span class="fl">0.1</span>)  <span class="co"># 0.1 quantile</span></span>
+<span id="cb6-6"><a aria-hidden="true" href="#cb6-6" tabindex="-1"></a>hi <span class="ot">&lt;-</span> <span class="fu">Rq</span>(post <span class="sc">~</span> <span class="fu">rcs</span>(pre, <span class="dv">7</span>), <span class="at">tau=</span><span class="fl">0.9</span>)  <span class="co"># 0.9 quantile</span></span>
+<span id="cb6-7"><a aria-hidden="true" href="#cb6-7" tabindex="-1"></a>at <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">length=</span><span class="dv">200</span>)</span>
+<span id="cb6-8"><a aria-hidden="true" href="#cb6-8" tabindex="-1"></a><span class="fu">lines</span>(at, <span class="fu">Predict</span>(lo, <span class="at">pre=</span>at)<span class="sc">$</span>yhat, <span class="at">col=</span><span class="st">'red'</span>, <span class="at">lwd=</span><span class="fl">1.5</span>)</span>
+<span id="cb6-9"><a aria-hidden="true" href="#cb6-9" tabindex="-1"></a><span class="fu">lines</span>(at, <span class="fu">Predict</span>(hi, <span class="at">pre=</span>at)<span class="sc">$</span>yhat, <span class="at">col=</span><span class="st">'red'</span>, <span class="at">lwd=</span><span class="fl">1.5</span>)</span>
+<span id="cb6-10"><a aria-hidden="true" href="#cb6-10" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>.<span class="dv">5</span>, <span class="at">col=</span><span class="st">'red'</span>)</span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display page-columns page-full">
+<div class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" id="fig-dx-du-acath">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-dx-du-acath-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img class="img-fluid figure-img" src="dx_files/figure-html/fig-dx-du-acath-1.png" width="672"/>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-dx-du-acath-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 19.6: Diagnostic Utility of Cholesterol for Diagnosing Significant CAD. Curves are 0.1 and 0.9 quantiles from quantile regression using restricted cubic splines
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="level2" data-number="19.9" id="summary">
+<h2 class="anchored" data-anchor-id="summary" data-number="19.9"><span class="header-section-number">19.9</span> Summary</h2>
+<p>Diagnostic utility needs to be estimated using measures of relevance to individual decision makers. Improper accuracy scoring rules lead to sub-optimal decisions. Traditional risk modeling is a powerful tool in this setting. Cohort studies are ideal but useful measures can be obtained even with oversampling. Avoid categorization of any continuous or ordinal variables.</p>
+</section>
+<section class="level2 unnumbered" id="notes">
+<h2 class="unnumbered anchored" data-anchor-id="notes">Notes</h2>
+<p>Much of this material is from “Direct Measures of Diagnostic Utility Based on Diagnostic Risk Models” by FE Harrell presented at the FDA Public Workshop on Study Methodology for Diagnostics in the Postmarket Setting, 2011-05-12.</p>
+<!-- -->
+<div class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" id="refs" role="list" style="display: none">
+<div class="csl-entry" id="ref-bra91usi" role="listitem">
+Brazer, S. R., Pancotto, F. S., Long III, T. T., Harrell, F. E., Lee, K. L., Tyor, M. P., &amp; Pryor, D. B. (1991). Using ordinal logistic regression to estimate the likelihood of colorectal neoplasia. <em>J Clin Epi</em>, <em>44</em>, 1263–1270.
+</div>
+<div class="csl-entry" id="ref-bri08ski" role="listitem">
+Briggs, W. M., &amp; Zaretzki, R. (2008). The skill plot: <span>A</span> graphical technique for evaluating continuous diagnostic tests (with discussion). <em>Biometrics</em>, <em>64</em>, 250–261.<div class="csl-block">"statistics such as the AUC are not especially relevant to someone who must make a decision about a particular x_c. ... ROC curves lack or obscure several quantities that are necessary for evaluating the operational effectiveness of diagnostic tests. ... ROC curves were first used to check how radio <span><span class="math inline">\(&lt;\)</span></span>i<span><span class="math inline">\(&gt;\)</span></span>receivers<span><span class="math inline">\(&lt;\)</span></span>/i<span><span class="math inline">\(&gt;\)</span></span> (like radar receivers) operated over a range of frequencies. ... This is not how most ROC curves are used now, particularly in medicine. The receiver of a diagnostic measurement ... wants to make a decision based on some x_c, and is not especially interested in how well he would have done had he used some different cutoff."; in the discussion David Hand states "when integrating to yield the overall AUC measure, it is necessary to decide what weight to give each value in the integration. The AUC implicitly does this using a weighting derived empirically from the data. This is nonsensical. The relative importance of misclassifying a case as a noncase, compared to the reverse, cannot come from the data itself. It must come externally, from considerations of the severity one attaches to the different kinds of misclassifications."; see Lin, Kvam, Lu Stat in Med 28:798-813;2009</div>
+</div>
+<div class="csl-entry" id="ref-gne07str" role="listitem">
+Gneiting, T., &amp; Raftery, A. E. (2007). Strictly proper scoring rules, prediction, and estimation. <em>J Am Stat Assoc</em>, <em>102</em>, 359–378.<div class="csl-block">wonderful review article except missing references from Scandanavian and German medical decision making literature</div>
+</div>
+<div class="csl-entry" id="ref-gov18int" role="listitem">
+Govers, T. M., Rovers, M. M., Brands, M. T., Dronkers, E. A. C., Jong, R. J. B. de, Merkx, M. A. W., Takes, R. P., &amp; Grutters, J. P. C. (2018). Integrated prediction and decision models are valuable in informing personalized decision making. <em>Journal of Clinical Epidemiology</em>, <em>0</em>(0). <a href="https://doi.org/10.1016/j.jclinepi.2018.08.016">https://doi.org/10.1016/j.jclinepi.2018.08.016</a>
+</div>
+<div class="csl-entry" id="ref-hla09cri" role="listitem">
+Hlatky, M. A., Greenland, P., Arnett, D. K., Ballantyne, C. M., Criqui, M. H., Elkind, M. S., Go, A. S., Harrell, F. E., Hong, Y., Howard, B. V., Howard, V. J., Hsue, P. Y., Kramer, C. M., McConnell, J. P., Normand, S. L., O’Donnell, C. J., Smith, S. C., &amp; Wilson, P. W. (2009). Criteria for evaluation of novel markers of cardiovascular risk: A scientific statement from the <span>American Heart Association</span>. <em>Circ</em>, <em>119</em>(17), 2408–2416.<div class="csl-block">graph with different symbols for diseased and non-diseased</div>
+</div>
+<div class="csl-entry" id="ref-hla84fac" role="listitem">
+Hlatky, M. A., Pryor, D. B., Harrell, F. E., Califf, R. M., Mark, D. B., &amp; Rosati, R. A. (1984). Factors affecting the sensitivity and specificity of exercise electrocardiography. <span>Multivariable</span> analysis. <em>Am J Med</em>, <em>77</em>, 64–71. <a href="http://www.sciencedirect.com/science/article/pii/0002934384904376#">http://www.sciencedirect.com/science/article/pii/0002934384904376#</a>
+</div>
+<div class="csl-entry" id="ref-koe78reg" role="listitem">
+Koenker, R., &amp; Bassett, G. (1978). Regression quantiles. <em>Econometrica</em>, <em>46</em>, 33–50.
+</div>
+<div class="csl-entry" id="ref-moo03sen" role="listitem">
+Moons, K. G. M., &amp; Harrell, F. E. (2003). Sensitivity and specificity should be de-emphasized in diagnostic accuracy studies. <em>Acad Rad</em>, <em>10</em>, 670–672.
+</div>
+<div class="csl-entry" id="ref-moo97lim" role="listitem">
+Moons, K. G. M., van Es, G.-A., Deckers, J. W., Habbema, J. D. F., &amp; Grobbee, D. E. (1997). Limitations of sensitivity, specificity, likelihood ratio, and <span>Bayes</span>’ theorem in assessing diagnostic probabilities: <span>A</span> clinical example. <em>Epi</em>, <em>8</em>(1), 12–17.<div class="csl-block">non-constancy of sensitivity, specificity, likelihood ratio in a real example</div>
+</div>
+<div class="csl-entry" id="ref-new09evi" role="listitem">
+Newman, T. B., &amp; Kohn, M. A. (2009). <em>Evidence-<span>Based Diagnosis</span></em>. Cambridge University Press.
+</div>
+<div class="csl-entry" id="ref-pen08eva" role="listitem">
+Pencina, M. J., D’Agostino Sr, R. B., D’Agostino Jr, R. B., &amp; Vasan, R. S. (2008). Evaluating the added predictive ability of a new marker: <span>From</span> area under the <span>ROC</span> curve to reclassification and beyond. <em>Stat Med</em>, <em>27</em>, 157–172.<div class="csl-block">small differences in ROC area can still be very meaningful;example of insignificant test for difference in ROC areas with very significant results from new method;Yates’ discrimination slope;reclassification table;limiting version of this based on whether and amount by which probabilities rise for events and lower for non-events when compare new model to old;comparing two models;see letter to the editor by Van Calster and Van Huffel, Stat in Med 29:318-319, 2010 and by Cook and Paynter, Stat in Med 31:93-97, 2012</div>
+</div>
+<div class="csl-entry" id="ref-pry83est" role="listitem">
+Pryor, D. B., Harrell, F. E., Lee, K. L., Califf, R. M., &amp; Rosati, R. A. (1983). Estimating the likelihood of significant coronary artery disease. <em>Am J Med</em>, <em>75</em>, 771–780.
+</div>
+<div class="csl-entry" id="ref-spa89dif" role="listitem">
+Spanos, A., Harrell, F. E., &amp; Durack, D. T. (1989). Differential diagnosis of acute meningitis: <span>An</span> analysis of the predictive value of initial observations. <em>JAMA</em>, <em>262</em>, 2700–2707. <a href="https://doi.org/10.1001/jama.262.19.2700">https://doi.org/10.1001/jama.262.19.2700</a>
+</div>
+<div class="csl-entry" id="ref-vic08dia" role="listitem">
+Vickers, A. J., Basch, E., &amp; Kattan, M. W. (2008). Against diagnosis. <em>Ann Int Med</em>, <em>149</em>, 200–203.<div class="csl-block">"The act of diagnosis requires that patients be placed in a binary category of either having or not having a certain disease. Accordingly, the diseases of particular concern for industrialized countries—such as type 2 diabetes, obesity, or depression—require that a somewhat arbitrary cut-point be chosen on a continuous scale of measurement (for example, a fasting glucose level <span><span class="math inline">\(&gt;\)</span></span>6.9 mmol/L [<span><span class="math inline">\(&gt;\)</span></span>125 mg/dL] for type 2 diabetes). These cut-points do not ade- quately reflect disease biology, may inappropriately treat patients on either side of the cut-point as 2 homogenous risk groups, fail to incorporate other risk factors, and are invariable to patient preference."</div>
+</div>
+</div>
+</section>
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/hbiostat\.org\/bbr");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+        for (let i=0; i<annoteTargets.length; i++) {
+          const annoteTarget = annoteTargets[i];
+          const targetCell = annoteTarget.getAttribute("data-target-cell");
+          const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+          const contentFn = () => {
+            const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+            if (content) {
+              const tipContent = content.cloneNode(true);
+              tipContent.classList.add("code-annotation-tip-content");
+              return tipContent.outerHTML;
+            }
+          }
+          const config = {
+            allowHTML: true,
+            content: contentFn,
+            onShow: (instance) => {
+              selectCodeLines(instance.reference);
+              instance.reference.classList.add('code-annotation-active');
+              window.tippy.hideAll();
+            },
+            onHide: (instance) => {
+              unselectCodeLines();
+              instance.reference.classList.remove('code-annotation-active');
+            },
+            maxWidth: 300,
+            delay: [50, 0],
+            duration: [200, 0],
+            offset: [5, 10],
+            arrow: true,
+            appendTo: function(el) {
+              return el.parentElement.parentElement.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'quarto',
+            placement: 'right',
+            popperOptions: {
+              modifiers: [
+              {
+                name: 'flip',
+                options: {
+                  flipVariations: false, // true by default
+                  allowedAutoPlacements: ['right'],
+                  fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+                },
+              },
+              {
+                name: 'preventOverflow',
+                options: {
+                  mainAxis: false,
+                  altAxis: false
+                }
+              }
+              ]        
+            }      
+          };
+          window.tippy(annoteTarget, config); 
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+<div class="nav-page nav-page-previous">
+<a aria-label="Information Loss" class="pagination-link" href="info.html">
+<i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>  <span class="chapter-title">Information Loss</span></span>
+</a>
+</div>
+<div class="nav-page nav-page-next">
+<a aria-label="Challenges of Analyzing High-Dimensional Data" class="pagination-link" href="hdata.html">
+<span class="nav-page-text"><span class="chapter-number">20</span>  <span class="chapter-title">Challenges of Analyzing High-Dimensional Data</span></span> <i class="bi bi-arrow-right-short"></i>
+</a>
+</div>
+</nav><div aria-hidden="true" aria-labelledby="quarto-embedded-source-code-modal-label" class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" data-shortcodes="false" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a aria-hidden="true" href="#cb7-1" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb7-2"><a aria-hidden="true" href="#cb7-2" tabindex="-1"></a><span class="fu">require</span>(Hmisc)</span>
+<span id="cb7-3"><a aria-hidden="true" href="#cb7-3" tabindex="-1"></a><span class="fu">require</span>(qreport)</span>
+<span id="cb7-4"><a aria-hidden="true" href="#cb7-4" tabindex="-1"></a><span class="fu">hookaddcap</span>()   <span class="co"># make knitr call a function at the end of each chunk</span></span>
+<span id="cb7-5"><a aria-hidden="true" href="#cb7-5" tabindex="-1"></a>               <span class="co"># to try to automatically add to list of figure</span></span>
+<span id="cb7-6"><a aria-hidden="true" href="#cb7-6" tabindex="-1"></a><span class="fu">options</span>(<span class="at">prType=</span><span class="st">'html'</span>)</span>
+<span id="cb7-7"><a aria-hidden="true" href="#cb7-7" tabindex="-1"></a><span class="fu">getRs</span>(<span class="st">'qbookfun.r'</span>)</span>
+<span id="cb7-8"><a aria-hidden="true" href="#cb7-8" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">set_alias</span>(<span class="at">w   =</span> <span class="st">'fig.width'</span>, <span class="at">h    =</span> <span class="st">'fig.height'</span>,</span>
+<span id="cb7-9"><a aria-hidden="true" href="#cb7-9" tabindex="-1"></a>                 <span class="at">cap =</span> <span class="st">'fig.cap'</span>,   <span class="at">scap =</span><span class="st">'fig.scap'</span>)</span>
+<span id="cb7-10"><a aria-hidden="true" href="#cb7-10" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-11"><a aria-hidden="true" href="#cb7-11" tabindex="-1"></a></span>
+<span id="cb7-12"><a aria-hidden="true" href="#cb7-12" tabindex="-1"></a><span class="fu"># Diagnosis {#sec-dx}</span></span>
+<span id="cb7-13"><a aria-hidden="true" href="#cb7-13" tabindex="-1"></a></span>
+<span id="cb7-14"><a aria-hidden="true" href="#cb7-14" tabindex="-1"></a><span class="in">`r mrg(movie("https://www.youtube.com/watch?v=uULhuuSjBww"))`</span></span>
+<span id="cb7-15"><a aria-hidden="true" href="#cb7-15" tabindex="-1"></a></span>
+<span id="cb7-16"><a aria-hidden="true" href="#cb7-16" tabindex="-1"></a><span class="in">`r quoteit('Sensitivity and specificity are far less useful than they seem, and they are properties not just of tests **but of patients also**.  Probabilistic diagnosis is better developed through logistic regression models, which handle pre-test probabilities, tests with non-binary or multiple outputs, multiple correlated tests, and multiple disease stages/severities (using ordinal logistic regression).')`</span></span>
+<span id="cb7-17"><a aria-hidden="true" href="#cb7-17" tabindex="-1"></a></span>
+<span id="cb7-18"><a aria-hidden="true" href="#cb7-18" tabindex="-1"></a>Medical diagnostic research, as usually practiced, is prone to bias</span>
+<span id="cb7-19"><a aria-hidden="true" href="#cb7-19" tabindex="-1"></a>and even more importantly to yielding information that is not useful</span>
+<span id="cb7-20"><a aria-hidden="true" href="#cb7-20" tabindex="-1"></a>to patients or physicians and sometimes overstates the value of</span>
+<span id="cb7-21"><a aria-hidden="true" href="#cb7-21" tabindex="-1"></a>diagnostic tests.  Important sources of these problems are conditioning on</span>
+<span id="cb7-22"><a aria-hidden="true" href="#cb7-22" tabindex="-1"></a>the wrong statistical information, reversing the flow of time, and</span>
+<span id="cb7-23"><a aria-hidden="true" href="#cb7-23" tabindex="-1"></a>categorization of inherently continuous test outputs and disease</span>
+<span id="cb7-24"><a aria-hidden="true" href="#cb7-24" tabindex="-1"></a>severity.  It will be shown that sensitivity and specificity are not</span>
+<span id="cb7-25"><a aria-hidden="true" href="#cb7-25" tabindex="-1"></a>properties of tests in the usual sense of the word, and that</span>
+<span id="cb7-26"><a aria-hidden="true" href="#cb7-26" tabindex="-1"></a>they were never natural choices for describing</span>
+<span id="cb7-27"><a aria-hidden="true" href="#cb7-27" tabindex="-1"></a>test performance.  This implies that ROC curves are unhelpful</span>
+<span id="cb7-28"><a aria-hidden="true" href="#cb7-28" tabindex="-1"></a>(although areas under them are sometimes useful).  So is</span>
+<span id="cb7-29"><a aria-hidden="true" href="#cb7-29" tabindex="-1"></a>categorical thinking.</span>
+<span id="cb7-30"><a aria-hidden="true" href="#cb7-30" tabindex="-1"></a></span>
+<span id="cb7-31"><a aria-hidden="true" href="#cb7-31" tabindex="-1"></a>This chapter outlines the many advantages of diagnostic risk modeling,</span>
+<span id="cb7-32"><a aria-hidden="true" href="#cb7-32" tabindex="-1"></a>showing how pre-and post-test diagnostic models give</span>
+<span id="cb7-33"><a aria-hidden="true" href="#cb7-33" tabindex="-1"></a>rise to clinically useful displays of pre-test vs. post-test</span>
+<span id="cb7-34"><a aria-hidden="true" href="#cb7-34" tabindex="-1"></a>probabilities that themselves quantify diagnostic utility in a way</span>
+<span id="cb7-35"><a aria-hidden="true" href="#cb7-35" tabindex="-1"></a>that is useful to patients, physicians, and diagnostic device makers.</span>
+<span id="cb7-36"><a aria-hidden="true" href="#cb7-36" tabindex="-1"></a>And unlike sensitivity and specificity, post-test probabilities are</span>
+<span id="cb7-37"><a aria-hidden="true" href="#cb7-37" tabindex="-1"></a>immune to certain biases, including workup bias.</span>
+<span id="cb7-38"><a aria-hidden="true" href="#cb7-38" tabindex="-1"></a></span>
+<span id="cb7-39"><a aria-hidden="true" href="#cb7-39" tabindex="-1"></a>Case-control studies use a design where sampling is done on final disease</span>
+<span id="cb7-40"><a aria-hidden="true" href="#cb7-40" tabindex="-1"></a>status and patient exposures are "along for the ride."  In other</span>
+<span id="cb7-41"><a aria-hidden="true" href="#cb7-41" tabindex="-1"></a>words, one conditions on the outcome and considers the distribution of</span>
+<span id="cb7-42"><a aria-hidden="true" href="#cb7-42" tabindex="-1"></a>exposures using outcome-dependent sampling.  Sensitivity and</span>
+<span id="cb7-43"><a aria-hidden="true" href="#cb7-43" tabindex="-1"></a>specificity are useful for proof-of-concept case-control studies</span>
+<span id="cb7-44"><a aria-hidden="true" href="#cb7-44" tabindex="-1"></a>because sensitivity and specificity also condition on the final diagnosis.</span>
+<span id="cb7-45"><a aria-hidden="true" href="#cb7-45" tabindex="-1"></a>The use of sensitivity and specificity in prospective cohort studies</span>
+<span id="cb7-46"><a aria-hidden="true" href="#cb7-46" tabindex="-1"></a>is the mathematical equivalent of making three left turns in order to</span>
+<span id="cb7-47"><a aria-hidden="true" href="#cb7-47" tabindex="-1"></a>turn right.   Like the complex adjustments needed for $P$-values when</span>
+<span id="cb7-48"><a aria-hidden="true" href="#cb7-48" tabindex="-1"></a>doing sequential trials, sensitivity and specificity require complex</span>
+<span id="cb7-49"><a aria-hidden="true" href="#cb7-49" tabindex="-1"></a>adjustments for workup bias just because of their backward</span>
+<span id="cb7-50"><a aria-hidden="true" href="#cb7-50" tabindex="-1"></a>consideration of time and information.  In a cohort study one can use</span>
+<span id="cb7-51"><a aria-hidden="true" href="#cb7-51" tabindex="-1"></a>a vanilla regression model to estimate the probability of a final</span>
+<span id="cb7-52"><a aria-hidden="true" href="#cb7-52" tabindex="-1"></a>diagnostic outcome given patient characteristics and diagnostic test results.</span>
+<span id="cb7-53"><a aria-hidden="true" href="#cb7-53" tabindex="-1"></a></span>
+<span id="cb7-54"><a aria-hidden="true" href="#cb7-54" tabindex="-1"></a></span>
+<span id="cb7-55"><a aria-hidden="true" href="#cb7-55" tabindex="-1"></a><span class="fu">## Problems with Traditional Indexes of Diagnostic Utility</span></span>
+<span id="cb7-56"><a aria-hidden="true" href="#cb7-56" tabindex="-1"></a></span>
+<span id="cb7-57"><a aria-hidden="true" href="#cb7-57" tabindex="-1"></a>sensitivity = Prob$<span class="co">[</span><span class="ot">T^{+} | D^{+}</span><span class="co">]</span>$<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
+<span id="cb7-58"><a aria-hidden="true" href="#cb7-58" tabindex="-1"></a></span>
+<span id="cb7-59"><a aria-hidden="true" href="#cb7-59" tabindex="-1"></a>specificity = Prob$<span class="co">[</span><span class="ot">T^{-} | D^{-}</span><span class="co">]</span>$<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
+<span id="cb7-60"><a aria-hidden="true" href="#cb7-60" tabindex="-1"></a></span>
+<span id="cb7-61"><a aria-hidden="true" href="#cb7-61" tabindex="-1"></a>Prob$<span class="co">[</span><span class="ot">D^{+} | T^{+}</span><span class="co">]</span> = \frac{\mathrm{sens} \times \mathrm{prev}}{\mathrm{sens} \times \mathrm{prev} +</span>
+<span id="cb7-62"><a aria-hidden="true" href="#cb7-62" tabindex="-1"></a>(1-\mathrm{spec})\times (1-\mathrm{prev})}$</span>
+<span id="cb7-63"><a aria-hidden="true" href="#cb7-63" tabindex="-1"></a></span>
+<span id="cb7-64"><a aria-hidden="true" href="#cb7-64" tabindex="-1"></a>Problems:</span>
+<span id="cb7-65"><a aria-hidden="true" href="#cb7-65" tabindex="-1"></a></span>
+<span id="cb7-66"><a aria-hidden="true" href="#cb7-66" tabindex="-1"></a><span class="ss">* </span>Diagnosis forced to be binary</span>
+<span id="cb7-67"><a aria-hidden="true" href="#cb7-67" tabindex="-1"></a><span class="ss">* </span>Test force to be binary</span>
+<span id="cb7-68"><a aria-hidden="true" href="#cb7-68" tabindex="-1"></a><span class="ss">* </span>Sensitivity and specificity are in backwards time order</span>
+<span id="cb7-69"><a aria-hidden="true" href="#cb7-69" tabindex="-1"></a><span class="ss">* </span>Confuse decision making for groups vs. individuals</span>
+<span id="cb7-70"><a aria-hidden="true" href="#cb7-70" tabindex="-1"></a><span class="ss">* </span>Inadequate utilization of pre-test information</span>
+<span id="cb7-71"><a aria-hidden="true" href="#cb7-71" tabindex="-1"></a><span class="ss">* </span>Dichotomization of continuous variables in general</span>
+<span id="cb7-72"><a aria-hidden="true" href="#cb7-72" tabindex="-1"></a></span>
+<span id="cb7-73"><a aria-hidden="true" href="#cb7-73" tabindex="-1"></a></span>
+<span id="cb7-74"><a aria-hidden="true" href="#cb7-74" tabindex="-1"></a><span class="fu">#### Example: BI-RADS Score in Mammography</span></span>
+<span id="cb7-75"><a aria-hidden="true" href="#cb7-75" tabindex="-1"></a>Does Category 4 Make **Any** Sense?</span>
+<span id="cb7-76"><a aria-hidden="true" href="#cb7-76" tabindex="-1"></a></span>
+<span id="cb7-77"><a aria-hidden="true" href="#cb7-77" tabindex="-1"></a>::: {.column-margin}</span>
+<span id="cb7-78"><a aria-hidden="true" href="#cb7-78" tabindex="-1"></a>Breast Imaging Reporting and Data System, American College of Radiologists <span class="co">[</span><span class="ot">breastcancer.about.com/od/diagnosis/a/birads.htm</span><span class="co">](http://breastcancer.about.com/od/diagnosis/a/birads.htm)</span>. American College of Radiology. BI-RADS US (PDF document) Copyright 2004. BI-RADS US. arc.org.</span>
+<span id="cb7-79"><a aria-hidden="true" href="#cb7-79" tabindex="-1"></a></span>
+<span id="cb7-80"><a aria-hidden="true" href="#cb7-80" tabindex="-1"></a>:::</span>
+<span id="cb7-81"><a aria-hidden="true" href="#cb7-81" tabindex="-1"></a></span>
+<span id="cb7-82"><a aria-hidden="true" href="#cb7-82" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> Diagnosis <span class="pp">|</span> Number of Criteria <span class="pp">|</span></span>
+<span id="cb7-83"><a aria-hidden="true" href="#cb7-83" tabindex="-1"></a><span class="pp">|-----|-----|-----|</span></span>
+<span id="cb7-84"><a aria-hidden="true" href="#cb7-84" tabindex="-1"></a><span class="pp">|</span> 0 <span class="pp">|</span> Incomplete <span class="pp">|</span> Your mammogram or ultrasound didn't give the radiologist enough information to make a clear diagnosis; follow-up imaging is necessary   <span class="pp">|</span></span>
+<span id="cb7-85"><a aria-hidden="true" href="#cb7-85" tabindex="-1"></a><span class="pp">|</span> 1 <span class="pp">|</span> Negative <span class="pp">|</span> There is nothing to comment on; routine screening recommended  <span class="pp">|</span></span>
+<span id="cb7-86"><a aria-hidden="true" href="#cb7-86" tabindex="-1"></a><span class="pp">|</span> 2 <span class="pp">|</span> Benign   <span class="pp">|</span> A definite benign finding; routine screening recommended  <span class="pp">|</span></span>
+<span id="cb7-87"><a aria-hidden="true" href="#cb7-87" tabindex="-1"></a><span class="pp">|</span> 3 <span class="pp">|</span> Probably Benign <span class="pp">|</span> Findings that have a high probability of being benign ($&gt;98$%); six-month short interval follow-up  <span class="pp">|</span></span>
+<span id="cb7-88"><a aria-hidden="true" href="#cb7-88" tabindex="-1"></a><span class="pp">|</span> 4 <span class="pp">|</span> Suspicious Abnormality <span class="pp">|</span> Not characteristic of breast cancer, but reasonable probability of being malignant (3 to 94%); biopsy should be considered  <span class="pp">|</span></span>
+<span id="cb7-89"><a aria-hidden="true" href="#cb7-89" tabindex="-1"></a><span class="pp">|</span> 5 <span class="pp">|</span> Highly Suspicious of Malignancy <span class="pp">|</span> Lesion that has a high probability of being malignant ($\geq 95$%); take appropriate action  <span class="pp">|</span></span>
+<span id="cb7-90"><a aria-hidden="true" href="#cb7-90" tabindex="-1"></a><span class="pp">|</span> 6 <span class="pp">|</span> Known Biopsy Proven Malignancy <span class="pp">|</span> Lesions known to be malignant that are being imaged prior to definitive treatment; assure that treatment is completed  <span class="pp">|</span></span>
+<span id="cb7-91"><a aria-hidden="true" href="#cb7-91" tabindex="-1"></a></span>
+<span id="cb7-92"><a aria-hidden="true" href="#cb7-92" tabindex="-1"></a></span>
+<span id="cb7-93"><a aria-hidden="true" href="#cb7-93" tabindex="-1"></a>How to Reduce False Positives and Negatives?</span>
+<span id="cb7-94"><a aria-hidden="true" href="#cb7-94" tabindex="-1"></a></span>
+<span id="cb7-95"><a aria-hidden="true" href="#cb7-95" tabindex="-1"></a><span class="ss">* </span>Do away with "positive" and "negative"</span>
+<span id="cb7-96"><a aria-hidden="true" href="#cb7-96" tabindex="-1"></a><span class="ss">* </span>Provide risk estimates</span>
+<span id="cb7-97"><a aria-hidden="true" href="#cb7-97" tabindex="-1"></a><span class="ss">* </span>Defer decision to decision maker</span>
+<span id="cb7-98"><a aria-hidden="true" href="#cb7-98" tabindex="-1"></a><span class="ss">* </span>Risks have self-contained error rates</span>
+<span id="cb7-99"><a aria-hidden="true" href="#cb7-99" tabindex="-1"></a><span class="ss">* </span>Risk of 0.2 $\rightarrow$ Prob<span class="co">[</span><span class="ot">error</span><span class="co">]</span>=.2 if don't treat</span>
+<span id="cb7-100"><a aria-hidden="true" href="#cb7-100" tabindex="-1"></a><span class="ss">* </span>Risk of 0.8 $\rightarrow$ Prob<span class="co">[</span><span class="ot">error</span><span class="co">]</span>=.2 if treat</span>
+<span id="cb7-101"><a aria-hidden="true" href="#cb7-101" tabindex="-1"></a></span>
+<span id="cb7-102"><a aria-hidden="true" href="#cb7-102" tabindex="-1"></a>See <span class="co">[</span><span class="ot">this</span><span class="co">](http://thehealthcareblog.com/blog/2015/12/01/rethinking-about-diagnostic-tests-there-is-nothing-positive-or-negative-about-a-test-result)</span></span>
+<span id="cb7-103"><a aria-hidden="true" href="#cb7-103" tabindex="-1"></a>for a nice article on the subject.</span>
+<span id="cb7-104"><a aria-hidden="true" href="#cb7-104" tabindex="-1"></a></span>
+<span id="cb7-105"><a aria-hidden="true" href="#cb7-105" tabindex="-1"></a></span>
+<span id="cb7-106"><a aria-hidden="true" href="#cb7-106" tabindex="-1"></a><span class="fu">#### Binary Diagnosis is Problematic Anyway</span></span>
+<span id="cb7-107"><a aria-hidden="true" href="#cb7-107" tabindex="-1"></a><span class="in">`r quoteit('The act of diagnosis requires that patients be placed in a binary category of either having or not having a certain disease. Accordingly, the diseases of particular concern for industrialized countries---such as type 2 diabetes, obesity, or depression---require that a somewhat arbitrary cut-point be chosen on a continuous scale of measurement (for example, a fasting glucose level $&gt;6.9$ mmol/L [$&gt;125$ mg/dL] for type 2 diabetes). These cut-points do not adequately reflect disease biology, may inappropriately treat patients on either side of the cut-point as 2 homogeneous risk groups, fail to incorporate other risk factors, and are invariable to patient preference.', '@vic08dia')`</span></span>
+<span id="cb7-108"><a aria-hidden="true" href="#cb7-108" tabindex="-1"></a></span>
+<span id="cb7-109"><a aria-hidden="true" href="#cb7-109" tabindex="-1"></a>@new09evi have a strong section about the problems with considering diagnosis to be binary.</span>
+<span id="cb7-110"><a aria-hidden="true" href="#cb7-110" tabindex="-1"></a></span>
+<span id="cb7-111"><a aria-hidden="true" href="#cb7-111" tabindex="-1"></a><span class="fu">#### Back to Sensitivity and Specificity</span></span>
+<span id="cb7-112"><a aria-hidden="true" href="#cb7-112" tabindex="-1"></a></span>
+<span id="cb7-113"><a aria-hidden="true" href="#cb7-113" tabindex="-1"></a><span class="ss">* </span>Backwards time order</span>
+<span id="cb7-114"><a aria-hidden="true" href="#cb7-114" tabindex="-1"></a><span class="ss">* </span>Irrelevant to both physician and patient</span>
+<span id="cb7-115"><a aria-hidden="true" href="#cb7-115" tabindex="-1"></a><span class="ss">* </span>Improper discontinuous scoring rules^<span class="co">[</span><span class="ot">They are optimized by not correctly estimating risk of disease.</span><span class="co">]</span></span>
+<span id="cb7-116"><a aria-hidden="true" href="#cb7-116" tabindex="-1"></a><span class="ss">* </span>Are not test characteristics</span>
+<span id="cb7-117"><a aria-hidden="true" href="#cb7-117" tabindex="-1"></a><span class="ss">    + </span>Are characteristics of the test **and** patients</span>
+<span id="cb7-118"><a aria-hidden="true" href="#cb7-118" tabindex="-1"></a><span class="ss">* </span>**Not constant**; vary with patient characteristics</span>
+<span id="cb7-119"><a aria-hidden="true" href="#cb7-119" tabindex="-1"></a><span class="ss">    + </span>Sensitivity $\uparrow$ with any covariate related to disease severity if diagnosis is dichotomized</span>
+<span id="cb7-120"><a aria-hidden="true" href="#cb7-120" tabindex="-1"></a><span class="ss">* </span>Require adjustment for workup bias</span>
+<span id="cb7-121"><a aria-hidden="true" href="#cb7-121" tabindex="-1"></a><span class="ss">    + </span>Diagnostic risk models do not; only suffer from under-representation</span>
+<span id="cb7-122"><a aria-hidden="true" href="#cb7-122" tabindex="-1"></a><span class="ss">* </span>Good for proof of concept of a diagnostic method in a case--control study; not useful for utility <span class="co">[</span><span class="ot">See [here](https://stats.stackexchange.com/questions/328550) for a discussion of how sensitivity and specificity change with prevalence.</span><span class="co">]</span>{.aside}</span>
+<span id="cb7-123"><a aria-hidden="true" href="#cb7-123" tabindex="-1"></a></span>
+<span id="cb7-124"><a aria-hidden="true" href="#cb7-124" tabindex="-1"></a>@hla84fac; @moo97lim; @moo03sen; @gne07str</span>
+<span id="cb7-125"><a aria-hidden="true" href="#cb7-125" tabindex="-1"></a></span>
+<span id="cb7-126"><a aria-hidden="true" href="#cb7-126" tabindex="-1"></a></span>
+<span id="cb7-127"><a aria-hidden="true" href="#cb7-127" tabindex="-1"></a><span class="fu">#### Sensitivity of Exercise ECG for Diagnosing CAD</span></span>
+<span id="cb7-128"><a aria-hidden="true" href="#cb7-128" tabindex="-1"></a></span>
+<span id="cb7-129"><a aria-hidden="true" href="#cb7-129" tabindex="-1"></a><span class="pp">|</span> Age <span class="pp">|</span> Sensitivity  <span class="pp">|</span></span>
+<span id="cb7-130"><a aria-hidden="true" href="#cb7-130" tabindex="-1"></a><span class="pp">|-----|-----|</span></span>
+<span id="cb7-131"><a aria-hidden="true" href="#cb7-131" tabindex="-1"></a><span class="pp">|</span> $&lt;40$ <span class="pp">|</span> 0.56  <span class="pp">|</span></span>
+<span id="cb7-132"><a aria-hidden="true" href="#cb7-132" tabindex="-1"></a><span class="pp">|</span> 40--49<span class="pp">|</span> 0.65  <span class="pp">|</span></span>
+<span id="cb7-133"><a aria-hidden="true" href="#cb7-133" tabindex="-1"></a><span class="pp">|</span> 50--59 <span class="pp">|</span> 0.74  <span class="pp">|</span></span>
+<span id="cb7-134"><a aria-hidden="true" href="#cb7-134" tabindex="-1"></a><span class="pp">|</span> $\geq$ 60 <span class="pp">|</span> 0.84   <span class="pp">|</span></span>
+<span id="cb7-135"><a aria-hidden="true" href="#cb7-135" tabindex="-1"></a></span>
+<span id="cb7-136"><a aria-hidden="true" href="#cb7-136" tabindex="-1"></a><span class="pp">|</span> Sex <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb7-137"><a aria-hidden="true" href="#cb7-137" tabindex="-1"></a><span class="pp">|-----|</span>--<span class="pp">|</span></span>
+<span id="cb7-138"><a aria-hidden="true" href="#cb7-138" tabindex="-1"></a><span class="pp">|</span> male <span class="pp">|</span> 0.72  <span class="pp">|</span></span>
+<span id="cb7-139"><a aria-hidden="true" href="#cb7-139" tabindex="-1"></a><span class="pp">|</span> female <span class="pp">|</span> 0.57   <span class="pp">|</span></span>
+<span id="cb7-140"><a aria-hidden="true" href="#cb7-140" tabindex="-1"></a></span>
+<span id="cb7-141"><a aria-hidden="true" href="#cb7-141" tabindex="-1"></a><span class="pp">|</span> # Diseased Coronary Arteries <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb7-142"><a aria-hidden="true" href="#cb7-142" tabindex="-1"></a><span class="pp">|---|-------|</span></span>
+<span id="cb7-143"><a aria-hidden="true" href="#cb7-143" tabindex="-1"></a><span class="pp">|</span> 1 <span class="pp">|</span> 0.48  <span class="pp">|</span></span>
+<span id="cb7-144"><a aria-hidden="true" href="#cb7-144" tabindex="-1"></a><span class="pp">|</span> 2 <span class="pp">|</span> 0.68  <span class="pp">|</span></span>
+<span id="cb7-145"><a aria-hidden="true" href="#cb7-145" tabindex="-1"></a><span class="pp">|</span> 3 <span class="pp">|</span> 0.85   <span class="pp">|</span></span>
+<span id="cb7-146"><a aria-hidden="true" href="#cb7-146" tabindex="-1"></a></span>
+<span id="cb7-147"><a aria-hidden="true" href="#cb7-147" tabindex="-1"></a>@hla84fac ;   See also <span class="co">[</span><span class="ot">Janssens 2005</span><span class="co">](https://journals.sagepub.com/doi/10.1177/0272989X05275154)</span></span>
+<span id="cb7-148"><a aria-hidden="true" href="#cb7-148" tabindex="-1"></a></span>
+<span id="cb7-149"><a aria-hidden="true" href="#cb7-149" tabindex="-1"></a></span>
+<span id="cb7-150"><a aria-hidden="true" href="#cb7-150" tabindex="-1"></a><span class="fu">## Problems with ROC Curves and Cutoffs</span></span>
+<span id="cb7-151"><a aria-hidden="true" href="#cb7-151" tabindex="-1"></a><span class="in">`r quoteit('... statistics such as the AUC are not especially relevant to someone who must make a decision about a particular $x_{c}$.  ... ROC curves lack or obscure several quantities that are necessary for evaluating the operational effectiveness of diagnostic tests. ... ROC curves were first used to check how radio _receivers_ (like radar receivers) operated over a range of frequencies. ... This is not how most ROC curves are used now, particularly in medicine.  The receiver of a diagnostic measurement ... wants to make a decision based on some $x_{c}$, and is not especially interested in how well he would have done had he used some different cutoff.', '@bri08ski')`</span></span>
+<span id="cb7-152"><a aria-hidden="true" href="#cb7-152" tabindex="-1"></a></span>
+<span id="cb7-153"><a aria-hidden="true" href="#cb7-153" tabindex="-1"></a>In the discussion to this paper, David Hand</span>
+<span id="cb7-154"><a aria-hidden="true" href="#cb7-154" tabindex="-1"></a>states "when integrating to yield the overall</span>
+<span id="cb7-155"><a aria-hidden="true" href="#cb7-155" tabindex="-1"></a>AUC measure, it is necessary to decide what weight to give each value</span>
+<span id="cb7-156"><a aria-hidden="true" href="#cb7-156" tabindex="-1"></a>in the integration.  The AUC implicitly does this using a weighting</span>
+<span id="cb7-157"><a aria-hidden="true" href="#cb7-157" tabindex="-1"></a>derived empirically from the data.  This is nonsensical.  The relative</span>
+<span id="cb7-158"><a aria-hidden="true" href="#cb7-158" tabindex="-1"></a>importance of misclassifying a case as a non-case, compared to the</span>
+<span id="cb7-159"><a aria-hidden="true" href="#cb7-159" tabindex="-1"></a>reverse, cannot come from the data itself.  It must come externally,</span>
+<span id="cb7-160"><a aria-hidden="true" href="#cb7-160" tabindex="-1"></a>from considerations of the severity one attaches to the different</span>
+<span id="cb7-161"><a aria-hidden="true" href="#cb7-161" tabindex="-1"></a>kinds of misclassifications."</span>
+<span id="cb7-162"><a aria-hidden="true" href="#cb7-162" tabindex="-1"></a></span>
+<span id="cb7-163"><a aria-hidden="true" href="#cb7-163" tabindex="-1"></a></span>
+<span id="cb7-164"><a aria-hidden="true" href="#cb7-164" tabindex="-1"></a><span class="fu">## Optimum Individual Decision Making and Forward Risk</span></span>
+<span id="cb7-165"><a aria-hidden="true" href="#cb7-165" tabindex="-1"></a></span>
+<span id="cb7-166"><a aria-hidden="true" href="#cb7-166" tabindex="-1"></a><span class="ss">* </span>Minimize expected loss/cost/disutility</span>
+<span id="cb7-167"><a aria-hidden="true" href="#cb7-167" tabindex="-1"></a><span class="ss">* </span>Uses</span>
+<span id="cb7-168"><a aria-hidden="true" href="#cb7-168" tabindex="-1"></a><span class="ss">    + </span>utility function (e.g., inverse of cost of missing a diagnosis, cost of over-treatment if disease is absent)</span>
+<span id="cb7-169"><a aria-hidden="true" href="#cb7-169" tabindex="-1"></a><span class="ss">    + </span>probability of disease</span>
+<span id="cb7-170"><a aria-hidden="true" href="#cb7-170" tabindex="-1"></a>        </span>
+<span id="cb7-171"><a aria-hidden="true" href="#cb7-171" tabindex="-1"></a>$d =$ decision, $o =$ outcome<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
+<span id="cb7-172"><a aria-hidden="true" href="#cb7-172" tabindex="-1"></a>Utility for outcome $o = U(o)$<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
+<span id="cb7-173"><a aria-hidden="true" href="#cb7-173" tabindex="-1"></a>Expected utility of decision $d = U(d) = \int p(o | d) U(o)do$<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
+<span id="cb7-174"><a aria-hidden="true" href="#cb7-174" tabindex="-1"></a>$d_\mathrm{opt} = d$ maximizing $U(d)$</span>
+<span id="cb7-175"><a aria-hidden="true" href="#cb7-175" tabindex="-1"></a></span>
+<span id="cb7-176"><a aria-hidden="true" href="#cb7-176" tabindex="-1"></a>The steps for determining the optimum decision are:</span>
+<span id="cb7-177"><a aria-hidden="true" href="#cb7-177" tabindex="-1"></a></span>
+<span id="cb7-178"><a aria-hidden="true" href="#cb7-178" tabindex="-1"></a><span class="ss">1. </span>Predict the outcome $o$ for every decision $d$</span>
+<span id="cb7-179"><a aria-hidden="true" href="#cb7-179" tabindex="-1"></a><span class="ss">1. </span>Assign a utility $U(o)$ to every outcome $o$</span>
+<span id="cb7-180"><a aria-hidden="true" href="#cb7-180" tabindex="-1"></a><span class="ss">1. </span>Find the decision $d$ that maximizes the expected utility</span>
+<span id="cb7-181"><a aria-hidden="true" href="#cb7-181" tabindex="-1"></a></span>
+<span id="cb7-182"><a aria-hidden="true" href="#cb7-182" tabindex="-1"></a>See</span>
+<span id="cb7-183"><a aria-hidden="true" href="#cb7-183" tabindex="-1"></a></span>
+<span id="cb7-184"><a aria-hidden="true" href="#cb7-184" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">https:bit.ly/datamethods-dm</span><span class="co">](https:bit.ly/datamethods-dm)</span></span>
+<span id="cb7-185"><a aria-hidden="true" href="#cb7-185" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">en.wikipedia.org/wiki/Optimal_decision</span><span class="co">](http://en.wikipedia.org/wiki/Optimal_decision)</span></span>
+<span id="cb7-186"><a aria-hidden="true" href="#cb7-186" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">www.statsathome.com/2017/10/12/bayesian-decision-theory-made-ridiculously-simple</span><span class="co">](http://www.statsathome.com/2017/10/12/bayesian-decision-theory-made-ridiculously-simple)</span></span>
+<span id="cb7-187"><a aria-hidden="true" href="#cb7-187" tabindex="-1"></a><span class="co">&lt;!-- * [twitter.com/jim_savage_/status/989524417649807360](https://twitter.com/jim_savage_/status/989524417649807360)---&gt;</span></span>
+<span id="cb7-188"><a aria-hidden="true" href="#cb7-188" tabindex="-1"></a><span class="co">&lt;!-- BROKEN LINK---&gt;</span></span>
+<span id="cb7-189"><a aria-hidden="true" href="#cb7-189" tabindex="-1"></a><span class="ss">* </span>@gov18int</span>
+<span id="cb7-190"><a aria-hidden="true" href="#cb7-190" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">stats.stackexchange.com/questions/368949</span><span class="co">](https://stats.stackexchange.com/questions/368949)</span></span>
+<span id="cb7-191"><a aria-hidden="true" href="#cb7-191" tabindex="-1"></a></span>
+<span id="cb7-192"><a aria-hidden="true" href="#cb7-192" tabindex="-1"></a><span class="co">&lt;!--  From Chris Fonnesbeck 2015-10-26:---&gt;</span></span>
+<span id="cb7-193"><a aria-hidden="true" href="#cb7-193" tabindex="-1"></a><span class="co">&lt;!--  The way decision analysts approach the problem is by considering the expected value of perfect information (EVPI), or in this case, the expected value of sample information (EVSI). It quantifies the value of additional information essentially by differencing the average of optimal values from the optimum of the average expected value. EVPI is related to the value of learning about an underlying model, whereas EVSI is the value of collecting additional data. Estimating the loss of information due to discretization would just be a special case of an EVSI calculation.---&gt;</span></span>
+<span id="cb7-194"><a aria-hidden="true" href="#cb7-194" tabindex="-1"></a></span>
+<span id="cb7-195"><a aria-hidden="true" href="#cb7-195" tabindex="-1"></a>See</span>
+<span id="cb7-196"><a aria-hidden="true" href="#cb7-196" tabindex="-1"></a><span class="co">[</span><span class="ot">this NY Times article</span><span class="co">](https://www.nytimes.com/2018/09/01/opinion/sunday/how-make-big-decision.html)</span> about decision theory.</span>
+<span id="cb7-197"><a aria-hidden="true" href="#cb7-197" tabindex="-1"></a></span>
+<span id="cb7-198"><a aria-hidden="true" href="#cb7-198" tabindex="-1"></a></span>
+<span id="cb7-199"><a aria-hidden="true" href="#cb7-199" tabindex="-1"></a><span class="fu">## Diagnostic Risk Modeling</span></span>
+<span id="cb7-200"><a aria-hidden="true" href="#cb7-200" tabindex="-1"></a>Assuming (Atypical) Binary Disease Status</span>
+<span id="cb7-201"><a aria-hidden="true" href="#cb7-201" tabindex="-1"></a></span>
+<span id="cb7-202"><a aria-hidden="true" href="#cb7-202" tabindex="-1"></a><span class="pp">|</span> Y <span class="pp">|</span> 1:diseased, 0:normal <span class="pp">|</span></span>
+<span id="cb7-203"><a aria-hidden="true" href="#cb7-203" tabindex="-1"></a><span class="pp">|-----|-----|</span></span>
+<span id="cb7-204"><a aria-hidden="true" href="#cb7-204" tabindex="-1"></a><span class="pp">|</span> $X$ <span class="pp">|</span> vector of subject characteristics (e.g., demographics, risk factors, symptoms)  <span class="pp">|</span></span>
+<span id="cb7-205"><a aria-hidden="true" href="#cb7-205" tabindex="-1"></a><span class="pp">|</span> $T$ <span class="pp">|</span> vector of test (biomarker, ...) outputs <span class="pp">|</span></span>
+<span id="cb7-206"><a aria-hidden="true" href="#cb7-206" tabindex="-1"></a><span class="pp">|</span> $\alpha$ <span class="pp">|</span> intercept <span class="pp">|</span></span>
+<span id="cb7-207"><a aria-hidden="true" href="#cb7-207" tabindex="-1"></a><span class="pp">|</span> $\beta$ <span class="pp">|</span> vector of coefficients of $X$ <span class="pp">|</span></span>
+<span id="cb7-208"><a aria-hidden="true" href="#cb7-208" tabindex="-1"></a><span class="pp">|</span> $\gamma$ <span class="pp">|</span> vector of coefficients of $T$ <span class="pp">|</span></span>
+<span id="cb7-209"><a aria-hidden="true" href="#cb7-209" tabindex="-1"></a></span>
+<span id="cb7-210"><a aria-hidden="true" href="#cb7-210" tabindex="-1"></a></span>
+<span id="cb7-211"><a aria-hidden="true" href="#cb7-211" tabindex="-1"></a>pre$(X)$ = Prob$<span class="co">[</span><span class="ot">Y=1 | X</span><span class="co">]</span> = \frac{1}{1 + \exp<span class="co">[</span><span class="ot">-(\alpha^{*} + \beta^{*} X)</span><span class="co">]</span>}$ <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
+<span id="cb7-212"><a aria-hidden="true" href="#cb7-212" tabindex="-1"></a>post$(X,T)$ = Prob$<span class="co">[</span><span class="ot">Y=1 | X,T</span><span class="co">]</span> = \frac{1}{1 + \exp<span class="co">[</span><span class="ot">-(\alpha + \beta X + \gamma T)</span><span class="co">]</span>}$</span>
+<span id="cb7-213"><a aria-hidden="true" href="#cb7-213" tabindex="-1"></a></span>
+<span id="cb7-214"><a aria-hidden="true" href="#cb7-214" tabindex="-1"></a>Note: Proportional odds model extends to ordinal disease severity $Y$.</span>
+<span id="cb7-215"><a aria-hidden="true" href="#cb7-215" tabindex="-1"></a></span>
+<span id="cb7-216"><a aria-hidden="true" href="#cb7-216" tabindex="-1"></a></span>
+<span id="cb7-217"><a aria-hidden="true" href="#cb7-217" tabindex="-1"></a><span class="fu">### Example Diagnostic Models</span></span>
+<span id="cb7-218"><a aria-hidden="true" href="#cb7-218" tabindex="-1"></a></span>
+<span id="cb7-219"><a aria-hidden="true" href="#cb7-219" tabindex="-1"></a><span class="in">```{r out.width="600px"}</span></span>
+<span id="cb7-220"><a aria-hidden="true" href="#cb7-220" tabindex="-1"></a><span class="co">#| label: fig-dx-cad-nomo</span></span>
+<span id="cb7-221"><a aria-hidden="true" href="#cb7-221" tabindex="-1"></a><span class="co">#| fig-cap: "A nomogram for estimating the likelihood of significant coronary artery disease (CAD) in women.  ECG = electrocardiographic; MI = myocardial infarction. @pry83est.  Reprinted from American Journal of Medicine, Vol. 75, D.B. Pryor _et al_, \"Estimating the likelihood of significant coronary artery disease,\" p. 778, Copyright 1983, with permission from Excerpta Medica, Inc."</span></span>
+<span id="cb7-222"><a aria-hidden="true" href="#cb7-222" tabindex="-1"></a><span class="co">#| fig-scap: "Nomogram for estimating P(significant coronary disease)"</span></span>
+<span id="cb7-223"><a aria-hidden="true" href="#cb7-223" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">'images/cad-nomo.png'</span>)</span>
+<span id="cb7-224"><a aria-hidden="true" href="#cb7-224" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-225"><a aria-hidden="true" href="#cb7-225" tabindex="-1"></a></span>
+<span id="cb7-226"><a aria-hidden="true" href="#cb7-226" tabindex="-1"></a><span class="in">```{r out.width="600px"}</span></span>
+<span id="cb7-227"><a aria-hidden="true" href="#cb7-227" tabindex="-1"></a><span class="co">#| label: fig-dx-abm-nomo</span></span>
+<span id="cb7-228"><a aria-hidden="true" href="#cb7-228" tabindex="-1"></a><span class="co">#| fig-cap: "Nomogram for estimating probability of bacterial (ABM) versus viral (AVM) meningitis.  Step 1, place ruler on reading lines for patient's age and month of presentation and mark intersection with line A; step 2, place ruler on values for glucose ratio and total polymorphonuclear leukocyte (PMN) count in cerebrospinal fluid and mark intersection with line B; step 3, use ruler to join marks on lines A and B, then read off the probability of ABM versus AVM.  From @spa89dif"</span></span>
+<span id="cb7-229"><a aria-hidden="true" href="#cb7-229" tabindex="-1"></a><span class="co">#| fig-scap: "Nomogram for estimating probability of meningitis"</span></span>
+<span id="cb7-230"><a aria-hidden="true" href="#cb7-230" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">'images/abm-nomo.png'</span>)</span>
+<span id="cb7-231"><a aria-hidden="true" href="#cb7-231" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-232"><a aria-hidden="true" href="#cb7-232" tabindex="-1"></a></span>
+<span id="cb7-233"><a aria-hidden="true" href="#cb7-233" tabindex="-1"></a><span class="in">```{r out.width="600px"}</span></span>
+<span id="cb7-234"><a aria-hidden="true" href="#cb7-234" tabindex="-1"></a><span class="co">#| label: fig-dx-bra91usinomogram</span></span>
+<span id="cb7-235"><a aria-hidden="true" href="#cb7-235" tabindex="-1"></a><span class="co">#| fig-cap: "Proportional odds ordinal logistic model for ordinal diagnostic classes from @bra91usi"</span></span>
+<span id="cb7-236"><a aria-hidden="true" href="#cb7-236" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">'images/bra91usiNomogram.png'</span>)</span>
+<span id="cb7-237"><a aria-hidden="true" href="#cb7-237" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-238"><a aria-hidden="true" href="#cb7-238" tabindex="-1"></a></span>
+<span id="cb7-239"><a aria-hidden="true" href="#cb7-239" tabindex="-1"></a></span>
+<span id="cb7-240"><a aria-hidden="true" href="#cb7-240" tabindex="-1"></a><span class="fu">## Assessing Diagnostic Yield</span></span>
+<span id="cb7-241"><a aria-hidden="true" href="#cb7-241" tabindex="-1"></a></span>
+<span id="cb7-242"><a aria-hidden="true" href="#cb7-242" tabindex="-1"></a><span class="fu">### Absolute Yield</span></span>
+<span id="cb7-243"><a aria-hidden="true" href="#cb7-243" tabindex="-1"></a>@pen08eva: Absolute incremental information in a new set of markers<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
+<span id="cb7-244"><a aria-hidden="true" href="#cb7-244" tabindex="-1"></a>Consider change in predicted risk when add new variables:<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
+<span id="cb7-245"><a aria-hidden="true" href="#cb7-245" tabindex="-1"></a></span>
+<span id="cb7-246"><a aria-hidden="true" href="#cb7-246" tabindex="-1"></a>Average increase in risk of disease when disease present<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>+<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>Average decrease in risk of disease when disease absent</span>
+<span id="cb7-247"><a aria-hidden="true" href="#cb7-247" tabindex="-1"></a></span>
+<span id="cb7-248"><a aria-hidden="true" href="#cb7-248" tabindex="-1"></a></span>
+<span id="cb7-249"><a aria-hidden="true" href="#cb7-249" tabindex="-1"></a></span>
+<span id="cb7-250"><a aria-hidden="true" href="#cb7-250" tabindex="-1"></a><span class="fu">#### Formal Test of Added Absolute and Relative Information</span></span>
+<span id="cb7-251"><a aria-hidden="true" href="#cb7-251" tabindex="-1"></a>Likelihood ratio $\chi^{2}$ test of partial association</span>
+<span id="cb7-252"><a aria-hidden="true" href="#cb7-252" tabindex="-1"></a>of new markers, adjusted for old markers</span>
+<span id="cb7-253"><a aria-hidden="true" href="#cb7-253" tabindex="-1"></a></span>
+<span id="cb7-254"><a aria-hidden="true" href="#cb7-254" tabindex="-1"></a></span>
+<span id="cb7-255"><a aria-hidden="true" href="#cb7-255" tabindex="-1"></a><span class="fu">### Assessing Relative Diagnostic Yield</span></span>
+<span id="cb7-256"><a aria-hidden="true" href="#cb7-256" tabindex="-1"></a></span>
+<span id="cb7-257"><a aria-hidden="true" href="#cb7-257" tabindex="-1"></a><span class="ss">* </span>Variation in relative log odds of disease = $T \hat{\gamma}$, holding $X$ constant</span>
+<span id="cb7-258"><a aria-hidden="true" href="#cb7-258" tabindex="-1"></a><span class="ss">* </span>Summarize with Gini's mean difference or inter-quartile range, then anti-log</span>
+<span id="cb7-259"><a aria-hidden="true" href="#cb7-259" tabindex="-1"></a><span class="ss">* </span>E.g.: the typical modification of pre-test odds of disease is by a factor of 3.4<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;&lt;</span><span class="kw">br</span><span class="dt">&gt;&lt;</span><span class="kw">small</span><span class="dt">&gt;</span>Gini's mean difference = mean absolute difference between any pair of values<span class="dt">&lt;/</span><span class="kw">small</span><span class="dt">&gt;</span></span>
+<span id="cb7-260"><a aria-hidden="true" href="#cb7-260" tabindex="-1"></a></span>
+<span id="cb7-261"><a aria-hidden="true" href="#cb7-261" tabindex="-1"></a>See @fig-ancova-or-diff for a graphical depiction of the relationship between odds ratio and absolute risk difference.</span>
+<span id="cb7-262"><a aria-hidden="true" href="#cb7-262" tabindex="-1"></a></span>
+<span id="cb7-263"><a aria-hidden="true" href="#cb7-263" tabindex="-1"></a></span>
+<span id="cb7-264"><a aria-hidden="true" href="#cb7-264" tabindex="-1"></a><span class="fu">## Assessing Absolute Diagnostic Yield: Cohort Study</span></span>
+<span id="cb7-265"><a aria-hidden="true" href="#cb7-265" tabindex="-1"></a></span>
+<span id="cb7-266"><a aria-hidden="true" href="#cb7-266" tabindex="-1"></a><span class="ss">* </span>Patient $i = 1, 2, 3, \ldots, n$</span>
+<span id="cb7-267"><a aria-hidden="true" href="#cb7-267" tabindex="-1"></a><span class="ss">* </span>In-sample sufficient statistics: pre$(X_{1})$, ..., pre$(X_{n})$, post$(X_{1}, T_{1})$, ..., post$(X_{n}, T_{n})$</span>
+<span id="cb7-268"><a aria-hidden="true" href="#cb7-268" tabindex="-1"></a></span>
+<span id="cb7-269"><a aria-hidden="true" href="#cb7-269" tabindex="-1"></a><span class="in">```{r out.width="600px"}</span></span>
+<span id="cb7-270"><a aria-hidden="true" href="#cb7-270" tabindex="-1"></a><span class="co">#| label: fig-dx-hla09crifig3</span></span>
+<span id="cb7-271"><a aria-hidden="true" href="#cb7-271" tabindex="-1"></a><span class="co">#| fig-cap: "Pre vs. post-test probability.  This may be summarized with quantile regression to estimate 0.1 and 0.9 quantiles of **post** as a function of **pre**.  From @hla09cri"</span></span>
+<span id="cb7-272"><a aria-hidden="true" href="#cb7-272" tabindex="-1"></a><span class="co">#| fig-scap: "Pre vs. post-test probability"</span></span>
+<span id="cb7-273"><a aria-hidden="true" href="#cb7-273" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">'images/hla09criFig3.png'</span>)</span>
+<span id="cb7-274"><a aria-hidden="true" href="#cb7-274" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-275"><a aria-hidden="true" href="#cb7-275" tabindex="-1"></a></span>
+<span id="cb7-276"><a aria-hidden="true" href="#cb7-276" tabindex="-1"></a>Assessments assume that risk estimates are well calibrated, using, for example a high-resolution continuous calibration curve.</span>
+<span id="cb7-277"><a aria-hidden="true" href="#cb7-277" tabindex="-1"></a></span>
+<span id="cb7-278"><a aria-hidden="true" href="#cb7-278" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"images/ordinal-calibrate-1.png"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"70%"</span><span class="dt">&gt;</span></span>
+<span id="cb7-279"><a aria-hidden="true" href="#cb7-279" tabindex="-1"></a></span>
+<span id="cb7-280"><a aria-hidden="true" href="#cb7-280" tabindex="-1"></a>Out-of-sample assessment: compute pre$(X)$ and post$(X,T)$ for</span>
+<span id="cb7-281"><a aria-hidden="true" href="#cb7-281" tabindex="-1"></a>any $X$ and $T$ of interest</span>
+<span id="cb7-282"><a aria-hidden="true" href="#cb7-282" tabindex="-1"></a></span>
+<span id="cb7-283"><a aria-hidden="true" href="#cb7-283" tabindex="-1"></a><span class="fu">#### Summary measures</span></span>
+<span id="cb7-284"><a aria-hidden="true" href="#cb7-284" tabindex="-1"></a> </span>
+<span id="cb7-285"><a aria-hidden="true" href="#cb7-285" tabindex="-1"></a><span class="ss">* </span>quantile regression (@koe78reg) curves as a function of pre</span>
+<span id="cb7-286"><a aria-hidden="true" href="#cb7-286" tabindex="-1"></a><span class="ss">* </span>overall mean $|$post -- pre$|$</span>
+<span id="cb7-287"><a aria-hidden="true" href="#cb7-287" tabindex="-1"></a><span class="ss">* </span>quantiles of post -- pre</span>
+<span id="cb7-288"><a aria-hidden="true" href="#cb7-288" tabindex="-1"></a><span class="ss">* </span>du$_{50}$: **distribution** of post when pre = 0.5 <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span> diagnostic utility at maximum pre-test uncertainty</span>
+<span id="cb7-289"><a aria-hidden="true" href="#cb7-289" tabindex="-1"></a><span class="ss">    + </span>Choose $X$ so that pre = 0.5</span>
+<span id="cb7-290"><a aria-hidden="true" href="#cb7-290" tabindex="-1"></a><span class="ss">    + </span>Examine distribution of post at this pre</span>
+<span id="cb7-291"><a aria-hidden="true" href="#cb7-291" tabindex="-1"></a><span class="ss">    + </span>Summarize with quantiles, Gini's mean difference on prob. scale</span>
+<span id="cb7-292"><a aria-hidden="true" href="#cb7-292" tabindex="-1"></a><span class="ss">    + </span>Special case where test is binary (atypical): compute post for  $T^{+}$ and for $T^{-}$</span>
+<span id="cb7-293"><a aria-hidden="true" href="#cb7-293" tabindex="-1"></a></span>
+<span id="cb7-294"><a aria-hidden="true" href="#cb7-294" tabindex="-1"></a></span>
+<span id="cb7-295"><a aria-hidden="true" href="#cb7-295" tabindex="-1"></a><span class="fu">## Assessing Diagnostic Yield: Case-Control \&amp; Other Oversampling Designs</span></span>
+<span id="cb7-296"><a aria-hidden="true" href="#cb7-296" tabindex="-1"></a></span>
+<span id="cb7-297"><a aria-hidden="true" href="#cb7-297" tabindex="-1"></a><span class="ss">* </span>Intercept $\alpha$ is meaningless</span>
+<span id="cb7-298"><a aria-hidden="true" href="#cb7-298" tabindex="-1"></a><span class="ss">* </span>Choose $X$ and solve for $\alpha$ so that pre = 0.5</span>
+<span id="cb7-299"><a aria-hidden="true" href="#cb7-299" tabindex="-1"></a><span class="ss">* </span>Proceed as above to estimate du$_{50}$</span>
+<span id="cb7-300"><a aria-hidden="true" href="#cb7-300" tabindex="-1"></a></span>
+<span id="cb7-301"><a aria-hidden="true" href="#cb7-301" tabindex="-1"></a></span>
+<span id="cb7-302"><a aria-hidden="true" href="#cb7-302" tabindex="-1"></a><span class="fu">## Example: Diagnosis of Coronary Artery Disease (CAD)</span></span>
+<span id="cb7-303"><a aria-hidden="true" href="#cb7-303" tabindex="-1"></a>**Test = Total Cholesterol**</span>
+<span id="cb7-304"><a aria-hidden="true" href="#cb7-304" tabindex="-1"></a></span>
+<span id="cb7-305"><a aria-hidden="true" href="#cb7-305" tabindex="-1"></a></span>
+<span id="cb7-306"><a aria-hidden="true" href="#cb7-306" tabindex="-1"></a><span class="in">```{r du,w=6,h=4.5,cap='Relative effect of total cholesterol for age 40 and 70; Data from Duke Cardiovascular Disease Databank, $n=2258$'}</span></span>
+<span id="cb7-307"><a aria-hidden="true" href="#cb7-307" tabindex="-1"></a><span class="co">#| label: fig-dx-du</span></span>
+<span id="cb7-308"><a aria-hidden="true" href="#cb7-308" tabindex="-1"></a><span class="fu">require</span>(rms)</span>
+<span id="cb7-309"><a aria-hidden="true" href="#cb7-309" tabindex="-1"></a><span class="fu">getHdata</span>(acath)</span>
+<span id="cb7-310"><a aria-hidden="true" href="#cb7-310" tabindex="-1"></a>acath <span class="ot">&lt;-</span> <span class="fu">subset</span>(acath, <span class="sc">!</span><span class="fu">is.na</span>(choleste))</span>
+<span id="cb7-311"><a aria-hidden="true" href="#cb7-311" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">datadist</span>(acath);  <span class="fu">options</span>(<span class="at">datadist=</span><span class="st">'dd'</span>)</span>
+<span id="cb7-312"><a aria-hidden="true" href="#cb7-312" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">lrm</span>(sigdz <span class="sc">~</span> <span class="fu">rcs</span>(age,<span class="dv">5</span>)<span class="sc">*</span>sex, <span class="at">data=</span>acath)</span>
+<span id="cb7-313"><a aria-hidden="true" href="#cb7-313" tabindex="-1"></a>pre <span class="ot">&lt;-</span> <span class="fu">predict</span>(f, <span class="at">type=</span><span class="st">'fitted'</span>)</span>
+<span id="cb7-314"><a aria-hidden="true" href="#cb7-314" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">lrm</span>(sigdz <span class="sc">~</span> <span class="fu">rcs</span>(age,<span class="dv">4</span>)<span class="sc">*</span>sex <span class="sc">+</span> <span class="fu">rcs</span>(choleste,<span class="dv">4</span>) <span class="sc">+</span> <span class="fu">rcs</span>(age,<span class="dv">4</span>) <span class="sc">%ia%</span></span>
+<span id="cb7-315"><a aria-hidden="true" href="#cb7-315" tabindex="-1"></a>         <span class="fu">rcs</span>(choleste,<span class="dv">4</span>), <span class="at">data=</span>acath)</span>
+<span id="cb7-316"><a aria-hidden="true" href="#cb7-316" tabindex="-1"></a>ageg <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">70</span>)</span>
+<span id="cb7-317"><a aria-hidden="true" href="#cb7-317" tabindex="-1"></a>psig <span class="ot">&lt;-</span> <span class="fu">Predict</span>(g, choleste, <span class="at">age=</span>ageg)</span>
+<span id="cb7-318"><a aria-hidden="true" href="#cb7-318" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">lrm</span>(tvdlm <span class="sc">~</span> <span class="fu">rcs</span>(age,<span class="dv">4</span>)<span class="sc">*</span>sex <span class="sc">+</span> <span class="fu">rcs</span>(choleste,<span class="dv">4</span>) <span class="sc">+</span> <span class="fu">rcs</span>(age,<span class="dv">4</span>) <span class="sc">%ia%</span></span>
+<span id="cb7-319"><a aria-hidden="true" href="#cb7-319" tabindex="-1"></a>    <span class="fu">rcs</span>(choleste,<span class="dv">4</span>), <span class="at">data=</span>acath)</span>
+<span id="cb7-320"><a aria-hidden="true" href="#cb7-320" tabindex="-1"></a>psev <span class="ot">&lt;-</span> <span class="fu">Predict</span>(s, choleste, <span class="at">age=</span>ageg)</span>
+<span id="cb7-321"><a aria-hidden="true" href="#cb7-321" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">rbind</span>(<span class="st">'Significant CAD'</span><span class="ot">=</span>psig, <span class="st">'3 Vessel or Left Main CAD'</span><span class="ot">=</span>psev),</span>
+<span id="cb7-322"><a aria-hidden="true" href="#cb7-322" tabindex="-1"></a>    <span class="at">adj.subtitle=</span><span class="cn">FALSE</span>)</span>
+<span id="cb7-323"><a aria-hidden="true" href="#cb7-323" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-324"><a aria-hidden="true" href="#cb7-324" tabindex="-1"></a></span>
+<span id="cb7-325"><a aria-hidden="true" href="#cb7-325" tabindex="-1"></a><span class="in">```{r du-acath,w=4.5,h=4.5, cap='Diagnostic Utility of Cholesterol for Diagnosing Significant CAD.  Curves are 0.1 and 0.9 quantiles from quantile regression using restricted cubic splines'}</span></span>
+<span id="cb7-326"><a aria-hidden="true" href="#cb7-326" tabindex="-1"></a><span class="co">#| label: fig-dx-du-acath</span></span>
+<span id="cb7-327"><a aria-hidden="true" href="#cb7-327" tabindex="-1"></a>post <span class="ot">&lt;-</span> <span class="fu">predict</span>(g, <span class="at">type=</span><span class="st">'fitted'</span>)</span>
+<span id="cb7-328"><a aria-hidden="true" href="#cb7-328" tabindex="-1"></a><span class="fu">plot</span>(pre, post, <span class="at">xlab=</span><span class="st">'Pre-Test Probability (age + sex)'</span>,</span>
+<span id="cb7-329"><a aria-hidden="true" href="#cb7-329" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">'Post-Test Probability (age + sex + cholesterol)'</span>, <span class="at">pch=</span><span class="dv">46</span>)</span>
+<span id="cb7-330"><a aria-hidden="true" href="#cb7-330" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="dv">0</span>, <span class="at">b=</span><span class="dv">1</span>, <span class="at">col=</span><span class="fu">gray</span>(.<span class="dv">8</span>))</span>
+<span id="cb7-331"><a aria-hidden="true" href="#cb7-331" tabindex="-1"></a>lo <span class="ot">&lt;-</span> <span class="fu">Rq</span>(post <span class="sc">~</span> <span class="fu">rcs</span>(pre, <span class="dv">7</span>), <span class="at">tau=</span><span class="fl">0.1</span>)  <span class="co"># 0.1 quantile</span></span>
+<span id="cb7-332"><a aria-hidden="true" href="#cb7-332" tabindex="-1"></a>hi <span class="ot">&lt;-</span> <span class="fu">Rq</span>(post <span class="sc">~</span> <span class="fu">rcs</span>(pre, <span class="dv">7</span>), <span class="at">tau=</span><span class="fl">0.9</span>)  <span class="co"># 0.9 quantile</span></span>
+<span id="cb7-333"><a aria-hidden="true" href="#cb7-333" tabindex="-1"></a>at <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">length=</span><span class="dv">200</span>)</span>
+<span id="cb7-334"><a aria-hidden="true" href="#cb7-334" tabindex="-1"></a><span class="fu">lines</span>(at, <span class="fu">Predict</span>(lo, <span class="at">pre=</span>at)<span class="sc">$</span>yhat, <span class="at">col=</span><span class="st">'red'</span>, <span class="at">lwd=</span><span class="fl">1.5</span>)</span>
+<span id="cb7-335"><a aria-hidden="true" href="#cb7-335" tabindex="-1"></a><span class="fu">lines</span>(at, <span class="fu">Predict</span>(hi, <span class="at">pre=</span>at)<span class="sc">$</span>yhat, <span class="at">col=</span><span class="st">'red'</span>, <span class="at">lwd=</span><span class="fl">1.5</span>)</span>
+<span id="cb7-336"><a aria-hidden="true" href="#cb7-336" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>.<span class="dv">5</span>, <span class="at">col=</span><span class="st">'red'</span>)</span>
+<span id="cb7-337"><a aria-hidden="true" href="#cb7-337" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-338"><a aria-hidden="true" href="#cb7-338" tabindex="-1"></a></span>
+<span id="cb7-339"><a aria-hidden="true" href="#cb7-339" tabindex="-1"></a></span>
+<span id="cb7-340"><a aria-hidden="true" href="#cb7-340" tabindex="-1"></a><span class="fu">## Summary</span></span>
+<span id="cb7-341"><a aria-hidden="true" href="#cb7-341" tabindex="-1"></a>Diagnostic utility needs to be estimated using measures of </span>
+<span id="cb7-342"><a aria-hidden="true" href="#cb7-342" tabindex="-1"></a>relevance to individual decision makers.  Improper accuracy scoring rules lead to sub-optimal decisions.  Traditional risk modeling is a powerful tool in this setting.  Cohort studies are ideal but useful measures can be obtained</span>
+<span id="cb7-343"><a aria-hidden="true" href="#cb7-343" tabindex="-1"></a>even with oversampling.  Avoid categorization of any continuous or ordinal variables.</span>
+<span id="cb7-344"><a aria-hidden="true" href="#cb7-344" tabindex="-1"></a></span>
+<span id="cb7-345"><a aria-hidden="true" href="#cb7-345" tabindex="-1"></a><span class="fu">## Notes {.unnumbered}</span></span>
+<span id="cb7-346"><a aria-hidden="true" href="#cb7-346" tabindex="-1"></a>Much of this material is from "Direct Measures of Diagnostic Utility Based on Diagnostic Risk Models" by FE Harrell presented at the FDA Public Workshop on Study Methodology for Diagnostics in the Postmarket Setting, 2011-05-12.</span>
+<span id="cb7-347"><a aria-hidden="true" href="#cb7-347" tabindex="-1"></a></span>
+<span id="cb7-348"><a aria-hidden="true" href="#cb7-348" tabindex="-1"></a><span class="in">```{r echo=FALSE}</span></span>
+<span id="cb7-349"><a aria-hidden="true" href="#cb7-349" tabindex="-1"></a><span class="fu">saveCap</span>(<span class="st">'19'</span>)</span>
+<span id="cb7-350"><a aria-hidden="true" href="#cb7-350" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button class="code-copy-button" data-in-quarto-modal="" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+<div class="nav-footer">
+<div class="nav-footer-left">
+<ul class="footer-items list-unstyled">
+<li class="nav-item">
+ Copyright 2025, Frank E Harrell Jr
+  </li>
+</ul>
+</div>
+<div class="nav-footer-center">
+       
+    </div>
+<div class="nav-footer-right">
+<ul class="footer-items list-unstyled">
+<li class="nav-item">
+<a class="nav-link" href="https://www.gnu.org/licenses/gpl-3.0.en.html">
+<p>License</p>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</footer>
+</body></html>

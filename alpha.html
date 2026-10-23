@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta charset="utf-8"/>
+<meta content="quarto-1.10.0" name="generator"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport"/>
+<title>22  Controlling α vs. Probability of a Decision Error – Biostatistics for Biomedical Research</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta content="./" name="quarto:offset"/>
+<link href="figures.html" rel="next"/>
+<link href="repro.html" rel="prev"/>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet"/>
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-9c5e1a58ae97b3faeeb5cca0e0e2eaf1.css" id="quarto-text-highlighting-styles" rel="stylesheet"/>
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet"/>
+<link append-hash="true" data-mode="light" href="site_libs/bootstrap/bootstrap-39d25629837ca44e2eea0020ef944eda.min.css" id="quarto-bootstrap" rel="stylesheet"/>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FN79JJ28KR', { 'anonymize_ip': true});
+</script>
+<script class="js-hypothesis-config" type="application/json">
+{
+  "theme": "clean",
+  "openSidebar": false,
+  "enableExperimentalNewNoteButton": true
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+<link href="h.css" rel="stylesheet"/>
+<meta content="22  Controlling α vs. Probability of a Decision Error – Biostatistics for Biomedical Research" name="twitter:title"/>
+<meta content="" name="twitter:description"/>
+<meta content="https://hbiostat.org/bbr/images/discourse.png" name="twitter:image"/>
+<meta content="f2harrell" name="twitter:creator"/>
+<meta content="f2harrell" name="twitter:site"/>
+<meta content="128" name="twitter:image-height"/>
+<meta content="128" name="twitter:image-width"/>
+<meta content="summary_large_image" name="twitter:card"/>
+</head>
+<body class="nav-sidebar floating nav-fixed slimcontent quarto-light">
+<div id="quarto-search-results"></div>
+<header class="headroom fixed-top" id="quarto-header">
+<nav class="navbar navbar-expand-xl" data-bs-theme="dark">
+<div class="navbar-container container-fluid">
+<div class="navbar-brand-container mx-auto">
+<a class="navbar-brand" href="index.html">
+<span class="navbar-title">Biostatistics for Biomedical Research</span>
+</a>
+</div>
+<div class="quarto-navbar-tools tools-end">
+</div>
+<div class="" id="quarto-search" title="Search"></div>
+</div> <!-- /container-fluid -->
+</nav>
+<nav class="quarto-secondary-nav">
+<div class="container-fluid d-flex">
+<button aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" class="quarto-btn-toggle btn" data-bs-target=".quarto-sidebar-collapse-item" data-bs-toggle="collapse" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }" role="button" type="button">
+<i class="bi bi-layout-text-sidebar-reverse"></i>
+</button>
+<nav aria-label="breadcrumb" class="quarto-page-breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="alpha.html"><span class="chapter-number">22</span>  <span class="chapter-title">Controlling α vs. Probability of a Decision Error</span></a></li></ol></nav>
+<a aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" class="flex-grow-1" data-bs-target=".quarto-sidebar-collapse-item" data-bs-toggle="collapse" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }" role="navigation">
+</a>
+</div>
+</nav>
+</header>
+<!-- content -->
+<div class="quarto-container page-columns page-rows-contents page-layout-article page-navbar" id="quarto-content">
+<!-- sidebar -->
+<nav class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" id="quarto-sidebar">
+<div class="sidebar-menu-container">
+<ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="index.html">
+<span class="menu-text">Preface</span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="r.html">
+<span class="menu-text"><span class="chapter-number">1</span>  <span class="chapter-title"><code>R</code></span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="algebra.html">
+<span class="menu-text"><span class="chapter-number">2</span>  <span class="chapter-title">Algebra Review</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="overview.html">
+<span class="menu-text"><span class="chapter-number">3</span>  <span class="chapter-title">General Overview of Biostatistics</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="descript.html">
+<span class="menu-text"><span class="chapter-number">4</span>  <span class="chapter-title">Descriptive Statistics, Distributions, and Graphics</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="htest.html">
+<span class="menu-text"><span class="chapter-number">5</span>  <span class="chapter-title">Statistical Inference</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="prop.html">
+<span class="menu-text"><span class="chapter-number">6</span>  <span class="chapter-title">Comparing Two Proportions</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="nonpar.html">
+<span class="menu-text"><span class="chapter-number">7</span>  <span class="chapter-title">Nonparametric Statistical Tests</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="corr.html">
+<span class="menu-text"><span class="chapter-number">8</span>  <span class="chapter-title">Correlation and Nonparametric Regression</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="rmsintro.html">
+<span class="menu-text"><span class="chapter-number">9</span>  <span class="chapter-title">Introduction to the <code>R</code> <code>rms</code> Package: The Linear Model</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="reg.html">
+<span class="menu-text"><span class="chapter-number">10</span>  <span class="chapter-title">Simple and Multiple Regression Models and Overview of Model Validation</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="multgroup.html">
+<span class="menu-text"><span class="chapter-number">11</span>  <span class="chapter-title">Multiple Groups</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="infreview.html">
+<span class="menu-text"><span class="chapter-number">12</span>  <span class="chapter-title">Statistical Inference Review</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="ancova.html">
+<span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Analysis of Covariance in Randomized Studies</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="change.html">
+<span class="menu-text"><span class="chapter-number">14</span>  <span class="chapter-title">Transformations, Measuring Change, and Regression to the Mean</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="serial.html">
+<span class="menu-text"><span class="chapter-number">15</span>  <span class="chapter-title">Serial Data</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="obsvar.html">
+<span class="menu-text"><span class="chapter-number">16</span>  <span class="chapter-title">Analysis of Observer Variability and Measurement Agreement</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="propensity.html">
+<span class="menu-text"><span class="chapter-number">17</span>  <span class="chapter-title">Modeling for Observational Treatment Comparisons</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="info.html">
+<span class="menu-text"><span class="chapter-number">18</span>  <span class="chapter-title">Information Loss</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="dx.html">
+<span class="menu-text"><span class="chapter-number">19</span>  <span class="chapter-title">Diagnosis</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="hdata.html">
+<span class="menu-text"><span class="chapter-number">20</span>  <span class="chapter-title">Challenges of Analyzing High-Dimensional Data</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="repro.html">
+<span class="menu-text"><span class="chapter-number">21</span>  <span class="chapter-title">Reproducible Research</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link active" href="alpha.html">
+<span class="menu-text"><span class="chapter-number">22</span>  <span class="chapter-title">Controlling α vs. Probability of a Decision Error</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="figures.html">
+<span class="menu-text">List of Figures</span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="references.html">
+<span class="menu-text">Annotated References</span></a>
+</div>
+</li>
+</ul>
+</div>
+</nav>
+<div class="quarto-sidebar-collapse-item" data-bs-target=".quarto-sidebar-collapse-item" data-bs-toggle="collapse" id="quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+<div class="sidebar margin-sidebar" id="quarto-margin-sidebar">
+<nav class="toc-active" id="TOC" role="doc-toc">
+<h2 id="toc-title">Table of contents</h2>
+<ul>
+<li><a class="nav-link active" data-scroll-target="#background" href="#background" id="toc-background"><span class="header-section-number">22.1</span> Background</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#definitions" href="#definitions" id="toc-definitions"><span class="header-section-number">22.1.1</span> Definitions</a></li>
+<li><a class="nav-link" data-scroll-target="#examples" href="#examples" id="toc-examples"><span class="header-section-number">22.1.2</span> Examples</a></li>
+<li><a class="nav-link" data-scroll-target="#replication" href="#replication" id="toc-replication"><span class="header-section-number">22.1.3</span> Replication</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#perceived-multiplicities" href="#perceived-multiplicities" id="toc-perceived-multiplicities"><span class="header-section-number">22.2</span> Perceived Multiplicities</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#sequential-data-look-multiplicity-non-issues-with-bayes" href="#sequential-data-look-multiplicity-non-issues-with-bayes" id="toc-sequential-data-look-multiplicity-non-issues-with-bayes"><span class="header-section-number">22.2.1</span> Sequential Data Look Multiplicity Non-Issues with Bayes</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#key-evidentiary-measure-to-validate" href="#key-evidentiary-measure-to-validate" id="toc-key-evidentiary-measure-to-validate"><span class="header-section-number">22.3</span> Key Evidentiary Measure to Validate</a></li>
+<li><a class="nav-link" data-scroll-target="#summary" href="#summary" id="toc-summary"><span class="header-section-number">22.4</span> Summary</a></li>
+</ul>
+</nav>
+</div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+<header class="quarto-title-block default" id="title-block-header">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="quarto-section-identifier" id="sec-alpha"><span class="chapter-number">22</span>  <span class="chapter-title">Controlling α vs. Probability of a Decision Error</span></span></h1><button class="btn code-tools-button" id="quarto-code-tools-source" type="button"><i class="bi"></i> Code</button></div></div>
+</div>
+<div class="quarto-title-meta">
+</div>
+</header>
+<div class="quoteit">
+<p>Asking one to compute type I assertion probability α for a Bayesian design is like asking a poker player winning $10M/year to justify his ranking by how often he places bets in games he didn’t win.</p>
+</div>
+<div class="quoteit">
+<p>Discounting a result because of long-run operating characteristics (controlling α) is analogous to one making a $10 bet and offering to pay $8 when his team lost, saying “My team might have won”.</p>
+</div>
+<div class="quoteit">
+<p>The probability of being wrong in asserting an effect depends on the amount of evidence for the effect, just just on whether the amount of evidence exceeds some threshold.</p>
+</div>
+<p><strong>How Often Do We Assert an Effect vs. How Often Are We Wrong About an Effect</strong> <br/><br/></p>
+<div class="no-row-height column-margin column-container"><div class="">
+<p><a href="http://bit.ly/datamethods-bbr21"><img src="images/discourse.png" width="25"/></a> <audio controls=""><source data-external="1" src="http://hbiostat.org/audio/bbr/alpha-1.mp3" type="audio/mpeg"/></audio></p>
+</div></div><div class="quoteit">
+<p>Do you want the probability of a positive result <strong>when</strong> there is nothing? Or the probability that a positive result <strong>turns out to be</strong> nothing?</p>
+</div>
+<div class="quoteit">
+<p>Type I error rate is not a rate and is not the probability of an error. It is the probability of making an assertion of an effect when any such assertion is by definition wrong.</p>
+</div>
+<div class="quoteit">
+<p>You cannot call something an error by assuming the very fact that would make it one.</p>
+</div>
+<div class="quoteit">
+<p><b>Fisher’s glaring error</b><br/>A man who ‘rejects’ a hypothesis provisionally, as a matter of habitual practice, when the significance is at the 1 percent level or higher will certainly be mistaken in not more than 1 percent of such decisions. For when the hypothesis is correct he will be mistaken in just 1 percent of these cases, and when it is incorrect he will never be mistaken in rejection. <br/><span style="color:black;font-style:normal;float:right;text-align:right;"> — RA Fisher <em>Statistical Methods and Scientific Inference</em>, 1956, 41-2.<br/><b>Fisher failed to recognize</b> that ‘of such decisions’ is not conditional on H<sub>0</sub> and he confuses P(H<sub>0</sub> | p &lt; 0.01), with P(p &lt; 0.01 | H<sub>0</sub>) </span><br/></p>
+</div>
+<p><br/></p>
+<p><img src="images/raf.png" width="100%"/> <br/></p>
+<div class="quoteit">
+<p>Optimum α from Bayesian decision analysis: 0.24 for terminal illness with no existing therapies; 0.01 for less deadly diseases <br/><span style="color:black;font-style:normal;float:right;text-align:right;"> — Isakov <em>et al</em>, <em>J Econometrics</em> 2019, 117-136 </span><br/></p>
+</div>
+<p><br/></p>
+<p>There is much confusion about “controlling type I error” and “spending α”. One often hears</p>
+<ul>
+<li>highly experienced, competent statisticians saying that α is the probability that a result is false</li>
+<li>highly experienced, competent clinical trialists say that α needs to be controlled because it is the probability of being wrong in concluding that a drug is effective</li>
+</ul>
+<p>Neither of these is correct, as will be explained below. It is also explained that Bayesian posterior probabilities provide exactly the probability that a result will turn out to be false–the probability that is sought by decision makers.</p>
+<p>Technical details, more examples, and references concerning what is covered in this chapter may be found <a href="https://hbiostat.org/proj/covid19/statdesign">here</a>, <a href="https://hbiostat.org/bayes/bet/evidence">here</a>, and <a href="https://hbiostat.org/doc/bayes/whybayes.pdf">here</a>.</p>
+<section class="level2 page-columns page-full" data-number="22.1" id="background">
+<h2 class="anchored" data-anchor-id="background" data-number="22.1"><span class="header-section-number">22.1</span> Background</h2>
+<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside"><audio controls=""><source data-external="1" src="http://hbiostat.org/audio/bbr/alpha-2.mp3" type="audio/mpeg"/></audio></span></div></div>
+<p><strong>Traditional frequentist statistics involves</strong></p>
+<ul>
+<li>computing probabilities about data if an assumption about the unknown effect holds</li>
+<li>at the expense of having to subjectively translate probabilities about data extremes given a single <em>possible</em> effect to conclusions about unknown effects</li>
+</ul>
+<p><strong>Bayesian statistics involves</strong></p>
+<ul>
+<li>computing direct probabilities about unknown effects, taking the current data as given</li>
+<li>at the expense of having to subjectively specify an informed belief about the unknown effect—a prior distribution</li>
+</ul>
+<p><br/></p>
+<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside"><audio controls=""><source data-external="1" src="http://hbiostat.org/audio/bbr/alpha-3.mp3" type="audio/mpeg"/></audio></span></div></div>
+<ul>
+<li>Type I assertion probability α (usually called Type I error rate) plays an important role in traditional frequentist statistical inference
+<ul>
+<li>especially in the Neyman-Pearson paradigm where formal rules for rejection and non-rejection of a null hypothesis were attempted to be constructed</li>
+</ul></li>
+<li>Growing interest in using the Bayesian paradigm in biomedical research</li>
+<li>But many regulators and researchers want the statistical procedure to also have frequentist operating characteristics e.g. α
+<ul>
+<li>oddly they never ask for the Type II probability β which will often be better with Bayes</li>
+</ul></li>
+<li>Bayesians do not ask users of purely frequentist procedures to demonstrate Bayesian operating characteristics
+<ul>
+<li>but it would be highly valuable to know the probability that the traditional procedure makes the right decision about a treatment</li>
+</ul></li>
+<li>Mixing Bayesian and frequentist ideas in the same analysis results in confusion while lowering the probability of reaching the correct conclusion</li>
+<li>Misunderstandings began when α was called “Type I error” when it is not the probability of making an error but rather is the probability of making an assertion of an effect</li>
+<li>α is not a decision error probability so it is not correct to attach the word <em>error</em> to it</li>
+<li>It is the probability of triggering an assertion of an effect</li>
+</ul>
+<section class="level3 page-columns page-full" data-number="22.1.1" id="definitions">
+<h3 class="anchored" data-anchor-id="definitions" data-number="22.1.1"><span class="header-section-number">22.1.1</span> Definitions</h3>
+<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside"><audio controls=""><source data-external="1" src="http://hbiostat.org/audio/bbr/alpha-4.mp3" type="audio/mpeg"/></audio></span></div></div>
+<ul>
+<li><p>False positive: a positive result that is incorrect</p>
+<ul>
+<li>in medical diagnosis the most common definition for false positive is a patient known to have no disease who tests positive for disease
+<ul>
+<li>this is subtly different from a patient with a positive test whose disease status is unknown at the time but who turns out later to be disease-free; here we do not condition on the patient being disease free</li>
+</ul></li>
+</ul></li>
+<li><p>False positive probability</p>
+<ul>
+<li>the time order of information is extremely important
+<ul>
+<li>do you want the probability of a positive result <strong>when</strong> there is nothing? or the probability that a positive result <strong>turns out to be</strong> nothing?</li>
+<li>usual definition is P(test + | no disease) which is 1 - specificity</li>
+<li>This is much different from the probability that a positive finding turns out to be wrong, which is P(disease absent | positive test) = 1 - PPV (predictive value positive)</li>
+</ul></li>
+</ul></li>
+<li><p>What is needed in making decisions about a treatment: the probability that a positive result is wrong, e.g., that a result indicating an effect in the right direction actually comes from a treatment that truly has no effect or that has effect in the wrong direction</p>
+<ul>
+<li>e.g. a hypertension drug raises blood pressure
+<ul>
+<li>this is much different from α (defined below)</li>
+<li>α is not the probability of a decision error</li>
+<li>α is not what decision makers think they are getting</li>
+</ul></li>
+</ul></li>
+<li><p><a href="https://www.merriam-webster.com/dictionary/assertion">Assertion</a>: a statement that something is the case</p></li>
+<li><p>p-value: probability of getting, in another study, a result more impressive than that observed in the current study given the true effect is zero<a class="footnote-ref" href="#fn1" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<ul>
+<li><em>result</em> can equivalently mean a summary statistic or a test statistic that is a function of the summary statistic
+<ul>
+<li>More formal definition: p-value is the probability under identical replicates of the current experiment, except that the true effect is zero, of getting a result more extreme than that obtained<a class="footnote-ref" href="#fn2" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
+<li>A very informal definition: probability of someone else’s data being more impressive than mine given my null hypothesis is true for them</li>
+</ul></li>
+</ul></li>
+<li><p>Type I assertion probability α: under the condition that the effect is exactly zero (e.g., that the treatment can be ignored), the probability of asserting an effect </p>
+<ul>
+<li>α is the probability under identical replications of an experiment, when the true effect is zero, of asserting an effect in a replication (sample)</li>
+<li>probability that a test statistic is greater than some critical value when the null is true</li>
+<li>if assertion of effect is made when a nominal p-value &lt; α, the model is correct, and there is exactly one data look, then P(p-value &lt; α) = α</li>
+<li>if there is more than one data look, testing using a nominal (unadjusted) p-value will result in P(p-value at at least one look &lt; α) &gt; α</li>
+<li>α = probability of making an assertion of an effect when by definition <em>any</em> assertion of an effect would be false</li>
+<li>analogy: suppose that everything that a politician says is false and we rate the worthiness of the politician by the proportion of the time that he is talking</li>
+</ul></li>
+<li><p>Bayesian posterior probability of effect: the conditional probability that the effect is in the right direction given the prior and the current data</p></li>
+<li><p>False positive probability: one minus the Bayesian posterior probability of effect</p></li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup> This is under standard null hypothesis significance testing where the hypothesized effect is zero.</p></div><div id="fn2"><p><sup>2</sup> One frequently reads “as or more impressive” or “as or more extreme”, but for continuous data the probability of getting data exactly as extreme as the study’s observed data is zero, so we may speak of the probability of “more extreme”.</p></div><span class="margin-aside"><audio controls=""><source data-external="1" src="http://hbiostat.org/audio/bbr/alpha-5.mp3" type="audio/mpeg"/></audio></span></div></section>
+<section class="level3 page-columns page-full" data-number="22.1.2" id="examples">
+<h3 class="anchored" data-anchor-id="examples" data-number="22.1.2"><span class="header-section-number">22.1.2</span> Examples</h3>
+<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside"><audio controls=""><source data-external="1" src="http://hbiostat.org/audio/bbr/alpha-6.mp3" type="audio/mpeg"/></audio></span></div></div>
+<ul>
+<li>Posterior probability of a positive effect at the current data is 0.92</li>
+<li>Probability of being right in acting as if the treatment is effective is 0.92
+<ul>
+<li>probability of being wrong is 0.08</li>
+<li>Bayesian probabilities contain their own decision error probabilities</li>
+</ul></li>
+<li>p-value = 0.06: under our model and null hypothesis the probability that a replicate study will observe data more extreme than ours is 0.06
+<ul>
+<li>a statement that assumes something is true (H<sub>0</sub>) cannot inform us about the likelihood it is true</li>
+<li>p-value provides no direct information about the likelihood an assertion is true or false; it is a probability about data, not about hypotheses</li>
+</ul></li>
+<li>Smoke alarm analogy
+<ul>
+<li>α is the probability that the alarm sounds when there is no fire
+<ul>
+<li>false positive: alarm sounds but there turns out to be no fire</li>
+</ul></li>
+<li>false positive probability: P(no fire | alarm sounds)
+<ul>
+<li>Bayesian posterior probability: P(fire | air characteristics)</li>
+</ul></li>
+<li>example Bayesian decision rule: sound alarm when P(fire | air characteristics) exceeds 0.025 when inhabitants are home and 0.01 when they are away</li>
+<li>if designed the way many clinical trials over optimistically assume an effect size: have an 0.8 chance of sounding the alarm if there is an inferno</li>
+</ul></li>
+</ul>
+</section>
+<section class="level3 page-columns page-full" data-number="22.1.3" id="replication">
+<h3 class="anchored" data-anchor-id="replication" data-number="22.1.3"><span class="header-section-number">22.1.3</span> Replication</h3>
+<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside"><audio controls=""><source data-external="1" src="http://hbiostat.org/audio/bbr/alpha-7.mp3" type="audio/mpeg"/></audio></span></div></div>
+<ul>
+<li>At the heart of traditional statistics is the notion of replication or repeated sampling under identical conditions</li>
+<li>This leads to the notion of p-values and long-run operating characteristics
+<ul>
+<li>p-value involves a comparison of current data with data that could be sampled in replicate studies</li>
+<li>α is the long-run probability of triggering an assertion of an effect over infinitely many samples</li>
+</ul></li>
+<li>It also places importance on replicating results
+<ul>
+<li>When Ronald Fisher was asked how to interpret a large p-value his response was “get more data”</li>
+<li>he also said that a p-value from one-study, while helpful, needs to be confirmed with continued experimentation</li>
+</ul></li>
+<li>In urgent situations such as a pandemic, decisions need to be made quick
+<ul>
+<li>results from one study are immediately affecting national policy in COVID-19</li>
+</ul></li>
+<li>Need to make decisions that have the highest probabilities of being correct
+<ul>
+<li>this is what Bayesian posterior inference is all about, when stakeholders can settle on a prior or the sample size is large enough so that the prior doesn’t matter</li>
+</ul></li>
+<li>Even in non-emergent situations where a second study can be undertaken to confirm the first, decisions have to be made
+<ul>
+<li>a key decision is whether it is worth undertaking the second study</li>
+</ul></li>
+<li>Replication is undeniably a good idea but it occasionally invites researchers to split a study into two studies when a single better study would provide better quality evidence</li>
+</ul>
+</section>
+</section>
+<section class="level2 page-columns page-full" data-number="22.2" id="perceived-multiplicities">
+<h2 class="anchored" data-anchor-id="perceived-multiplicities" data-number="22.2"><span class="header-section-number">22.2</span> Perceived Multiplicities</h2>
+<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside"><audio controls=""><source data-external="1" src="http://hbiostat.org/audio/bbr/alpha-8.mp3" type="audio/mpeg"/></audio></span></div></div>
+<p>Multiple statistical assessments happen when</p>
+<ul>
+<li>looking at the data multiple times as more subjects are enrolled</li>
+<li>looking a multiple treatments</li>
+<li>looking at multiple subgroups of subjects</li>
+<li>looking at multiple response variables</li>
+</ul>
+<p><br/></p>
+<ul>
+<li>In traditional statistics when one considers α as a global measure, α increases as more data looks, treatments, subgroups, or response variables are analyzed</li>
+<li>Multiplicities come from the chances you give data to be more extreme
+<ul>
+<li>not from the chances you give assertions to be true</li>
+</ul></li>
+<li>Researchers using traditional statistics usually desire control of the overall α
+<ul>
+<li>chance of making at least one assertion of an effect if the effect is zero over all times/treatments/subgroups/outcomes</li>
+<li>this in spite of the fact that α doesn’t involve any data</li>
+<li>subgroups are often of most concern</li>
+</ul></li>
+<li>Controlling α when making multiple sequential treatment comparisons is the most problematic multiplicity correction from a Bayesian perspective</li>
+</ul>
+<section class="level3 page-columns page-full" data-number="22.2.1" id="sequential-data-look-multiplicity-non-issues-with-bayes">
+<h3 class="anchored" data-anchor-id="sequential-data-look-multiplicity-non-issues-with-bayes" data-number="22.2.1"><span class="header-section-number">22.2.1</span> Sequential Data Look Multiplicity Non-Issues with Bayes</h3>
+<section class="level4 page-columns page-full" id="pattern-recognition-example">
+<h4 class="anchored" data-anchor-id="pattern-recognition-example">Pattern Recognition Example</h4>
+<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside"><audio controls=""><source data-external="1" src="http://hbiostat.org/audio/bbr/alpha-9.mp3" type="audio/mpeg"/></audio></span></div></div>
+<ul>
+<li>Visual pattern recognition algorithm</li>
+<li>Goal: identify enemy tank from a distance</li>
+<li>Sampling: image recorded every 5 seconds</li>
+<li>Algorithm output: P(object is an enemy tank)</li>
+<li>First image acquired: P=0.6</li>
+<li>Object moves closer: P=0.8</li>
+<li>Weather clears: P=0.93</li>
+<li>Latest P is all that matters; earlier looks obsolete</li>
+<li>But frequentist approach deals with P(tank-like image acquired | object is not a tank)</li>
+<li>Higher sampling rate <span class="math inline">\(\rightarrow\)</span> more tank-like images (<span class="math inline">\(\uparrow\)</span> α)</li>
+<li>Not related to the decision at hand which is based on P(tank | last image)</li>
+</ul>
+</section>
+<section class="level4 page-columns page-full" id="medical-diagnosis-example">
+<h4 class="anchored" data-anchor-id="medical-diagnosis-example">Medical Diagnosis Example</h4>
+<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside"><audio controls=""><source data-external="1" src="http://hbiostat.org/audio/bbr/alpha-10.mp3" type="audio/mpeg"/></audio></span></div></div>
+<ul>
+<li>Specificity = P(test - | disease absent) <span class="math inline">\(\approx\)</span> α</li>
+<li>PPV = P(disease present | test +)</li>
+<li>Physician orders a series of tests on the patient <span class="math inline">\(\rightarrow\)</span> P(disease)=0.9</li>
+<li>Another physician worries because in general patients known to be disease free have P=0.2 that at least one of those tests is positive <strong>if</strong> disease is absent</li>
+<li>First physician reacts
+<ul>
+<li>disease status is what I’m trying to <strong>determine</strong></li>
+<li>test specificities do not require discounting the 0.9 and are unrelated to the decision process</li>
+</ul></li>
+</ul>
+</section>
+<section class="level4 page-columns page-full" id="sequential-clinical-trial-with-unlimited-data-looks">
+<h4 class="anchored" data-anchor-id="sequential-clinical-trial-with-unlimited-data-looks">Sequential Clinical Trial With Unlimited Data Looks</h4>
+<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside"><audio controls=""><source data-external="1" src="http://hbiostat.org/audio/bbr/alpha-11.mp3" type="audio/mpeg"/></audio></span></div></div>
+<ul>
+<li>Posterior probability of positive efficacy computed continually</li>
+<li>Assume the data model is correct and the prior is agreed upon
+<ul>
+<li><span class="math inline">\(\rightarrow\)</span> posterior probability P at the planned end of study is valid</li>
+</ul></li>
+<li>If P at end of study is valid, all intermediate P’s are valid
+<ul>
+<li>true even if P is the reason the study is stopped early</li>
+</ul></li>
+<li>P at the instant the study is stopped is well calibrated<a class="footnote-ref" href="#fn3" id="fnref3" role="doc-noteref"><sup>3</sup></a></li>
+<li>Anyone who wants to see α for this procedure needs to realize that α is a pre-study concept that does not pertain to the current decision being made</li>
+<li>Instead of asking for α, attention should be focused on the choice of prior</li>
+<li>Miscalibration of P occurs if e.g. a reviewer wants to impose a prior that is much more/less skeptical of a positive effect than the prior used in the sequential monitoring<a class="footnote-ref" href="#fn4" id="fnref4" role="doc-noteref"><sup>4</sup></a></li>
+<li>See <a href="https://fharrell.com/post/bayes-seq">this</a> for demonstration via simulation</li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup> A skeptical prior distribution will shrink the treatment effect towards zero, with more shrinkage the earlier the study is stopped, appropriately calibrating the posterior mean/median. Traditional statistical analysis results in biased treatment effects upon early stopping for efficacy, and the bias adjustment is very complex.</p></div><div id="fn4"><p><sup>4</sup> Once the sample size becomes moderately large, the posterior probability P will be more and more independent of the prior unless an extreme skeptic places a discontinuity in the prior—a spike of probability at a zero effect.</p></div></div></section>
+</section>
+</section>
+<section class="level2 page-columns page-full" data-number="22.3" id="key-evidentiary-measure-to-validate">
+<h2 class="anchored" data-anchor-id="key-evidentiary-measure-to-validate" data-number="22.3"><span class="header-section-number">22.3</span> Key Evidentiary Measure to Validate</h2>
+<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside"><audio controls=""><source data-external="1" src="http://hbiostat.org/audio/bbr/alpha-11a.mp3" type="audio/mpeg"/></audio></span></div></div>
+<ul>
+<li>In Bayesian posterior inference the key quantity that needs to be reliable is the posterior probability (PP) of an effect <strong>at the decision point</strong></li>
+<li>This is a function of
+<ul>
+<li>the prior distribution</li>
+<li>the data model</li>
+<li>the data</li>
+<li>its validity also depends on the experimental design</li>
+</ul></li>
+<li>Frequentist inference depends on all of these except the prior</li>
+<li>Example from <a href="https://hbiostat.org/r/hmisc/gbayesseqsim">hbiostat.org/R/Hmisc/gbayesSeqSim.html</a> (see there for code and details)</li>
+<li>Draw 1500 effects (log odds ratios) from a normal distribution with mean 0 and SD 0.5</li>
+<li>For each effect simulate a clinical trial with that effect in play</li>
+<li>Analysis prior is taken to be one that is more pessimistic than what was actually used to generate the true treatment effects (mean log(OR)=0, SD=0.35)</li>
+<li>Compute PP of effect after 25, 26, …, 100, 105, 110, 115, …, 1000 patients</li>
+<li>Stop the study as soon as PP &gt; 0.95</li>
+<li>Compare the PP at the moment of stopping (decision point) to the true probability of efficacy = P(true OR &lt; 1)</li>
+<li>Mean PP at time of stopping: 0.955</li>
+<li>Proportion of such stopped trials that were generated by an effective therapy: 0.985
+<ul>
+<li>this is our estimate of true P(OR &lt; 1)</li>
+</ul></li>
+<li>PP at decision point actually understated evidence for an effect</li>
+<li>This way of examining reliability of evidence is consistent with the Bayesian goal of uncovering whatever true parameter generated our data</li>
+</ul>
+</section>
+<section class="level2 page-columns page-full" data-number="22.4" id="summary">
+<h2 class="anchored" data-anchor-id="summary" data-number="22.4"><span class="header-section-number">22.4</span> Summary</h2>
+<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside"><audio controls=""><source data-external="1" src="http://hbiostat.org/audio/bbr/alpha-12.mp3" type="audio/mpeg"/></audio></span></div></div>
+<ul>
+<li>Bayesian posterior probabilities are directly used in the decision at hand</li>
+<li>Type I assertion probability α is not relevant for the current decision</li>
+<li>α is not the probability of making a wrong decision but is a long-run probability of asserting an effect when any assertion would by definition be wrong</li>
+<li>Bayesian posterior probabilities are self-contained, and 1 - P(positive effect) = P(treatment doesn’t work or moves the patient in the wrong direction given current data)</li>
+<li>Mixing Bayesian and frequentist probabilities is confusing to decision makers</li>
+<li>Attention needs to be focused on the specification of the prior, not on using complex simulations to compute α for a Bayesian procedure that does not use indirect probabilities</li>
+</ul>
+<!-- -->
+</section>
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/hbiostat\.org\/bbr");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+        for (let i=0; i<annoteTargets.length; i++) {
+          const annoteTarget = annoteTargets[i];
+          const targetCell = annoteTarget.getAttribute("data-target-cell");
+          const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+          const contentFn = () => {
+            const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+            if (content) {
+              const tipContent = content.cloneNode(true);
+              tipContent.classList.add("code-annotation-tip-content");
+              return tipContent.outerHTML;
+            }
+          }
+          const config = {
+            allowHTML: true,
+            content: contentFn,
+            onShow: (instance) => {
+              selectCodeLines(instance.reference);
+              instance.reference.classList.add('code-annotation-active');
+              window.tippy.hideAll();
+            },
+            onHide: (instance) => {
+              unselectCodeLines();
+              instance.reference.classList.remove('code-annotation-active');
+            },
+            maxWidth: 300,
+            delay: [50, 0],
+            duration: [200, 0],
+            offset: [5, 10],
+            arrow: true,
+            appendTo: function(el) {
+              return el.parentElement.parentElement.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'quarto',
+            placement: 'right',
+            popperOptions: {
+              modifiers: [
+              {
+                name: 'flip',
+                options: {
+                  flipVariations: false, // true by default
+                  allowedAutoPlacements: ['right'],
+                  fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+                },
+              },
+              {
+                name: 'preventOverflow',
+                options: {
+                  mainAxis: false,
+                  altAxis: false
+                }
+              }
+              ]        
+            }      
+          };
+          window.tippy(annoteTarget, config); 
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+<div class="nav-page nav-page-previous">
+<a aria-label="Reproducible Research" class="pagination-link" href="repro.html">
+<i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>  <span class="chapter-title">Reproducible Research</span></span>
+</a>
+</div>
+<div class="nav-page nav-page-next">
+<a aria-label="List of Figures" class="pagination-link" href="figures.html">
+<span class="nav-page-text">List of Figures</span> <i class="bi bi-arrow-right-short"></i>
+</a>
+</div>
+</nav><div aria-hidden="true" aria-labelledby="quarto-embedded-source-code-modal-label" class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" data-shortcodes="false" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="fu">require</span>(Hmisc)</span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="fu">getRs</span>(<span class="st">'qbookfun.r'</span>)</span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a><span class="in">`r quoteit("Asking one to compute type I assertion probability α for a Bayesian design is like asking a poker player winning $10M/year to justify his ranking by how often he places bets in games he didn't win.")`</span></span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a></span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a><span class="in">`r quoteit('Discounting a result because of long-run operating characteristics (controlling α) is analogous to one making a $10 bet and offering to pay $8 when his team lost, saying "My team might have won".')`</span></span>
+<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a></span>
+<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a><span class="in">`r quoteit('The probability of being wrong in asserting an effect depends on the amount of evidence for the effect, just just on whether the amount of evidence exceeds some threshold.')`</span></span>
+<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a></span>
+<span id="cb1-12"><a aria-hidden="true" href="#cb1-12" tabindex="-1"></a><span class="fu"># Controlling α vs. Probability of a Decision Error {#sec-alpha}</span></span>
+<span id="cb1-13"><a aria-hidden="true" href="#cb1-13" tabindex="-1"></a>**How Often Do We Assert an Effect vs. How Often Are We Wrong About an Effect**</span>
+<span id="cb1-14"><a aria-hidden="true" href="#cb1-14" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
+<span id="cb1-15"><a aria-hidden="true" href="#cb1-15" tabindex="-1"></a></span>
+<span id="cb1-16"><a aria-hidden="true" href="#cb1-16" tabindex="-1"></a></span>
+<span id="cb1-17"><a aria-hidden="true" href="#cb1-17" tabindex="-1"></a><span class="in">`r mrg(ddisc(21), sound("alpha-1"))`</span></span>
+<span id="cb1-18"><a aria-hidden="true" href="#cb1-18" tabindex="-1"></a></span>
+<span id="cb1-19"><a aria-hidden="true" href="#cb1-19" tabindex="-1"></a><span class="in">`r quoteit("Do you want the probability of a positive result **when** there is nothing?  Or the probability that a positive result **turns out to be** nothing?")`</span></span>
+<span id="cb1-20"><a aria-hidden="true" href="#cb1-20" tabindex="-1"></a></span>
+<span id="cb1-21"><a aria-hidden="true" href="#cb1-21" tabindex="-1"></a><span class="in">`r quoteit("Type I error rate is not a rate and is not the probability of an error.  It is the probability of making an assertion of an effect when any such assertion is by definition wrong.")`</span></span>
+<span id="cb1-22"><a aria-hidden="true" href="#cb1-22" tabindex="-1"></a></span>
+<span id="cb1-23"><a aria-hidden="true" href="#cb1-23" tabindex="-1"></a><span class="in">`r quoteit("You cannot call something an error by assuming the very fact that would make it one.")`</span></span>
+<span id="cb1-24"><a aria-hidden="true" href="#cb1-24" tabindex="-1"></a></span>
+<span id="cb1-25"><a aria-hidden="true" href="#cb1-25" tabindex="-1"></a><span class="in">`r quoteit("&lt;b&gt;Fisher's glaring error&lt;/b&gt;&lt;br&gt;A man who 'rejects' a hypothesis provisionally, as a matter of habitual practice, when the significance is at the 1 percent level or higher will certainly be mistaken in not more than 1 percent of such decisions.  For when the hypothesis is correct he will be mistaken in just 1 percent of these cases, and when it is incorrect he will never be mistaken in rejection.", "RA Fisher &lt;em&gt;Statistical Methods and Scientific Inference&lt;/em&gt;, 1956, 41-2.&lt;br&gt;&lt;b&gt;Fisher failed to recognize&lt;/b&gt; that 'of such decisions' is not conditional on H&lt;sub&gt;0&lt;/sub&gt; and he confuses P(H&lt;sub&gt;0&lt;/sub&gt; | p &lt; 0.01), with P(p &lt; 0.01 | H&lt;sub&gt;0&lt;/sub&gt;)")`</span></span>
+<span id="cb1-26"><a aria-hidden="true" href="#cb1-26" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
+<span id="cb1-27"><a aria-hidden="true" href="#cb1-27" tabindex="-1"></a></span>
+<span id="cb1-28"><a aria-hidden="true" href="#cb1-28" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"images/raf.png"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"100%"</span><span class="dt">&gt;</span></span>
+<span id="cb1-29"><a aria-hidden="true" href="#cb1-29" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
+<span id="cb1-30"><a aria-hidden="true" href="#cb1-30" tabindex="-1"></a></span>
+<span id="cb1-31"><a aria-hidden="true" href="#cb1-31" tabindex="-1"></a><span class="in">`r quoteit("Optimum α from Bayesian decision analysis: 0.24 for terminal illness with no existing therapies; 0.01 for less deadly diseases","Isakov &lt;em&gt;et al&lt;/em&gt;, &lt;em&gt;J Econometrics&lt;/em&gt; 2019, 117-136")`</span></span>
+<span id="cb1-32"><a aria-hidden="true" href="#cb1-32" tabindex="-1"></a></span>
+<span id="cb1-33"><a aria-hidden="true" href="#cb1-33" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
+<span id="cb1-34"><a aria-hidden="true" href="#cb1-34" tabindex="-1"></a></span>
+<span id="cb1-35"><a aria-hidden="true" href="#cb1-35" tabindex="-1"></a>There is much confusion about "controlling type I error" and "spending α".  One often hears</span>
+<span id="cb1-36"><a aria-hidden="true" href="#cb1-36" tabindex="-1"></a></span>
+<span id="cb1-37"><a aria-hidden="true" href="#cb1-37" tabindex="-1"></a><span class="ss">* </span>highly experienced, competent statisticians saying that α is the probability that a result is false</span>
+<span id="cb1-38"><a aria-hidden="true" href="#cb1-38" tabindex="-1"></a><span class="ss">* </span>highly experienced, competent clinical trialists say that α needs to be controlled because it is the probability of being wrong in concluding that a drug is effective</span>
+<span id="cb1-39"><a aria-hidden="true" href="#cb1-39" tabindex="-1"></a></span>
+<span id="cb1-40"><a aria-hidden="true" href="#cb1-40" tabindex="-1"></a>Neither of these is correct, as will be explained below.  It is also explained that Bayesian posterior probabilities provide exactly the probability that a result will turn out to be false--the probability that is sought by decision makers.</span>
+<span id="cb1-41"><a aria-hidden="true" href="#cb1-41" tabindex="-1"></a></span>
+<span id="cb1-42"><a aria-hidden="true" href="#cb1-42" tabindex="-1"></a>Technical details, more examples, and references concerning what is covered in this chapter may be found <span class="co">[</span><span class="ot">here</span><span class="co">](https://hbiostat.org/proj/covid19/statdesign.html)</span>, <span class="co">[</span><span class="ot">here</span><span class="co">](https://hbiostat.org/bayes/bet/evidence.html)</span>, and <span class="co">[</span><span class="ot">here</span><span class="co">](https://hbiostat.org/doc/bayes/whybayes.pdf)</span>.</span>
+<span id="cb1-43"><a aria-hidden="true" href="#cb1-43" tabindex="-1"></a></span>
+<span id="cb1-44"><a aria-hidden="true" href="#cb1-44" tabindex="-1"></a><span class="fu">## Background</span></span>
+<span id="cb1-45"><a aria-hidden="true" href="#cb1-45" tabindex="-1"></a></span>
+<span id="cb1-46"><a aria-hidden="true" href="#cb1-46" tabindex="-1"></a><span class="in">`r mrg(sound("alpha-2"))`</span></span>
+<span id="cb1-47"><a aria-hidden="true" href="#cb1-47" tabindex="-1"></a></span>
+<span id="cb1-48"><a aria-hidden="true" href="#cb1-48" tabindex="-1"></a>**Traditional frequentist statistics involves**</span>
+<span id="cb1-49"><a aria-hidden="true" href="#cb1-49" tabindex="-1"></a></span>
+<span id="cb1-50"><a aria-hidden="true" href="#cb1-50" tabindex="-1"></a><span class="ss">* </span>computing probabilities about data if an assumption about the unknown effect holds</span>
+<span id="cb1-51"><a aria-hidden="true" href="#cb1-51" tabindex="-1"></a><span class="ss">* </span>at the expense of having to subjectively translate probabilities about data extremes given a single _possible_ effect to conclusions about unknown effects</span>
+<span id="cb1-52"><a aria-hidden="true" href="#cb1-52" tabindex="-1"></a></span>
+<span id="cb1-53"><a aria-hidden="true" href="#cb1-53" tabindex="-1"></a>**Bayesian statistics involves**</span>
+<span id="cb1-54"><a aria-hidden="true" href="#cb1-54" tabindex="-1"></a></span>
+<span id="cb1-55"><a aria-hidden="true" href="#cb1-55" tabindex="-1"></a><span class="ss">* </span>computing direct probabilities about unknown effects, taking the current data as given</span>
+<span id="cb1-56"><a aria-hidden="true" href="#cb1-56" tabindex="-1"></a><span class="ss">* </span>at the expense of having to subjectively specify an informed belief about the unknown effect---a prior distribution</span>
+<span id="cb1-57"><a aria-hidden="true" href="#cb1-57" tabindex="-1"></a></span>
+<span id="cb1-58"><a aria-hidden="true" href="#cb1-58" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
+<span id="cb1-59"><a aria-hidden="true" href="#cb1-59" tabindex="-1"></a></span>
+<span id="cb1-60"><a aria-hidden="true" href="#cb1-60" tabindex="-1"></a><span class="in">`r mrg(sound("alpha-3"))`</span></span>
+<span id="cb1-61"><a aria-hidden="true" href="#cb1-61" tabindex="-1"></a></span>
+<span id="cb1-62"><a aria-hidden="true" href="#cb1-62" tabindex="-1"></a><span class="ss">* </span>Type I assertion probability α (usually called Type I error rate) plays an important role in traditional frequentist statistical inference</span>
+<span id="cb1-63"><a aria-hidden="true" href="#cb1-63" tabindex="-1"></a><span class="ss">   + </span>especially in the Neyman-Pearson paradigm where formal rules for rejection and non-rejection of a null hypothesis were attempted to be constructed</span>
+<span id="cb1-64"><a aria-hidden="true" href="#cb1-64" tabindex="-1"></a><span class="ss">* </span>Growing interest in using the Bayesian paradigm in biomedical research</span>
+<span id="cb1-65"><a aria-hidden="true" href="#cb1-65" tabindex="-1"></a><span class="ss">* </span>But many regulators and researchers want the statistical procedure to also have frequentist operating characteristics e.g. α</span>
+<span id="cb1-66"><a aria-hidden="true" href="#cb1-66" tabindex="-1"></a><span class="ss">   + </span>oddly they never ask for the Type II probability β which will often be better with Bayes</span>
+<span id="cb1-67"><a aria-hidden="true" href="#cb1-67" tabindex="-1"></a><span class="ss">* </span>Bayesians do not ask users of purely frequentist procedures to demonstrate Bayesian operating characteristics</span>
+<span id="cb1-68"><a aria-hidden="true" href="#cb1-68" tabindex="-1"></a><span class="ss">   + </span>but it would be highly valuable to know the probability that the traditional procedure makes the right decision about a treatment</span>
+<span id="cb1-69"><a aria-hidden="true" href="#cb1-69" tabindex="-1"></a><span class="ss">* </span>Mixing Bayesian and frequentist ideas in the same analysis results in confusion while lowering the probability of reaching the correct conclusion</span>
+<span id="cb1-70"><a aria-hidden="true" href="#cb1-70" tabindex="-1"></a><span class="ss">* </span>Misunderstandings began when α was called "Type I error" when it is not the probability of making an error but rather is the probability of making an assertion of an effect</span>
+<span id="cb1-71"><a aria-hidden="true" href="#cb1-71" tabindex="-1"></a><span class="ss">* </span>α is not a decision error probability so it is not correct to attach the word _error_ to it</span>
+<span id="cb1-72"><a aria-hidden="true" href="#cb1-72" tabindex="-1"></a><span class="ss">* </span>It is the probability of triggering an assertion of an effect</span>
+<span id="cb1-73"><a aria-hidden="true" href="#cb1-73" tabindex="-1"></a></span>
+<span id="cb1-74"><a aria-hidden="true" href="#cb1-74" tabindex="-1"></a></span>
+<span id="cb1-75"><a aria-hidden="true" href="#cb1-75" tabindex="-1"></a><span class="fu">### Definitions</span></span>
+<span id="cb1-76"><a aria-hidden="true" href="#cb1-76" tabindex="-1"></a><span class="in">`r mrg(sound("alpha-4"))`</span></span>
+<span id="cb1-77"><a aria-hidden="true" href="#cb1-77" tabindex="-1"></a></span>
+<span id="cb1-78"><a aria-hidden="true" href="#cb1-78" tabindex="-1"></a><span class="ss">* </span>False positive: a positive result that is incorrect</span>
+<span id="cb1-79"><a aria-hidden="true" href="#cb1-79" tabindex="-1"></a><span class="ss">   + </span>in medical diagnosis the most common definition for false positive is a patient known to have no disease who tests positive for disease</span>
+<span id="cb1-80"><a aria-hidden="true" href="#cb1-80" tabindex="-1"></a><span class="ss">     + </span>this is subtly different from a patient with a positive test whose disease status is unknown at the time but who turns out later to be disease-free; here we do not condition on the patient being disease free</span>
+<span id="cb1-81"><a aria-hidden="true" href="#cb1-81" tabindex="-1"></a><span class="ss">* </span>False positive probability</span>
+<span id="cb1-82"><a aria-hidden="true" href="#cb1-82" tabindex="-1"></a><span class="ss">   + </span>the time order of information is extremely important</span>
+<span id="cb1-83"><a aria-hidden="true" href="#cb1-83" tabindex="-1"></a><span class="ss">     + </span>do you want the probability of a positive result **when** there is nothing?  or the probability that a positive result **turns out to be** nothing?</span>
+<span id="cb1-84"><a aria-hidden="true" href="#cb1-84" tabindex="-1"></a><span class="ss">     + </span>usual definition is P(test + | no disease) which is 1 - specificity</span>
+<span id="cb1-85"><a aria-hidden="true" href="#cb1-85" tabindex="-1"></a><span class="ss">     + </span>This is much different from the probability that a positive finding turns out to be wrong, which is P(disease absent | positive test) = 1 - PPV (predictive value positive)</span>
+<span id="cb1-86"><a aria-hidden="true" href="#cb1-86" tabindex="-1"></a><span class="ss">*  </span>What is needed in making decisions about a treatment: the probability that a positive result is wrong, e.g., that a result indicating an effect in the right direction actually comes from a treatment that truly has no effect or that has effect in the wrong direction</span>
+<span id="cb1-87"><a aria-hidden="true" href="#cb1-87" tabindex="-1"></a><span class="ss">   + </span>e.g. a hypertension drug raises blood pressure</span>
+<span id="cb1-88"><a aria-hidden="true" href="#cb1-88" tabindex="-1"></a><span class="ss">     + </span>this is much different from α (defined below)</span>
+<span id="cb1-89"><a aria-hidden="true" href="#cb1-89" tabindex="-1"></a><span class="ss">     + </span>α is not the probability of a decision error</span>
+<span id="cb1-90"><a aria-hidden="true" href="#cb1-90" tabindex="-1"></a><span class="ss">     + </span>α is not what decision makers think they are getting</span>
+<span id="cb1-91"><a aria-hidden="true" href="#cb1-91" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">Assertion</span><span class="co">](https://www.merriam-webster.com/dictionary/assertion)</span>: a statement that something is the case</span>
+<span id="cb1-92"><a aria-hidden="true" href="#cb1-92" tabindex="-1"></a><span class="ss">* </span>p-value: probability of getting, in another study, a result more impressive than that observed in the current study given the true effect is zero^<span class="co">[</span><span class="ot">This is under standard null hypothesis significance testing where the hypothesized effect is zero.</span><span class="co">]</span></span>
+<span id="cb1-93"><a aria-hidden="true" href="#cb1-93" tabindex="-1"></a><span class="ss">   + </span>_result_ can equivalently mean a summary statistic or a test statistic that is a function of the summary statistic</span>
+<span id="cb1-94"><a aria-hidden="true" href="#cb1-94" tabindex="-1"></a><span class="ss">     + </span>More formal definition: p-value is the probability under identical replicates of the current experiment, except that the true effect is zero, of getting a result more extreme than that obtained^<span class="co">[</span><span class="ot">One frequently reads "as or more impressive" or "as or more extreme", but for continuous data the probability of getting data exactly as extreme as the study's observed data is zero, so we may speak of the probability of "more extreme".</span><span class="co">]</span></span>
+<span id="cb1-95"><a aria-hidden="true" href="#cb1-95" tabindex="-1"></a><span class="ss">     + </span>A very informal definition: probability of someone else's data being more impressive than mine given my null hypothesis is true for them</span>
+<span id="cb1-96"><a aria-hidden="true" href="#cb1-96" tabindex="-1"></a><span class="ss">* </span>Type I assertion probability α: under the condition that the effect is exactly zero (e.g., that the treatment can be ignored), the probability of asserting an effect <span class="in">`r mrg(sound("alpha-5"))`</span></span>
+<span id="cb1-97"><a aria-hidden="true" href="#cb1-97" tabindex="-1"></a></span>
+<span id="cb1-98"><a aria-hidden="true" href="#cb1-98" tabindex="-1"></a><span class="ss">   + </span>α is the probability under identical replications of an experiment, when the true effect is zero, of asserting an effect in a replication (sample)</span>
+<span id="cb1-99"><a aria-hidden="true" href="#cb1-99" tabindex="-1"></a><span class="ss">   + </span>probability that a test statistic is greater than some critical value when the null is true</span>
+<span id="cb1-100"><a aria-hidden="true" href="#cb1-100" tabindex="-1"></a><span class="ss">   + </span>if assertion of effect is made when a nominal p-value &lt; α, the model is correct, and there is exactly one data look, then P(p-value &lt; α) = α</span>
+<span id="cb1-101"><a aria-hidden="true" href="#cb1-101" tabindex="-1"></a><span class="ss">   + </span>if there is more than one data look, testing using a nominal (unadjusted) p-value will result in P(p-value at at least one look &lt; α) &gt; α</span>
+<span id="cb1-102"><a aria-hidden="true" href="#cb1-102" tabindex="-1"></a><span class="ss">   + </span>α = probability of making an assertion of an effect when by definition _any_ assertion of an effect would be false</span>
+<span id="cb1-103"><a aria-hidden="true" href="#cb1-103" tabindex="-1"></a><span class="ss">   + </span>analogy: suppose that everything that a politician says is false and we rate the worthiness of the politician by the proportion of the time that he is talking</span>
+<span id="cb1-104"><a aria-hidden="true" href="#cb1-104" tabindex="-1"></a><span class="ss">* </span>Bayesian posterior probability of effect: the conditional probability that the effect is in the right direction given the prior and the current data</span>
+<span id="cb1-105"><a aria-hidden="true" href="#cb1-105" tabindex="-1"></a><span class="ss">* </span>False positive probability: one minus the Bayesian posterior probability of effect</span>
+<span id="cb1-106"><a aria-hidden="true" href="#cb1-106" tabindex="-1"></a></span>
+<span id="cb1-107"><a aria-hidden="true" href="#cb1-107" tabindex="-1"></a><span class="fu">### Examples</span></span>
+<span id="cb1-108"><a aria-hidden="true" href="#cb1-108" tabindex="-1"></a><span class="in">`r mrg(sound("alpha-6"))`</span></span>
+<span id="cb1-109"><a aria-hidden="true" href="#cb1-109" tabindex="-1"></a></span>
+<span id="cb1-110"><a aria-hidden="true" href="#cb1-110" tabindex="-1"></a><span class="ss">* </span>Posterior probability of a positive effect at the current data is 0.92</span>
+<span id="cb1-111"><a aria-hidden="true" href="#cb1-111" tabindex="-1"></a><span class="ss">* </span>Probability of being right in acting as if the treatment is effective is 0.92</span>
+<span id="cb1-112"><a aria-hidden="true" href="#cb1-112" tabindex="-1"></a><span class="ss">   + </span>probability of being wrong is 0.08</span>
+<span id="cb1-113"><a aria-hidden="true" href="#cb1-113" tabindex="-1"></a><span class="ss">   + </span>Bayesian probabilities contain their own decision error probabilities</span>
+<span id="cb1-114"><a aria-hidden="true" href="#cb1-114" tabindex="-1"></a><span class="ss">* </span>p-value = 0.06: under our model and null hypothesis the probability that a replicate study will observe data more extreme than ours is 0.06</span>
+<span id="cb1-115"><a aria-hidden="true" href="#cb1-115" tabindex="-1"></a><span class="ss">   + </span>a statement that assumes something is true (H<span class="dt">&lt;</span><span class="kw">sub</span><span class="dt">&gt;</span>0<span class="dt">&lt;/</span><span class="kw">sub</span><span class="dt">&gt;</span>) cannot inform us about the likelihood it is true</span>
+<span id="cb1-116"><a aria-hidden="true" href="#cb1-116" tabindex="-1"></a><span class="ss">   + </span>p-value provides no direct information about the likelihood an assertion is true or false; it is a probability about data, not about hypotheses</span>
+<span id="cb1-117"><a aria-hidden="true" href="#cb1-117" tabindex="-1"></a><span class="ss">* </span>Smoke alarm analogy</span>
+<span id="cb1-118"><a aria-hidden="true" href="#cb1-118" tabindex="-1"></a><span class="ss">   + </span>α is the probability that the alarm sounds when there is no fire</span>
+<span id="cb1-119"><a aria-hidden="true" href="#cb1-119" tabindex="-1"></a><span class="ss">     + </span>false positive: alarm sounds but there turns out to be no fire</span>
+<span id="cb1-120"><a aria-hidden="true" href="#cb1-120" tabindex="-1"></a><span class="ss">   + </span>false positive probability: P(no fire | alarm sounds)</span>
+<span id="cb1-121"><a aria-hidden="true" href="#cb1-121" tabindex="-1"></a><span class="ss">     + </span>Bayesian posterior probability: P(fire | air characteristics)</span>
+<span id="cb1-122"><a aria-hidden="true" href="#cb1-122" tabindex="-1"></a><span class="ss">   + </span>example Bayesian decision rule: sound alarm when P(fire | air characteristics) exceeds 0.025 when inhabitants are home and 0.01 when they are away</span>
+<span id="cb1-123"><a aria-hidden="true" href="#cb1-123" tabindex="-1"></a><span class="ss">   + </span>if designed the way many clinical trials over optimistically assume an effect size: have an 0.8 chance of sounding the alarm if there is an inferno</span>
+<span id="cb1-124"><a aria-hidden="true" href="#cb1-124" tabindex="-1"></a></span>
+<span id="cb1-125"><a aria-hidden="true" href="#cb1-125" tabindex="-1"></a><span class="fu">### Replication</span></span>
+<span id="cb1-126"><a aria-hidden="true" href="#cb1-126" tabindex="-1"></a><span class="in">`r mrg(sound("alpha-7"))`</span></span>
+<span id="cb1-127"><a aria-hidden="true" href="#cb1-127" tabindex="-1"></a></span>
+<span id="cb1-128"><a aria-hidden="true" href="#cb1-128" tabindex="-1"></a><span class="ss">* </span>At the heart of traditional statistics is the notion of replication or repeated sampling under identical conditions</span>
+<span id="cb1-129"><a aria-hidden="true" href="#cb1-129" tabindex="-1"></a><span class="ss">* </span>This leads to the notion of p-values and long-run operating characteristics</span>
+<span id="cb1-130"><a aria-hidden="true" href="#cb1-130" tabindex="-1"></a><span class="ss">   + </span>p-value involves a comparison of current data with data that could be sampled in replicate studies</span>
+<span id="cb1-131"><a aria-hidden="true" href="#cb1-131" tabindex="-1"></a><span class="ss">   + </span>α is the long-run probability of triggering an assertion of an effect over infinitely many samples</span>
+<span id="cb1-132"><a aria-hidden="true" href="#cb1-132" tabindex="-1"></a><span class="ss">* </span>It also places importance on replicating results</span>
+<span id="cb1-133"><a aria-hidden="true" href="#cb1-133" tabindex="-1"></a><span class="ss">   + </span>When Ronald Fisher was asked how to interpret a large p-value his response was "get more data"</span>
+<span id="cb1-134"><a aria-hidden="true" href="#cb1-134" tabindex="-1"></a><span class="ss">   + </span>he also said that a p-value from one-study, while helpful, needs to be confirmed with continued experimentation</span>
+<span id="cb1-135"><a aria-hidden="true" href="#cb1-135" tabindex="-1"></a><span class="ss">* </span>In urgent situations such as a pandemic, decisions need to be made quick</span>
+<span id="cb1-136"><a aria-hidden="true" href="#cb1-136" tabindex="-1"></a><span class="ss">   + </span>results from one study are immediately affecting national policy in COVID-19</span>
+<span id="cb1-137"><a aria-hidden="true" href="#cb1-137" tabindex="-1"></a><span class="ss">* </span>Need to make decisions that have the highest probabilities of being correct</span>
+<span id="cb1-138"><a aria-hidden="true" href="#cb1-138" tabindex="-1"></a><span class="ss">   + </span>this is what Bayesian posterior inference is all about, when stakeholders can settle on a prior or the sample size is large enough so that the prior doesn't matter</span>
+<span id="cb1-139"><a aria-hidden="true" href="#cb1-139" tabindex="-1"></a><span class="ss">* </span>Even in non-emergent situations where a second study can be undertaken to confirm the first, decisions have to be made</span>
+<span id="cb1-140"><a aria-hidden="true" href="#cb1-140" tabindex="-1"></a><span class="ss">   + </span>a key decision is whether it is worth undertaking the second study</span>
+<span id="cb1-141"><a aria-hidden="true" href="#cb1-141" tabindex="-1"></a><span class="ss">* </span>Replication is undeniably a good idea but it occasionally invites researchers to split a study into two studies when a single better study would provide better quality evidence</span>
+<span id="cb1-142"><a aria-hidden="true" href="#cb1-142" tabindex="-1"></a></span>
+<span id="cb1-143"><a aria-hidden="true" href="#cb1-143" tabindex="-1"></a><span class="fu">## Perceived Multiplicities</span></span>
+<span id="cb1-144"><a aria-hidden="true" href="#cb1-144" tabindex="-1"></a><span class="in">`r mrg(sound("alpha-8"))`</span></span>
+<span id="cb1-145"><a aria-hidden="true" href="#cb1-145" tabindex="-1"></a></span>
+<span id="cb1-146"><a aria-hidden="true" href="#cb1-146" tabindex="-1"></a>Multiple statistical assessments happen when</span>
+<span id="cb1-147"><a aria-hidden="true" href="#cb1-147" tabindex="-1"></a></span>
+<span id="cb1-148"><a aria-hidden="true" href="#cb1-148" tabindex="-1"></a><span class="ss">* </span>looking at the data multiple times as more subjects are enrolled</span>
+<span id="cb1-149"><a aria-hidden="true" href="#cb1-149" tabindex="-1"></a><span class="ss">* </span>looking a multiple treatments</span>
+<span id="cb1-150"><a aria-hidden="true" href="#cb1-150" tabindex="-1"></a><span class="ss">* </span>looking at multiple subgroups of subjects</span>
+<span id="cb1-151"><a aria-hidden="true" href="#cb1-151" tabindex="-1"></a><span class="ss">* </span>looking at multiple response variables</span>
+<span id="cb1-152"><a aria-hidden="true" href="#cb1-152" tabindex="-1"></a></span>
+<span id="cb1-153"><a aria-hidden="true" href="#cb1-153" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
+<span id="cb1-154"><a aria-hidden="true" href="#cb1-154" tabindex="-1"></a></span>
+<span id="cb1-155"><a aria-hidden="true" href="#cb1-155" tabindex="-1"></a><span class="ss">* </span>In traditional statistics when one considers α as a global measure, α increases as more data looks, treatments, subgroups, or response variables are analyzed</span>
+<span id="cb1-156"><a aria-hidden="true" href="#cb1-156" tabindex="-1"></a><span class="ss">* </span>Multiplicities come from the chances you give data to be more extreme</span>
+<span id="cb1-157"><a aria-hidden="true" href="#cb1-157" tabindex="-1"></a><span class="ss">   + </span>not from the chances you give assertions to be true</span>
+<span id="cb1-158"><a aria-hidden="true" href="#cb1-158" tabindex="-1"></a><span class="ss">* </span>Researchers using traditional statistics usually desire control of the overall α</span>
+<span id="cb1-159"><a aria-hidden="true" href="#cb1-159" tabindex="-1"></a><span class="ss">   + </span>chance of making at least one assertion of an effect if the effect is zero over all times/treatments/subgroups/outcomes</span>
+<span id="cb1-160"><a aria-hidden="true" href="#cb1-160" tabindex="-1"></a><span class="ss">   + </span>this in spite of the fact that α doesn't involve any data</span>
+<span id="cb1-161"><a aria-hidden="true" href="#cb1-161" tabindex="-1"></a><span class="ss">   + </span>subgroups are often of most concern</span>
+<span id="cb1-162"><a aria-hidden="true" href="#cb1-162" tabindex="-1"></a><span class="ss">* </span>Controlling α when making multiple sequential treatment comparisons is the most problematic multiplicity correction from a Bayesian perspective</span>
+<span id="cb1-163"><a aria-hidden="true" href="#cb1-163" tabindex="-1"></a></span>
+<span id="cb1-164"><a aria-hidden="true" href="#cb1-164" tabindex="-1"></a><span class="fu">### Sequential Data Look Multiplicity Non-Issues with Bayes</span></span>
+<span id="cb1-165"><a aria-hidden="true" href="#cb1-165" tabindex="-1"></a></span>
+<span id="cb1-166"><a aria-hidden="true" href="#cb1-166" tabindex="-1"></a><span class="fu">#### Pattern Recognition Example</span></span>
+<span id="cb1-167"><a aria-hidden="true" href="#cb1-167" tabindex="-1"></a><span class="in">`r mrg(sound("alpha-9"))`</span></span>
+<span id="cb1-168"><a aria-hidden="true" href="#cb1-168" tabindex="-1"></a></span>
+<span id="cb1-169"><a aria-hidden="true" href="#cb1-169" tabindex="-1"></a><span class="ss">* </span>Visual pattern recognition algorithm</span>
+<span id="cb1-170"><a aria-hidden="true" href="#cb1-170" tabindex="-1"></a><span class="ss">* </span>Goal: identify enemy tank from a distance</span>
+<span id="cb1-171"><a aria-hidden="true" href="#cb1-171" tabindex="-1"></a><span class="ss">* </span>Sampling: image recorded every 5 seconds</span>
+<span id="cb1-172"><a aria-hidden="true" href="#cb1-172" tabindex="-1"></a><span class="ss">* </span>Algorithm output: P(object is an enemy tank)</span>
+<span id="cb1-173"><a aria-hidden="true" href="#cb1-173" tabindex="-1"></a><span class="ss">* </span>First image acquired: P=0.6</span>
+<span id="cb1-174"><a aria-hidden="true" href="#cb1-174" tabindex="-1"></a><span class="ss">* </span>Object moves closer: P=0.8</span>
+<span id="cb1-175"><a aria-hidden="true" href="#cb1-175" tabindex="-1"></a><span class="ss">* </span>Weather clears: P=0.93</span>
+<span id="cb1-176"><a aria-hidden="true" href="#cb1-176" tabindex="-1"></a><span class="ss">* </span>Latest P is all that matters; earlier looks obsolete</span>
+<span id="cb1-177"><a aria-hidden="true" href="#cb1-177" tabindex="-1"></a><span class="ss">* </span>But frequentist approach deals with P(tank-like image acquired | object is not a tank)</span>
+<span id="cb1-178"><a aria-hidden="true" href="#cb1-178" tabindex="-1"></a><span class="ss">* </span>Higher sampling rate $\rightarrow$ more tank-like images ($\uparrow$ α)</span>
+<span id="cb1-179"><a aria-hidden="true" href="#cb1-179" tabindex="-1"></a><span class="ss">* </span>Not related to the decision at hand which is based on P(tank | last image)</span>
+<span id="cb1-180"><a aria-hidden="true" href="#cb1-180" tabindex="-1"></a></span>
+<span id="cb1-181"><a aria-hidden="true" href="#cb1-181" tabindex="-1"></a><span class="fu">#### Medical Diagnosis Example</span></span>
+<span id="cb1-182"><a aria-hidden="true" href="#cb1-182" tabindex="-1"></a><span class="in">`r mrg(sound("alpha-10"))`</span></span>
+<span id="cb1-183"><a aria-hidden="true" href="#cb1-183" tabindex="-1"></a></span>
+<span id="cb1-184"><a aria-hidden="true" href="#cb1-184" tabindex="-1"></a><span class="ss">* </span>Specificity = P(test - | disease absent) $\approx$ α</span>
+<span id="cb1-185"><a aria-hidden="true" href="#cb1-185" tabindex="-1"></a><span class="ss">* </span>PPV = P(disease present | test +)</span>
+<span id="cb1-186"><a aria-hidden="true" href="#cb1-186" tabindex="-1"></a><span class="ss">* </span>Physician orders a series of tests on the patient $\rightarrow$ P(disease)=0.9</span>
+<span id="cb1-187"><a aria-hidden="true" href="#cb1-187" tabindex="-1"></a><span class="ss">* </span>Another physician worries because in general patients known to be disease free have P=0.2 that at least one of those tests is positive **if** disease is absent</span>
+<span id="cb1-188"><a aria-hidden="true" href="#cb1-188" tabindex="-1"></a><span class="ss">* </span>First physician reacts</span>
+<span id="cb1-189"><a aria-hidden="true" href="#cb1-189" tabindex="-1"></a><span class="ss">   + </span>disease status is what I'm trying to **determine**</span>
+<span id="cb1-190"><a aria-hidden="true" href="#cb1-190" tabindex="-1"></a><span class="ss">   + </span>test specificities do not require discounting the 0.9 and are unrelated to the decision process</span>
+<span id="cb1-191"><a aria-hidden="true" href="#cb1-191" tabindex="-1"></a></span>
+<span id="cb1-192"><a aria-hidden="true" href="#cb1-192" tabindex="-1"></a><span class="fu">#### Sequential Clinical Trial With Unlimited Data Looks</span></span>
+<span id="cb1-193"><a aria-hidden="true" href="#cb1-193" tabindex="-1"></a><span class="in">`r mrg(sound("alpha-11"))`</span></span>
+<span id="cb1-194"><a aria-hidden="true" href="#cb1-194" tabindex="-1"></a></span>
+<span id="cb1-195"><a aria-hidden="true" href="#cb1-195" tabindex="-1"></a><span class="ss">* </span>Posterior probability of positive efficacy computed continually</span>
+<span id="cb1-196"><a aria-hidden="true" href="#cb1-196" tabindex="-1"></a><span class="ss">* </span>Assume the data model is correct and the prior is agreed upon</span>
+<span id="cb1-197"><a aria-hidden="true" href="#cb1-197" tabindex="-1"></a><span class="ss">   + </span>$\rightarrow$ posterior probability P at the planned end of study is valid</span>
+<span id="cb1-198"><a aria-hidden="true" href="#cb1-198" tabindex="-1"></a><span class="ss">* </span>If P at end of study is valid, all intermediate P's are valid</span>
+<span id="cb1-199"><a aria-hidden="true" href="#cb1-199" tabindex="-1"></a><span class="ss">   + </span>true even if P is the reason the study is stopped early</span>
+<span id="cb1-200"><a aria-hidden="true" href="#cb1-200" tabindex="-1"></a><span class="ss">* </span>P at the instant the study is stopped is well calibrated^<span class="co">[</span><span class="ot">A skeptical prior distribution will shrink the treatment effect towards zero, with more shrinkage the earlier the study is stopped, appropriately calibrating the posterior mean/median.  Traditional statistical analysis results in biased treatment effects upon early stopping for efficacy, and the bias adjustment is very complex.</span><span class="co">]</span></span>
+<span id="cb1-201"><a aria-hidden="true" href="#cb1-201" tabindex="-1"></a><span class="ss">* </span>Anyone who wants to see α for this procedure needs to realize that α is a pre-study concept that does not pertain to the current decision being made</span>
+<span id="cb1-202"><a aria-hidden="true" href="#cb1-202" tabindex="-1"></a><span class="ss">* </span>Instead of asking for α, attention should be focused on the choice of prior</span>
+<span id="cb1-203"><a aria-hidden="true" href="#cb1-203" tabindex="-1"></a><span class="ss">* </span>Miscalibration of P occurs if e.g. a reviewer wants to impose a prior that is much more/less skeptical of a positive effect than the prior used in the sequential monitoring^<span class="co">[</span><span class="ot">Once the sample size becomes moderately large, the posterior probability P will be more and more independent of the prior unless an extreme skeptic places a discontinuity in the prior---a spike of probability at a zero effect.</span><span class="co">]</span></span>
+<span id="cb1-204"><a aria-hidden="true" href="#cb1-204" tabindex="-1"></a><span class="ss">* </span>See <span class="co">[</span><span class="ot">this</span><span class="co">](https://fharrell.com/post/bayes-seq)</span> for demonstration via simulation</span>
+<span id="cb1-205"><a aria-hidden="true" href="#cb1-205" tabindex="-1"></a></span>
+<span id="cb1-206"><a aria-hidden="true" href="#cb1-206" tabindex="-1"></a><span class="fu">## Key Evidentiary Measure to Validate</span></span>
+<span id="cb1-207"><a aria-hidden="true" href="#cb1-207" tabindex="-1"></a><span class="in">`r mrg(sound("alpha-11a"))`</span></span>
+<span id="cb1-208"><a aria-hidden="true" href="#cb1-208" tabindex="-1"></a></span>
+<span id="cb1-209"><a aria-hidden="true" href="#cb1-209" tabindex="-1"></a><span class="ss">* </span>In Bayesian posterior inference the key quantity that needs to be reliable is the posterior probability (PP) of an effect **at the decision point**</span>
+<span id="cb1-210"><a aria-hidden="true" href="#cb1-210" tabindex="-1"></a><span class="ss">* </span>This is a function of</span>
+<span id="cb1-211"><a aria-hidden="true" href="#cb1-211" tabindex="-1"></a><span class="ss">   + </span>the prior distribution</span>
+<span id="cb1-212"><a aria-hidden="true" href="#cb1-212" tabindex="-1"></a><span class="ss">   + </span>the data model</span>
+<span id="cb1-213"><a aria-hidden="true" href="#cb1-213" tabindex="-1"></a><span class="ss">   + </span>the data</span>
+<span id="cb1-214"><a aria-hidden="true" href="#cb1-214" tabindex="-1"></a><span class="ss">   + </span>its validity also depends on the experimental design</span>
+<span id="cb1-215"><a aria-hidden="true" href="#cb1-215" tabindex="-1"></a><span class="ss">* </span>Frequentist inference depends on all of these except the prior</span>
+<span id="cb1-216"><a aria-hidden="true" href="#cb1-216" tabindex="-1"></a><span class="ss">* </span>Example from <span class="co">[</span><span class="ot">hbiostat.org/R/Hmisc/gbayesSeqSim.html</span><span class="co">](https://hbiostat.org/R/Hmisc/gbayesSeqSim.html)</span> (see there for code and details)</span>
+<span id="cb1-217"><a aria-hidden="true" href="#cb1-217" tabindex="-1"></a><span class="ss">* </span>Draw 1500 effects (log odds ratios) from a normal distribution with mean 0 and SD 0.5</span>
+<span id="cb1-218"><a aria-hidden="true" href="#cb1-218" tabindex="-1"></a><span class="ss">* </span>For each effect simulate a clinical trial with that effect in play</span>
+<span id="cb1-219"><a aria-hidden="true" href="#cb1-219" tabindex="-1"></a><span class="ss">* </span>Analysis prior is taken to be one that is more pessimistic than what was actually used to generate the true treatment effects (mean log(OR)=0, SD=0.35)</span>
+<span id="cb1-220"><a aria-hidden="true" href="#cb1-220" tabindex="-1"></a><span class="ss">* </span>Compute PP of effect after 25, 26, ..., 100, 105, 110, 115, ..., 1000 patients</span>
+<span id="cb1-221"><a aria-hidden="true" href="#cb1-221" tabindex="-1"></a><span class="ss">* </span>Stop the study as soon as PP &gt; 0.95</span>
+<span id="cb1-222"><a aria-hidden="true" href="#cb1-222" tabindex="-1"></a><span class="ss">* </span>Compare the PP at the moment of stopping (decision point) to the true probability of efficacy = P(true OR &lt; 1)</span>
+<span id="cb1-223"><a aria-hidden="true" href="#cb1-223" tabindex="-1"></a><span class="ss">* </span>Mean PP at time of stopping: 0.955</span>
+<span id="cb1-224"><a aria-hidden="true" href="#cb1-224" tabindex="-1"></a><span class="ss">* </span>Proportion of such stopped trials that were generated by an effective therapy: 0.985</span>
+<span id="cb1-225"><a aria-hidden="true" href="#cb1-225" tabindex="-1"></a><span class="ss">   + </span>this is our estimate of true P(OR &lt; 1)</span>
+<span id="cb1-226"><a aria-hidden="true" href="#cb1-226" tabindex="-1"></a><span class="ss">* </span>PP at decision point actually understated evidence for an effect</span>
+<span id="cb1-227"><a aria-hidden="true" href="#cb1-227" tabindex="-1"></a><span class="ss">* </span>This way of examining reliability of evidence is consistent with the Bayesian goal of uncovering whatever true parameter generated our data</span>
+<span id="cb1-228"><a aria-hidden="true" href="#cb1-228" tabindex="-1"></a></span>
+<span id="cb1-229"><a aria-hidden="true" href="#cb1-229" tabindex="-1"></a></span>
+<span id="cb1-230"><a aria-hidden="true" href="#cb1-230" tabindex="-1"></a><span class="fu">## Summary</span></span>
+<span id="cb1-231"><a aria-hidden="true" href="#cb1-231" tabindex="-1"></a><span class="in">`r mrg(sound("alpha-12"))`</span></span>
+<span id="cb1-232"><a aria-hidden="true" href="#cb1-232" tabindex="-1"></a></span>
+<span id="cb1-233"><a aria-hidden="true" href="#cb1-233" tabindex="-1"></a><span class="ss">* </span>Bayesian posterior probabilities are directly used in the decision at hand</span>
+<span id="cb1-234"><a aria-hidden="true" href="#cb1-234" tabindex="-1"></a><span class="ss">* </span>Type I assertion probability α is not relevant for the current decision</span>
+<span id="cb1-235"><a aria-hidden="true" href="#cb1-235" tabindex="-1"></a><span class="ss">* </span>α is not the probability of making a wrong decision but is a long-run probability of asserting an effect when any assertion would by definition be wrong</span>
+<span id="cb1-236"><a aria-hidden="true" href="#cb1-236" tabindex="-1"></a><span class="ss">* </span>Bayesian posterior probabilities are self-contained, and 1 - P(positive effect) = P(treatment doesn't work or moves the patient in the wrong direction given current data)</span>
+<span id="cb1-237"><a aria-hidden="true" href="#cb1-237" tabindex="-1"></a><span class="ss">* </span>Mixing Bayesian and frequentist probabilities is confusing to decision makers</span>
+<span id="cb1-238"><a aria-hidden="true" href="#cb1-238" tabindex="-1"></a><span class="ss">* </span>Attention needs to be focused on the specification of the prior, not on using complex simulations to compute α for a Bayesian procedure that does not use indirect probabilities</span></code></pre></div><button class="code-copy-button" data-in-quarto-modal="" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+<div class="nav-footer">
+<div class="nav-footer-left">
+<ul class="footer-items list-unstyled">
+<li class="nav-item">
+ Copyright 2025, Frank E Harrell Jr
+  </li>
+</ul>
+</div>
+<div class="nav-footer-center">
+       
+    </div>
+<div class="nav-footer-right">
+<ul class="footer-items list-unstyled">
+<li class="nav-item">
+<a class="nav-link" href="https://www.gnu.org/licenses/gpl-3.0.en.html">
+<p>License</p>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</footer>
+</body></html>

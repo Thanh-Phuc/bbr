@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta charset="utf-8"/>
+<meta content="quarto-1.10.0" name="generator"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport"/>
+<title>16  Analysis of Observer Variability and Measurement Agreement – Biostatistics for Biomedical Research</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta content="./" name="quarto:offset"/>
+<link href="propensity.html" rel="next"/>
+<link href="serial.html" rel="prev"/>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet"/>
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-9c5e1a58ae97b3faeeb5cca0e0e2eaf1.css" id="quarto-text-highlighting-styles" rel="stylesheet"/>
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet"/>
+<link append-hash="true" data-mode="light" href="site_libs/bootstrap/bootstrap-39d25629837ca44e2eea0020ef944eda.min.css" id="quarto-bootstrap" rel="stylesheet"/>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FN79JJ28KR', { 'anonymize_ip': true});
+</script>
+<script class="js-hypothesis-config" type="application/json">
+{
+  "theme": "clean",
+  "openSidebar": false,
+  "enableExperimentalNewNoteButton": true
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+<link href="h.css" rel="stylesheet"/>
+<meta content="16  Analysis of Observer Variability and Measurement Agreement – Biostatistics for Biomedical Research" name="twitter:title"/>
+<meta content="" name="twitter:description"/>
+<meta content="f2harrell" name="twitter:creator"/>
+<meta content="f2harrell" name="twitter:site"/>
+<meta content="summary" name="twitter:card"/>
+</head>
+<body class="nav-sidebar floating nav-fixed slimcontent quarto-light">
+<div id="quarto-search-results"></div>
+<header class="headroom fixed-top" id="quarto-header">
+<nav class="navbar navbar-expand-xl" data-bs-theme="dark">
+<div class="navbar-container container-fluid">
+<div class="navbar-brand-container mx-auto">
+<a class="navbar-brand" href="index.html">
+<span class="navbar-title">Biostatistics for Biomedical Research</span>
+</a>
+</div>
+<div class="quarto-navbar-tools tools-end">
+</div>
+<div class="" id="quarto-search" title="Search"></div>
+</div> <!-- /container-fluid -->
+</nav>
+<nav class="quarto-secondary-nav">
+<div class="container-fluid d-flex">
+<button aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" class="quarto-btn-toggle btn" data-bs-target=".quarto-sidebar-collapse-item" data-bs-toggle="collapse" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }" role="button" type="button">
+<i class="bi bi-layout-text-sidebar-reverse"></i>
+</button>
+<nav aria-label="breadcrumb" class="quarto-page-breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="obsvar.html"><span class="chapter-number">16</span>  <span class="chapter-title">Analysis of Observer Variability and Measurement Agreement</span></a></li></ol></nav>
+<a aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" class="flex-grow-1" data-bs-target=".quarto-sidebar-collapse-item" data-bs-toggle="collapse" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }" role="navigation">
+</a>
+</div>
+</nav>
+</header>
+<!-- content -->
+<div class="quarto-container page-columns page-rows-contents page-layout-article page-navbar" id="quarto-content">
+<!-- sidebar -->
+<nav class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" id="quarto-sidebar">
+<div class="sidebar-menu-container">
+<ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="index.html">
+<span class="menu-text">Preface</span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="r.html">
+<span class="menu-text"><span class="chapter-number">1</span>  <span class="chapter-title"><code>R</code></span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="algebra.html">
+<span class="menu-text"><span class="chapter-number">2</span>  <span class="chapter-title">Algebra Review</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="overview.html">
+<span class="menu-text"><span class="chapter-number">3</span>  <span class="chapter-title">General Overview of Biostatistics</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="descript.html">
+<span class="menu-text"><span class="chapter-number">4</span>  <span class="chapter-title">Descriptive Statistics, Distributions, and Graphics</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="htest.html">
+<span class="menu-text"><span class="chapter-number">5</span>  <span class="chapter-title">Statistical Inference</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="prop.html">
+<span class="menu-text"><span class="chapter-number">6</span>  <span class="chapter-title">Comparing Two Proportions</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="nonpar.html">
+<span class="menu-text"><span class="chapter-number">7</span>  <span class="chapter-title">Nonparametric Statistical Tests</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="corr.html">
+<span class="menu-text"><span class="chapter-number">8</span>  <span class="chapter-title">Correlation and Nonparametric Regression</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="rmsintro.html">
+<span class="menu-text"><span class="chapter-number">9</span>  <span class="chapter-title">Introduction to the <code>R</code> <code>rms</code> Package: The Linear Model</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="reg.html">
+<span class="menu-text"><span class="chapter-number">10</span>  <span class="chapter-title">Simple and Multiple Regression Models and Overview of Model Validation</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="multgroup.html">
+<span class="menu-text"><span class="chapter-number">11</span>  <span class="chapter-title">Multiple Groups</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="infreview.html">
+<span class="menu-text"><span class="chapter-number">12</span>  <span class="chapter-title">Statistical Inference Review</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="ancova.html">
+<span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Analysis of Covariance in Randomized Studies</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="change.html">
+<span class="menu-text"><span class="chapter-number">14</span>  <span class="chapter-title">Transformations, Measuring Change, and Regression to the Mean</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="serial.html">
+<span class="menu-text"><span class="chapter-number">15</span>  <span class="chapter-title">Serial Data</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link active" href="obsvar.html">
+<span class="menu-text"><span class="chapter-number">16</span>  <span class="chapter-title">Analysis of Observer Variability and Measurement Agreement</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="propensity.html">
+<span class="menu-text"><span class="chapter-number">17</span>  <span class="chapter-title">Modeling for Observational Treatment Comparisons</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="info.html">
+<span class="menu-text"><span class="chapter-number">18</span>  <span class="chapter-title">Information Loss</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="dx.html">
+<span class="menu-text"><span class="chapter-number">19</span>  <span class="chapter-title">Diagnosis</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="hdata.html">
+<span class="menu-text"><span class="chapter-number">20</span>  <span class="chapter-title">Challenges of Analyzing High-Dimensional Data</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="repro.html">
+<span class="menu-text"><span class="chapter-number">21</span>  <span class="chapter-title">Reproducible Research</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="alpha.html">
+<span class="menu-text"><span class="chapter-number">22</span>  <span class="chapter-title">Controlling α vs. Probability of a Decision Error</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="figures.html">
+<span class="menu-text">List of Figures</span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="references.html">
+<span class="menu-text">Annotated References</span></a>
+</div>
+</li>
+</ul>
+</div>
+</nav>
+<div class="quarto-sidebar-collapse-item" data-bs-target=".quarto-sidebar-collapse-item" data-bs-toggle="collapse" id="quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+<div class="sidebar margin-sidebar" id="quarto-margin-sidebar">
+<nav class="toc-active" id="TOC" role="doc-toc">
+<h2 id="toc-title">Table of contents</h2>
+<ul>
+<li><a class="nav-link active" data-scroll-target="#intra--and-inter-observer-disagreement" href="#intra--and-inter-observer-disagreement" id="toc-intra--and-inter-observer-disagreement"><span class="header-section-number">16.1</span> Intra- and Inter-observer Disagreement</a></li>
+<li><a class="nav-link" data-scroll-target="#comparison-of-measurements-with-a-standard" href="#comparison-of-measurements-with-a-standard" id="toc-comparison-of-measurements-with-a-standard"><span class="header-section-number">16.2</span> Comparison of Measurements with a Standard</a></li>
+<li><a class="nav-link" data-scroll-target="#special-case-assessing-agreement-in-two-binary-variables" href="#special-case-assessing-agreement-in-two-binary-variables" id="toc-special-case-assessing-agreement-in-two-binary-variables"><span class="header-section-number">16.3</span> Special Case: Assessing Agreement In Two Binary Variables</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#measuring-agreement-between-two-observers" href="#measuring-agreement-between-two-observers" id="toc-measuring-agreement-between-two-observers"><span class="header-section-number">16.3.1</span> Measuring Agreement Between Two Observers</a></li>
+<li><a class="nav-link" data-scroll-target="#measuring-agreement-between-one-observer-and-a-standard" href="#measuring-agreement-between-one-observer-and-a-standard" id="toc-measuring-agreement-between-one-observer-and-a-standard"><span class="header-section-number">16.3.2</span> Measuring Agreement Between One Observer and a Standard</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#problems" href="#problems" id="toc-problems"><span class="header-section-number">16.4</span> Problems</a></li>
+<li><a class="nav-link" data-scroll-target="#references" href="#references" id="toc-references"><span class="header-section-number">16.5</span> References</a></li>
+</ul>
+</nav>
+</div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+<header class="quarto-title-block default" id="title-block-header">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="quarto-section-identifier" id="sec-obsvar"><span class="chapter-number">16</span>  <span class="chapter-title">Analysis of Observer Variability and Measurement Agreement</span></span></h1><button aria-expanded="false" class="btn code-tools-button dropdown-toggle" data-bs-toggle="dropdown" id="quarto-code-tools-menu" type="button"><i class="bi"></i> Code</button><ul aria-labelelledby="quarto-code-tools-menu" class="dropdown-menu dropdown-menu-end"><li><a class="dropdown-item" href="javascript:void(0)" id="quarto-show-all-code" role="button">Show All Code</a></li><li><a class="dropdown-item" href="javascript:void(0)" id="quarto-hide-all-code" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"/></li><li><a class="dropdown-item" href="javascript:void(0)" id="quarto-view-source" role="button">View Source</a></li></ul></div></div>
+</div>
+<div class="quarto-title-meta">
+</div>
+</header>
+<!--  Converted obsVar.pdf using newocr.com--->
+<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside">This chapter was written by FE Harrell, 1987</span></div></div>
+<section class="level2 page-columns page-full" data-number="16.1" id="intra--and-inter-observer-disagreement">
+<h2 class="anchored" data-anchor-id="intra--and-inter-observer-disagreement" data-number="16.1"><span class="header-section-number">16.1</span> Intra- and Inter-observer Disagreement</h2>
+<p>Before using a measurement instrument or diagnostic technique routinely, a researcher may wish to quantify the extent to which two determinations of the measurement, made by two different observers or measurement devices, disagree (inter-observer variability). She may also wish to quantify the repeatability of one observer in making the measurement at different times (intra-observer variability). To make these assessments, she has each observer make the measurement for each of a number of experimental units (e.g., subjects).</p>
+<p>The measurements being analyzed may be continuous, ordinal, or binary (yes/no). Ordinal measurements must be coded such that distances between values reflects the relative importance of disagreement. For example, if a measurement has the values 1, 2, 3 for poor, fair, good, it is assumed that “good” is as different from “fair” as “fair” is from “poor”. if this is not the case, a different coding should be used, such as coding 0 for “poor” if poor should be twice as far from “fair” as “fair” is from “good”. Measurements that are yes/no or positive/negative should be coded as 1 or 0. The reason for this will be seen below.</p>
+<p>There are many statistical methods for quantifying inter- and intra-observer variability. Correlation coefficients are frequently reported, but a perfect correlation can result even when the measurements disagree by a factor of 10. Variance components analysis and intra-class correlation are often used, but these make many assumptions, do not handle missing data very well, and are difficult to interpret. Some analysts, in assessing inter-observer agreement when each observer makes several determinations, compute differences between the average determinations for each observer. This method clearly yields a biased measurement of inter-observer agreement because it cancels the intra-observer variability.</p>
+<p>A general and descriptive method for assessing observer variability will now be presented. The methods uses a general type of statistic called the <span class="math inline">\(U\)</span> statistic, invented by Hoeffding <span class="citation" data-cites="hoe48cla">Hoeffding (<a href="references.html#ref-hoe48cla" role="doc-biblioref">1948</a>)</span><a class="footnote-ref" href="#fn1" id="fnref1" role="doc-noteref"><sup>1</sup></a>. For definiteness, an analysis for 3 observers and 2 readings per observer will be shown. When designing such a study, the researcher should remember that the number of experimental units is usually the critical factor in determining the precision of estimates. There is not much to gain from having each observer make more than a few readings or from having 30 observers in the study (although if few observers are used, these are assumed to be “typical” observers).</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup> The Wilcoxon test and the <span class="math inline">\(c\)</span>-index are other examples of <span class="math inline">\(U\)</span> statistics.</p></div></div><p>The intra-observer disagreement for a single subject or unit is defined as the average of the intra-observer absolute measurement differences. In other words, intra-observer disagreement is the average absolute difference between any two measurements from the same observer. The inter-observer disagreement for one unit is defined as the average absolute difference between any two readings from different observers. Disagreement measures are computed separately for each unit and combined over units (by taking the mean or median for example) to get an overall summary measure. Units having more readings get more weight. When a reading is missing, that reading does not enter into any calculation and the denominator used in finding the mean disagreement is reduced by one.</p>
+<p>Suppose that for one patient, observers A, B, and C make the following determinations on two separate occasions, all on the same patient:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>5,7</td>
+<td>8,5</td>
+<td>6,7</td>
+</tr>
+</tbody>
+</table>
+<p>For that patient, the mean intra-observer difference is <span class="math inline">\((|5-7| +
+|8-5| + |6-7|)/3 = \frac{2+3+1}{3} = 2\)</span>.</p>
+<p>The mean inter-observer difference is <span class="math inline">\((|5-8| + |5-5| + |5-6|+ |5-7| + |7-8| + |7-5| + |7-6| + |7-7|+\)</span> <span class="math inline">\(|8-6|
++ |8-7| + |5-6| + |5-7|)/12 =\)</span> <span class="math inline">\((3+0+1+2+1+2+1+0+2+1+1+2)/12 =\)</span> <span class="math inline">\(\frac{16}{12} = 1.33\)</span>.</p>
+<p>If the first reading for observer A were unobtainable, the mean intra-observer difference for that patient would be <span class="math inline">\((|8-5| + |6-7|)/2
+= \frac{3+1}{2} = 2\)</span> and the mean inter-observer difference would be <span class="math inline">\((|7-8|
++ |7-5| + |7-6| + |7-7| + |8-6| + |8-7| + |5-6| + |5-7|)/8 =\)</span> <span class="math inline">\((1+2+1+0+2+1+1+2)/8 = \frac{10}{8} = 1.25\)</span>.</p>
+<p>The computations are carried out in like manner for each patient and summarized as follows:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Patient</th>
+<th>Intra-observer</th>
+<th>Inter-observer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>Difference</td>
+<td>Difference</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>2.00</td>
+<td>1.33</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>1.00</td>
+<td>3.50</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>1.50</td>
+<td>2.66</td>
+</tr>
+<tr class="odd">
+<td>.</td>
+<td>.</td>
+<td>.</td>
+</tr>
+<tr class="even">
+<td>.</td>
+<td>.</td>
+<td>.</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(n\)</span></td>
+<td>.</td>
+<td>.</td>
+</tr>
+<tr class="even">
+<td><strong>Overall Average</strong> (or median)</td>
+<td>1.77</td>
+<td>2.23</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(Q_{1}\)</span></td>
+<td>0.30</td>
+<td>0.38</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(Q_{3}\)</span></td>
+<td>2.15</td>
+<td>2.84</td>
+</tr>
+</tbody>
+</table>
+<p>Here is an example using <code>R</code> to compute mean inter- and intra-observer absolute differences for 4 subjects each assessed twice by each of 3 observers. The first subject consists of data above. The calculations are first done for the first subject alone, to check against computations above.</p>
+<div class="cell">
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">rep=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">observer=</span><span class="fu">c</span>(<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'C'</span>), <span class="at">subject=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a>d<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">7</span>, <span class="dv">8</span>,<span class="dv">5</span>, <span class="dv">6</span>,<span class="dv">7</span>,</span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a>         <span class="dv">7</span>,<span class="dv">6</span>, <span class="dv">8</span>,<span class="dv">6</span>, <span class="dv">9</span>,<span class="dv">7</span>,</span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a>         <span class="dv">7</span>,<span class="dv">5</span>, <span class="dv">4</span>,<span class="dv">6</span>, <span class="dv">10</span>,<span class="dv">11</span>,</span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a>         <span class="dv">7</span>,<span class="dv">6</span>, <span class="dv">5</span>,<span class="dv">6</span>, <span class="dv">9</span>,<span class="dv">8</span>)</span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a>d</span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   rep observer subject  y
+1    1        A       1  5
+2    2        A       1  7
+3    1        B       1  8
+4    2        B       1  5
+5    1        C       1  6
+6    2        C       1  7
+7    1        A       2  7
+8    2        A       2  6
+9    1        B       2  8
+10   2        B       2  6
+11   1        C       2  9
+12   2        C       2  7
+13   1        A       3  7
+14   2        A       3  5
+15   1        B       3  4
+16   2        B       3  6
+17   1        C       3 10
+18   2        C       3 11
+19   1        A       4  7
+20   2        A       4  6
+21   1        B       4  5
+22   2        B       4  6
+23   1        C       4  9
+24   2        C       4  8</code></pre>
+</div>
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" href="#cb3-1" tabindex="-1"></a><span class="co"># Function to compute mean absolute discrepancies</span></span>
+<span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a>mad <span class="ot">&lt;-</span> <span class="cf">function</span>(y, obs, subj) {</span>
+<span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a>  nintra <span class="ot">&lt;-</span> ninter <span class="ot">&lt;-</span> sumintra <span class="ot">&lt;-</span> suminter <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb3-4"><a aria-hidden="true" href="#cb3-4" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(y)</span>
+<span id="cb3-5"><a aria-hidden="true" href="#cb3-5" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span> <span class="sc">:</span> (n <span class="sc">-</span> <span class="dv">1</span>)) {</span>
+<span id="cb3-6"><a aria-hidden="true" href="#cb3-6" tabindex="-1"></a>    <span class="cf">for</span>(j <span class="cf">in</span> (i <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">:</span> n) {</span>
+<span id="cb3-7"><a aria-hidden="true" href="#cb3-7" tabindex="-1"></a>      <span class="cf">if</span>(subj[i] <span class="sc">==</span> subj[j]) {</span>
+<span id="cb3-8"><a aria-hidden="true" href="#cb3-8" tabindex="-1"></a>        dif <span class="ot">&lt;-</span> <span class="fu">abs</span>(y[i] <span class="sc">-</span> y[j])</span>
+<span id="cb3-9"><a aria-hidden="true" href="#cb3-9" tabindex="-1"></a>        <span class="cf">if</span>(<span class="sc">!</span> <span class="fu">is.na</span>(dif)) {</span>
+<span id="cb3-10"><a aria-hidden="true" href="#cb3-10" tabindex="-1"></a>          <span class="cf">if</span>(obs[i] <span class="sc">==</span> obs[j]) {</span>
+<span id="cb3-11"><a aria-hidden="true" href="#cb3-11" tabindex="-1"></a>            nintra   <span class="ot">&lt;-</span> nintra <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb3-12"><a aria-hidden="true" href="#cb3-12" tabindex="-1"></a>            sumintra <span class="ot">&lt;-</span> sumintra <span class="sc">+</span> dif</span>
+<span id="cb3-13"><a aria-hidden="true" href="#cb3-13" tabindex="-1"></a>          }</span>
+<span id="cb3-14"><a aria-hidden="true" href="#cb3-14" tabindex="-1"></a>          <span class="cf">else</span> {</span>
+<span id="cb3-15"><a aria-hidden="true" href="#cb3-15" tabindex="-1"></a>            ninter   <span class="ot">&lt;-</span> ninter <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb3-16"><a aria-hidden="true" href="#cb3-16" tabindex="-1"></a>            suminter <span class="ot">&lt;-</span> suminter <span class="sc">+</span> dif</span>
+<span id="cb3-17"><a aria-hidden="true" href="#cb3-17" tabindex="-1"></a>          }</span>
+<span id="cb3-18"><a aria-hidden="true" href="#cb3-18" tabindex="-1"></a>        }</span>
+<span id="cb3-19"><a aria-hidden="true" href="#cb3-19" tabindex="-1"></a>      }</span>
+<span id="cb3-20"><a aria-hidden="true" href="#cb3-20" tabindex="-1"></a>    }</span>
+<span id="cb3-21"><a aria-hidden="true" href="#cb3-21" tabindex="-1"></a>  }</span>
+<span id="cb3-22"><a aria-hidden="true" href="#cb3-22" tabindex="-1"></a>  <span class="fu">c</span>(<span class="at">nintra=</span>nintra, <span class="at">intra=</span>sumintra <span class="sc">/</span> nintra,</span>
+<span id="cb3-23"><a aria-hidden="true" href="#cb3-23" tabindex="-1"></a>    <span class="at">ninter=</span>ninter, <span class="at">inter=</span>suminter <span class="sc">/</span> ninter)</span>
+<span id="cb3-24"><a aria-hidden="true" href="#cb3-24" tabindex="-1"></a>}</span>
+<span id="cb3-25"><a aria-hidden="true" href="#cb3-25" tabindex="-1"></a></span>
+<span id="cb3-26"><a aria-hidden="true" href="#cb3-26" tabindex="-1"></a><span class="co"># Compute statistics for first subject</span></span>
+<span id="cb3-27"><a aria-hidden="true" href="#cb3-27" tabindex="-1"></a><span class="fu">with</span>(<span class="fu">subset</span>(d, subject <span class="sc">==</span> <span class="dv">1</span>), <span class="fu">mad</span>(y, observer, subject))</span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   nintra     intra    ninter     inter 
+ 3.000000  2.000000 12.000000  1.333333 </code></pre>
+</div>
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" href="#cb5-1" tabindex="-1"></a><span class="co"># Compute for all subjects</span></span>
+<span id="cb5-2"><a aria-hidden="true" href="#cb5-2" tabindex="-1"></a><span class="fu">with</span>(d, <span class="fu">mad</span>(y, observer, subject))</span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   nintra     intra    ninter     inter 
+12.000000  1.583333 48.000000  2.125000 </code></pre>
+</div>
+</div>
+<p>Zhouwen Liu in the Vanderbilt Department of Biostatistics has developed much more general purpose software for this in <code>R</code>.<br/>
+See <a href="https://github.com/harrelfe/rscripts">github.com/harrelfe/rscripts</a>. The following example loads the source code and runs the above example. The <code>R</code> functions implement bootstrap nonparametric percentile confidence limits for mean absolute discrepency measures.</p>
+<div class="cell">
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" href="#cb7-1" tabindex="-1"></a><span class="fu">require</span>(Hmisc)</span>
+<span id="cb7-2"><a aria-hidden="true" href="#cb7-2" tabindex="-1"></a><span class="fu">getRs</span>(<span class="st">'observerVariability.r'</span>)</span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>YOU ARE RUNNING A DEMO VERSION 3_2 </code></pre>
+</div>
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" href="#cb9-1" tabindex="-1"></a><span class="fu">with</span>(d, {</span>
+<span id="cb9-2"><a aria-hidden="true" href="#cb9-2" tabindex="-1"></a>  intra <span class="ot">&lt;-</span> <span class="fu">intraVar</span>(subject, observer, y)</span>
+<span id="cb9-3"><a aria-hidden="true" href="#cb9-3" tabindex="-1"></a>  <span class="fu">print</span>(intra)</span>
+<span id="cb9-4"><a aria-hidden="true" href="#cb9-4" tabindex="-1"></a>  <span class="fu">summary</span>(intra)</span>
+<span id="cb9-5"><a aria-hidden="true" href="#cb9-5" tabindex="-1"></a>  <span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
+<span id="cb9-6"><a aria-hidden="true" href="#cb9-6" tabindex="-1"></a>  b<span class="ot">=</span><span class="fu">bootStrap</span>(intra, <span class="at">by =</span> <span class="st">'subject'</span>, <span class="at">times=</span><span class="dv">1000</span>)</span>
+<span id="cb9-7"><a aria-hidden="true" href="#cb9-7" tabindex="-1"></a>  <span class="co"># Get 0.95 CL for mean absolute intra-observer difference</span></span>
+<span id="cb9-8"><a aria-hidden="true" href="#cb9-8" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">quantile</span>(b, <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>)))</span>
+<span id="cb9-9"><a aria-hidden="true" href="#cb9-9" tabindex="-1"></a>  inter <span class="ot">&lt;-</span> <span class="fu">interVar</span>(subject, observer, y)</span>
+<span id="cb9-10"><a aria-hidden="true" href="#cb9-10" tabindex="-1"></a>  <span class="fu">print</span>(inter)</span>
+<span id="cb9-11"><a aria-hidden="true" href="#cb9-11" tabindex="-1"></a>  <span class="fu">summary</span>(inter)</span>
+<span id="cb9-12"><a aria-hidden="true" href="#cb9-12" tabindex="-1"></a>  b <span class="ot">&lt;-</span> <span class="fu">bootStrap</span>(inter, <span class="at">by =</span> <span class="st">'subject'</span>, <span class="at">times=</span><span class="dv">1000</span>)</span>
+<span id="cb9-13"><a aria-hidden="true" href="#cb9-13" tabindex="-1"></a>  <span class="co"># Get 0.95 CL for mean absolute inter-observer difference</span></span>
+<span id="cb9-14"><a aria-hidden="true" href="#cb9-14" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">quantile</span>(b, <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>)))</span>
+<span id="cb9-15"><a aria-hidden="true" href="#cb9-15" tabindex="-1"></a>})</span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Intra-Variability 
+
+Measures by Subjects and Raters
+   subject rater variability N
+1        1     A           2 1
+2        1     B           3 1
+3        1     C           1 1
+4        2     A           1 1
+5        2     B           2 1
+6        2     C           2 1
+7        3     A           2 1
+8        3     B           2 1
+9        3     C           1 1
+10       4     A           1 1
+11       4     B           1 1
+12       4     C           1 1
+
+Measures by Subjects
+  subject variability N
+1       1    2.000000 3
+2       2    1.666667 3
+3       3    1.666667 3
+4       4    1.000000 3
+
+Measures by Raters
+  subject variability N
+1       A        1.50 4
+2       B        2.00 4
+3       C        1.25 4
+Intra-variability summary:
+
+Measures by Subjects and Raters
+Variability mean:  1.583333 
+Variability median:  1.5 
+Variability range:  1 3 
+Variability quantile: 
+0%:  1   25%:  1   50%:  1.5   75%:  2   100%:  3 
+
+Measures by Subjects
+Variability mean:  1.583333 
+Variability median:  1.666667 
+Variability range:  1 2 
+Variability quantile: 
+0%:  1   25%:  1.5   50%:  1.666667   75%:  1.75   100%:  2 
+
+Measures by Raters
+Variability mean:  1.583333 
+Variability median:  1.5 
+Variability range:  1.25 2 
+Variability quantile: 
+0%:  1.25   25%:  1.375   50%:  1.5   75%:  1.75   100%:  2 
+    2.5%    97.5% 
+1.166667 1.916667 
+Input object size:   3192 bytes;     9 variables     12 observations
+Renamed variable     rater  to rater1 
+Renamed variable     disagreement   to variability 
+Dropped variables   diff,std,auxA1,auxA2
+New object size:    1592 bytes; 5 variables 12 observations
+Inter-Variability 
+
+Measures for All Pairs of Raters
+   subject rater1 rater2 variability N
+1        1      1      2         1.5 4
+5        2      1      2         1.0 4
+9        3      1      2         1.5 4
+13       4      1      2         1.0 4
+17       1      1      3         1.0 4
+21       2      1      3         1.5 4
+25       3      1      3         4.5 4
+29       4      1      3         2.0 4
+33       1      2      3         1.5 4
+37       2      2      3         1.5 4
+41       3      2      3         5.5 4
+45       4      2      3         3.0 4
+
+Measures by Rater Pairs
+  rater1 rater2 variability  N
+1      1      2       1.250 16
+2      1      3       2.250 16
+3      2      3       2.875 16
+
+Measures by Subjects
+  subject variability  N
+1       1    1.333333 12
+2       2    1.333333 12
+3       3    3.833333 12
+4       4    2.000000 12
+Inter-variability summary:
+Measures for All Pairs of Raters
+Variability mean:  2.125 
+Variability median:  1.5 
+Variability range:  1 5.5 
+Variability quantile: 
+0%:  1   25%:  1.375   50%:  1.5   75%:  2.25   100%:  5.5 
+
+Measures by Rater Pairs only
+Variability mean:  2.125 
+Variability median:  2.25 
+Variability range:  1.25 2.875 
+Variability quantile: 
+0%:  1.25   25%:  1.75   50%:  2.25   75%:  2.5625   100%:  2.875 
+
+Measures by Subjects
+Variability mean:  2.125 
+Variability median:  1.666667 
+Variability range:  1.333333 3.833333 
+Variability quantile: 
+0%:  1.333333   25%:  1.333333   50%:  1.666667   75%:  2.458333   100%:  3.833333 
+    2.5%    97.5% 
+1.333333 3.208333 </code></pre>
+</div>
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-hidden="true" href="#cb11-1" tabindex="-1"></a><span class="co"># To load a demo file into an RStudio script editor window, type</span></span>
+<span id="cb11-2"><a aria-hidden="true" href="#cb11-2" tabindex="-1"></a><span class="co"># getRs('observerVariability_example.r', put='rstudio')</span></span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>From the above output, the 0.95 CL for the mean absolute intra-observer difference is <span class="math inline">\([1.17, 1.92]\)</span> and is <span class="math inline">\([1.33, 3.21]\)</span> for the inter-observer difference. The bootstrap confidence intervals use the cluster bootstrap to account for correlations of multiple readings from the same subject.</p>
+<p>When the measurement of interest is a yes/no determination such as presence or absence of a disease these difference statistics are generalizations of the fraction of units in which there is exact agreement in the yes/no determination, when the absolute differences are summarized by averaging. To see this, consider the following data with only one observer:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%"/>
+<col style="width: 20%"/>
+<col style="width: 20%"/>
+<col style="width: 20%"/>
+<col style="width: 20%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Patient</th>
+<th>Determinations</th>
+<th><span class="math inline">\(D_{1}, D_{2}\)</span></th>
+<th>Agreement?</th>
+<th><span class="math inline">\(|D_{1} -D_{2}|\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Y Y</td>
+<td>1 1</td>
+<td>Y</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Y N</td>
+<td>1 0</td>
+<td>N</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>N Y</td>
+<td>0 1</td>
+<td>N</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>N N</td>
+<td>0 0</td>
+<td>Y</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>N N</td>
+<td>0 0</td>
+<td>Y</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Y N</td>
+<td>1 0</td>
+<td>N</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>The average <span class="math inline">\(|D_{1} - D_{2}|\)</span> is <span class="math inline">\(\frac{3}{6} = 0.5\)</span> which is equal to the proportion of cases in which the two readings disagree.</p>
+<p>An advantage of this method of summarizing observer differences is that the investigator can judge what is an acceptable difference and he can relate this directly to the summary disagreement statistic.</p>
+</section>
+<section class="level2" data-number="16.2" id="comparison-of-measurements-with-a-standard">
+<h2 class="anchored" data-anchor-id="comparison-of-measurements-with-a-standard" data-number="16.2"><span class="header-section-number">16.2</span> Comparison of Measurements with a Standard</h2>
+<p>When the true measurement is known for each unit (or the true diagnosis is known for each patient), similar calculations can he used to quantify the extent of errors in the measurements. For each unit, the average (over observers) difference from the true value is computed and these differences are summarized over the units. For example, if for unit #1 observer A measures 5 and 7, observer 8 measured 8 and 5, and the true value is 6, the average absolute error is <span class="math inline">\((|5-6|+|7-6|+ |8-6|+|5-6|)/4 = \frac{1+1+2+1}{4}
+= \frac{5}{4} = 1.25\)</span></p>
+</section>
+<section class="level2 page-columns page-full" data-number="16.3" id="special-case-assessing-agreement-in-two-binary-variables">
+<h2 class="anchored" data-anchor-id="special-case-assessing-agreement-in-two-binary-variables" data-number="16.3"><span class="header-section-number">16.3</span> Special Case: Assessing Agreement In Two Binary Variables</h2>
+<section class="level3 page-columns page-full" data-number="16.3.1" id="measuring-agreement-between-two-observers">
+<h3 class="anchored" data-anchor-id="measuring-agreement-between-two-observers" data-number="16.3.1"><span class="header-section-number">16.3.1</span> Measuring Agreement Between Two Observers</h3>
+<p>Suppose that each of <span class="math inline">\(n\)</span> patients undergoes two diagnostic tests that can yield only the values positive and negative. The data can be summarized in the following frequency table.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>Test 2</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>+ -</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Test 1</td>
+<td>+</td>
+<td>a b</td>
+<td>g</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>-</td>
+<td>c d</td>
+<td>h</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>e f</td>
+<td>n</td>
+</tr>
+</tbody>
+</table>
+<p>An estimate of the probability that the two tests agree is <span class="math inline">\(p_{A}=\frac{a+d}{n}\)</span>. An approximate 0.95 confidence interval for the true probability is derived from <span class="math inline">\(p_{A} \pm 1.96 \sqrt{p_{A} (1 - p_{A})/n}\)</span>~<a class="footnote-ref" href="#fn2" id="fnref2" role="doc-noteref"><sup>2</sup></a> If the disease being tested is very rare or very common, the two tests will agree with high probability by chance alone. The <span class="math inline">\(\kappa\)</span> statistic is one way to measure agreement that is corrected for chance agreement. <span class="math display">\[\kappa = \frac{p_{A} - p_{C}}{1 - p_{C}}\]</span></p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup> A more accurate confidence interval can be obtained using Wilson’s method as provided by the <code>R</code> <code>Hmisc</code> package <code>binconf</code> function.</p></div></div><p>where <span class="math inline">\(p_{C}\)</span> is the expected agreement proportion if the two observers are completely independent. The statistic can be simplified to <span class="math display">\[\kappa = \frac{2 (ad - bc)}{gf + eh}.\]</span></p>
+<p>It the two tests are in perfect agreement, <span class="math inline">\(\kappa=1\)</span>. If the two agree at the level expected by chance, <span class="math inline">\(\kappa=0\)</span>. If the level of agreement is less than one would obtain by chance alone, <span class="math inline">\(\kappa &lt; 0\)</span>.</p>
+<p>A formal test of significance of the difference in the probabilities of for the two tests is obtained using McNemar’s test. The null hypothesis is that the probability of + for test 1 is equal to the probability of + for test 2, or equivalently that the probability of observing a <span class="math inline">\(+-\)</span> is the same as that of observing <span class="math inline">\(-+\)</span>. The normal deviate test statistic is given by <span class="math display">\[z = \frac{b - c}{\sqrt{b + c}}.\]</span></p>
+</section>
+<section class="level3" data-number="16.3.2" id="measuring-agreement-between-one-observer-and-a-standard">
+<h3 class="anchored" data-anchor-id="measuring-agreement-between-one-observer-and-a-standard" data-number="16.3.2"><span class="header-section-number">16.3.2</span> Measuring Agreement Between One Observer and a Standard</h3>
+<p>Suppose that each of n patients is studied with a diagnostic test and that the true diagnosis is determined, resulting in the following frequency table:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>Diagnosis</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>+ -</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Test</td>
+<td>+</td>
+<td>a b</td>
+<td>g</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>-</td>
+<td>c d</td>
+<td>h</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>e f</td>
+<td>n</td>
+</tr>
+</tbody>
+</table>
+<p>The following measures are frequently used to describe the agreement between the test and the true diagnosis. Here <span class="math inline">\(T^{+}\)</span> denotes a positive test, <span class="math inline">\(D^{-}\)</span> denotes no disease, etc.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th>Probability Being Estimated</th>
+<th>Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Correct diagnosis probability</td>
+<td>Prob<span class="math inline">\((T = D)\)</span></td>
+<td><span class="math inline">\(\frac{a+d}{n}\)</span></td>
+</tr>
+<tr class="even">
+<td>Sensitivity</td>
+<td>Prob<span class="math inline">\((T^{+} | D^{+})\)</span></td>
+<td><span class="math inline">\(\frac{a}{e}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Specificity</td>
+<td>Prob<span class="math inline">\((T^{-} | D^{-})\)</span></td>
+<td><span class="math inline">\(\frac{d}{f}\)</span></td>
+</tr>
+<tr class="even">
+<td>Accuracy of a positive test</td>
+<td>Prob<span class="math inline">\((D^{+} | T_{+})\)</span></td>
+<td><span class="math inline">\(\frac{a}{g}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Accuracy of a negative test</td>
+<td>Prob<span class="math inline">\((D^{-} | T_{-})\)</span></td>
+<td><span class="math inline">\(\frac{d}{h}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The first and last two measures are usually preferred. Note that when the disease is very rare or very common, the correct diagnosis probability will be high by chance alone. Since the sensitivity and specificity are calculated conditional on the diagnosis, the prevalence of disease does not directly affect these measures. But sensitivity and specificity will vary with every patient characteristic related to the actual ignored severity of disease.</p>
+<p>When estimating any of these quantities, Wilson confidence intervals are useful adjunct statistics. A less accurate 0.95 confidence interval is obtained from <span class="math inline">\(p \pm 1.96\sqrt{\frac{p(1-p)}{n}}\)</span> where <span class="math inline">\(p\)</span> is the proportion and <span class="math inline">\(m\)</span> is its denominator.</p>
+</section>
+</section>
+<section class="level2" data-number="16.4" id="problems">
+<h2 class="anchored" data-anchor-id="problems" data-number="16.4"><span class="header-section-number">16.4</span> Problems</h2>
+<ol type="1">
+<li>Three technicians, using different machines, make 3 readings each. For the data that follow, calculate estimates of inter- and intra-technician discrepancy.</li>
+</ol>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Technician</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>Reading</td>
+<td>Reading</td>
+<td>Reading</td>
+</tr>
+<tr class="odd">
+<td>1 2 3</td>
+<td>1 2 3</td>
+<td>1 2 3</td>
+</tr>
+<tr class="even">
+<td>18 17 14</td>
+<td>16 15 16</td>
+<td>12 15 12</td>
+</tr>
+<tr class="odd">
+<td>20 21 20</td>
+<td>14 12</td>
+<td>13</td>
+</tr>
+<tr class="even">
+<td>26 20 23</td>
+<td>18 20</td>
+<td>22 24</td>
+</tr>
+<tr class="odd">
+<td>19 17</td>
+<td>16</td>
+<td>21 23</td>
+</tr>
+<tr class="even">
+<td>28 24</td>
+<td>32 29</td>
+<td>29 25</td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li>Forty-one patients each receive two tests yielding the frequency table shown below. Calculate a measure of agreement (or disagreement) along with an associated 0.95 confidence interval. Also calculate a chance-corrected measure of agreement. Test the null hypothesis that the the tests have the same probability of being positive and the same probability of being negative. In other words, test the hypothesis that the chance of observing <span class="math inline">\(+-\)</span> is the same as observing <span class="math inline">\(-+\)</span>.</li>
+</ol>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>Test 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>+ -</td>
+</tr>
+<tr class="even">
+<td>Test 1</td>
+<td>+</td>
+<td>29 8</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>-</td>
+<td>0 4</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="level2" data-number="16.5" id="references">
+<h2 class="anchored" data-anchor-id="references" data-number="16.5"><span class="header-section-number">16.5</span> References</h2>
+<p>Landis JR, Koch GG: A review of statistical methods in the analysis of data arising from observer reliability studies (Part II), <strong>29</strong>:151-619 1975.</p>
+<p>Landis JR, Koch GG: An application of hierarchical <span class="math inline">\(\kappa\)</span>-type statistics in the assessment of majority agreement among multiple observers. <em>Biometrics</em> <strong>33</strong>:363-74, 1977.</p>
+<!-- -->
+<div class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" id="refs" role="list" style="display: none">
+<div class="csl-entry" id="ref-hoe48cla" role="listitem">
+Hoeffding, W. (1948). A class of statistics with asymptotically normal distributions. <em>Ann Math Stat</em>, <em>19</em>, 293–325.<div class="csl-block">Partially reprinted in: Kotz, S., Johnson, N.L. (1992) Breakthroughs in Statistics, Vol I, pp 308-334. Springer-Verlag. ISBN 0-387-94037-5</div>
+</div>
+</div>
+</section>
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/hbiostat\.org\/bbr");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+        for (let i=0; i<annoteTargets.length; i++) {
+          const annoteTarget = annoteTargets[i];
+          const targetCell = annoteTarget.getAttribute("data-target-cell");
+          const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+          const contentFn = () => {
+            const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+            if (content) {
+              const tipContent = content.cloneNode(true);
+              tipContent.classList.add("code-annotation-tip-content");
+              return tipContent.outerHTML;
+            }
+          }
+          const config = {
+            allowHTML: true,
+            content: contentFn,
+            onShow: (instance) => {
+              selectCodeLines(instance.reference);
+              instance.reference.classList.add('code-annotation-active');
+              window.tippy.hideAll();
+            },
+            onHide: (instance) => {
+              unselectCodeLines();
+              instance.reference.classList.remove('code-annotation-active');
+            },
+            maxWidth: 300,
+            delay: [50, 0],
+            duration: [200, 0],
+            offset: [5, 10],
+            arrow: true,
+            appendTo: function(el) {
+              return el.parentElement.parentElement.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'quarto',
+            placement: 'right',
+            popperOptions: {
+              modifiers: [
+              {
+                name: 'flip',
+                options: {
+                  flipVariations: false, // true by default
+                  allowedAutoPlacements: ['right'],
+                  fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+                },
+              },
+              {
+                name: 'preventOverflow',
+                options: {
+                  mainAxis: false,
+                  altAxis: false
+                }
+              }
+              ]        
+            }      
+          };
+          window.tippy(annoteTarget, config); 
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+<div class="nav-page nav-page-previous">
+<a aria-label="Serial Data" class="pagination-link" href="serial.html">
+<i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>  <span class="chapter-title">Serial Data</span></span>
+</a>
+</div>
+<div class="nav-page nav-page-next">
+<a aria-label="Modeling for Observational Treatment Comparisons" class="pagination-link" href="propensity.html">
+<span class="nav-page-text"><span class="chapter-number">17</span>  <span class="chapter-title">Modeling for Observational Treatment Comparisons</span></span> <i class="bi bi-arrow-right-short"></i>
+</a>
+</div>
+</nav><div aria-hidden="true" aria-labelledby="quarto-embedded-source-code-modal-label" class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" data-shortcodes="false" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a aria-hidden="true" href="#cb12-1" tabindex="-1"></a><span class="co">&lt;!--  Converted obsVar.pdf using newocr.com---&gt;</span></span>
+<span id="cb12-2"><a aria-hidden="true" href="#cb12-2" tabindex="-1"></a></span>
+<span id="cb12-3"><a aria-hidden="true" href="#cb12-3" tabindex="-1"></a></span>
+<span id="cb12-4"><a aria-hidden="true" href="#cb12-4" tabindex="-1"></a><span class="fu"># Analysis of Observer Variability and Measurement Agreement {#sec-obsvar}</span></span>
+<span id="cb12-5"><a aria-hidden="true" href="#cb12-5" tabindex="-1"></a></span>
+<span id="cb12-6"><a aria-hidden="true" href="#cb12-6" tabindex="-1"></a><span class="co">[</span><span class="ot">This chapter was written by FE Harrell, 1987</span><span class="co">]</span>{.aside}</span>
+<span id="cb12-7"><a aria-hidden="true" href="#cb12-7" tabindex="-1"></a></span>
+<span id="cb12-8"><a aria-hidden="true" href="#cb12-8" tabindex="-1"></a><span class="fu">## Intra- and Inter-observer Disagreement</span></span>
+<span id="cb12-9"><a aria-hidden="true" href="#cb12-9" tabindex="-1"></a>Before using a measurement instrument or diagnostic technique</span>
+<span id="cb12-10"><a aria-hidden="true" href="#cb12-10" tabindex="-1"></a>routinely, a researcher may wish to quantify the extent to which two</span>
+<span id="cb12-11"><a aria-hidden="true" href="#cb12-11" tabindex="-1"></a>determinations of the measurement, made by two different observers</span>
+<span id="cb12-12"><a aria-hidden="true" href="#cb12-12" tabindex="-1"></a>or measurement devices, disagree (inter-observer variability).  She</span>
+<span id="cb12-13"><a aria-hidden="true" href="#cb12-13" tabindex="-1"></a>may also wish to quantify the repeatability of one observer in making</span>
+<span id="cb12-14"><a aria-hidden="true" href="#cb12-14" tabindex="-1"></a>the measurement at different times (intra-observer variability). To</span>
+<span id="cb12-15"><a aria-hidden="true" href="#cb12-15" tabindex="-1"></a>make these assessments, she has each observer make the measurement</span>
+<span id="cb12-16"><a aria-hidden="true" href="#cb12-16" tabindex="-1"></a>for each of a number of experimental units (e.g., subjects).</span>
+<span id="cb12-17"><a aria-hidden="true" href="#cb12-17" tabindex="-1"></a></span>
+<span id="cb12-18"><a aria-hidden="true" href="#cb12-18" tabindex="-1"></a>The measurements being analyzed may be continuous, ordinal, or binary</span>
+<span id="cb12-19"><a aria-hidden="true" href="#cb12-19" tabindex="-1"></a>(yes/no). Ordinal measurements must be coded such that distances between</span>
+<span id="cb12-20"><a aria-hidden="true" href="#cb12-20" tabindex="-1"></a>values reflects the relative importance of disagreement. For example, if a</span>
+<span id="cb12-21"><a aria-hidden="true" href="#cb12-21" tabindex="-1"></a>measurement has the values 1, 2, 3 for poor, fair, good, it is assumed that</span>
+<span id="cb12-22"><a aria-hidden="true" href="#cb12-22" tabindex="-1"></a>"good" is as different from "fair" as "fair" is from</span>
+<span id="cb12-23"><a aria-hidden="true" href="#cb12-23" tabindex="-1"></a>"poor". if this is  not the case, a different coding should be used,</span>
+<span id="cb12-24"><a aria-hidden="true" href="#cb12-24" tabindex="-1"></a>such as coding 0 for "poor" if poor should be twice as far from</span>
+<span id="cb12-25"><a aria-hidden="true" href="#cb12-25" tabindex="-1"></a>"fair" as "fair" is from "good". Measurements that are yes/no or</span>
+<span id="cb12-26"><a aria-hidden="true" href="#cb12-26" tabindex="-1"></a>positive/negative should be coded as 1 or 0. The reason for this will</span>
+<span id="cb12-27"><a aria-hidden="true" href="#cb12-27" tabindex="-1"></a>be seen below.</span>
+<span id="cb12-28"><a aria-hidden="true" href="#cb12-28" tabindex="-1"></a></span>
+<span id="cb12-29"><a aria-hidden="true" href="#cb12-29" tabindex="-1"></a>There are many statistical methods for quantifying inter- and</span>
+<span id="cb12-30"><a aria-hidden="true" href="#cb12-30" tabindex="-1"></a>intra-observer variability.  Correlation coefficients are frequently reported,</span>
+<span id="cb12-31"><a aria-hidden="true" href="#cb12-31" tabindex="-1"></a>but a perfect correlation can result even when the measurements disagree by a</span>
+<span id="cb12-32"><a aria-hidden="true" href="#cb12-32" tabindex="-1"></a>factor of 10.  Variance components analysis and intra-class</span>
+<span id="cb12-33"><a aria-hidden="true" href="#cb12-33" tabindex="-1"></a>correlation are often used, but these make many assumptions, do not</span>
+<span id="cb12-34"><a aria-hidden="true" href="#cb12-34" tabindex="-1"></a>handle missing data very well, and are difficult to interpret. Some</span>
+<span id="cb12-35"><a aria-hidden="true" href="#cb12-35" tabindex="-1"></a>analysts, in assessing</span>
+<span id="cb12-36"><a aria-hidden="true" href="#cb12-36" tabindex="-1"></a>inter-observer agreement when each observer makes several determinations,</span>
+<span id="cb12-37"><a aria-hidden="true" href="#cb12-37" tabindex="-1"></a>compute differences between the average determinations for each observer.</span>
+<span id="cb12-38"><a aria-hidden="true" href="#cb12-38" tabindex="-1"></a>This method clearly yields a biased measurement of inter-observer agreement</span>
+<span id="cb12-39"><a aria-hidden="true" href="#cb12-39" tabindex="-1"></a>because it cancels the intra-observer variability.</span>
+<span id="cb12-40"><a aria-hidden="true" href="#cb12-40" tabindex="-1"></a></span>
+<span id="cb12-41"><a aria-hidden="true" href="#cb12-41" tabindex="-1"></a>A general and descriptive method for assessing observer variability</span>
+<span id="cb12-42"><a aria-hidden="true" href="#cb12-42" tabindex="-1"></a>will now be presented. The methods uses a general type of statistic</span>
+<span id="cb12-43"><a aria-hidden="true" href="#cb12-43" tabindex="-1"></a>called the $U$ statistic, invented by</span>
+<span id="cb12-44"><a aria-hidden="true" href="#cb12-44" tabindex="-1"></a>Hoeffding @hoe48cla^<span class="co">[</span><span class="ot">The Wilcoxon test and the $c$-index are other examples of $U$ statistics.</span><span class="co">]</span>. For definiteness, an analysis for 3 observers and 2 readings per observer will be</span>
+<span id="cb12-45"><a aria-hidden="true" href="#cb12-45" tabindex="-1"></a>shown. When designing such a study, the researcher should remember</span>
+<span id="cb12-46"><a aria-hidden="true" href="#cb12-46" tabindex="-1"></a>that the number of experimental units is usually the critical factor</span>
+<span id="cb12-47"><a aria-hidden="true" href="#cb12-47" tabindex="-1"></a>in determining the precision of estimates. There is not much to gain</span>
+<span id="cb12-48"><a aria-hidden="true" href="#cb12-48" tabindex="-1"></a>from having each observer make more than a few readings or from having</span>
+<span id="cb12-49"><a aria-hidden="true" href="#cb12-49" tabindex="-1"></a>30 observers in the study (although if few observers are used, these</span>
+<span id="cb12-50"><a aria-hidden="true" href="#cb12-50" tabindex="-1"></a>are assumed to be "typical" observers).</span>
+<span id="cb12-51"><a aria-hidden="true" href="#cb12-51" tabindex="-1"></a></span>
+<span id="cb12-52"><a aria-hidden="true" href="#cb12-52" tabindex="-1"></a>The intra-observer disagreement for a single subject or unit is defined</span>
+<span id="cb12-53"><a aria-hidden="true" href="#cb12-53" tabindex="-1"></a>as the average of the intra-observer absolute measurement differences. In</span>
+<span id="cb12-54"><a aria-hidden="true" href="#cb12-54" tabindex="-1"></a>other words, intra-observer disagreement is the average absolute difference</span>
+<span id="cb12-55"><a aria-hidden="true" href="#cb12-55" tabindex="-1"></a>between any two measurements from the same observer. The inter-observer</span>
+<span id="cb12-56"><a aria-hidden="true" href="#cb12-56" tabindex="-1"></a>disagreement for one unit is defined as the average absolute difference</span>
+<span id="cb12-57"><a aria-hidden="true" href="#cb12-57" tabindex="-1"></a>between any two readings from different observers. Disagreement measures are</span>
+<span id="cb12-58"><a aria-hidden="true" href="#cb12-58" tabindex="-1"></a>computed separately for each unit and combined over units (by taking the mean</span>
+<span id="cb12-59"><a aria-hidden="true" href="#cb12-59" tabindex="-1"></a>or median for example) to get an overall summary measure.  Units</span>
+<span id="cb12-60"><a aria-hidden="true" href="#cb12-60" tabindex="-1"></a>having more readings get more weight.  When a reading is</span>
+<span id="cb12-61"><a aria-hidden="true" href="#cb12-61" tabindex="-1"></a>missing, that reading does not enter into any calculation and the denominator</span>
+<span id="cb12-62"><a aria-hidden="true" href="#cb12-62" tabindex="-1"></a>used in finding the mean disagreement is reduced by one.</span>
+<span id="cb12-63"><a aria-hidden="true" href="#cb12-63" tabindex="-1"></a></span>
+<span id="cb12-64"><a aria-hidden="true" href="#cb12-64" tabindex="-1"></a>Suppose that for one patient, observers A, B, and C make the following</span>
+<span id="cb12-65"><a aria-hidden="true" href="#cb12-65" tabindex="-1"></a>determinations on two separate occasions, all on the</span>
+<span id="cb12-66"><a aria-hidden="true" href="#cb12-66" tabindex="-1"></a>same patient:</span>
+<span id="cb12-67"><a aria-hidden="true" href="#cb12-67" tabindex="-1"></a></span>
+<span id="cb12-68"><a aria-hidden="true" href="#cb12-68" tabindex="-1"></a><span class="pp">|</span> A <span class="pp">|</span> B <span class="pp">|</span> C  <span class="pp">|</span></span>
+<span id="cb12-69"><a aria-hidden="true" href="#cb12-69" tabindex="-1"></a><span class="pp">|-----|-----|-----|</span></span>
+<span id="cb12-70"><a aria-hidden="true" href="#cb12-70" tabindex="-1"></a><span class="pp">|</span> 5,7 <span class="pp">|</span> 8,5 <span class="pp">|</span> 6,7 <span class="pp">|</span></span>
+<span id="cb12-71"><a aria-hidden="true" href="#cb12-71" tabindex="-1"></a></span>
+<span id="cb12-72"><a aria-hidden="true" href="#cb12-72" tabindex="-1"></a>For that patient, the mean intra-observer difference is $(|5-7| +</span>
+<span id="cb12-73"><a aria-hidden="true" href="#cb12-73" tabindex="-1"></a><span class="pp">|</span>8-5<span class="pp">|</span> + <span class="pp">|</span>6-7<span class="pp">|</span>)/3 = \frac{2+3+1}{3} = 2$.</span>
+<span id="cb12-74"><a aria-hidden="true" href="#cb12-74" tabindex="-1"></a></span>
+<span id="cb12-75"><a aria-hidden="true" href="#cb12-75" tabindex="-1"></a>The mean inter-observer difference is</span>
+<span id="cb12-76"><a aria-hidden="true" href="#cb12-76" tabindex="-1"></a>$(|5-8| + |5-5| + |5-6|+ |5-7| + |7-8| + |7-5| + |7-6| + |7-7|+$ $|8-6|</span>
+<span id="cb12-77"><a aria-hidden="true" href="#cb12-77" tabindex="-1"></a><span class="ss">+ </span><span class="pp">|</span>8-7<span class="pp">|</span> + <span class="pp">|</span>5-6<span class="pp">|</span> + <span class="pp">|</span>5-7<span class="pp">|</span>)/12 =$ $(3+0+1+2+1+2+1+0+2+1+1+2)/12 =$</span>
+<span id="cb12-78"><a aria-hidden="true" href="#cb12-78" tabindex="-1"></a>$\frac{16}{12} = 1.33$.</span>
+<span id="cb12-79"><a aria-hidden="true" href="#cb12-79" tabindex="-1"></a></span>
+<span id="cb12-80"><a aria-hidden="true" href="#cb12-80" tabindex="-1"></a>If the first reading for observer A were unobtainable, the mean</span>
+<span id="cb12-81"><a aria-hidden="true" href="#cb12-81" tabindex="-1"></a>intra-observer difference for that patient would be $(|8-5| + |6-7|)/2</span>
+<span id="cb12-82"><a aria-hidden="true" href="#cb12-82" tabindex="-1"></a>= \frac{3+1}{2} = 2$ and the mean inter-observer difference would be $(|7-8|</span>
+<span id="cb12-83"><a aria-hidden="true" href="#cb12-83" tabindex="-1"></a><span class="ss">+ </span><span class="pp">|</span>7-5<span class="pp">|</span> + <span class="pp">|</span>7-6<span class="pp">|</span> + <span class="pp">|</span>7-7<span class="pp">|</span> + <span class="pp">|</span>8-6<span class="pp">|</span> + <span class="pp">|</span>8-7<span class="pp">|</span> + <span class="pp">|</span>5-6<span class="pp">|</span> + <span class="pp">|</span>5-7<span class="pp">|</span>)/8 =$ $(1+2+1+0+2+1+1+2)/8 = \frac{10}{8} = 1.25$.</span>
+<span id="cb12-84"><a aria-hidden="true" href="#cb12-84" tabindex="-1"></a></span>
+<span id="cb12-85"><a aria-hidden="true" href="#cb12-85" tabindex="-1"></a>The computations are carried out in like manner for each patient and</span>
+<span id="cb12-86"><a aria-hidden="true" href="#cb12-86" tabindex="-1"></a>summarized as follows:</span>
+<span id="cb12-87"><a aria-hidden="true" href="#cb12-87" tabindex="-1"></a></span>
+<span id="cb12-88"><a aria-hidden="true" href="#cb12-88" tabindex="-1"></a></span>
+<span id="cb12-89"><a aria-hidden="true" href="#cb12-89" tabindex="-1"></a><span class="pp">|</span> Patient <span class="pp">|</span> Intra-observer <span class="pp">|</span> Inter-observer <span class="pp">|</span></span>
+<span id="cb12-90"><a aria-hidden="true" href="#cb12-90" tabindex="-1"></a><span class="pp">|-----|-----|-----|</span></span>
+<span id="cb12-91"><a aria-hidden="true" href="#cb12-91" tabindex="-1"></a><span class="pp">|</span>         <span class="pp">|</span> Difference     <span class="pp">|</span> Difference  <span class="pp">|</span></span>
+<span id="cb12-92"><a aria-hidden="true" href="#cb12-92" tabindex="-1"></a><span class="pp">|</span> 1 <span class="pp">|</span> 2.00 <span class="pp">|</span> 1.33 <span class="pp">|</span></span>
+<span id="cb12-93"><a aria-hidden="true" href="#cb12-93" tabindex="-1"></a><span class="pp">|</span> 2 <span class="pp">|</span> 1.00 <span class="pp">|</span> 3.50 <span class="pp">|</span></span>
+<span id="cb12-94"><a aria-hidden="true" href="#cb12-94" tabindex="-1"></a><span class="pp">|</span> 3 <span class="pp">|</span> 1.50 <span class="pp">|</span> 2.66 <span class="pp">|</span></span>
+<span id="cb12-95"><a aria-hidden="true" href="#cb12-95" tabindex="-1"></a><span class="pp">|</span> . <span class="pp">|</span> .    <span class="pp">|</span> . <span class="pp">|</span></span>
+<span id="cb12-96"><a aria-hidden="true" href="#cb12-96" tabindex="-1"></a><span class="pp">|</span> . <span class="pp">|</span> .    <span class="pp">|</span> . <span class="pp">|</span></span>
+<span id="cb12-97"><a aria-hidden="true" href="#cb12-97" tabindex="-1"></a><span class="pp">|</span> $n$ <span class="pp">|</span> . <span class="pp">|</span> .   <span class="pp">|</span></span>
+<span id="cb12-98"><a aria-hidden="true" href="#cb12-98" tabindex="-1"></a><span class="pp">|</span> **Overall Average** (or median) <span class="pp">|</span> 1.77 <span class="pp">|</span> 2.23 <span class="pp">|</span></span>
+<span id="cb12-99"><a aria-hidden="true" href="#cb12-99" tabindex="-1"></a><span class="pp">|</span> $Q_{1}$ <span class="pp">|</span> 0.30 <span class="pp">|</span> 0.38 <span class="pp">|</span></span>
+<span id="cb12-100"><a aria-hidden="true" href="#cb12-100" tabindex="-1"></a><span class="pp">|</span> $Q_{3}$ <span class="pp">|</span> 2.15 <span class="pp">|</span> 2.84 <span class="pp">|</span></span>
+<span id="cb12-101"><a aria-hidden="true" href="#cb12-101" tabindex="-1"></a></span>
+<span id="cb12-102"><a aria-hidden="true" href="#cb12-102" tabindex="-1"></a></span>
+<span id="cb12-103"><a aria-hidden="true" href="#cb12-103" tabindex="-1"></a>Here is an example using <span class="in">`R`</span> to compute mean inter- and</span>
+<span id="cb12-104"><a aria-hidden="true" href="#cb12-104" tabindex="-1"></a>intra-observer absolute differences for 4 subjects each assessed</span>
+<span id="cb12-105"><a aria-hidden="true" href="#cb12-105" tabindex="-1"></a>twice by each of 3 observers.  The first subject consists of data</span>
+<span id="cb12-106"><a aria-hidden="true" href="#cb12-106" tabindex="-1"></a>above.  The calculations are first done for the first subject alone,</span>
+<span id="cb12-107"><a aria-hidden="true" href="#cb12-107" tabindex="-1"></a>to check against computations above.</span>
+<span id="cb12-108"><a aria-hidden="true" href="#cb12-108" tabindex="-1"></a></span>
+<span id="cb12-109"><a aria-hidden="true" href="#cb12-109" tabindex="-1"></a><span class="in">```{r rex}</span></span>
+<span id="cb12-110"><a aria-hidden="true" href="#cb12-110" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">rep=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">observer=</span><span class="fu">c</span>(<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'C'</span>), <span class="at">subject=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb12-111"><a aria-hidden="true" href="#cb12-111" tabindex="-1"></a>d<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">7</span>, <span class="dv">8</span>,<span class="dv">5</span>, <span class="dv">6</span>,<span class="dv">7</span>,</span>
+<span id="cb12-112"><a aria-hidden="true" href="#cb12-112" tabindex="-1"></a>         <span class="dv">7</span>,<span class="dv">6</span>, <span class="dv">8</span>,<span class="dv">6</span>, <span class="dv">9</span>,<span class="dv">7</span>,</span>
+<span id="cb12-113"><a aria-hidden="true" href="#cb12-113" tabindex="-1"></a>         <span class="dv">7</span>,<span class="dv">5</span>, <span class="dv">4</span>,<span class="dv">6</span>, <span class="dv">10</span>,<span class="dv">11</span>,</span>
+<span id="cb12-114"><a aria-hidden="true" href="#cb12-114" tabindex="-1"></a>         <span class="dv">7</span>,<span class="dv">6</span>, <span class="dv">5</span>,<span class="dv">6</span>, <span class="dv">9</span>,<span class="dv">8</span>)</span>
+<span id="cb12-115"><a aria-hidden="true" href="#cb12-115" tabindex="-1"></a>d</span>
+<span id="cb12-116"><a aria-hidden="true" href="#cb12-116" tabindex="-1"></a><span class="co"># Function to compute mean absolute discrepancies</span></span>
+<span id="cb12-117"><a aria-hidden="true" href="#cb12-117" tabindex="-1"></a>mad <span class="ot">&lt;-</span> <span class="cf">function</span>(y, obs, subj) {</span>
+<span id="cb12-118"><a aria-hidden="true" href="#cb12-118" tabindex="-1"></a>  nintra <span class="ot">&lt;-</span> ninter <span class="ot">&lt;-</span> sumintra <span class="ot">&lt;-</span> suminter <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb12-119"><a aria-hidden="true" href="#cb12-119" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(y)</span>
+<span id="cb12-120"><a aria-hidden="true" href="#cb12-120" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span> <span class="sc">:</span> (n <span class="sc">-</span> <span class="dv">1</span>)) {</span>
+<span id="cb12-121"><a aria-hidden="true" href="#cb12-121" tabindex="-1"></a>    <span class="cf">for</span>(j <span class="cf">in</span> (i <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">:</span> n) {</span>
+<span id="cb12-122"><a aria-hidden="true" href="#cb12-122" tabindex="-1"></a>      <span class="cf">if</span>(subj[i] <span class="sc">==</span> subj[j]) {</span>
+<span id="cb12-123"><a aria-hidden="true" href="#cb12-123" tabindex="-1"></a>        dif <span class="ot">&lt;-</span> <span class="fu">abs</span>(y[i] <span class="sc">-</span> y[j])</span>
+<span id="cb12-124"><a aria-hidden="true" href="#cb12-124" tabindex="-1"></a>        <span class="cf">if</span>(<span class="sc">!</span> <span class="fu">is.na</span>(dif)) {</span>
+<span id="cb12-125"><a aria-hidden="true" href="#cb12-125" tabindex="-1"></a>          <span class="cf">if</span>(obs[i] <span class="sc">==</span> obs[j]) {</span>
+<span id="cb12-126"><a aria-hidden="true" href="#cb12-126" tabindex="-1"></a>            nintra   <span class="ot">&lt;-</span> nintra <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb12-127"><a aria-hidden="true" href="#cb12-127" tabindex="-1"></a>            sumintra <span class="ot">&lt;-</span> sumintra <span class="sc">+</span> dif</span>
+<span id="cb12-128"><a aria-hidden="true" href="#cb12-128" tabindex="-1"></a>          }</span>
+<span id="cb12-129"><a aria-hidden="true" href="#cb12-129" tabindex="-1"></a>          <span class="cf">else</span> {</span>
+<span id="cb12-130"><a aria-hidden="true" href="#cb12-130" tabindex="-1"></a>            ninter   <span class="ot">&lt;-</span> ninter <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb12-131"><a aria-hidden="true" href="#cb12-131" tabindex="-1"></a>            suminter <span class="ot">&lt;-</span> suminter <span class="sc">+</span> dif</span>
+<span id="cb12-132"><a aria-hidden="true" href="#cb12-132" tabindex="-1"></a>          }</span>
+<span id="cb12-133"><a aria-hidden="true" href="#cb12-133" tabindex="-1"></a>        }</span>
+<span id="cb12-134"><a aria-hidden="true" href="#cb12-134" tabindex="-1"></a>      }</span>
+<span id="cb12-135"><a aria-hidden="true" href="#cb12-135" tabindex="-1"></a>    }</span>
+<span id="cb12-136"><a aria-hidden="true" href="#cb12-136" tabindex="-1"></a>  }</span>
+<span id="cb12-137"><a aria-hidden="true" href="#cb12-137" tabindex="-1"></a>  <span class="fu">c</span>(<span class="at">nintra=</span>nintra, <span class="at">intra=</span>sumintra <span class="sc">/</span> nintra,</span>
+<span id="cb12-138"><a aria-hidden="true" href="#cb12-138" tabindex="-1"></a>    <span class="at">ninter=</span>ninter, <span class="at">inter=</span>suminter <span class="sc">/</span> ninter)</span>
+<span id="cb12-139"><a aria-hidden="true" href="#cb12-139" tabindex="-1"></a>}</span>
+<span id="cb12-140"><a aria-hidden="true" href="#cb12-140" tabindex="-1"></a></span>
+<span id="cb12-141"><a aria-hidden="true" href="#cb12-141" tabindex="-1"></a><span class="co"># Compute statistics for first subject</span></span>
+<span id="cb12-142"><a aria-hidden="true" href="#cb12-142" tabindex="-1"></a><span class="fu">with</span>(<span class="fu">subset</span>(d, subject <span class="sc">==</span> <span class="dv">1</span>), <span class="fu">mad</span>(y, observer, subject))</span>
+<span id="cb12-143"><a aria-hidden="true" href="#cb12-143" tabindex="-1"></a><span class="co"># Compute for all subjects</span></span>
+<span id="cb12-144"><a aria-hidden="true" href="#cb12-144" tabindex="-1"></a><span class="fu">with</span>(d, <span class="fu">mad</span>(y, observer, subject))</span>
+<span id="cb12-145"><a aria-hidden="true" href="#cb12-145" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-146"><a aria-hidden="true" href="#cb12-146" tabindex="-1"></a>Zhouwen Liu in the Vanderbilt Department of Biostatistics has</span>
+<span id="cb12-147"><a aria-hidden="true" href="#cb12-147" tabindex="-1"></a>developed much more general purpose software for this in <span class="in">`R`</span>.  </span>
+<span id="cb12-148"><a aria-hidden="true" href="#cb12-148" tabindex="-1"></a>See <span class="co">[</span><span class="ot">github.com/harrelfe/rscripts</span><span class="co">](https://github.com/harrelfe/rscripts)</span>.</span>
+<span id="cb12-149"><a aria-hidden="true" href="#cb12-149" tabindex="-1"></a>The following example loads the source code and runs the above</span>
+<span id="cb12-150"><a aria-hidden="true" href="#cb12-150" tabindex="-1"></a>example.  The <span class="in">`R`</span> functions implement bootstrap nonparametric</span>
+<span id="cb12-151"><a aria-hidden="true" href="#cb12-151" tabindex="-1"></a>percentile confidence limits for mean absolute discrepency measures.</span>
+<span id="cb12-152"><a aria-hidden="true" href="#cb12-152" tabindex="-1"></a></span>
+<span id="cb12-153"><a aria-hidden="true" href="#cb12-153" tabindex="-1"></a><span class="in">```{r robs}</span></span>
+<span id="cb12-154"><a aria-hidden="true" href="#cb12-154" tabindex="-1"></a><span class="fu">require</span>(Hmisc)</span>
+<span id="cb12-155"><a aria-hidden="true" href="#cb12-155" tabindex="-1"></a><span class="fu">getRs</span>(<span class="st">'observerVariability.r'</span>)</span>
+<span id="cb12-156"><a aria-hidden="true" href="#cb12-156" tabindex="-1"></a><span class="fu">with</span>(d, {</span>
+<span id="cb12-157"><a aria-hidden="true" href="#cb12-157" tabindex="-1"></a>  intra <span class="ot">&lt;-</span> <span class="fu">intraVar</span>(subject, observer, y)</span>
+<span id="cb12-158"><a aria-hidden="true" href="#cb12-158" tabindex="-1"></a>  <span class="fu">print</span>(intra)</span>
+<span id="cb12-159"><a aria-hidden="true" href="#cb12-159" tabindex="-1"></a>  <span class="fu">summary</span>(intra)</span>
+<span id="cb12-160"><a aria-hidden="true" href="#cb12-160" tabindex="-1"></a>  <span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
+<span id="cb12-161"><a aria-hidden="true" href="#cb12-161" tabindex="-1"></a>  b<span class="ot">=</span><span class="fu">bootStrap</span>(intra, <span class="at">by =</span> <span class="st">'subject'</span>, <span class="at">times=</span><span class="dv">1000</span>)</span>
+<span id="cb12-162"><a aria-hidden="true" href="#cb12-162" tabindex="-1"></a>  <span class="co"># Get 0.95 CL for mean absolute intra-observer difference</span></span>
+<span id="cb12-163"><a aria-hidden="true" href="#cb12-163" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">quantile</span>(b, <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>)))</span>
+<span id="cb12-164"><a aria-hidden="true" href="#cb12-164" tabindex="-1"></a>  inter <span class="ot">&lt;-</span> <span class="fu">interVar</span>(subject, observer, y)</span>
+<span id="cb12-165"><a aria-hidden="true" href="#cb12-165" tabindex="-1"></a>  <span class="fu">print</span>(inter)</span>
+<span id="cb12-166"><a aria-hidden="true" href="#cb12-166" tabindex="-1"></a>  <span class="fu">summary</span>(inter)</span>
+<span id="cb12-167"><a aria-hidden="true" href="#cb12-167" tabindex="-1"></a>  b <span class="ot">&lt;-</span> <span class="fu">bootStrap</span>(inter, <span class="at">by =</span> <span class="st">'subject'</span>, <span class="at">times=</span><span class="dv">1000</span>)</span>
+<span id="cb12-168"><a aria-hidden="true" href="#cb12-168" tabindex="-1"></a>  <span class="co"># Get 0.95 CL for mean absolute inter-observer difference</span></span>
+<span id="cb12-169"><a aria-hidden="true" href="#cb12-169" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">quantile</span>(b, <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>)))</span>
+<span id="cb12-170"><a aria-hidden="true" href="#cb12-170" tabindex="-1"></a>})</span>
+<span id="cb12-171"><a aria-hidden="true" href="#cb12-171" tabindex="-1"></a><span class="co"># To load a demo file into an RStudio script editor window, type</span></span>
+<span id="cb12-172"><a aria-hidden="true" href="#cb12-172" tabindex="-1"></a><span class="co"># getRs('observerVariability_example.r', put='rstudio')</span></span>
+<span id="cb12-173"><a aria-hidden="true" href="#cb12-173" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-174"><a aria-hidden="true" href="#cb12-174" tabindex="-1"></a>From the above output, the 0.95 CL for the mean absolute</span>
+<span id="cb12-175"><a aria-hidden="true" href="#cb12-175" tabindex="-1"></a>intra-observer difference is $<span class="co">[</span><span class="ot">1.17, 1.92</span><span class="co">]</span>$ and is $<span class="co">[</span><span class="ot">1.33, 3.21</span><span class="co">]</span>$ for the</span>
+<span id="cb12-176"><a aria-hidden="true" href="#cb12-176" tabindex="-1"></a>inter-observer difference.  The bootstrap confidence intervals use the</span>
+<span id="cb12-177"><a aria-hidden="true" href="#cb12-177" tabindex="-1"></a>cluster bootstrap to account for correlations of multiple readings</span>
+<span id="cb12-178"><a aria-hidden="true" href="#cb12-178" tabindex="-1"></a>from the same subject.</span>
+<span id="cb12-179"><a aria-hidden="true" href="#cb12-179" tabindex="-1"></a></span>
+<span id="cb12-180"><a aria-hidden="true" href="#cb12-180" tabindex="-1"></a>When the measurement of interest is a yes/no determination such as</span>
+<span id="cb12-181"><a aria-hidden="true" href="#cb12-181" tabindex="-1"></a>presence or absence of a disease these difference statistics are generalizations of the fraction of units in which there is exact agreement in the yes/no</span>
+<span id="cb12-182"><a aria-hidden="true" href="#cb12-182" tabindex="-1"></a>determination, when the absolute differences are summarized by averaging. To</span>
+<span id="cb12-183"><a aria-hidden="true" href="#cb12-183" tabindex="-1"></a>see this, consider the following data with only one observer:</span>
+<span id="cb12-184"><a aria-hidden="true" href="#cb12-184" tabindex="-1"></a></span>
+<span id="cb12-185"><a aria-hidden="true" href="#cb12-185" tabindex="-1"></a><span class="pp">|</span> Patient <span class="pp">|</span> Determinations <span class="pp">|</span> $D_{1}, D_{2}$ <span class="pp">|</span> Agreement? <span class="pp">|</span> $<span class="pp">|</span>D_{1} -D_{2}<span class="pp">|</span>$  <span class="pp">|</span></span>
+<span id="cb12-186"><a aria-hidden="true" href="#cb12-186" tabindex="-1"></a><span class="pp">|-----|-----|-----|-----|-----|</span></span>
+<span id="cb12-187"><a aria-hidden="true" href="#cb12-187" tabindex="-1"></a><span class="pp">|</span> 1 <span class="pp">|</span>Y Y<span class="pp">|</span> 1 1<span class="pp">|</span>Y<span class="pp">|</span>0 <span class="pp">|</span></span>
+<span id="cb12-188"><a aria-hidden="true" href="#cb12-188" tabindex="-1"></a><span class="pp">|</span> 2 <span class="pp">|</span>Y N<span class="pp">|</span> 1 0<span class="pp">|</span>N<span class="pp">|</span>1 <span class="pp">|</span></span>
+<span id="cb12-189"><a aria-hidden="true" href="#cb12-189" tabindex="-1"></a><span class="pp">|</span> 3 <span class="pp">|</span>N Y<span class="pp">|</span> 0 1<span class="pp">|</span>N<span class="pp">|</span>1 <span class="pp">|</span></span>
+<span id="cb12-190"><a aria-hidden="true" href="#cb12-190" tabindex="-1"></a><span class="pp">|</span> 4 <span class="pp">|</span>N N<span class="pp">|</span> 0 0<span class="pp">|</span>Y<span class="pp">|</span>0 <span class="pp">|</span></span>
+<span id="cb12-191"><a aria-hidden="true" href="#cb12-191" tabindex="-1"></a><span class="pp">|</span> 5 <span class="pp">|</span>N N<span class="pp">|</span> 0 0<span class="pp">|</span>Y<span class="pp">|</span>0 <span class="pp">|</span></span>
+<span id="cb12-192"><a aria-hidden="true" href="#cb12-192" tabindex="-1"></a><span class="pp">|</span> 6 <span class="pp">|</span>Y N<span class="pp">|</span> 1 0<span class="pp">|</span>N<span class="pp">|</span>1  <span class="pp">|</span></span>
+<span id="cb12-193"><a aria-hidden="true" href="#cb12-193" tabindex="-1"></a></span>
+<span id="cb12-194"><a aria-hidden="true" href="#cb12-194" tabindex="-1"></a>The average $|D_{1} - D_{2}|$ is $\frac{3}{6} = 0.5$ which is equal to the</span>
+<span id="cb12-195"><a aria-hidden="true" href="#cb12-195" tabindex="-1"></a>proportion of cases in which the two readings disagree.</span>
+<span id="cb12-196"><a aria-hidden="true" href="#cb12-196" tabindex="-1"></a></span>
+<span id="cb12-197"><a aria-hidden="true" href="#cb12-197" tabindex="-1"></a>An advantage of this method of summarizing observer differences is that</span>
+<span id="cb12-198"><a aria-hidden="true" href="#cb12-198" tabindex="-1"></a>the investigator can judge what is an acceptable difference and he can relate</span>
+<span id="cb12-199"><a aria-hidden="true" href="#cb12-199" tabindex="-1"></a>this directly to the summary disagreement statistic.</span>
+<span id="cb12-200"><a aria-hidden="true" href="#cb12-200" tabindex="-1"></a></span>
+<span id="cb12-201"><a aria-hidden="true" href="#cb12-201" tabindex="-1"></a></span>
+<span id="cb12-202"><a aria-hidden="true" href="#cb12-202" tabindex="-1"></a><span class="fu">## Comparison of Measurements with a Standard</span></span>
+<span id="cb12-203"><a aria-hidden="true" href="#cb12-203" tabindex="-1"></a>When the true measurement is known for each unit (or the true diagnosis</span>
+<span id="cb12-204"><a aria-hidden="true" href="#cb12-204" tabindex="-1"></a>is known for each patient), similar calculations can he used to quantify the</span>
+<span id="cb12-205"><a aria-hidden="true" href="#cb12-205" tabindex="-1"></a>extent of errors in the measurements. For each unit, the average (over</span>
+<span id="cb12-206"><a aria-hidden="true" href="#cb12-206" tabindex="-1"></a>observers) difference from the true value is computed and these differences</span>
+<span id="cb12-207"><a aria-hidden="true" href="#cb12-207" tabindex="-1"></a>are summarized over the units. For example, if for unit <span class="sc">\#</span>1 observer A measures 5 and 7, observer 8 measured 8 and 5, and the true value is 6, the</span>
+<span id="cb12-208"><a aria-hidden="true" href="#cb12-208" tabindex="-1"></a>average absolute error is $(|5-6|+|7-6|+ |8-6|+|5-6|)/4 = \frac{1+1+2+1}{4}</span>
+<span id="cb12-209"><a aria-hidden="true" href="#cb12-209" tabindex="-1"></a>= \frac{5}{4} = 1.25$</span>
+<span id="cb12-210"><a aria-hidden="true" href="#cb12-210" tabindex="-1"></a></span>
+<span id="cb12-211"><a aria-hidden="true" href="#cb12-211" tabindex="-1"></a></span>
+<span id="cb12-212"><a aria-hidden="true" href="#cb12-212" tabindex="-1"></a><span class="fu">## Special Case: Assessing Agreement In Two Binary Variables</span></span>
+<span id="cb12-213"><a aria-hidden="true" href="#cb12-213" tabindex="-1"></a></span>
+<span id="cb12-214"><a aria-hidden="true" href="#cb12-214" tabindex="-1"></a><span class="fu">### Measuring Agreement Between Two Observers</span></span>
+<span id="cb12-215"><a aria-hidden="true" href="#cb12-215" tabindex="-1"></a>Suppose that each of $n$ patients undergoes two diagnostic tests that can</span>
+<span id="cb12-216"><a aria-hidden="true" href="#cb12-216" tabindex="-1"></a>yield only the values positive and negative. The data can be summarized in</span>
+<span id="cb12-217"><a aria-hidden="true" href="#cb12-217" tabindex="-1"></a>the following frequency table.</span>
+<span id="cb12-218"><a aria-hidden="true" href="#cb12-218" tabindex="-1"></a></span>
+<span id="cb12-219"><a aria-hidden="true" href="#cb12-219" tabindex="-1"></a><span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> Test 2 <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb12-220"><a aria-hidden="true" href="#cb12-220" tabindex="-1"></a><span class="pp">|-----|-----|-----|-----|</span></span>
+<span id="cb12-221"><a aria-hidden="true" href="#cb12-221" tabindex="-1"></a><span class="pp">|</span>       <span class="pp">|</span>   <span class="pp">|</span> + - <span class="pp">|</span>   <span class="pp">|</span></span>
+<span id="cb12-222"><a aria-hidden="true" href="#cb12-222" tabindex="-1"></a><span class="pp">|</span> Test 1    <span class="pp">|</span> + <span class="pp">|</span> a b <span class="pp">|</span> g <span class="pp">|</span></span>
+<span id="cb12-223"><a aria-hidden="true" href="#cb12-223" tabindex="-1"></a><span class="pp">|</span>           <span class="pp">|</span> - <span class="pp">|</span> c d <span class="pp">|</span> h <span class="pp">|</span></span>
+<span id="cb12-224"><a aria-hidden="true" href="#cb12-224" tabindex="-1"></a><span class="pp">|</span>           <span class="pp">|</span>   <span class="pp">|</span> e f <span class="pp">|</span> n <span class="pp">|</span></span>
+<span id="cb12-225"><a aria-hidden="true" href="#cb12-225" tabindex="-1"></a></span>
+<span id="cb12-226"><a aria-hidden="true" href="#cb12-226" tabindex="-1"></a>An estimate of the probability that the two tests agree is</span>
+<span id="cb12-227"><a aria-hidden="true" href="#cb12-227" tabindex="-1"></a>$p_{A}=\frac{a+d}{n}$. An approximate 0.95</span>
+<span id="cb12-228"><a aria-hidden="true" href="#cb12-228" tabindex="-1"></a>confidence interval for the true probability is derived from</span>
+<span id="cb12-229"><a aria-hidden="true" href="#cb12-229" tabindex="-1"></a>$p_{A} \pm 1.96 \sqrt{p_{A} (1 - p_{A})/n}$~^<span class="co">[</span><span class="ot">A more accurate confidence interval can be obtained using Wilson's method as provided by the `R` `Hmisc` package `binconf` function.</span><span class="co">]</span></span>
+<span id="cb12-230"><a aria-hidden="true" href="#cb12-230" tabindex="-1"></a>If the disease being tested is very rare or very common, the two tests</span>
+<span id="cb12-231"><a aria-hidden="true" href="#cb12-231" tabindex="-1"></a>will agree with high probability by chance alone. The $\kappa$ statistic is one</span>
+<span id="cb12-232"><a aria-hidden="true" href="#cb12-232" tabindex="-1"></a>way to measure agreement that is corrected for chance agreement.</span>
+<span id="cb12-233"><a aria-hidden="true" href="#cb12-233" tabindex="-1"></a>$$\kappa = \frac{p_{A} - p_{C}}{1 - p_{C}}$$</span>
+<span id="cb12-234"><a aria-hidden="true" href="#cb12-234" tabindex="-1"></a></span>
+<span id="cb12-235"><a aria-hidden="true" href="#cb12-235" tabindex="-1"></a>where $p_{C}$ is the expected agreement proportion if the two observers are</span>
+<span id="cb12-236"><a aria-hidden="true" href="#cb12-236" tabindex="-1"></a>completely independent. The statistic can be simplified to</span>
+<span id="cb12-237"><a aria-hidden="true" href="#cb12-237" tabindex="-1"></a>$$\kappa = \frac{2 (ad - bc)}{gf + eh}.$$</span>
+<span id="cb12-238"><a aria-hidden="true" href="#cb12-238" tabindex="-1"></a></span>
+<span id="cb12-239"><a aria-hidden="true" href="#cb12-239" tabindex="-1"></a>It the two tests are in perfect agreement, $\kappa=1$. If the two agree at the</span>
+<span id="cb12-240"><a aria-hidden="true" href="#cb12-240" tabindex="-1"></a>level</span>
+<span id="cb12-241"><a aria-hidden="true" href="#cb12-241" tabindex="-1"></a>expected by chance, $\kappa=0$. If the level of agreement is less than one would</span>
+<span id="cb12-242"><a aria-hidden="true" href="#cb12-242" tabindex="-1"></a>obtain by chance alone, $\kappa &lt; 0$.</span>
+<span id="cb12-243"><a aria-hidden="true" href="#cb12-243" tabindex="-1"></a></span>
+<span id="cb12-244"><a aria-hidden="true" href="#cb12-244" tabindex="-1"></a>A formal test of significance of the difference in the probabilities of</span>
+<span id="cb12-245"><a aria-hidden="true" href="#cb12-245" tabindex="-1"></a>for the two tests is obtained using McNemar's test. The null hypothesis is</span>
+<span id="cb12-246"><a aria-hidden="true" href="#cb12-246" tabindex="-1"></a>that the probability of + for test 1 is equal to the probability of + for test</span>
+<span id="cb12-247"><a aria-hidden="true" href="#cb12-247" tabindex="-1"></a>2, or equivalently that the probability of observing a $+-$ is the same as that</span>
+<span id="cb12-248"><a aria-hidden="true" href="#cb12-248" tabindex="-1"></a>of observing $-+$. The normal deviate test statistic is given by</span>
+<span id="cb12-249"><a aria-hidden="true" href="#cb12-249" tabindex="-1"></a>$$z = \frac{b - c}{\sqrt{b + c}}.$$</span>
+<span id="cb12-250"><a aria-hidden="true" href="#cb12-250" tabindex="-1"></a></span>
+<span id="cb12-251"><a aria-hidden="true" href="#cb12-251" tabindex="-1"></a></span>
+<span id="cb12-252"><a aria-hidden="true" href="#cb12-252" tabindex="-1"></a><span class="fu">### Measuring Agreement Between One Observer and a Standard</span></span>
+<span id="cb12-253"><a aria-hidden="true" href="#cb12-253" tabindex="-1"></a>Suppose that each of n patients is studied with a diagnostic test and</span>
+<span id="cb12-254"><a aria-hidden="true" href="#cb12-254" tabindex="-1"></a>that the true diagnosis is determined, resulting in the following frequency</span>
+<span id="cb12-255"><a aria-hidden="true" href="#cb12-255" tabindex="-1"></a>table:</span>
+<span id="cb12-256"><a aria-hidden="true" href="#cb12-256" tabindex="-1"></a></span>
+<span id="cb12-257"><a aria-hidden="true" href="#cb12-257" tabindex="-1"></a><span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> Diagnosis <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb12-258"><a aria-hidden="true" href="#cb12-258" tabindex="-1"></a><span class="pp">|-----|-----|-----|-----|</span></span>
+<span id="cb12-259"><a aria-hidden="true" href="#cb12-259" tabindex="-1"></a><span class="pp">|</span>           <span class="pp">|</span>   <span class="pp">|</span> + - <span class="pp">|</span>   <span class="pp">|</span></span>
+<span id="cb12-260"><a aria-hidden="true" href="#cb12-260" tabindex="-1"></a><span class="pp">|</span> Test      <span class="pp">|</span> + <span class="pp">|</span> a b <span class="pp">|</span> g <span class="pp">|</span></span>
+<span id="cb12-261"><a aria-hidden="true" href="#cb12-261" tabindex="-1"></a><span class="pp">|</span>           <span class="pp">|</span> - <span class="pp">|</span> c d <span class="pp">|</span> h <span class="pp">|</span></span>
+<span id="cb12-262"><a aria-hidden="true" href="#cb12-262" tabindex="-1"></a><span class="pp">|</span>           <span class="pp">|</span>   <span class="pp">|</span> e f <span class="pp">|</span> n <span class="pp">|</span></span>
+<span id="cb12-263"><a aria-hidden="true" href="#cb12-263" tabindex="-1"></a></span>
+<span id="cb12-264"><a aria-hidden="true" href="#cb12-264" tabindex="-1"></a>The following measures are frequently used to describe the agreement between</span>
+<span id="cb12-265"><a aria-hidden="true" href="#cb12-265" tabindex="-1"></a>the test and the true diagnosis.  Here $T^{+}$ denotes a positive test, $D^{-}$</span>
+<span id="cb12-266"><a aria-hidden="true" href="#cb12-266" tabindex="-1"></a>denotes  no disease, etc.</span>
+<span id="cb12-267"><a aria-hidden="true" href="#cb12-267" tabindex="-1"></a></span>
+<span id="cb12-268"><a aria-hidden="true" href="#cb12-268" tabindex="-1"></a><span class="pp">|</span> Quantity <span class="pp">|</span> Probability Being Estimated <span class="pp">|</span> Formula   <span class="pp">|</span></span>
+<span id="cb12-269"><a aria-hidden="true" href="#cb12-269" tabindex="-1"></a><span class="pp">|-----|-----|-----|</span></span>
+<span id="cb12-270"><a aria-hidden="true" href="#cb12-270" tabindex="-1"></a><span class="pp">|</span> Correct diagnosis probability <span class="pp">|</span> Prob$(T = D)$ <span class="pp">|</span>  $\frac{a+d}{n}$  <span class="pp">|</span></span>
+<span id="cb12-271"><a aria-hidden="true" href="#cb12-271" tabindex="-1"></a><span class="pp">|</span> Sensitivity <span class="pp">|</span> Prob$(T^{+} <span class="pp">|</span> D^{+})$ <span class="pp">|</span> $\frac{a}{e}$  <span class="pp">|</span></span>
+<span id="cb12-272"><a aria-hidden="true" href="#cb12-272" tabindex="-1"></a><span class="pp">|</span> Specificity <span class="pp">|</span> Prob$(T^{-} <span class="pp">|</span> D^{-})$ <span class="pp">|</span> $\frac{d}{f}$  <span class="pp">|</span></span>
+<span id="cb12-273"><a aria-hidden="true" href="#cb12-273" tabindex="-1"></a><span class="pp">|</span> Accuracy of a positive test <span class="pp">|</span> Prob$(D^{+} <span class="pp">|</span> T_{+})$ <span class="pp">|</span> $\frac{a}{g}$  <span class="pp">|</span></span>
+<span id="cb12-274"><a aria-hidden="true" href="#cb12-274" tabindex="-1"></a><span class="pp">|</span> Accuracy of a negative test <span class="pp">|</span> Prob$(D^{-} <span class="pp">|</span> T_{-})$ <span class="pp">|</span> $\frac{d}{h}$ <span class="pp">|</span></span>
+<span id="cb12-275"><a aria-hidden="true" href="#cb12-275" tabindex="-1"></a></span>
+<span id="cb12-276"><a aria-hidden="true" href="#cb12-276" tabindex="-1"></a>The first and last two measures are usually preferred.</span>
+<span id="cb12-277"><a aria-hidden="true" href="#cb12-277" tabindex="-1"></a>Note that when the disease is very rare or very common, the correct</span>
+<span id="cb12-278"><a aria-hidden="true" href="#cb12-278" tabindex="-1"></a>diagnosis probability will be high by chance alone. Since the sensitivity and</span>
+<span id="cb12-279"><a aria-hidden="true" href="#cb12-279" tabindex="-1"></a>specificity are calculated conditional on the diagnosis, the prevalence of</span>
+<span id="cb12-280"><a aria-hidden="true" href="#cb12-280" tabindex="-1"></a>disease does not directly affect these measures.  But sensitivity and</span>
+<span id="cb12-281"><a aria-hidden="true" href="#cb12-281" tabindex="-1"></a>specificity will vary with every patient characteristic related to the actual</span>
+<span id="cb12-282"><a aria-hidden="true" href="#cb12-282" tabindex="-1"></a>ignored severity of disease.</span>
+<span id="cb12-283"><a aria-hidden="true" href="#cb12-283" tabindex="-1"></a></span>
+<span id="cb12-284"><a aria-hidden="true" href="#cb12-284" tabindex="-1"></a>When estimating any of these quantities, Wilson confidence intervals are useful</span>
+<span id="cb12-285"><a aria-hidden="true" href="#cb12-285" tabindex="-1"></a>adjunct statistics.  A less accurate 0.95 confidence interval is obtained</span>
+<span id="cb12-286"><a aria-hidden="true" href="#cb12-286" tabindex="-1"></a>from $p \pm 1.96\sqrt{\frac{p(1-p)}{n}}$ where $p$ is the proportion</span>
+<span id="cb12-287"><a aria-hidden="true" href="#cb12-287" tabindex="-1"></a>and $m$ is its denominator.</span>
+<span id="cb12-288"><a aria-hidden="true" href="#cb12-288" tabindex="-1"></a></span>
+<span id="cb12-289"><a aria-hidden="true" href="#cb12-289" tabindex="-1"></a></span>
+<span id="cb12-290"><a aria-hidden="true" href="#cb12-290" tabindex="-1"></a></span>
+<span id="cb12-291"><a aria-hidden="true" href="#cb12-291" tabindex="-1"></a><span class="fu">## Problems</span></span>
+<span id="cb12-292"><a aria-hidden="true" href="#cb12-292" tabindex="-1"></a></span>
+<span id="cb12-293"><a aria-hidden="true" href="#cb12-293" tabindex="-1"></a><span class="ss">1. </span>Three technicians, using different machines, make 3 readings each. For the data that follow, calculate estimates of inter- and intra-technician discrepancy.</span>
+<span id="cb12-294"><a aria-hidden="true" href="#cb12-294" tabindex="-1"></a></span>
+<span id="cb12-295"><a aria-hidden="true" href="#cb12-295" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> Technician <span class="pp">|</span>  <span class="pp">|</span></span>
+<span id="cb12-296"><a aria-hidden="true" href="#cb12-296" tabindex="-1"></a><span class="pp">|-----|-----|-----|</span></span>
+<span id="cb12-297"><a aria-hidden="true" href="#cb12-297" tabindex="-1"></a><span class="pp">|</span>  1 <span class="pp">|</span> 2 <span class="pp">|</span> 3   <span class="pp">|</span></span>
+<span id="cb12-298"><a aria-hidden="true" href="#cb12-298" tabindex="-1"></a><span class="pp">|</span>  Reading <span class="pp">|</span> Reading <span class="pp">|</span> Reading   <span class="pp">|</span></span>
+<span id="cb12-299"><a aria-hidden="true" href="#cb12-299" tabindex="-1"></a><span class="pp">|</span>  1 2 3 <span class="pp">|</span> 1 2 3 <span class="pp">|</span> 1 2 3   <span class="pp">|</span></span>
+<span id="cb12-300"><a aria-hidden="true" href="#cb12-300" tabindex="-1"></a><span class="pp">|</span> 18 17 14 <span class="pp">|</span> 16 15 16 <span class="pp">|</span> 12 15 12  <span class="pp">|</span></span>
+<span id="cb12-301"><a aria-hidden="true" href="#cb12-301" tabindex="-1"></a><span class="pp">|</span> 20 21 20 <span class="pp">|</span> 14 12    <span class="pp">|</span> 13  <span class="pp">|</span></span>
+<span id="cb12-302"><a aria-hidden="true" href="#cb12-302" tabindex="-1"></a><span class="pp">|</span> 26 20 23 <span class="pp">|</span> 18 20    <span class="pp">|</span> 22 24 <span class="pp">|</span></span>
+<span id="cb12-303"><a aria-hidden="true" href="#cb12-303" tabindex="-1"></a><span class="pp">|</span> 19 17    <span class="pp">|</span> 16       <span class="pp">|</span> 21 23 <span class="pp">|</span></span>
+<span id="cb12-304"><a aria-hidden="true" href="#cb12-304" tabindex="-1"></a><span class="pp">|</span> 28 24    <span class="pp">|</span> 32 29    <span class="pp">|</span> 29 25  <span class="pp">|</span></span>
+<span id="cb12-305"><a aria-hidden="true" href="#cb12-305" tabindex="-1"></a></span>
+<span id="cb12-306"><a aria-hidden="true" href="#cb12-306" tabindex="-1"></a></span>
+<span id="cb12-307"><a aria-hidden="true" href="#cb12-307" tabindex="-1"></a><span class="ss">1. </span>Forty-one patients each receive two tests yielding the frequency table shown below. Calculate a measure of agreement (or disagreement) along with an associated 0.95 confidence interval. Also calculate a chance-corrected measure of agreement. Test the null hypothesis that the the tests have the same probability of being positive and the same probability of being negative. In other words, test the hypothesis that the chance of observing $+-$ is the same as observing $-+$.</span>
+<span id="cb12-308"><a aria-hidden="true" href="#cb12-308" tabindex="-1"></a></span>
+<span id="cb12-309"><a aria-hidden="true" href="#cb12-309" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> <span class="pp">|</span> Test 2 <span class="pp">|</span></span>
+<span id="cb12-310"><a aria-hidden="true" href="#cb12-310" tabindex="-1"></a><span class="pp">|-----|-----|-----|</span></span>
+<span id="cb12-311"><a aria-hidden="true" href="#cb12-311" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> <span class="pp">|</span>  + -  <span class="pp">|</span></span>
+<span id="cb12-312"><a aria-hidden="true" href="#cb12-312" tabindex="-1"></a><span class="pp">|</span> Test 1 <span class="pp">|</span> + <span class="pp">|</span> 29 8 <span class="pp">|</span></span>
+<span id="cb12-313"><a aria-hidden="true" href="#cb12-313" tabindex="-1"></a><span class="pp">|</span>        <span class="pp">|</span> - <span class="pp">|</span> 0 4  <span class="pp">|</span></span>
+<span id="cb12-314"><a aria-hidden="true" href="#cb12-314" tabindex="-1"></a></span>
+<span id="cb12-315"><a aria-hidden="true" href="#cb12-315" tabindex="-1"></a></span>
+<span id="cb12-316"><a aria-hidden="true" href="#cb12-316" tabindex="-1"></a></span>
+<span id="cb12-317"><a aria-hidden="true" href="#cb12-317" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb12-318"><a aria-hidden="true" href="#cb12-318" tabindex="-1"></a>Landis JR, Koch GG: A review of statistical methods in the analysis of</span>
+<span id="cb12-319"><a aria-hidden="true" href="#cb12-319" tabindex="-1"></a>data arising from observer reliability studies (Part II), \emph{Statistica</span>
+<span id="cb12-320"><a aria-hidden="true" href="#cb12-320" tabindex="-1"></a>Neerlandica} **29**:151-619 1975.</span>
+<span id="cb12-321"><a aria-hidden="true" href="#cb12-321" tabindex="-1"></a></span>
+<span id="cb12-322"><a aria-hidden="true" href="#cb12-322" tabindex="-1"></a>Landis JR, Koch GG: An application of hierarchical $\kappa$-type statistics</span>
+<span id="cb12-323"><a aria-hidden="true" href="#cb12-323" tabindex="-1"></a>in the assessment of majority agreement among multiple observers.</span>
+<span id="cb12-324"><a aria-hidden="true" href="#cb12-324" tabindex="-1"></a>_Biometrics_ **33**:363-74, 1977.</span></code></pre></div><button class="code-copy-button" data-in-quarto-modal="" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+<div class="nav-footer">
+<div class="nav-footer-left">
+<ul class="footer-items list-unstyled">
+<li class="nav-item">
+ Copyright 2025, Frank E Harrell Jr
+  </li>
+</ul>
+</div>
+<div class="nav-footer-center">
+       
+    </div>
+<div class="nav-footer-right">
+<ul class="footer-items list-unstyled">
+<li class="nav-item">
+<a class="nav-link" href="https://www.gnu.org/licenses/gpl-3.0.en.html">
+<p>License</p>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</footer>
+</body></html>

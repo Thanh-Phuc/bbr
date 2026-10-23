@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta charset="utf-8"/>
+<meta content="quarto-1.10.0" name="generator"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport"/>
+<title>1  R – Biostatistics for Biomedical Research</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta content="./" name="quarto:offset"/>
+<link href="algebra.html" rel="next"/>
+<link href="index.html" rel="prev"/>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet"/>
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-9c5e1a58ae97b3faeeb5cca0e0e2eaf1.css" id="quarto-text-highlighting-styles" rel="stylesheet"/>
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet"/>
+<link append-hash="true" data-mode="light" href="site_libs/bootstrap/bootstrap-39d25629837ca44e2eea0020ef944eda.min.css" id="quarto-bootstrap" rel="stylesheet"/>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FN79JJ28KR', { 'anonymize_ip': true});
+</script>
+<script class="js-hypothesis-config" type="application/json">
+{
+  "theme": "clean",
+  "openSidebar": false,
+  "enableExperimentalNewNoteButton": true
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+<link href="h.css" rel="stylesheet"/>
+<meta content="1  R – Biostatistics for Biomedical Research" name="twitter:title"/>
+<meta content="" name="twitter:description"/>
+<meta content="https://hbiostat.org/bbr/data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAEDmlDQ1BrQ0dDb2xvclNwYWNlR2VuZXJpY1JHQgAAOI2NVV1oHFUUPpu5syskzoPUpqaSDv41lLRsUtGE2uj+ZbNt3CyTbLRBkMns3Z1pJjPj/KRpKT4UQRDBqOCT4P9bwSchaqvtiy2itFCiBIMo+ND6R6HSFwnruTOzu5O4a73L3PnmnO9+595z7t4LkLgsW5beJQIsGq4t5dPis8fmxMQ6dMF90A190C0rjpUqlSYBG+PCv9rt7yDG3tf2t/f/Z+uuUEcBiN2F2Kw4yiLiZQD+FcWyXYAEQfvICddi+AnEO2ycIOISw7UAVxieD/Cyz5mRMohfRSwoqoz+xNuIB+cj9loEB3Pw2448NaitKSLLRck2q5pOI9O9g/t/tkXda8Tbg0+PszB9FN8DuPaXKnKW4YcQn1Xk3HSIry5ps8UQ/2W5aQnxIwBdu7yFcgrxPsRjVXu8HOh0qao30cArp9SZZxDfg3h1wTzKxu5E/LUxX5wKdX5SnAzmDx4A4OIqLbB69yMesE1pKojLjVdoNsfyiPi45hZmAn3uLWdpOtfQOaVmikEs7ovj8hFWpz7EV6mel0L9Xy23FMYlPYZenAx0yDB1/PX6dledmQjikjkXCxqMJS9WtfFCyH9XtSekEF+2dH+P4tzITduTygGfv58a5VCTH5PtXD7EFZiNyUDBhHnsFTBgE0SQIA9pfFtgo6cKGuhooeilaKH41eDs38Ip+f4At1Rq/sjr6NEwQqb/I/DQqsLvaFUjvAx+eWirddAJZnAj1DFJL0mSg/gcIpPkMBkhoyCSJ8lTZIxk0TpKDjXHliJzZPO50dR5ASNSnzeLvIvod0HG/mdkmOC0z8VKnzcQ2M/Yz2vKldduXjp9bleLu0ZWn7vWc+l0JGcaai10yNrUnXLP/8Jf59ewX+c3Wgz+B34Df+vbVrc16zTMVgp9um9bxEfzPU5kPqUtVWxhs6OiWTVW+gIfywB9uXi7CGcGW/zk98k/kmvJ95IfJn/j3uQ+4c5zn3Kfcd+AyF3gLnJfcl9xH3OfR2rUee80a+6vo7EK5mmXUdyfQlrYLTwoZIU9wsPCZEtP6BWGhAlhL3p2N6sTjRdduwbHsG9kq32sgBepc+xurLPW4T9URpYGJ3ym4+8zA05u44QjST8ZIoVtu3qE7fWmdn5LPdqvgcZz8Ww8BWJ8X3w0PhQ/wnCDGd+LvlHs8dRy6bLLDuKMaZ20tZrqisPJ5ONiCq8yKhYM5cCgKOu66Lsc0aYOtZdo5QCwezI4wm9J/v0X23mlZXOfBjj8Jzv3WrY5D+CsA9D7aMs2gGfjve8ArD6mePZSeCfEYt8CONWDw8FXTxrPqx/r9Vt4biXeANh8vV7/+/16ffMD1N8AuKD/A/8leAvFY9bLAAAAOGVYSWZNTQAqAAAACAABh2kABAAAAAEAAAAaAAAAAAACoAIABAAAAAEAAAANoAMABAAAAAEAAAANAAAAAIoCOpQAAACmSURBVCgVzVJBCoQwDBzaxYtSCkX0EQVv9kP9cKF9g4pXvSia3Ra2sLiX3ZOBhCHJQGYIAFAIgYZhuKS1loQQqW+Mob7vKe4/XgVN00ApFeFHlGUJxhjatkVRFHnGMvoB3JyUjPDeQ0p5UTXPM47jgHMOy7LkeSJprb+6V9c1OOfoug5VVWXSzY3467xkxDRN2Pc9C32DdV1xnifGccS2bSCKrwc8Ab+6Rv4NVUeIAAAAAElFTkSuQmCC" name="twitter:image"/>
+<meta content="f2harrell" name="twitter:creator"/>
+<meta content="f2harrell" name="twitter:site"/>
+<meta content="image" name="twitter:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+</head>
+<body class="nav-sidebar floating nav-fixed quarto-light">
+<div id="quarto-search-results"></div>
+<header class="headroom fixed-top" id="quarto-header">
+<nav class="navbar navbar-expand-xl" data-bs-theme="dark">
+<div class="navbar-container container-fluid">
+<div class="navbar-brand-container mx-auto">
+<a class="navbar-brand" href="index.html">
+<span class="navbar-title">Biostatistics for Biomedical Research</span>
+</a>
+</div>
+<div class="quarto-navbar-tools tools-end">
+</div>
+<div class="" id="quarto-search" title="Search"></div>
+</div> <!-- /container-fluid -->
+</nav>
+<nav class="quarto-secondary-nav">
+<div class="container-fluid d-flex">
+<button aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" class="quarto-btn-toggle btn" data-bs-target=".quarto-sidebar-collapse-item" data-bs-toggle="collapse" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }" role="button" type="button">
+<i class="bi bi-layout-text-sidebar-reverse"></i>
+</button>
+<nav aria-label="breadcrumb" class="quarto-page-breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="r.html"><span class="chapter-number">1</span>  <span class="chapter-title"><code>R</code></span></a></li></ol></nav>
+<a aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" class="flex-grow-1" data-bs-target=".quarto-sidebar-collapse-item" data-bs-toggle="collapse" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }" role="navigation">
+</a>
+</div>
+</nav>
+</header>
+<!-- content -->
+<div class="quarto-container page-columns page-rows-contents page-layout-article page-navbar" id="quarto-content">
+<!-- sidebar -->
+<nav class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" id="quarto-sidebar">
+<div class="sidebar-menu-container">
+<ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="index.html">
+<span class="menu-text">Preface</span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link active" href="r.html">
+<span class="menu-text"><span class="chapter-number">1</span>  <span class="chapter-title"><code>R</code></span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="algebra.html">
+<span class="menu-text"><span class="chapter-number">2</span>  <span class="chapter-title">Algebra Review</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="overview.html">
+<span class="menu-text"><span class="chapter-number">3</span>  <span class="chapter-title">General Overview of Biostatistics</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="descript.html">
+<span class="menu-text"><span class="chapter-number">4</span>  <span class="chapter-title">Descriptive Statistics, Distributions, and Graphics</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="htest.html">
+<span class="menu-text"><span class="chapter-number">5</span>  <span class="chapter-title">Statistical Inference</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="prop.html">
+<span class="menu-text"><span class="chapter-number">6</span>  <span class="chapter-title">Comparing Two Proportions</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="nonpar.html">
+<span class="menu-text"><span class="chapter-number">7</span>  <span class="chapter-title">Nonparametric Statistical Tests</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="corr.html">
+<span class="menu-text"><span class="chapter-number">8</span>  <span class="chapter-title">Correlation and Nonparametric Regression</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="rmsintro.html">
+<span class="menu-text"><span class="chapter-number">9</span>  <span class="chapter-title">Introduction to the <code>R</code> <code>rms</code> Package: The Linear Model</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="reg.html">
+<span class="menu-text"><span class="chapter-number">10</span>  <span class="chapter-title">Simple and Multiple Regression Models and Overview of Model Validation</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="multgroup.html">
+<span class="menu-text"><span class="chapter-number">11</span>  <span class="chapter-title">Multiple Groups</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="infreview.html">
+<span class="menu-text"><span class="chapter-number">12</span>  <span class="chapter-title">Statistical Inference Review</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="ancova.html">
+<span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Analysis of Covariance in Randomized Studies</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="change.html">
+<span class="menu-text"><span class="chapter-number">14</span>  <span class="chapter-title">Transformations, Measuring Change, and Regression to the Mean</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="serial.html">
+<span class="menu-text"><span class="chapter-number">15</span>  <span class="chapter-title">Serial Data</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="obsvar.html">
+<span class="menu-text"><span class="chapter-number">16</span>  <span class="chapter-title">Analysis of Observer Variability and Measurement Agreement</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="propensity.html">
+<span class="menu-text"><span class="chapter-number">17</span>  <span class="chapter-title">Modeling for Observational Treatment Comparisons</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="info.html">
+<span class="menu-text"><span class="chapter-number">18</span>  <span class="chapter-title">Information Loss</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="dx.html">
+<span class="menu-text"><span class="chapter-number">19</span>  <span class="chapter-title">Diagnosis</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="hdata.html">
+<span class="menu-text"><span class="chapter-number">20</span>  <span class="chapter-title">Challenges of Analyzing High-Dimensional Data</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="repro.html">
+<span class="menu-text"><span class="chapter-number">21</span>  <span class="chapter-title">Reproducible Research</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="alpha.html">
+<span class="menu-text"><span class="chapter-number">22</span>  <span class="chapter-title">Controlling α vs. Probability of a Decision Error</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="figures.html">
+<span class="menu-text">List of Figures</span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="references.html">
+<span class="menu-text">Annotated References</span></a>
+</div>
+</li>
+</ul>
+</div>
+</nav>
+<div class="quarto-sidebar-collapse-item" data-bs-target=".quarto-sidebar-collapse-item" data-bs-toggle="collapse" id="quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+<div class="sidebar margin-sidebar" id="quarto-margin-sidebar">
+<nav class="toc-active" id="TOC" role="doc-toc">
+<h2 id="toc-title">Table of contents</h2>
+<ul>
+<li><a class="nav-link active" data-scroll-target="#background" href="#background" id="toc-background"><span class="header-section-number">1.1</span> Background</a></li>
+<li><a class="nav-link" data-scroll-target="#learning-r" href="#learning-r" id="toc-learning-r"><span class="header-section-number">1.2</span> Learning <code>R</code></a></li>
+<li><a class="nav-link" data-scroll-target="#setting-up-r" href="#setting-up-r" id="toc-setting-up-r"><span class="header-section-number">1.3</span> Setting up <code>R</code></a></li>
+<li><a class="nav-link" data-scroll-target="#quarto" href="#quarto" id="toc-quarto"><span class="header-section-number">1.4</span> Quarto</a></li>
+<li><a class="nav-link" data-scroll-target="#debugging-r-code" href="#debugging-r-code" id="toc-debugging-r-code"><span class="header-section-number">1.5</span> Debugging <code>R</code> Code</a></li>
+<li><a class="nav-link" data-scroll-target="#importing-other-datasets" href="#importing-other-datasets" id="toc-importing-other-datasets"><span class="header-section-number">1.6</span> Importing Other Datasets</a></li>
+<li><a class="nav-link" data-scroll-target="#suggestions-for-initial-data-look" href="#suggestions-for-initial-data-look" id="toc-suggestions-for-initial-data-look"><span class="header-section-number">1.7</span> Suggestions for Initial Data Look</a></li>
+<li><a class="nav-link" data-scroll-target="#operating-on-data-frames" href="#operating-on-data-frames" id="toc-operating-on-data-frames"><span class="header-section-number">1.8</span> Operating on Data Frames</a></li>
+</ul>
+</nav>
+</div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<header class="quarto-title-block default" id="title-block-header">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">1</span>  <span class="chapter-title"><code>R</code></span></h1><button aria-expanded="false" class="btn code-tools-button dropdown-toggle" data-bs-toggle="dropdown" id="quarto-code-tools-menu" type="button"><i class="bi"></i> Code</button><ul aria-labelelledby="quarto-code-tools-menu" class="dropdown-menu dropdown-menu-end"><li><a class="dropdown-item" href="javascript:void(0)" id="quarto-show-all-code" role="button">Show All Code</a></li><li><a class="dropdown-item" href="javascript:void(0)" id="quarto-hide-all-code" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"/></li><li><a class="dropdown-item" href="javascript:void(0)" id="quarto-view-source" role="button">View Source</a></li></ul></div></div>
+</div>
+<div class="quarto-title-meta">
+</div>
+</header>
+<p>The <code>R</code> companion to this book is <a href="https://hbiostat.org/rflow">R Workflow</a> which goes into much more detail and provides many examples of using <code>R</code> especially in the context of making a reproducible report. The material below provides an introduction to <code>R Workflow</code>.</p>
+<section class="level2" data-number="1.1" id="background">
+<h2 class="anchored" data-anchor-id="background" data-number="1.1"><span class="header-section-number">1.1</span> Background</h2>
+<p>Computer code shown throughout these notes is <code>R</code> <span class="citation" data-cites="R">R Development Team (<a href="references.html#ref-R" role="doc-biblioref">2025</a>)</span>. <code>R</code> is free and is the most widely used statistical software in the world. It has the best graphics, statistical modeling, nonparametric methods, survival analysis, clinical trials methods, and data manipulation capabilities. <code>R</code> has the most comprehensive genomics analysis packages and has advanced capabilities for reproducible analysis and reporting. <code>R</code> also has an excellent graphical front-end <code>RStudio</code> (<a href="https://www.rstudio.com/">rstudio.org</a>) that has the identical look and feel on all operating systems and via a web browser. Part of <code>R</code>’s appeal is the thousands of add-on packages available (at <a href="http://cran.r-project.org/web/packages">cran.r-project.org/web/packages</a>), which exist because it is easy to add to <code>R</code>. Many of the add-on packages are specialty packages for biomedical research including packages for such widely diverse areas as</p>
+<ul>
+<li>interfacing <code>R</code> to <code>REDCap</code> (2 packages)</li>
+<li>interactive design of adaptive clinical trials</li>
+<li>analyzing accelerometer data</li>
+<li>flow cytometry</li>
+<li>genomics</li>
+<li>analyzing ICD9 codes and computing comorbidity indexes</li>
+<li>downloading all annotated NHANES datasets</li>
+<li>interfacing to <a href="https://clinicaltrials.gov/">clinicaltrials.gov</a></li>
+<li>detecting whether a dataset contains personal identifiers of human subjects</li>
+<li>analysis of early phase cardiovascular drug safety studies The main <code>R</code> web site is <a href="https://www.r-project.org/">www.r-project.org</a>.</li>
+</ul>
+</section>
+<section class="level2" data-number="1.2" id="learning-r">
+<h2 class="anchored" data-anchor-id="learning-r" data-number="1.2"><span class="header-section-number">1.2</span> Learning <code>R</code></h2>
+<p>Start with <em>R Tutorials</em> at <a href="http://www.r-bloggers.com/how-to-learn-r-2">www.r-bloggers.com/how-to-learn-r-2</a>, <em>R Programming Tutorials</em> from Mike Marin at <a href="https://www.youtube.com/user/marinstatlectures">www.youtube.com/user/marinstatlectures</a>, or <em>Fast Lane to Learning R</em> at <a href="https://github.com//matloff/fasteR">github.com//matloff/fasteR</a> by Norm Matloff. Or look at <a href="https://swirlstats.com">swirlstats.com</a> for an interactive way to learn <code>R</code>. Those who have used SPSS or SAS before will profit from <em><code>R</code> for SAS and SPSS Users</em> by Robert Muenchen. A current list of <code>R</code> books on <a href="https://www.amazon.com/">amazon.com</a> may be found at <a href="http://amzn.to/15URiF6">amzn.to/15URiF6</a>. <a href="https://stats.idre.ucla.edu/r/">stats.idre.ucla.edu/r/</a> and <a href="http://www.introductoryr.co.uk/R_Resources_for_Beginners.html">www.introductoryr.co.uk/R_Resources_for_Beginners.html</a> are useful web sites. An excellent resource is <a href="https://r4ds.had.co.nz/"><code>R</code> for Data Science</a> by Grolemund and Wickham. See also <em><code>R</code> in Action, second ed.</em> by Robert Kabacoff. The online open source book on statistical modeling by Legler and Roback at <a href="https://bookdown.org/roback/bookdown-bysh">bookdown.org/roback/bookdown-bysh</a> contains a lot of <code>R</code> code. Jenny Bryan’s <a href="https://stat545.com">STAT 545</a> <em>Data Wrangling, Exploration, and Analysis with <code>R</code></em> course at <a href="stat545.com">stat545.com</a> is an excellent resource. <a href="http://stackoverflow.com/tags/r">stackoverflow.com/tags/r</a> is the best place for asking questions about the language and for learning from answers to past questions asked (see also the <code>R-help</code> email list).</p>
+<p>Three of the best ways to learn how to analyze data in <code>R</code> quickly are</p>
+<ol type="1">
+<li>Avoid importing and manipulating data, instead using the <code>R</code> <code>readRDS</code> function to load datasets that are already annotated and analysis-ready (see <code>R Workflow</code> for information about importing your own datasets)</li>
+<li>Use example <code>R</code> scripts as analysis templates</li>
+<li>Use <code>RStudio</code> (<a href="https://www.rstudio.com">rstudio.org</a>) to run <code>R</code> On the first approach, the <code>R</code> <code>Hmisc</code> package’s <code>getHdata</code> function finds datasets in <a class="uri" href="https://hbiostat.org/data">https://hbiostat.org/data</a>, downloads them, and <code>load()</code>s them in your <code>R</code> session. These notes use only datasets available via this mechanism. These datasets are fully annotated with variable labels and units of measurements for many of the continuous variables. Concerning analysis scripts, some complete analysis script tamplates have been collected on <a href="https://github.com/harrelfe/rscripts">github.com/harrelfe/rscripts</a> and the <code>R</code> <code>Hmisc</code> package has a function <code>getRs</code> to download these scripts and to automatically populate an <code>RStudio</code> script editor window with the script. Many of the scripts are in RMarkdown format for use with the <code>R</code> <code>knitr</code> package to allow mixing of text and <code>R</code> code to make reproducible reports.</li>
+</ol>
+<p>The RMarkdown scripts accessed through <code>getRs</code> use a template that makes the result part of a reproducible research process by documenting the versions of <code>R</code> and attached packages at the end of the report.</p>
+</section>
+<section class="level2" data-number="1.3" id="setting-up-r">
+<h2 class="anchored" data-anchor-id="setting-up-r" data-number="1.3"><span class="header-section-number">1.3</span> Setting up <code>R</code></h2>
+<p>Before running examples in these notes and <code>R</code> markdown example scripts, you need to do the following:</p>
+<ol type="1">
+<li>Make sure your operating system is up to date enough to run the most current version of <code>R</code> at <a href="https://www.r-project.org/">www.r-project.org</a>. For Mac you must have OS X Maverick or later.</li>
+<li>Install <code>R</code> from <a href="https://www.r-project.org/">www.r-project.org</a> or upgrade your installation of <code>R</code> to the latest version.</li>
+<li>Install <code>Quarto</code> from <a href="https://quarto.org/docs/get-started">quarto.org</a> if you don’t want to use the version of <code>Quarto</code> that is provided automatically with <code>RStudio</code></li>
+<li>Install <code>RStudio</code> from <a href="https://www.rstudio.com/">rstudio.org</a> or update your <code>RStudio</code> to the latest version. <!-- 1. Run `RStudio` and get it to install the packages that allow
+  `Rmarkdown` to run, by clicking on \co{File ... New File ... R
+ Markdown}.  Make sure that the `knitr` package is installed. --></li>
+<li>Have <code>RStudio</code> install the <code>Hmisc</code> and <code>rms</code> packages (which will make <code>RStudio</code> install several other packages). For packages you had installed previously, make sure you update them to have the latest versions. &lt;!–</li>
+<li>Configure <code>RStudio</code> <code>Tools ... Global Options</code> to match the images below</li>
+</ol>
+<p><img src="images/rstudioOptions.png" width="50%"/><img src="rstudioSweave.png" width="50%"/> –&gt;</p>
+<p>Here are some examples of how <code>getRs</code> is used once you load the <code>Hmisc</code> package using a menu or by typing <code>require(Hmisc)</code> or <code>library(Hmisc)</code> in the console.</p>
+<div class="cell">
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a><span class="fu">require</span>(Hmisc)      <span class="co"># do this once per session (or library(Hmisc))</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="fu">options</span>(<span class="at">url.method=</span><span class="st">'libcurl'</span>)    <span class="co"># sometimes needed if using Windows</span></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="fu">getRs</span>()             <span class="co"># list available scripts</span></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class="fu">getRs</span>(<span class="at">browse=</span><span class="st">'browser'</span>)  <span class="co"># open scripts contents in your web browser</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a>scripts <span class="ot">&lt;-</span> <span class="fu">getRs</span>()  <span class="co"># store directory of scripts in an object that can easily</span></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a>                    <span class="co"># be viewed on demand in RStudio (right upper pane)</span></span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a><span class="fu">getRs</span>(<span class="st">'introda.r'</span>, <span class="at">put=</span><span class="st">'rstudio'</span>)  <span class="co"># download introda.r and open in script editor</span></span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a><span class="fu">getRs</span>(<span class="at">cats=</span><span class="cn">TRUE</span>)    <span class="co"># list available major and minor categories</span></span>
+<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a>categories <span class="ot">&lt;-</span> <span class="fu">getRs</span>(<span class="at">cats=</span><span class="cn">TRUE</span>)  <span class="co"># store results in a list for later viewing</span></span>
+<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a><span class="fu">getRs</span>(<span class="at">cats=</span><span class="st">'reg'</span>)   <span class="co"># list all scripts in a major category containing 'reg'</span></span>
+<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a><span class="fu">getRs</span>(<span class="st">'importREDCap.r'</span>, <span class="at">put=</span><span class="st">'source'</span>)   <span class="co"># source() to define a function</span></span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>You can also point your browser to <a href="https://github.com/harrelfe/rscripts/blob/master/contents.md">github.com/harrelfe/rscripts/blob/master/contents.md</a> to see the available scripts and categories, and to be able to click on links to see <code>html</code> report output.</p>
+<p>To get started using <code>R</code> in <code>RStudio</code> to create reproducible annotated reports, finish the above configuration instructions and type the following in the <code>RStudio</code> console: <code>getRs('descriptives.Rmd', put='rstudio')</code>. The above the script editor window click on <code>Render</code> (if using <code>Quarto</code>) or <code>Knit HTML</code>.</p>
+</section>
+<section class="level2" data-number="1.4" id="quarto">
+<h2 class="anchored" data-anchor-id="quarto" data-number="1.4"><span class="header-section-number">1.4</span> Quarto</h2>
+<p><code>Quarto</code> is a new way to build scientific reports and articles. It is a replacement for <code>R Markdown</code> but its syntax is largely compatible with <code>R Markdown</code>, so resources on learning <code>R Markdown</code> are See <a href="http://kbroman.org/knitr_knutshell/pages/Rmarkdown.html">kbroman.org/knitr_knutshell/pages/Rmarkdown.html</a> and print the <code>R Markdown</code> cheat sheet from <a href="http://www.rstudio.com/resources/cheatsheets">www.rstudio.com/resources/cheatsheets</a>. For more advanced R Markdown usage see the excellent <a href="https://youtu.be/WkF7nqEYF1E">video by Tom Mock</a>.</p>
+<p><code>Quarto</code> has you put a <em>yaml</em> (“yet another markup language”) header at the start of the document. When you start a new <code>Quarto</code> document with <code>RStudio</code>, <code>RStudio</code> will create a simple header. A more detailed template is <a href="https://hbiostat.org/R/reportTemplate.qmd">here</a>.</p>
+<p>The <code>R</code> <code>knitr</code> package is automatically used to run the report and insert graphics and text output into the report at appropriate slots. It is best to specify a name for each chunk, and you must use unique names. Each <code>R</code> code chunk must begin exactly with <tt>```{r …}</tt> and the chunk name is the first set of characters that appear after the space after <tt>r</tt>. Here are some example chunk headers. Chunk names must not contain a space.</p>
+<div class="line-block">```{r descriptives}<br/>
+```{r anova}<br/>
+```{r anova-y1}<br/>
+```{r anova_y1}<br/>
+```{r acidity_plot}<br/>
+```{r plot_residuals}<br/>
+```{r}</div>
+<p>The last line indicates that you wish <code>knitr</code> to create the chunk name using a counter.</p>
+<p>After the chunk header there are many directives to <code>Quarto</code> to allow control of formatting and to create figure cross-referencing labels and captions. More dtails are <a href="http://hbiostat.org/rflow/rformat">here</a>.</p>
+</section>
+<section class="level2" data-number="1.5" id="debugging-r-code">
+<h2 class="anchored" data-anchor-id="debugging-r-code" data-number="1.5"><span class="header-section-number">1.5</span> Debugging <code>R</code> Code</h2>
+<p>When using <code>RStudio</code> and <code>knitr/Quarto/RMarkdown</code>, it is best to debug your commands a piece at a time. The fastest way to do this is to go to some line inside your first chunk and click the green <code>C</code> just above and to the right of your script. Click on then on <code>Run Next Chunk</code>. Shortcut keys for these are <code>Ctrl+Alt+C</code> and <code>Ctrl+Alt+N</code> (<code>Command+Option+C</code> and <code>Command+Option+N</code> for Mac). You can also click on a single line of code and run it by clicking on <code>Run</code>.</p>
+<p>Whenever you get a strange execution error it is sometimes helpful to show the history of all the function calls leading to that error. This is done by typing <code>traceback()</code> at the command prompt.</p>
+<!-- <a name="sec:r-import"></a> -->
+</section>
+<section class="level2" data-number="1.6" id="importing-other-datasets">
+<h2 class="anchored" data-anchor-id="importing-other-datasets" data-number="1.6"><span class="header-section-number">1.6</span> Importing Other Datasets</h2>
+<p>Most of the work of getting some data sources ready for analysis involves reshaping datasets from wide to tall and thin, recoding variables, and merging multiple datasets. <code>R</code> has first-class capabilities for all of these tasks but this part of <code>R</code> is harder to learn, partly because there are so many ways to accomplish these tasks in <code>R</code>. Getting good variable names, variable labels, and value labels, can also be tedious but is highly worth the time investment. See <code>R Workflow</code> for detailed information about importing various types of files, and recoding and manipulating data after importing them.</p>
+<!-- Read [biostat.app.vumc.org/DataTransmissionProcedures](http://biostat.app.vumc.org/DataTransmissionProcedures) for best practices for constructing spreadsheets so they can be reliably imported.
+-->
+<p>Sometimes the dataset to read into <code>R</code> is very small and can be defined within the report. Here is an example.</p>
+<div class="cell">
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a><span class="co"># What is between data &lt;- .. and ') is exactly like an external .csv file</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">textConnection</span>(<span class="st">'</span></span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a><span class="st">Age in Years,sex,race,visit date,m/s</span></span>
+<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a><span class="st">23,m,w,10/21/2014,1.1</span></span>
+<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a><span class="st">14,f,b,10/22/2014,1.3</span></span>
+<span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a><span class="st">,f,w,10/15/2014,1.7</span></span>
+<span id="cb2-7"><a aria-hidden="true" href="#cb2-7" tabindex="-1"></a><span class="st">'</span>)</span>
+<span id="cb2-8"><a aria-hidden="true" href="#cb2-8" tabindex="-1"></a><span class="fu">require</span>(Hmisc)</span>
+<span id="cb2-9"><a aria-hidden="true" href="#cb2-9" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">csv.get</span>(data, <span class="at">lowernames=</span><span class="cn">TRUE</span>, <span class="at">datevars=</span><span class="st">'visit.date'</span>,</span>
+<span id="cb2-10"><a aria-hidden="true" href="#cb2-10" tabindex="-1"></a>             <span class="at">dateformat=</span><span class="st">'%m/%d/%Y'</span>)</span>
+<span id="cb2-11"><a aria-hidden="true" href="#cb2-11" tabindex="-1"></a><span class="fu">close</span>(data)  <span class="co"># close the textConnection</span></span>
+<span id="cb2-12"><a aria-hidden="true" href="#cb2-12" tabindex="-1"></a><span class="co"># lowernames=TRUE: convert variable names to lower case</span></span>
+<span id="cb2-13"><a aria-hidden="true" href="#cb2-13" tabindex="-1"></a><span class="co"># Omit dateformat if dates are in YYYY-MM-DD format</span></span>
+<span id="cb2-14"><a aria-hidden="true" href="#cb2-14" tabindex="-1"></a><span class="fu">contents</span>(d)</span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<title>d Contents</title>
+<hr/><h4 class="anchored">Data frame:d</h4>3 observations and 5 variables, maximum # NAs:1  
+<hr/>
+<style>
+ .hmisctable922879 {
+ border: 1px solid gray;
+ border-collapse: collapse;
+ font-size: 100%;
+ }
+ .hmisctable922879 td {
+ text-align: right;
+ padding: 0 1ex 0 1ex;
+ }
+ .hmisctable922879 th {
+ color: Black;
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ font-weight: bold;
+ }
+ </style>
+<table class="hmisctable922879 caption-top table table-sm table-striped small" data-border="1">
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Labels</th>
+<th data-quarto-table-cell-role="th">Class</th>
+<th data-quarto-table-cell-role="th">Storage</th>
+<th data-quarto-table-cell-role="th">NAs</th>
+</tr>
+<tr class="even">
+<td>age.in.years</td>
+<td>Age in Years</td>
+<td>integer</td>
+<td>integer</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>sex</td>
+<td>sex</td>
+<td>character</td>
+<td>character</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>race</td>
+<td>race</td>
+<td>character</td>
+<td>character</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>visit.date</td>
+<td>visit date</td>
+<td>Date</td>
+<td>double</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>m.s</td>
+<td>m/s</td>
+<td>numeric</td>
+<td>double</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+</div>
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" href="#cb3-1" tabindex="-1"></a>d</span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  age.in.years sex race visit.date m.s
+1           23   m    w 2014-10-21 1.1
+2           14   f    b 2014-10-22 1.3
+3           NA   f    w 2014-10-15 1.7</code></pre>
+</div>
+</div>
+<p>In the <code>contents</code> output above you can see that the original column names have been placed in the variable labels, and the new names have periods in place of blanks or a slash, since these characters are illegal in <code>R</code> names.</p>
+<p>You can have as the first argument to <code>csv.get</code> not only a file name but a URL to a file on the web. You can also specify delimiters other than commas.</p>
+<p>Also see the excellent tutorial on importing from Excel found at <a href="http://www.r-bloggers.com/r-tutorial-on-reading-and-importing-excel-files-into-r">www.r-bloggers.com/r-tutorial-on-reading-and-importing-excel-files-into-r</a>.</p>
+The <code>Hmisc</code> <code>upData</code> function may be used to rename variables and provide variable and value labels and units of measurement. Here is another example where there is a <code>junk</code> variable to delete after importing, and a categorical variable is coded as integers and need to have value labels defined after importing. We show how <code>csv.get</code> automatically renamed one illegal (to <code>R</code>) variable name, how to redefine a variable label, and how to define the value labels. Suppose that file <code>test.csv</code> exists in our project directory and has the following contents.
+<pre>age,sys bp,sex,junk,state
+23,140,male,1,1
+42,131,female,2,1
+45,127,female,3,2
+37,141,male,4,2
+</pre>
+<p>Now import and modify the file.</p>
+<div class="cell">
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" href="#cb5-1" tabindex="-1"></a><span class="fu">require</span>(Hmisc)</span>
+<span id="cb5-2"><a aria-hidden="true" href="#cb5-2" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">csv.get</span>(<span class="st">'test.csv'</span>)</span>
+<span id="cb5-3"><a aria-hidden="true" href="#cb5-3" tabindex="-1"></a><span class="fu">names</span>(d)   <span class="co"># show names after modification by csv.get</span></span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "age"    "sys.bp" "sex"    "junk"   "state" </code></pre>
+</div>
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" href="#cb7-1" tabindex="-1"></a><span class="fu">contents</span>(d)  <span class="co"># show labels created by csv.get</span></span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<title>d Contents</title>
+<hr/><h4 class="anchored">Data frame:d</h4>4 observations and 5 variables, maximum # NAs:0  
+<hr/>
+<style>
+ .hmisctable705759 {
+ border: 1px solid gray;
+ border-collapse: collapse;
+ font-size: 100%;
+ }
+ .hmisctable705759 td {
+ text-align: right;
+ padding: 0 1ex 0 1ex;
+ }
+ .hmisctable705759 th {
+ color: Black;
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ font-weight: bold;
+ }
+ </style>
+<table class="hmisctable705759 caption-top table table-sm table-striped small" data-border="1">
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Labels</th>
+<th data-quarto-table-cell-role="th">Class</th>
+<th data-quarto-table-cell-role="th">Storage</th>
+</tr>
+<tr class="even">
+<td>age</td>
+<td>age</td>
+<td>integer</td>
+<td>integer</td>
+</tr>
+<tr class="odd">
+<td>sys.bp</td>
+<td>sys bp</td>
+<td>integer</td>
+<td>integer</td>
+</tr>
+<tr class="even">
+<td>sex</td>
+<td>sex</td>
+<td>character</td>
+<td>character</td>
+</tr>
+<tr class="odd">
+<td>junk</td>
+<td>junk</td>
+<td>integer</td>
+<td>integer</td>
+</tr>
+<tr class="even">
+<td>state</td>
+<td>state</td>
+<td>integer</td>
+<td>integer</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+</div>
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" href="#cb8-1" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">upData</span>(d,</span>
+<span id="cb8-2"><a aria-hidden="true" href="#cb8-2" tabindex="-1"></a>            <span class="at">state=</span><span class="fu">factor</span>(state, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="fu">c</span>(<span class="st">'Alabama'</span>,<span class="st">'Alaska'</span>)),</span>
+<span id="cb8-3"><a aria-hidden="true" href="#cb8-3" tabindex="-1"></a>            <span class="at">rename=</span><span class="fu">c</span>(<span class="at">sys.bp=</span><span class="st">'sbp'</span>),</span>
+<span id="cb8-4"><a aria-hidden="true" href="#cb8-4" tabindex="-1"></a>            <span class="at">labels=</span><span class="fu">c</span>(<span class="at">age =</span> <span class="st">'Age'</span>,</span>
+<span id="cb8-5"><a aria-hidden="true" href="#cb8-5" tabindex="-1"></a>                     <span class="at">sbp =</span> <span class="st">'Systolic Blood Pressure'</span>),</span>
+<span id="cb8-6"><a aria-hidden="true" href="#cb8-6" tabindex="-1"></a>            <span class="at">drop=</span><span class="st">'junk'</span>,   <span class="co"># for &gt; 1: drop=c('junk1','junk2',...)</span></span>
+<span id="cb8-7"><a aria-hidden="true" href="#cb8-7" tabindex="-1"></a>   <span class="at">units=</span><span class="fu">c</span>(<span class="at">sbp=</span><span class="st">'mmHg'</span>))</span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Input object size:   4040 bytes;     5 variables     4 observations
+Renamed variable     sys.bp     to sbp 
+Modified variable   state
+Dropped variable    junk
+New object size:    3608 bytes; 4 variables 4 observations</code></pre>
+</div>
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-hidden="true" href="#cb10-1" tabindex="-1"></a><span class="fu">contents</span>(d)</span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<title>d Contents</title>
+<hr/><h4 class="anchored">Data frame:d</h4>4 observations and 4 variables, maximum # NAs:0  
+<hr/>
+<style>
+ .hmisctable704571 {
+ border: 1px solid gray;
+ border-collapse: collapse;
+ font-size: 100%;
+ }
+ .hmisctable704571 td {
+ text-align: right;
+ padding: 0 1ex 0 1ex;
+ }
+ .hmisctable704571 th {
+ color: Black;
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ font-weight: bold;
+ }
+ </style>
+<table class="hmisctable704571 caption-top table table-sm table-striped small" data-border="1">
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Labels</th>
+<th data-quarto-table-cell-role="th">Units</th>
+<th data-quarto-table-cell-role="th">Levels</th>
+<th data-quarto-table-cell-role="th">Class</th>
+<th data-quarto-table-cell-role="th">Storage</th>
+</tr>
+<tr class="even">
+<td>age</td>
+<td>Age</td>
+<td></td>
+<td></td>
+<td>integer</td>
+<td>integer</td>
+</tr>
+<tr class="odd">
+<td>sbp</td>
+<td>Systolic Blood Pressure</td>
+<td>mmHg</td>
+<td></td>
+<td>integer</td>
+<td>integer</td>
+</tr>
+<tr class="even">
+<td>sex</td>
+<td>sex</td>
+<td></td>
+<td></td>
+<td>character</td>
+<td>character</td>
+</tr>
+<tr class="odd">
+<td>state</td>
+<td></td>
+<td></td>
+<td><a href="#levels.state">2</a></td>
+<td></td>
+<td>integer</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h5 class="anchored">Category Levels</h5>
+<a name="levels.state"><h6 class="anchored">state</h6></a>
+<li>Alabama</li>
+<li>Alaska</li>
+</div>
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-hidden="true" href="#cb11-1" tabindex="-1"></a><span class="fu">describe</span>(d)</span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<style>
+.earrows {color:silver;font-size:11px;}
+
+fcap {
+ font-family: Verdana;
+ font-size: 12px;
+ color: MidnightBlue
+ }
+
+smg {
+ font-family: Verdana;
+ font-size: 10px;
+ color: &#808080;
+}
+
+hr.thinhr { margin-top: 0.15em; margin-bottom: 0.15em; }
+
+span.xscript {
+position: relative;
+}
+span.xscript sub {
+position: absolute;
+left: 0.1em;
+bottom: -1ex;
+}
+</style>
+<title>d Descriptives</title>
+<font color="MidnightBlue"><div align="center"><span style="font-weight:bold">d <br/><br/> 4  Variables   4  Observations</span></div></font>
+<hr class="thinhr"/>
+<span style="font-weight:bold">age</span>: Age<div style="float: right; text-align: right;"><img alt="image" src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAEDmlDQ1BrQ0dDb2xvclNwYWNlR2VuZXJpY1JHQgAAOI2NVV1oHFUUPpu5syskzoPUpqaSDv41lLRsUtGE2uj+ZbNt3CyTbLRBkMns3Z1pJjPj/KRpKT4UQRDBqOCT4P9bwSchaqvtiy2itFCiBIMo+ND6R6HSFwnruTOzu5O4a73L3PnmnO9+595z7t4LkLgsW5beJQIsGq4t5dPis8fmxMQ6dMF90A190C0rjpUqlSYBG+PCv9rt7yDG3tf2t/f/Z+uuUEcBiN2F2Kw4yiLiZQD+FcWyXYAEQfvICddi+AnEO2ycIOISw7UAVxieD/Cyz5mRMohfRSwoqoz+xNuIB+cj9loEB3Pw2448NaitKSLLRck2q5pOI9O9g/t/tkXda8Tbg0+PszB9FN8DuPaXKnKW4YcQn1Xk3HSIry5ps8UQ/2W5aQnxIwBdu7yFcgrxPsRjVXu8HOh0qao30cArp9SZZxDfg3h1wTzKxu5E/LUxX5wKdX5SnAzmDx4A4OIqLbB69yMesE1pKojLjVdoNsfyiPi45hZmAn3uLWdpOtfQOaVmikEs7ovj8hFWpz7EV6mel0L9Xy23FMYlPYZenAx0yDB1/PX6dledmQjikjkXCxqMJS9WtfFCyH9XtSekEF+2dH+P4tzITduTygGfv58a5VCTH5PtXD7EFZiNyUDBhHnsFTBgE0SQIA9pfFtgo6cKGuhooeilaKH41eDs38Ip+f4At1Rq/sjr6NEwQqb/I/DQqsLvaFUjvAx+eWirddAJZnAj1DFJL0mSg/gcIpPkMBkhoyCSJ8lTZIxk0TpKDjXHliJzZPO50dR5ASNSnzeLvIvod0HG/mdkmOC0z8VKnzcQ2M/Yz2vKldduXjp9bleLu0ZWn7vWc+l0JGcaai10yNrUnXLP/8Jf59ewX+c3Wgz+B34Df+vbVrc16zTMVgp9um9bxEfzPU5kPqUtVWxhs6OiWTVW+gIfywB9uXi7CGcGW/zk98k/kmvJ95IfJn/j3uQ+4c5zn3Kfcd+AyF3gLnJfcl9xH3OfR2rUee80a+6vo7EK5mmXUdyfQlrYLTwoZIU9wsPCZEtP6BWGhAlhL3p2N6sTjRdduwbHsG9kq32sgBepc+xurLPW4T9URpYGJ3ym4+8zA05u44QjST8ZIoVtu3qE7fWmdn5LPdqvgcZz8Ww8BWJ8X3w0PhQ/wnCDGd+LvlHs8dRy6bLLDuKMaZ20tZrqisPJ5ONiCq8yKhYM5cCgKOu66Lsc0aYOtZdo5QCwezI4wm9J/v0X23mlZXOfBjj8Jzv3WrY5D+CsA9D7aMs2gGfjve8ArD6mePZSeCfEYt8CONWDw8FXTxrPqx/r9Vt4biXeANh8vV7/+/16ffMD1N8AuKD/A/8leAvFY9bLAAAAOGVYSWZNTQAqAAAACAABh2kABAAAAAEAAAAaAAAAAAACoAIABAAAAAEAAAANoAMABAAAAAEAAAANAAAAAIoCOpQAAACmSURBVCgVzVJBCoQwDBzaxYtSCkX0EQVv9kP9cKF9g4pXvSia3Ra2sLiX3ZOBhCHJQGYIAFAIgYZhuKS1loQQqW+Mob7vKe4/XgVN00ApFeFHlGUJxhjatkVRFHnGMvoB3JyUjPDeQ0p5UTXPM47jgHMOy7LkeSJprb+6V9c1OOfoug5VVWXSzY3467xkxDRN2Pc9C32DdV1xnifGccS2bSCKrwc8Ab+6Rv4NVUeIAAAAAElFTkSuQmCC"/></div>
+<style>
+ .hmisctable521824 {
+ border: none;
+ font-size: 85%;
+ }
+ .hmisctable521824 td {
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ }
+ .hmisctable521824 th {
+ color: MidnightBlue;
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ font-weight: normal;
+ }
+ </style>
+<table class="hmisctable521824" data-quarto-disable-processing="true">
+<tbody><tr><th>n</th><th>missing</th><th>distinct</th><th>Info</th><th>Mean</th><th>pMedian</th><th>Gmd</th></tr>
+<tr><td>4</td><td>0</td><td>4</td><td>1</td><td>36.75</td><td>38.25</td><td>11.83</td></tr>
+</tbody></table>
+<pre style="font-size:85%;"> Value        23   37   42   45
+ Frequency     1    1    1    1
+ Proportion 0.25 0.25 0.25 0.25 </pre>
+<hr class="thinhr"/>
+<span style="font-weight:bold">sbp</span>: Systolic Blood Pressure <span style="font-family:Verdana;font-size:75%;">mmHg</span><div style="float: right; text-align: right;"><img alt="image" src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAEDmlDQ1BrQ0dDb2xvclNwYWNlR2VuZXJpY1JHQgAAOI2NVV1oHFUUPpu5syskzoPUpqaSDv41lLRsUtGE2uj+ZbNt3CyTbLRBkMns3Z1pJjPj/KRpKT4UQRDBqOCT4P9bwSchaqvtiy2itFCiBIMo+ND6R6HSFwnruTOzu5O4a73L3PnmnO9+595z7t4LkLgsW5beJQIsGq4t5dPis8fmxMQ6dMF90A190C0rjpUqlSYBG+PCv9rt7yDG3tf2t/f/Z+uuUEcBiN2F2Kw4yiLiZQD+FcWyXYAEQfvICddi+AnEO2ycIOISw7UAVxieD/Cyz5mRMohfRSwoqoz+xNuIB+cj9loEB3Pw2448NaitKSLLRck2q5pOI9O9g/t/tkXda8Tbg0+PszB9FN8DuPaXKnKW4YcQn1Xk3HSIry5ps8UQ/2W5aQnxIwBdu7yFcgrxPsRjVXu8HOh0qao30cArp9SZZxDfg3h1wTzKxu5E/LUxX5wKdX5SnAzmDx4A4OIqLbB69yMesE1pKojLjVdoNsfyiPi45hZmAn3uLWdpOtfQOaVmikEs7ovj8hFWpz7EV6mel0L9Xy23FMYlPYZenAx0yDB1/PX6dledmQjikjkXCxqMJS9WtfFCyH9XtSekEF+2dH+P4tzITduTygGfv58a5VCTH5PtXD7EFZiNyUDBhHnsFTBgE0SQIA9pfFtgo6cKGuhooeilaKH41eDs38Ip+f4At1Rq/sjr6NEwQqb/I/DQqsLvaFUjvAx+eWirddAJZnAj1DFJL0mSg/gcIpPkMBkhoyCSJ8lTZIxk0TpKDjXHliJzZPO50dR5ASNSnzeLvIvod0HG/mdkmOC0z8VKnzcQ2M/Yz2vKldduXjp9bleLu0ZWn7vWc+l0JGcaai10yNrUnXLP/8Jf59ewX+c3Wgz+B34Df+vbVrc16zTMVgp9um9bxEfzPU5kPqUtVWxhs6OiWTVW+gIfywB9uXi7CGcGW/zk98k/kmvJ95IfJn/j3uQ+4c5zn3Kfcd+AyF3gLnJfcl9xH3OfR2rUee80a+6vo7EK5mmXUdyfQlrYLTwoZIU9wsPCZEtP6BWGhAlhL3p2N6sTjRdduwbHsG9kq32sgBepc+xurLPW4T9URpYGJ3ym4+8zA05u44QjST8ZIoVtu3qE7fWmdn5LPdqvgcZz8Ww8BWJ8X3w0PhQ/wnCDGd+LvlHs8dRy6bLLDuKMaZ20tZrqisPJ5ONiCq8yKhYM5cCgKOu66Lsc0aYOtZdo5QCwezI4wm9J/v0X23mlZXOfBjj8Jzv3WrY5D+CsA9D7aMs2gGfjve8ArD6mePZSeCfEYt8CONWDw8FXTxrPqx/r9Vt4biXeANh8vV7/+/16ffMD1N8AuKD/A/8leAvFY9bLAAAAOGVYSWZNTQAqAAAACAABh2kABAAAAAEAAAAaAAAAAAACoAIABAAAAAEAAAANoAMABAAAAAEAAAANAAAAAIoCOpQAAACcSURBVCgVzZAxDoQgEEX/wtJYES2wpTeBQ3A8L0eid4CC1pgY2JWxlG228heQPPjJzHsB+Kzrir7vYa2Fcw7zPJ/4Hq019n3Huz4ppTAMAzjn6LoO4zjeGydhjBG/zuaX3/DhJRKxLAuklDiOAykleO+bC+WciVNpmiayJ4Sg2xjTLFW7NQ8X8dd4JCLGSOaqnW3bEEJoiiilEP8CdK8rtF69vLMAAAAASUVORK5CYII="/></div>
+<style>
+ .hmisctable461759 {
+ border: none;
+ font-size: 85%;
+ }
+ .hmisctable461759 td {
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ }
+ .hmisctable461759 th {
+ color: MidnightBlue;
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ font-weight: normal;
+ }
+ </style>
+<table class="hmisctable461759" data-quarto-disable-processing="true">
+<tbody><tr><th>n</th><th>missing</th><th>distinct</th><th>Info</th><th>Mean</th><th>pMedian</th><th>Gmd</th></tr>
+<tr><td>4</td><td>0</td><td>4</td><td>1</td><td>134.8</td><td>134.8</td><td>8.5</td></tr>
+</tbody></table>
+<pre style="font-size:85%;"> Value       127  131  140  141
+ Frequency     1    1    1    1
+ Proportion 0.25 0.25 0.25 0.25 </pre>
+<hr class="thinhr"/>
+<span style="font-weight:bold">sex</span>
+<style>
+ .hmisctable102899 {
+ border: none;
+ font-size: 85%;
+ }
+ .hmisctable102899 td {
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ }
+ .hmisctable102899 th {
+ color: MidnightBlue;
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ font-weight: normal;
+ }
+ </style>
+<table class="hmisctable102899" data-quarto-disable-processing="true">
+<tbody><tr><th>n</th><th>missing</th><th>distinct</th></tr>
+<tr><td>4</td><td>0</td><td>2</td></tr>
+</tbody></table>
+<pre style="font-size:85%;"> Value      female   male
+ Frequency       2      2
+ Proportion    0.5    0.5 </pre>
+<hr class="thinhr"/>
+<span style="font-weight:bold">state</span>
+<style>
+ .hmisctable166465 {
+ border: none;
+ font-size: 85%;
+ }
+ .hmisctable166465 td {
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ }
+ .hmisctable166465 th {
+ color: MidnightBlue;
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ font-weight: normal;
+ }
+ </style>
+<table class="hmisctable166465" data-quarto-disable-processing="true">
+<tbody><tr><th>n</th><th>missing</th><th>distinct</th></tr>
+<tr><td>4</td><td>0</td><td>2</td></tr>
+</tbody></table>
+<pre style="font-size:85%;"> Value      Alabama  Alaska
+ Frequency        2       2
+ Proportion     0.5     0.5 </pre>
+<hr class="thinhr"/>
+</div>
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-hidden="true" href="#cb12-1" tabindex="-1"></a><span class="fu">dim</span>(d); <span class="fu">nrow</span>(d); <span class="fu">ncol</span>(d); <span class="fu">length</span>(d)  <span class="co"># length is no. of variables</span></span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4 4</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+<p>For tiny datasets it is easiest to define them as follows:</p>
+<div class="cell">
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-hidden="true" href="#cb17-1" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">age=</span><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>), <span class="at">sex=</span><span class="fu">c</span>(<span class="st">'male'</span>,<span class="st">'female'</span>,<span class="st">'male'</span>),</span>
+<span id="cb17-2"><a aria-hidden="true" href="#cb17-2" tabindex="-1"></a>                <span class="at">sbp=</span><span class="fu">c</span>(<span class="dv">120</span>,<span class="dv">125</span>,<span class="cn">NA</span>))</span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Large files may be stored in <code>R</code> binary format using <code>saveRDS(..., compress='xz')</code>, which creates an incredibly compact representation of the data in a file usually suffixed with <code>.rds</code>. This allows extremely fast loading of the data frame in your next <code>R</code> session using <code>readRDS(...)</code>.</p>
+</section>
+<section class="level2" data-number="1.7" id="suggestions-for-initial-data-look">
+<h2 class="anchored" data-anchor-id="suggestions-for-initial-data-look" data-number="1.7"><span class="header-section-number">1.7</span> Suggestions for Initial Data Look</h2>
+<p>The <code>datadensity</code> function in the <code>Hmisc</code> package gives an overall univariable graphical summary of all variables in the imported dataset. The <code>contents</code> and <code>describe</code> functions are handy for describing the variables, labels, number of <code>NA</code>s, extreme values, and other values. <code>R Workflow</code> has many other approaches for the initial data look.</p>
+</section>
+<section class="level2" data-number="1.8" id="operating-on-data-frames">
+<h2 class="anchored" data-anchor-id="operating-on-data-frames" data-number="1.8"><span class="header-section-number">1.8</span> Operating on Data Frames</h2>
+<p>One of the most common operations is subsetting. In the following example we subset on males older than 26.</p>
+<div class="cell">
+<details class="code-fold" open="">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-hidden="true" href="#cb18-1" tabindex="-1"></a>young.males <span class="ot">&lt;-</span> <span class="fu">subset</span>(d, sex <span class="sc">==</span> <span class="st">'male'</span> <span class="sc">&amp;</span> age <span class="sc">&gt;</span> <span class="dv">26</span>)</span>
+<span id="cb18-2"><a aria-hidden="true" href="#cb18-2" tabindex="-1"></a><span class="co"># If you want to exclude rows that are missing on sex or age:</span></span>
+<span id="cb18-3"><a aria-hidden="true" href="#cb18-3" tabindex="-1"></a>young.males <span class="ot">&lt;-</span> <span class="fu">subset</span>(d, sex <span class="sc">==</span> <span class="st">'male'</span> <span class="sc">&amp;</span> age <span class="sc">&gt;</span> <span class="dv">26</span> <span class="sc">&amp;</span> <span class="sc">!</span> <span class="fu">is.na</span>(sex) <span class="sc">&amp;</span></span>
+<span id="cb18-4"><a aria-hidden="true" href="#cb18-4" tabindex="-1"></a>                        <span class="sc">!</span> <span class="fu">is.na</span>(age))</span>
+<span id="cb18-5"><a aria-hidden="true" href="#cb18-5" tabindex="-1"></a><span class="co"># f &lt;- lrm(y ~ sex + age, data=subset(d, sex == 'male' &amp; ...))</span></span>
+<span id="cb18-6"><a aria-hidden="true" href="#cb18-6" tabindex="-1"></a><span class="co"># f &lt;- lrm(y ~ sex + age, data=d, subset=sex == 'male' &amp; age &gt; 26 ...)</span></span></code></pre></div><button class="code-copy-button" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</details>
+</div>
+<!-- -->
+<div class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" id="refs" role="list" style="display: none">
+<div class="csl-entry" id="ref-R" role="listitem">
+R Development Team. (2025). <em>R: <span>A</span> language and environment for statistical computing</em>. R Foundation for Statistical Computing; www.r-project.org. <a href="http://www.R-project.org">http://www.R-project.org</a>
+</div>
+</div>
+</section>
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/hbiostat\.org\/bbr");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+        for (let i=0; i<annoteTargets.length; i++) {
+          const annoteTarget = annoteTargets[i];
+          const targetCell = annoteTarget.getAttribute("data-target-cell");
+          const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+          const contentFn = () => {
+            const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+            if (content) {
+              const tipContent = content.cloneNode(true);
+              tipContent.classList.add("code-annotation-tip-content");
+              return tipContent.outerHTML;
+            }
+          }
+          const config = {
+            allowHTML: true,
+            content: contentFn,
+            onShow: (instance) => {
+              selectCodeLines(instance.reference);
+              instance.reference.classList.add('code-annotation-active');
+              window.tippy.hideAll();
+            },
+            onHide: (instance) => {
+              unselectCodeLines();
+              instance.reference.classList.remove('code-annotation-active');
+            },
+            maxWidth: 300,
+            delay: [50, 0],
+            duration: [200, 0],
+            offset: [5, 10],
+            arrow: true,
+            appendTo: function(el) {
+              return el.parentElement.parentElement.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'quarto',
+            placement: 'right',
+            popperOptions: {
+              modifiers: [
+              {
+                name: 'flip',
+                options: {
+                  flipVariations: false, // true by default
+                  allowedAutoPlacements: ['right'],
+                  fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+                },
+              },
+              {
+                name: 'preventOverflow',
+                options: {
+                  mainAxis: false,
+                  altAxis: false
+                }
+              }
+              ]        
+            }      
+          };
+          window.tippy(annoteTarget, config); 
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+<div class="nav-page nav-page-previous">
+<a aria-label="Preface" class="pagination-link" href="index.html">
+<i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+</a>
+</div>
+<div class="nav-page nav-page-next">
+<a aria-label="Algebra Review" class="pagination-link" href="algebra.html">
+<span class="nav-page-text"><span class="chapter-number">2</span>  <span class="chapter-title">Algebra Review</span></span> <i class="bi bi-arrow-right-short"></i>
+</a>
+</div>
+</nav><div aria-hidden="true" aria-labelledby="quarto-embedded-source-code-modal-label" class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" data-shortcodes="false" id="cb19"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a aria-hidden="true" href="#cb19-1" tabindex="-1"></a><span class="fu"># `R`</span></span>
+<span id="cb19-2"><a aria-hidden="true" href="#cb19-2" tabindex="-1"></a></span>
+<span id="cb19-3"><a aria-hidden="true" href="#cb19-3" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb19-4"><a aria-hidden="true" href="#cb19-4" tabindex="-1"></a><span class="fu">require</span>(Hmisc)</span>
+<span id="cb19-5"><a aria-hidden="true" href="#cb19-5" tabindex="-1"></a><span class="fu">options</span>(<span class="at">prType=</span><span class="st">'html'</span>)</span>
+<span id="cb19-6"><a aria-hidden="true" href="#cb19-6" tabindex="-1"></a><span class="co"># source('~/r/rmarkdown/bookfun.r')</span></span>
+<span id="cb19-7"><a aria-hidden="true" href="#cb19-7" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-8"><a aria-hidden="true" href="#cb19-8" tabindex="-1"></a></span>
+<span id="cb19-9"><a aria-hidden="true" href="#cb19-9" tabindex="-1"></a>The <span class="in">`R`</span> companion to this book is <span class="co">[</span><span class="ot">R Workflow</span><span class="co">](https://hbiostat.org/rflow)</span> which goes into much more detail and provides many examples of using <span class="in">`R`</span> especially in the context of making a reproducible report.  The material below provides an introduction to <span class="in">`R Workflow`</span>.</span>
+<span id="cb19-10"><a aria-hidden="true" href="#cb19-10" tabindex="-1"></a></span>
+<span id="cb19-11"><a aria-hidden="true" href="#cb19-11" tabindex="-1"></a><span class="fu">## Background</span></span>
+<span id="cb19-12"><a aria-hidden="true" href="#cb19-12" tabindex="-1"></a>Computer code shown throughout these notes is <span class="in">`R`</span> @R.  <span class="in">`R`</span> is free</span>
+<span id="cb19-13"><a aria-hidden="true" href="#cb19-13" tabindex="-1"></a>and is the</span>
+<span id="cb19-14"><a aria-hidden="true" href="#cb19-14" tabindex="-1"></a>most widely used statistical software in the world.  It has the best graphics,</span>
+<span id="cb19-15"><a aria-hidden="true" href="#cb19-15" tabindex="-1"></a>statistical modeling, nonparametric methods, survival analysis,</span>
+<span id="cb19-16"><a aria-hidden="true" href="#cb19-16" tabindex="-1"></a>clinical trials methods, and data manipulation capabilities.  <span class="in">`R`</span> has</span>
+<span id="cb19-17"><a aria-hidden="true" href="#cb19-17" tabindex="-1"></a>the most comprehensive genomics analysis packages and has advanced</span>
+<span id="cb19-18"><a aria-hidden="true" href="#cb19-18" tabindex="-1"></a>capabilities for reproducible analysis and reporting.  <span class="in">`R`</span> also has an</span>
+<span id="cb19-19"><a aria-hidden="true" href="#cb19-19" tabindex="-1"></a>excellent graphical front-end <span class="in">`RStudio`</span> (<span class="co">[</span><span class="ot">rstudio.org</span><span class="co">](https://www.rstudio.com/)</span>) that</span>
+<span id="cb19-20"><a aria-hidden="true" href="#cb19-20" tabindex="-1"></a>has the identical look and feel on all operating systems and via a web</span>
+<span id="cb19-21"><a aria-hidden="true" href="#cb19-21" tabindex="-1"></a>browser.  Part of</span>
+<span id="cb19-22"><a aria-hidden="true" href="#cb19-22" tabindex="-1"></a><span class="in">`R`</span>'s appeal is the thousands of add-on packages available (at</span>
+<span id="cb19-23"><a aria-hidden="true" href="#cb19-23" tabindex="-1"></a><span class="co">[</span><span class="ot">cran.r-project.org/web/packages</span><span class="co">](http://cran.r-project.org/web/packages)</span>), which</span>
+<span id="cb19-24"><a aria-hidden="true" href="#cb19-24" tabindex="-1"></a>exist because it is easy to add to <span class="in">`R`</span>.  Many of the add-on packages</span>
+<span id="cb19-25"><a aria-hidden="true" href="#cb19-25" tabindex="-1"></a>are specialty packages for biomedical research including packages for</span>
+<span id="cb19-26"><a aria-hidden="true" href="#cb19-26" tabindex="-1"></a>such widely diverse areas as</span>
+<span id="cb19-27"><a aria-hidden="true" href="#cb19-27" tabindex="-1"></a></span>
+<span id="cb19-28"><a aria-hidden="true" href="#cb19-28" tabindex="-1"></a><span class="ss">* </span>interfacing <span class="in">`R`</span> to <span class="in">`REDCap`</span> (2 packages)</span>
+<span id="cb19-29"><a aria-hidden="true" href="#cb19-29" tabindex="-1"></a><span class="ss">* </span>interactive design of adaptive clinical trials</span>
+<span id="cb19-30"><a aria-hidden="true" href="#cb19-30" tabindex="-1"></a><span class="ss">* </span>analyzing accelerometer data</span>
+<span id="cb19-31"><a aria-hidden="true" href="#cb19-31" tabindex="-1"></a><span class="ss">* </span>flow cytometry</span>
+<span id="cb19-32"><a aria-hidden="true" href="#cb19-32" tabindex="-1"></a><span class="ss">* </span>genomics</span>
+<span id="cb19-33"><a aria-hidden="true" href="#cb19-33" tabindex="-1"></a><span class="ss">* </span>analyzing ICD9 codes and computing comorbidity indexes</span>
+<span id="cb19-34"><a aria-hidden="true" href="#cb19-34" tabindex="-1"></a><span class="ss">* </span>downloading all annotated NHANES datasets</span>
+<span id="cb19-35"><a aria-hidden="true" href="#cb19-35" tabindex="-1"></a><span class="ss">* </span>interfacing to <span class="co">[</span><span class="ot">clinicaltrials.gov</span><span class="co">](https://clinicaltrials.gov/)</span></span>
+<span id="cb19-36"><a aria-hidden="true" href="#cb19-36" tabindex="-1"></a><span class="ss">* </span>detecting whether a dataset contains personal identifiers of</span>
+<span id="cb19-37"><a aria-hidden="true" href="#cb19-37" tabindex="-1"></a>  human subjects</span>
+<span id="cb19-38"><a aria-hidden="true" href="#cb19-38" tabindex="-1"></a><span class="ss">* </span>analysis of early phase cardiovascular drug safety studies</span>
+<span id="cb19-39"><a aria-hidden="true" href="#cb19-39" tabindex="-1"></a>The main <span class="in">`R`</span> web site is <span class="co">[</span><span class="ot">www.r-project.org</span><span class="co">](https://www.r-project.org/)</span>.</span>
+<span id="cb19-40"><a aria-hidden="true" href="#cb19-40" tabindex="-1"></a></span>
+<span id="cb19-41"><a aria-hidden="true" href="#cb19-41" tabindex="-1"></a></span>
+<span id="cb19-42"><a aria-hidden="true" href="#cb19-42" tabindex="-1"></a><span class="fu">## Learning `R`</span></span>
+<span id="cb19-43"><a aria-hidden="true" href="#cb19-43" tabindex="-1"></a>Start with <span class="dt">&lt;</span><span class="kw">em</span><span class="dt">&gt;</span>R Tutorials<span class="dt">&lt;/</span><span class="kw">em</span><span class="dt">&gt;</span> at <span class="co">[</span><span class="ot">www.r-bloggers.com/how-to-learn-r-2</span><span class="co">](http://www.r-bloggers.com/how-to-learn-r-2)</span>, <span class="dt">&lt;</span><span class="kw">em</span><span class="dt">&gt;</span>R Programming Tutorials<span class="dt">&lt;/</span><span class="kw">em</span><span class="dt">&gt;</span> from Mike Marin at</span>
+<span id="cb19-44"><a aria-hidden="true" href="#cb19-44" tabindex="-1"></a><span class="co">[</span><span class="ot">www.youtube.com/user/marinstatlectures</span><span class="co">](https://www.youtube.com/user/marinstatlectures)</span>, or <span class="dt">&lt;</span><span class="kw">em</span><span class="dt">&gt;</span>Fast Lane to Learning R<span class="dt">&lt;/</span><span class="kw">em</span><span class="dt">&gt;</span> at <span class="co">[</span><span class="ot">github.com//matloff/fasteR</span><span class="co">](https://github.com//matloff/fasteR)</span> by</span>
+<span id="cb19-45"><a aria-hidden="true" href="#cb19-45" tabindex="-1"></a>Norm Matloff.  Or look at</span>
+<span id="cb19-46"><a aria-hidden="true" href="#cb19-46" tabindex="-1"></a><span class="co">[</span><span class="ot">swirlstats.com</span><span class="co">](https://swirlstats.com)</span> for an interactive way to learn <span class="in">`R`</span>. Those</span>
+<span id="cb19-47"><a aria-hidden="true" href="#cb19-47" tabindex="-1"></a>who have used SPSS or SAS before will profit from <span class="dt">&lt;</span><span class="kw">em</span><span class="dt">&gt;</span><span class="in">`R`</span> for SAS and SPSS Users<span class="dt">&lt;/</span><span class="kw">em</span><span class="dt">&gt;</span> by Robert Muenchen.  A current list of <span class="in">`R`</span> books on</span>
+<span id="cb19-48"><a aria-hidden="true" href="#cb19-48" tabindex="-1"></a><span class="co">[</span><span class="ot">amazon.com</span><span class="co">](https://www.amazon.com/)</span> may be found at <span class="co">[</span><span class="ot">amzn.to/15URiF6</span><span class="co">](http://amzn.to/15URiF6)</span>.</span>
+<span id="cb19-49"><a aria-hidden="true" href="#cb19-49" tabindex="-1"></a><span class="co">[</span><span class="ot">stats.idre.ucla.edu/r/</span><span class="co">](https://stats.idre.ucla.edu/r/)</span> and</span>
+<span id="cb19-50"><a aria-hidden="true" href="#cb19-50" tabindex="-1"></a><span class="co">[</span><span class="ot">www.introductoryr.co.uk/R_Resources_for_Beginners.html</span><span class="co">](http://www.introductoryr.co.uk/R_Resources_for_Beginners.html)</span></span>
+<span id="cb19-51"><a aria-hidden="true" href="#cb19-51" tabindex="-1"></a>are useful web sites.</span>
+<span id="cb19-52"><a aria-hidden="true" href="#cb19-52" tabindex="-1"></a>An excellent resource is <span class="co">[</span><span class="ot">`R` for Data Science</span><span class="co">](https://r4ds.had.co.nz/)</span> by Grolemund and Wickham.</span>
+<span id="cb19-53"><a aria-hidden="true" href="#cb19-53" tabindex="-1"></a>See also <span class="dt">&lt;</span><span class="kw">em</span><span class="dt">&gt;</span><span class="in">`R`</span> in Action, second ed.<span class="dt">&lt;/</span><span class="kw">em</span><span class="dt">&gt;</span> by Robert</span>
+<span id="cb19-54"><a aria-hidden="true" href="#cb19-54" tabindex="-1"></a>Kabacoff.  The online open source book on statistical modeling by Legler and Roback at</span>
+<span id="cb19-55"><a aria-hidden="true" href="#cb19-55" tabindex="-1"></a><span class="co">[</span><span class="ot">bookdown.org/roback/bookdown-bysh</span><span class="co">](https://bookdown.org/roback/bookdown-bysh)</span> contains a lot of <span class="in">`R`</span> code.</span>
+<span id="cb19-56"><a aria-hidden="true" href="#cb19-56" tabindex="-1"></a>Jenny Bryan's <span class="co">[</span><span class="ot">STAT 545</span><span class="co">](https://stat545.com)</span> <span class="dt">&lt;</span><span class="kw">em</span><span class="dt">&gt;</span>Data Wrangling, Exploration, and Analysis with <span class="in">`R`</span><span class="dt">&lt;/</span><span class="kw">em</span><span class="dt">&gt;</span> course at</span>
+<span id="cb19-57"><a aria-hidden="true" href="#cb19-57" tabindex="-1"></a><span class="co">[</span><span class="ot">stat545.com</span><span class="co">](stat545.com)</span> is an excellent resource.</span>
+<span id="cb19-58"><a aria-hidden="true" href="#cb19-58" tabindex="-1"></a><span class="co">[</span><span class="ot">stackoverflow.com/tags/r</span><span class="co">](http://stackoverflow.com/tags/r)</span> is the best place for asking</span>
+<span id="cb19-59"><a aria-hidden="true" href="#cb19-59" tabindex="-1"></a>questions about the language and for learning from answers to past questions</span>
+<span id="cb19-60"><a aria-hidden="true" href="#cb19-60" tabindex="-1"></a>asked (see also the <span class="in">`R-help`</span> email list).</span>
+<span id="cb19-61"><a aria-hidden="true" href="#cb19-61" tabindex="-1"></a></span>
+<span id="cb19-62"><a aria-hidden="true" href="#cb19-62" tabindex="-1"></a>Three of the best ways to learn how to analyze data in <span class="in">`R`</span> quickly are</span>
+<span id="cb19-63"><a aria-hidden="true" href="#cb19-63" tabindex="-1"></a></span>
+<span id="cb19-64"><a aria-hidden="true" href="#cb19-64" tabindex="-1"></a><span class="ss">1. </span>Avoid importing and manipulating data, instead using the <span class="in">`R`</span></span>
+<span id="cb19-65"><a aria-hidden="true" href="#cb19-65" tabindex="-1"></a>  <span class="in">`readRDS`</span> function to load datasets that are already annotated and</span>
+<span id="cb19-66"><a aria-hidden="true" href="#cb19-66" tabindex="-1"></a>  analysis-ready (see <span class="in">`R Workflow`</span> for information about importing your own datasets)</span>
+<span id="cb19-67"><a aria-hidden="true" href="#cb19-67" tabindex="-1"></a><span class="ss">1. </span>Use example <span class="in">`R`</span> scripts as analysis templates</span>
+<span id="cb19-68"><a aria-hidden="true" href="#cb19-68" tabindex="-1"></a><span class="ss">1. </span>Use <span class="in">`RStudio`</span> (<span class="co">[</span><span class="ot">rstudio.org</span><span class="co">](https://www.rstudio.com)</span>) to run <span class="in">`R`</span></span>
+<span id="cb19-69"><a aria-hidden="true" href="#cb19-69" tabindex="-1"></a>On the first approach, the <span class="in">`R`</span> <span class="in">`Hmisc`</span> package's <span class="in">`getHdata`</span></span>
+<span id="cb19-70"><a aria-hidden="true" href="#cb19-70" tabindex="-1"></a>function finds datasets in <span class="ot">&lt;https://hbiostat.org/data&gt;</span>, downloads them, and <span class="in">`load()`</span>s them in your <span class="in">`R`</span> session.</span>
+<span id="cb19-71"><a aria-hidden="true" href="#cb19-71" tabindex="-1"></a>These notes use only datasets available via this mechanism.  These</span>
+<span id="cb19-72"><a aria-hidden="true" href="#cb19-72" tabindex="-1"></a>datasets are fully annotated with variable labels and units of</span>
+<span id="cb19-73"><a aria-hidden="true" href="#cb19-73" tabindex="-1"></a>measurements for many of the continuous variables.</span>
+<span id="cb19-74"><a aria-hidden="true" href="#cb19-74" tabindex="-1"></a>Concerning analysis scripts, some complete analysis script tamplates have been collected</span>
+<span id="cb19-75"><a aria-hidden="true" href="#cb19-75" tabindex="-1"></a>on</span>
+<span id="cb19-76"><a aria-hidden="true" href="#cb19-76" tabindex="-1"></a><span class="co">[</span><span class="ot">github.com/harrelfe/rscripts</span><span class="co">](https://github.com/harrelfe/rscripts)</span>\footnote{<span class="in">`github`</span> has</span>
+<span id="cb19-77"><a aria-hidden="true" href="#cb19-77" tabindex="-1"></a>  outstanding version control and issue reporting/tracking.  It</span>
+<span id="cb19-78"><a aria-hidden="true" href="#cb19-78" tabindex="-1"></a>  greatly facilitates the contribution of new scripts by users, which</span>
+<span id="cb19-79"><a aria-hidden="true" href="#cb19-79" tabindex="-1"></a>  are most welcomed.  Contact <span class="dt">&lt;</span><span class="kw">tt</span><span class="dt">&gt;</span>fh@fharrell.com<span class="dt">&lt;/</span><span class="kw">tt</span><span class="dt">&gt;</span> if you</span>
+<span id="cb19-80"><a aria-hidden="true" href="#cb19-80" tabindex="-1"></a>  have scripts to contribute or suggestions for existing scripts.} and</span>
+<span id="cb19-81"><a aria-hidden="true" href="#cb19-81" tabindex="-1"></a>the <span class="in">`R`</span> <span class="in">`Hmisc`</span> package has a function <span class="in">`getRs`</span> to download these</span>
+<span id="cb19-82"><a aria-hidden="true" href="#cb19-82" tabindex="-1"></a>scripts and to automatically populate an</span>
+<span id="cb19-83"><a aria-hidden="true" href="#cb19-83" tabindex="-1"></a><span class="in">`RStudio`</span> script editor window with the script.</span>
+<span id="cb19-84"><a aria-hidden="true" href="#cb19-84" tabindex="-1"></a>Many of the scripts are in RMarkdown format for use with the <span class="in">`R`</span></span>
+<span id="cb19-85"><a aria-hidden="true" href="#cb19-85" tabindex="-1"></a><span class="in">`knitr`</span> package to allow mixing of text and <span class="in">`R`</span> code to make</span>
+<span id="cb19-86"><a aria-hidden="true" href="#cb19-86" tabindex="-1"></a>reproducible reports.</span>
+<span id="cb19-87"><a aria-hidden="true" href="#cb19-87" tabindex="-1"></a></span>
+<span id="cb19-88"><a aria-hidden="true" href="#cb19-88" tabindex="-1"></a>The RMarkdown scripts accessed through <span class="in">`getRs`</span> use a template that makes the</span>
+<span id="cb19-89"><a aria-hidden="true" href="#cb19-89" tabindex="-1"></a>result part of</span>
+<span id="cb19-90"><a aria-hidden="true" href="#cb19-90" tabindex="-1"></a>a reproducible research process by documenting the versions of <span class="in">`R`</span> and</span>
+<span id="cb19-91"><a aria-hidden="true" href="#cb19-91" tabindex="-1"></a>attached packages at the end of the report.</span>
+<span id="cb19-92"><a aria-hidden="true" href="#cb19-92" tabindex="-1"></a></span>
+<span id="cb19-93"><a aria-hidden="true" href="#cb19-93" tabindex="-1"></a><span class="fu">## Setting up `R`</span></span>
+<span id="cb19-94"><a aria-hidden="true" href="#cb19-94" tabindex="-1"></a>Before running examples in these notes and <span class="in">`R`</span> markdown example</span>
+<span id="cb19-95"><a aria-hidden="true" href="#cb19-95" tabindex="-1"></a>scripts, you need to do the following:</span>
+<span id="cb19-96"><a aria-hidden="true" href="#cb19-96" tabindex="-1"></a></span>
+<span id="cb19-97"><a aria-hidden="true" href="#cb19-97" tabindex="-1"></a><span class="ss">1. </span>Make sure your operating system is up to date enough to run the</span>
+<span id="cb19-98"><a aria-hidden="true" href="#cb19-98" tabindex="-1"></a>  most current version of <span class="in">`R`</span> at <span class="co">[</span><span class="ot">www.r-project.org</span><span class="co">](https://www.r-project.org/)</span>.  For Mac you</span>
+<span id="cb19-99"><a aria-hidden="true" href="#cb19-99" tabindex="-1"></a>  must have OS X Maverick or later.</span>
+<span id="cb19-100"><a aria-hidden="true" href="#cb19-100" tabindex="-1"></a><span class="ss">1. </span>Install <span class="in">`R`</span> from <span class="co">[</span><span class="ot">www.r-project.org</span><span class="co">](https://www.r-project.org/)</span> or upgrade your</span>
+<span id="cb19-101"><a aria-hidden="true" href="#cb19-101" tabindex="-1"></a>  installation of <span class="in">`R`</span> to the latest version.</span>
+<span id="cb19-102"><a aria-hidden="true" href="#cb19-102" tabindex="-1"></a><span class="ss">1. </span>Install <span class="in">`Quarto`</span> from <span class="co">[</span><span class="ot">quarto.org</span><span class="co">](https://quarto.org/docs/get-started)</span> if you don't want to use the version of <span class="in">`Quarto`</span> that is provided automatically with <span class="in">`RStudio`</span></span>
+<span id="cb19-103"><a aria-hidden="true" href="#cb19-103" tabindex="-1"></a><span class="ss">1. </span>Install <span class="in">`RStudio`</span> from <span class="co">[</span><span class="ot">rstudio.org</span><span class="co">](https://www.rstudio.com/)</span> or update your</span>
+<span id="cb19-104"><a aria-hidden="true" href="#cb19-104" tabindex="-1"></a>  <span class="in">`RStudio`</span> to the latest version.</span>
+<span id="cb19-105"><a aria-hidden="true" href="#cb19-105" tabindex="-1"></a><span class="co">&lt;!-- 1. Run `RStudio` and get it to install the packages that allow</span></span>
+<span id="cb19-106"><a aria-hidden="true" href="#cb19-106" tabindex="-1"></a><span class="co">  `Rmarkdown` to run, by clicking on \co{File ... New File ... R</span></span>
+<span id="cb19-107"><a aria-hidden="true" href="#cb19-107" tabindex="-1"></a><span class="co">    Markdown}.  Make sure that the `knitr` package is installed. --&gt;</span></span>
+<span id="cb19-108"><a aria-hidden="true" href="#cb19-108" tabindex="-1"></a><span class="ss">1. </span>Have <span class="in">`RStudio`</span> install the <span class="in">`Hmisc`</span> and <span class="in">`rms`</span> packages</span>
+<span id="cb19-109"><a aria-hidden="true" href="#cb19-109" tabindex="-1"></a>  (which will make <span class="in">`RStudio`</span> install several other packages).  For</span>
+<span id="cb19-110"><a aria-hidden="true" href="#cb19-110" tabindex="-1"></a>  packages you had installed previously, make sure you update them to</span>
+<span id="cb19-111"><a aria-hidden="true" href="#cb19-111" tabindex="-1"></a>  have the latest versions.</span>
+<span id="cb19-112"><a aria-hidden="true" href="#cb19-112" tabindex="-1"></a><span class="co">&lt;!--</span></span>
+<span id="cb19-113"><a aria-hidden="true" href="#cb19-113" tabindex="-1"></a><span class="co">1. Configure `RStudio` `Tools ... Global Options` to match</span></span>
+<span id="cb19-114"><a aria-hidden="true" href="#cb19-114" tabindex="-1"></a><span class="co">  the images below</span></span>
+<span id="cb19-115"><a aria-hidden="true" href="#cb19-115" tabindex="-1"></a></span>
+<span id="cb19-116"><a aria-hidden="true" href="#cb19-116" tabindex="-1"></a><span class="co">&lt;img src="images/rstudioOptions.png" width="50%"&gt;&lt;img src="rstudioSweave.png" width="50%"&gt;</span></span>
+<span id="cb19-117"><a aria-hidden="true" href="#cb19-117" tabindex="-1"></a><span class="co">--&gt;</span></span>
+<span id="cb19-118"><a aria-hidden="true" href="#cb19-118" tabindex="-1"></a></span>
+<span id="cb19-119"><a aria-hidden="true" href="#cb19-119" tabindex="-1"></a>Here are some examples of how <span class="in">`getRs`</span> is used once you</span>
+<span id="cb19-120"><a aria-hidden="true" href="#cb19-120" tabindex="-1"></a>load the <span class="in">`Hmisc`</span> package using a menu or by typing</span>
+<span id="cb19-121"><a aria-hidden="true" href="#cb19-121" tabindex="-1"></a><span class="in">`require(Hmisc)`</span> or <span class="in">`library(Hmisc)`</span> in the console.</span>
+<span id="cb19-122"><a aria-hidden="true" href="#cb19-122" tabindex="-1"></a></span>
+<span id="cb19-123"><a aria-hidden="true" href="#cb19-123" tabindex="-1"></a><span class="in">```{r getRsex,eval=FALSE}</span></span>
+<span id="cb19-124"><a aria-hidden="true" href="#cb19-124" tabindex="-1"></a><span class="fu">require</span>(Hmisc)      <span class="co"># do this once per session (or library(Hmisc))</span></span>
+<span id="cb19-125"><a aria-hidden="true" href="#cb19-125" tabindex="-1"></a><span class="fu">options</span>(<span class="at">url.method=</span><span class="st">'libcurl'</span>)    <span class="co"># sometimes needed if using Windows</span></span>
+<span id="cb19-126"><a aria-hidden="true" href="#cb19-126" tabindex="-1"></a><span class="fu">getRs</span>()             <span class="co"># list available scripts</span></span>
+<span id="cb19-127"><a aria-hidden="true" href="#cb19-127" tabindex="-1"></a><span class="fu">getRs</span>(<span class="at">browse=</span><span class="st">'browser'</span>)  <span class="co"># open scripts contents in your web browser</span></span>
+<span id="cb19-128"><a aria-hidden="true" href="#cb19-128" tabindex="-1"></a>scripts <span class="ot">&lt;-</span> <span class="fu">getRs</span>()  <span class="co"># store directory of scripts in an object that can easily</span></span>
+<span id="cb19-129"><a aria-hidden="true" href="#cb19-129" tabindex="-1"></a>                    <span class="co"># be viewed on demand in RStudio (right upper pane)</span></span>
+<span id="cb19-130"><a aria-hidden="true" href="#cb19-130" tabindex="-1"></a><span class="fu">getRs</span>(<span class="st">'introda.r'</span>, <span class="at">put=</span><span class="st">'rstudio'</span>)  <span class="co"># download introda.r and open in script editor</span></span>
+<span id="cb19-131"><a aria-hidden="true" href="#cb19-131" tabindex="-1"></a><span class="fu">getRs</span>(<span class="at">cats=</span><span class="cn">TRUE</span>)    <span class="co"># list available major and minor categories</span></span>
+<span id="cb19-132"><a aria-hidden="true" href="#cb19-132" tabindex="-1"></a>categories <span class="ot">&lt;-</span> <span class="fu">getRs</span>(<span class="at">cats=</span><span class="cn">TRUE</span>)  <span class="co"># store results in a list for later viewing</span></span>
+<span id="cb19-133"><a aria-hidden="true" href="#cb19-133" tabindex="-1"></a><span class="fu">getRs</span>(<span class="at">cats=</span><span class="st">'reg'</span>)   <span class="co"># list all scripts in a major category containing 'reg'</span></span>
+<span id="cb19-134"><a aria-hidden="true" href="#cb19-134" tabindex="-1"></a><span class="fu">getRs</span>(<span class="st">'importREDCap.r'</span>, <span class="at">put=</span><span class="st">'source'</span>)   <span class="co"># source() to define a function</span></span>
+<span id="cb19-135"><a aria-hidden="true" href="#cb19-135" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-136"><a aria-hidden="true" href="#cb19-136" tabindex="-1"></a></span>
+<span id="cb19-137"><a aria-hidden="true" href="#cb19-137" tabindex="-1"></a>You can also point your browser to</span>
+<span id="cb19-138"><a aria-hidden="true" href="#cb19-138" tabindex="-1"></a><span class="co">[</span><span class="ot">github.com/harrelfe/rscripts/blob/master/contents.md</span><span class="co">](https://github.com/harrelfe/rscripts/blob/master/contents.md)</span> to</span>
+<span id="cb19-139"><a aria-hidden="true" href="#cb19-139" tabindex="-1"></a>see the available scripts and categories, and to be able to click on</span>
+<span id="cb19-140"><a aria-hidden="true" href="#cb19-140" tabindex="-1"></a>links to see <span class="in">`html`</span> report output.</span>
+<span id="cb19-141"><a aria-hidden="true" href="#cb19-141" tabindex="-1"></a></span>
+<span id="cb19-142"><a aria-hidden="true" href="#cb19-142" tabindex="-1"></a>To get started using <span class="in">`R`</span> in <span class="in">`RStudio`</span> to create reproducible</span>
+<span id="cb19-143"><a aria-hidden="true" href="#cb19-143" tabindex="-1"></a>annotated reports, finish the above configuration instructions and</span>
+<span id="cb19-144"><a aria-hidden="true" href="#cb19-144" tabindex="-1"></a>type the following in the <span class="in">`RStudio`</span> console:</span>
+<span id="cb19-145"><a aria-hidden="true" href="#cb19-145" tabindex="-1"></a><span class="in">`getRs('descriptives.Rmd', put='rstudio')`</span>.  The above the script editor window</span>
+<span id="cb19-146"><a aria-hidden="true" href="#cb19-146" tabindex="-1"></a>click on <span class="in">`Render`</span> (if using <span class="in">`Quarto`</span>) or <span class="in">`Knit HTML`</span>.</span>
+<span id="cb19-147"><a aria-hidden="true" href="#cb19-147" tabindex="-1"></a></span>
+<span id="cb19-148"><a aria-hidden="true" href="#cb19-148" tabindex="-1"></a></span>
+<span id="cb19-149"><a aria-hidden="true" href="#cb19-149" tabindex="-1"></a><span class="fu">## Quarto</span></span>
+<span id="cb19-150"><a aria-hidden="true" href="#cb19-150" tabindex="-1"></a><span class="in">`Quarto`</span> is a new way to build scientific reports and articles.  It is a replacement for <span class="in">`R Markdown`</span> but its syntax is largely compatible with <span class="in">`R Markdown`</span>, so resources on learning <span class="in">`R Markdown`</span> are</span>
+<span id="cb19-151"><a aria-hidden="true" href="#cb19-151" tabindex="-1"></a>See <span class="co">[</span><span class="ot">kbroman.org/knitr_knutshell/pages/Rmarkdown.html</span><span class="co">](http://kbroman.org/knitr_knutshell/pages/Rmarkdown.html)</span> and</span>
+<span id="cb19-152"><a aria-hidden="true" href="#cb19-152" tabindex="-1"></a>print the <span class="in">`R Markdown`</span> cheat sheet from</span>
+<span id="cb19-153"><a aria-hidden="true" href="#cb19-153" tabindex="-1"></a><span class="co">[</span><span class="ot">www.rstudio.com/resources/cheatsheets</span><span class="co">](http://www.rstudio.com/resources/cheatsheets)</span>.  For more advanced R Markdown usage see the excellent <span class="co">[</span><span class="ot">video by Tom Mock</span><span class="co">](https://youtu.be/WkF7nqEYF1E)</span>.</span>
+<span id="cb19-154"><a aria-hidden="true" href="#cb19-154" tabindex="-1"></a></span>
+<span id="cb19-155"><a aria-hidden="true" href="#cb19-155" tabindex="-1"></a><span class="in">`Quarto`</span> has you put a _yaml_ ("yet another markup language") header at the start of the document.  When you start a new <span class="in">`Quarto`</span> document with <span class="in">`RStudio`</span>, <span class="in">`RStudio`</span> will create a simple header.  A more detailed template is <span class="co">[</span><span class="ot">here</span><span class="co">](https://hbiostat.org/R/reportTemplate.qmd)</span>.</span>
+<span id="cb19-156"><a aria-hidden="true" href="#cb19-156" tabindex="-1"></a></span>
+<span id="cb19-157"><a aria-hidden="true" href="#cb19-157" tabindex="-1"></a>The <span class="in">`R`</span> <span class="in">`knitr`</span> package is automatically used to run the report and</span>
+<span id="cb19-158"><a aria-hidden="true" href="#cb19-158" tabindex="-1"></a>insert graphics and text output into the report at appropriate slots.</span>
+<span id="cb19-159"><a aria-hidden="true" href="#cb19-159" tabindex="-1"></a>It is best to specify a name for each chunk, and you must use unique</span>
+<span id="cb19-160"><a aria-hidden="true" href="#cb19-160" tabindex="-1"></a>names.  Each <span class="in">`R`</span> code chunk must begin exactly</span>
+<span id="cb19-161"><a aria-hidden="true" href="#cb19-161" tabindex="-1"></a>with <span class="dt">&lt;</span><span class="kw">tt</span><span class="dt">&gt;</span>```{r ...}<span class="dt">&lt;/</span><span class="kw">tt</span><span class="dt">&gt;</span> and the chunk name is the first set of</span>
+<span id="cb19-162"><a aria-hidden="true" href="#cb19-162" tabindex="-1"></a>characters that appear after the space after <span class="dt">&lt;</span><span class="kw">tt</span><span class="dt">&gt;</span>r<span class="dt">&lt;/</span><span class="kw">tt</span><span class="dt">&gt;</span>.  Here are some</span>
+<span id="cb19-163"><a aria-hidden="true" href="#cb19-163" tabindex="-1"></a>example chunk headers.  Chunk names must not contain a space.</span>
+<span id="cb19-164"><a aria-hidden="true" href="#cb19-164" tabindex="-1"></a></span>
+<span id="cb19-165"><a aria-hidden="true" href="#cb19-165" tabindex="-1"></a><span class="pp">|</span> ```{r descriptives}</span>
+<span id="cb19-166"><a aria-hidden="true" href="#cb19-166" tabindex="-1"></a><span class="pp">|</span> ```{r anova}</span>
+<span id="cb19-167"><a aria-hidden="true" href="#cb19-167" tabindex="-1"></a><span class="pp">|</span> ```{r anova-y1}</span>
+<span id="cb19-168"><a aria-hidden="true" href="#cb19-168" tabindex="-1"></a><span class="pp">|</span> ```{r anova_y1}</span>
+<span id="cb19-169"><a aria-hidden="true" href="#cb19-169" tabindex="-1"></a><span class="pp">|</span> ```{r acidity_plot}</span>
+<span id="cb19-170"><a aria-hidden="true" href="#cb19-170" tabindex="-1"></a><span class="pp">|</span> ```{r plot_residuals}</span>
+<span id="cb19-171"><a aria-hidden="true" href="#cb19-171" tabindex="-1"></a><span class="pp">|</span> ```{r}</span>
+<span id="cb19-172"><a aria-hidden="true" href="#cb19-172" tabindex="-1"></a></span>
+<span id="cb19-173"><a aria-hidden="true" href="#cb19-173" tabindex="-1"></a>The last line indicates that you wish <span class="in">`knitr`</span> to create the chunk name using a counter.</span>
+<span id="cb19-174"><a aria-hidden="true" href="#cb19-174" tabindex="-1"></a></span>
+<span id="cb19-175"><a aria-hidden="true" href="#cb19-175" tabindex="-1"></a>After the chunk header there are many directives to <span class="in">`Quarto`</span> to allow control of formatting and to create figure cross-referencing labels and captions.  More dtails are <span class="co">[</span><span class="ot">here</span><span class="co">](http://hbiostat.org/rflow/rformat.html)</span>.</span>
+<span id="cb19-176"><a aria-hidden="true" href="#cb19-176" tabindex="-1"></a></span>
+<span id="cb19-177"><a aria-hidden="true" href="#cb19-177" tabindex="-1"></a><span class="fu">## Debugging `R` Code</span></span>
+<span id="cb19-178"><a aria-hidden="true" href="#cb19-178" tabindex="-1"></a>When using <span class="in">`RStudio`</span> and <span class="in">`knitr/Quarto/RMarkdown`</span>, it is</span>
+<span id="cb19-179"><a aria-hidden="true" href="#cb19-179" tabindex="-1"></a>best to debug your commands a piece at a time.  The fastest way to do</span>
+<span id="cb19-180"><a aria-hidden="true" href="#cb19-180" tabindex="-1"></a>this is to go to some line inside your first chunk and click the green</span>
+<span id="cb19-181"><a aria-hidden="true" href="#cb19-181" tabindex="-1"></a><span class="in">`C`</span> just above and to the right of your script.  Click on \co{Run</span>
+<span id="cb19-182"><a aria-hidden="true" href="#cb19-182" tabindex="-1"></a>  Current Chunk} then on <span class="in">`Run Next Chunk`</span>.  Shortcut keys for these</span>
+<span id="cb19-183"><a aria-hidden="true" href="#cb19-183" tabindex="-1"></a>are <span class="in">`Ctrl+Alt+C`</span> and <span class="in">`Ctrl+Alt+N`</span> (<span class="in">`Command+Option+C`</span> and <span class="in">`Command+Option+N`</span> for Mac).  You can also click on a</span>
+<span id="cb19-184"><a aria-hidden="true" href="#cb19-184" tabindex="-1"></a>single line of code and run it by clicking on <span class="in">`Run`</span>.</span>
+<span id="cb19-185"><a aria-hidden="true" href="#cb19-185" tabindex="-1"></a></span>
+<span id="cb19-186"><a aria-hidden="true" href="#cb19-186" tabindex="-1"></a>Whenever you get a strange execution error it is sometimes helpful to</span>
+<span id="cb19-187"><a aria-hidden="true" href="#cb19-187" tabindex="-1"></a>show the history of all the function calls leading to that error.</span>
+<span id="cb19-188"><a aria-hidden="true" href="#cb19-188" tabindex="-1"></a>This is done by typing <span class="in">`traceback()`</span> at the command prompt.</span>
+<span id="cb19-189"><a aria-hidden="true" href="#cb19-189" tabindex="-1"></a></span>
+<span id="cb19-190"><a aria-hidden="true" href="#cb19-190" tabindex="-1"></a><span class="co">&lt;!-- &lt;a name="sec:r-import"&gt;&lt;/a&gt; --&gt;</span></span>
+<span id="cb19-191"><a aria-hidden="true" href="#cb19-191" tabindex="-1"></a> </span>
+<span id="cb19-192"><a aria-hidden="true" href="#cb19-192" tabindex="-1"></a><span class="fu">## Importing Other Datasets</span></span>
+<span id="cb19-193"><a aria-hidden="true" href="#cb19-193" tabindex="-1"></a>Most of the work of getting some data sources ready for analysis involves</span>
+<span id="cb19-194"><a aria-hidden="true" href="#cb19-194" tabindex="-1"></a>reshaping datasets from wide to tall and thin, recoding variables,</span>
+<span id="cb19-195"><a aria-hidden="true" href="#cb19-195" tabindex="-1"></a>and merging multiple datasets.  <span class="in">`R`</span> has first-class capabilities for</span>
+<span id="cb19-196"><a aria-hidden="true" href="#cb19-196" tabindex="-1"></a>all of these tasks but this part of <span class="in">`R`</span> is harder to learn, partly</span>
+<span id="cb19-197"><a aria-hidden="true" href="#cb19-197" tabindex="-1"></a>because there are so many ways to accomplish these tasks in <span class="in">`R`</span>.</span>
+<span id="cb19-198"><a aria-hidden="true" href="#cb19-198" tabindex="-1"></a>Getting good variable names, variable labels, and value labels, can</span>
+<span id="cb19-199"><a aria-hidden="true" href="#cb19-199" tabindex="-1"></a>also be tedious but is highly worth the time investment.  See <span class="in">`R Workflow`</span> for detailed information about importing various types of files, and recoding and manipulating data after importing them.</span>
+<span id="cb19-200"><a aria-hidden="true" href="#cb19-200" tabindex="-1"></a></span>
+<span id="cb19-201"><a aria-hidden="true" href="#cb19-201" tabindex="-1"></a><span class="co">&lt;!-- Read [biostat.app.vumc.org/DataTransmissionProcedures](http://biostat.app.vumc.org/DataTransmissionProcedures) for best practices for constructing spreadsheets so they can be reliably imported.</span></span>
+<span id="cb19-202"><a aria-hidden="true" href="#cb19-202" tabindex="-1"></a><span class="co">--&gt;</span></span>
+<span id="cb19-203"><a aria-hidden="true" href="#cb19-203" tabindex="-1"></a></span>
+<span id="cb19-204"><a aria-hidden="true" href="#cb19-204" tabindex="-1"></a>Sometimes the dataset to read into <span class="in">`R`</span> is very small and can be defined within the report.  Here is an example.</span>
+<span id="cb19-205"><a aria-hidden="true" href="#cb19-205" tabindex="-1"></a></span>
+<span id="cb19-206"><a aria-hidden="true" href="#cb19-206" tabindex="-1"></a></span>
+<span id="cb19-207"><a aria-hidden="true" href="#cb19-207" tabindex="-1"></a><span class="in">```{r impcsv}</span></span>
+<span id="cb19-208"><a aria-hidden="true" href="#cb19-208" tabindex="-1"></a><span class="co"># What is between data &lt;- .. and ') is exactly like an external .csv file</span></span>
+<span id="cb19-209"><a aria-hidden="true" href="#cb19-209" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">textConnection</span>(<span class="st">'</span></span>
+<span id="cb19-210"><a aria-hidden="true" href="#cb19-210" tabindex="-1"></a><span class="st">Age in Years,sex,race,visit date,m/s</span></span>
+<span id="cb19-211"><a aria-hidden="true" href="#cb19-211" tabindex="-1"></a><span class="st">23,m,w,10/21/2014,1.1</span></span>
+<span id="cb19-212"><a aria-hidden="true" href="#cb19-212" tabindex="-1"></a><span class="st">14,f,b,10/22/2014,1.3</span></span>
+<span id="cb19-213"><a aria-hidden="true" href="#cb19-213" tabindex="-1"></a><span class="st">,f,w,10/15/2014,1.7</span></span>
+<span id="cb19-214"><a aria-hidden="true" href="#cb19-214" tabindex="-1"></a><span class="st">'</span>)</span>
+<span id="cb19-215"><a aria-hidden="true" href="#cb19-215" tabindex="-1"></a><span class="fu">require</span>(Hmisc)</span>
+<span id="cb19-216"><a aria-hidden="true" href="#cb19-216" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">csv.get</span>(data, <span class="at">lowernames=</span><span class="cn">TRUE</span>, <span class="at">datevars=</span><span class="st">'visit.date'</span>,</span>
+<span id="cb19-217"><a aria-hidden="true" href="#cb19-217" tabindex="-1"></a>             <span class="at">dateformat=</span><span class="st">'%m/%d/%Y'</span>)</span>
+<span id="cb19-218"><a aria-hidden="true" href="#cb19-218" tabindex="-1"></a><span class="fu">close</span>(data)  <span class="co"># close the textConnection</span></span>
+<span id="cb19-219"><a aria-hidden="true" href="#cb19-219" tabindex="-1"></a><span class="co"># lowernames=TRUE: convert variable names to lower case</span></span>
+<span id="cb19-220"><a aria-hidden="true" href="#cb19-220" tabindex="-1"></a><span class="co"># Omit dateformat if dates are in YYYY-MM-DD format</span></span>
+<span id="cb19-221"><a aria-hidden="true" href="#cb19-221" tabindex="-1"></a><span class="fu">contents</span>(d)</span>
+<span id="cb19-222"><a aria-hidden="true" href="#cb19-222" tabindex="-1"></a>d</span>
+<span id="cb19-223"><a aria-hidden="true" href="#cb19-223" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-224"><a aria-hidden="true" href="#cb19-224" tabindex="-1"></a></span>
+<span id="cb19-225"><a aria-hidden="true" href="#cb19-225" tabindex="-1"></a>In the <span class="in">`contents`</span> output above you can see that the original column</span>
+<span id="cb19-226"><a aria-hidden="true" href="#cb19-226" tabindex="-1"></a>names have been placed in the variable labels, and the new names have</span>
+<span id="cb19-227"><a aria-hidden="true" href="#cb19-227" tabindex="-1"></a>periods in place of blanks or a slash, since these characters are</span>
+<span id="cb19-228"><a aria-hidden="true" href="#cb19-228" tabindex="-1"></a>illegal in <span class="in">`R`</span> names.</span>
+<span id="cb19-229"><a aria-hidden="true" href="#cb19-229" tabindex="-1"></a></span>
+<span id="cb19-230"><a aria-hidden="true" href="#cb19-230" tabindex="-1"></a>You can have as the first argument to <span class="in">`csv.get`</span> not only a file</span>
+<span id="cb19-231"><a aria-hidden="true" href="#cb19-231" tabindex="-1"></a>name but a URL to a file on the web.  You can also specify delimiters</span>
+<span id="cb19-232"><a aria-hidden="true" href="#cb19-232" tabindex="-1"></a>other than commas.</span>
+<span id="cb19-233"><a aria-hidden="true" href="#cb19-233" tabindex="-1"></a></span>
+<span id="cb19-234"><a aria-hidden="true" href="#cb19-234" tabindex="-1"></a>Also see the excellent tutorial on importing from Excel found at <span class="co">[</span><span class="ot">www.r-bloggers.com/r-tutorial-on-reading-and-importing-excel-files-into-r</span><span class="co">](http://www.r-bloggers.com/r-tutorial-on-reading-and-importing-excel-files-into-r)</span>.</span>
+<span id="cb19-235"><a aria-hidden="true" href="#cb19-235" tabindex="-1"></a></span>
+<span id="cb19-236"><a aria-hidden="true" href="#cb19-236" tabindex="-1"></a>The <span class="in">`Hmisc`</span> <span class="in">`upData`</span> function may be used to rename variables</span>
+<span id="cb19-237"><a aria-hidden="true" href="#cb19-237" tabindex="-1"></a>and provide variable and value labels and units of measurement.</span>
+<span id="cb19-238"><a aria-hidden="true" href="#cb19-238" tabindex="-1"></a>Here is another example where there is a <span class="in">`junk`</span> variable to</span>
+<span id="cb19-239"><a aria-hidden="true" href="#cb19-239" tabindex="-1"></a>delete after importing, and a categorical variable is coded as</span>
+<span id="cb19-240"><a aria-hidden="true" href="#cb19-240" tabindex="-1"></a>integers and need to have value labels defined after</span>
+<span id="cb19-241"><a aria-hidden="true" href="#cb19-241" tabindex="-1"></a>importing.  We show how <span class="in">`csv.get`</span> automatically renamed one illegal</span>
+<span id="cb19-242"><a aria-hidden="true" href="#cb19-242" tabindex="-1"></a>(to <span class="in">`R`</span>) variable name, how to redefine a variable label, and how to</span>
+<span id="cb19-243"><a aria-hidden="true" href="#cb19-243" tabindex="-1"></a>define the value labels.  Suppose that file <span class="in">`test.csv`</span> exists in</span>
+<span id="cb19-244"><a aria-hidden="true" href="#cb19-244" tabindex="-1"></a>our project directory and has the following contents.</span>
+<span id="cb19-245"><a aria-hidden="true" href="#cb19-245" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">pre</span><span class="dt">&gt;</span></span>
+<span id="cb19-246"><a aria-hidden="true" href="#cb19-246" tabindex="-1"></a>age,sys bp,sex,junk,state</span>
+<span id="cb19-247"><a aria-hidden="true" href="#cb19-247" tabindex="-1"></a>23,140,male,1,1</span>
+<span id="cb19-248"><a aria-hidden="true" href="#cb19-248" tabindex="-1"></a>42,131,female,2,1</span>
+<span id="cb19-249"><a aria-hidden="true" href="#cb19-249" tabindex="-1"></a>45,127,female,3,2</span>
+<span id="cb19-250"><a aria-hidden="true" href="#cb19-250" tabindex="-1"></a>37,141,male,4,2</span>
+<span id="cb19-251"><a aria-hidden="true" href="#cb19-251" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">pre</span><span class="dt">&gt;</span></span>
+<span id="cb19-252"><a aria-hidden="true" href="#cb19-252" tabindex="-1"></a>Now import and modify the file.</span>
+<span id="cb19-253"><a aria-hidden="true" href="#cb19-253" tabindex="-1"></a></span>
+<span id="cb19-254"><a aria-hidden="true" href="#cb19-254" tabindex="-1"></a><span class="in">```{r impcsv2}</span></span>
+<span id="cb19-255"><a aria-hidden="true" href="#cb19-255" tabindex="-1"></a><span class="fu">require</span>(Hmisc)</span>
+<span id="cb19-256"><a aria-hidden="true" href="#cb19-256" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">csv.get</span>(<span class="st">'test.csv'</span>)</span>
+<span id="cb19-257"><a aria-hidden="true" href="#cb19-257" tabindex="-1"></a><span class="fu">names</span>(d)   <span class="co"># show names after modification by csv.get</span></span>
+<span id="cb19-258"><a aria-hidden="true" href="#cb19-258" tabindex="-1"></a><span class="fu">contents</span>(d)  <span class="co"># show labels created by csv.get</span></span>
+<span id="cb19-259"><a aria-hidden="true" href="#cb19-259" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">upData</span>(d,</span>
+<span id="cb19-260"><a aria-hidden="true" href="#cb19-260" tabindex="-1"></a>            <span class="at">state=</span><span class="fu">factor</span>(state, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="fu">c</span>(<span class="st">'Alabama'</span>,<span class="st">'Alaska'</span>)),</span>
+<span id="cb19-261"><a aria-hidden="true" href="#cb19-261" tabindex="-1"></a>            <span class="at">rename=</span><span class="fu">c</span>(<span class="at">sys.bp=</span><span class="st">'sbp'</span>),</span>
+<span id="cb19-262"><a aria-hidden="true" href="#cb19-262" tabindex="-1"></a>            <span class="at">labels=</span><span class="fu">c</span>(<span class="at">age =</span> <span class="st">'Age'</span>,</span>
+<span id="cb19-263"><a aria-hidden="true" href="#cb19-263" tabindex="-1"></a>                     <span class="at">sbp =</span> <span class="st">'Systolic Blood Pressure'</span>),</span>
+<span id="cb19-264"><a aria-hidden="true" href="#cb19-264" tabindex="-1"></a>            <span class="at">drop=</span><span class="st">'junk'</span>,   <span class="co"># for &gt; 1: drop=c('junk1','junk2',...)</span></span>
+<span id="cb19-265"><a aria-hidden="true" href="#cb19-265" tabindex="-1"></a>   <span class="at">units=</span><span class="fu">c</span>(<span class="at">sbp=</span><span class="st">'mmHg'</span>))</span>
+<span id="cb19-266"><a aria-hidden="true" href="#cb19-266" tabindex="-1"></a><span class="fu">contents</span>(d)</span>
+<span id="cb19-267"><a aria-hidden="true" href="#cb19-267" tabindex="-1"></a><span class="fu">describe</span>(d)</span>
+<span id="cb19-268"><a aria-hidden="true" href="#cb19-268" tabindex="-1"></a><span class="fu">dim</span>(d); <span class="fu">nrow</span>(d); <span class="fu">ncol</span>(d); <span class="fu">length</span>(d)  <span class="co"># length is no. of variables</span></span>
+<span id="cb19-269"><a aria-hidden="true" href="#cb19-269" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-270"><a aria-hidden="true" href="#cb19-270" tabindex="-1"></a></span>
+<span id="cb19-271"><a aria-hidden="true" href="#cb19-271" tabindex="-1"></a>For tiny datasets it is easiest to define them as follows:</span>
+<span id="cb19-272"><a aria-hidden="true" href="#cb19-272" tabindex="-1"></a></span>
+<span id="cb19-273"><a aria-hidden="true" href="#cb19-273" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb19-274"><a aria-hidden="true" href="#cb19-274" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">age=</span><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>), <span class="at">sex=</span><span class="fu">c</span>(<span class="st">'male'</span>,<span class="st">'female'</span>,<span class="st">'male'</span>),</span>
+<span id="cb19-275"><a aria-hidden="true" href="#cb19-275" tabindex="-1"></a>                <span class="at">sbp=</span><span class="fu">c</span>(<span class="dv">120</span>,<span class="dv">125</span>,<span class="cn">NA</span>))</span>
+<span id="cb19-276"><a aria-hidden="true" href="#cb19-276" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-277"><a aria-hidden="true" href="#cb19-277" tabindex="-1"></a></span>
+<span id="cb19-278"><a aria-hidden="true" href="#cb19-278" tabindex="-1"></a>Large files may be stored in <span class="in">`R`</span> binary format using <span class="in">`saveRDS(..., compress='xz')`</span>, which creates an incredibly compact representation of the data in a file usually suffixed with <span class="in">`.rds`</span>.  This allows extremely fast loading of the data frame in your next <span class="in">`R`</span> session using <span class="in">`readRDS(...)`</span>.</span>
+<span id="cb19-279"><a aria-hidden="true" href="#cb19-279" tabindex="-1"></a></span>
+<span id="cb19-280"><a aria-hidden="true" href="#cb19-280" tabindex="-1"></a><span class="fu">## Suggestions for Initial Data Look</span></span>
+<span id="cb19-281"><a aria-hidden="true" href="#cb19-281" tabindex="-1"></a>The <span class="in">`datadensity`</span> function in the <span class="in">`Hmisc`</span> package gives an</span>
+<span id="cb19-282"><a aria-hidden="true" href="#cb19-282" tabindex="-1"></a>overall univariable graphical summary of all variables in the imported</span>
+<span id="cb19-283"><a aria-hidden="true" href="#cb19-283" tabindex="-1"></a>dataset.  The <span class="in">`contents`</span> and <span class="in">`describe`</span> functions are handy for</span>
+<span id="cb19-284"><a aria-hidden="true" href="#cb19-284" tabindex="-1"></a>describing the variables, labels, number of <span class="in">`NA`</span>s, extreme values,</span>
+<span id="cb19-285"><a aria-hidden="true" href="#cb19-285" tabindex="-1"></a>and other values.  <span class="in">`R Workflow`</span> has many other approaches for the initial data look.</span>
+<span id="cb19-286"><a aria-hidden="true" href="#cb19-286" tabindex="-1"></a></span>
+<span id="cb19-287"><a aria-hidden="true" href="#cb19-287" tabindex="-1"></a></span>
+<span id="cb19-288"><a aria-hidden="true" href="#cb19-288" tabindex="-1"></a><span class="fu">## Operating on Data Frames</span></span>
+<span id="cb19-289"><a aria-hidden="true" href="#cb19-289" tabindex="-1"></a>One of the most common operations is subsetting.  In the following</span>
+<span id="cb19-290"><a aria-hidden="true" href="#cb19-290" tabindex="-1"></a>example we subset on males older than 26.</span>
+<span id="cb19-291"><a aria-hidden="true" href="#cb19-291" tabindex="-1"></a></span>
+<span id="cb19-292"><a aria-hidden="true" href="#cb19-292" tabindex="-1"></a><span class="in">```{r subset,eval=FALSE}</span></span>
+<span id="cb19-293"><a aria-hidden="true" href="#cb19-293" tabindex="-1"></a>young.males <span class="ot">&lt;-</span> <span class="fu">subset</span>(d, sex <span class="sc">==</span> <span class="st">'male'</span> <span class="sc">&amp;</span> age <span class="sc">&gt;</span> <span class="dv">26</span>)</span>
+<span id="cb19-294"><a aria-hidden="true" href="#cb19-294" tabindex="-1"></a><span class="co"># If you want to exclude rows that are missing on sex or age:</span></span>
+<span id="cb19-295"><a aria-hidden="true" href="#cb19-295" tabindex="-1"></a>young.males <span class="ot">&lt;-</span> <span class="fu">subset</span>(d, sex <span class="sc">==</span> <span class="st">'male'</span> <span class="sc">&amp;</span> age <span class="sc">&gt;</span> <span class="dv">26</span> <span class="sc">&amp;</span> <span class="sc">!</span> <span class="fu">is.na</span>(sex) <span class="sc">&amp;</span></span>
+<span id="cb19-296"><a aria-hidden="true" href="#cb19-296" tabindex="-1"></a>                        <span class="sc">!</span> <span class="fu">is.na</span>(age))</span>
+<span id="cb19-297"><a aria-hidden="true" href="#cb19-297" tabindex="-1"></a><span class="co"># f &lt;- lrm(y ~ sex + age, data=subset(d, sex == 'male' &amp; ...))</span></span>
+<span id="cb19-298"><a aria-hidden="true" href="#cb19-298" tabindex="-1"></a><span class="co"># f &lt;- lrm(y ~ sex + age, data=d, subset=sex == 'male' &amp; age &gt; 26 ...)</span></span>
+<span id="cb19-299"><a aria-hidden="true" href="#cb19-299" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button class="code-copy-button" data-in-quarto-modal="" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+<div class="nav-footer">
+<div class="nav-footer-left">
+<ul class="footer-items list-unstyled">
+<li class="nav-item">
+ Copyright 2025, Frank E Harrell Jr
+  </li>
+</ul>
+</div>
+<div class="nav-footer-center">
+       
+    </div>
+<div class="nav-footer-right">
+<ul class="footer-items list-unstyled">
+<li class="nav-item">
+<a class="nav-link" href="https://www.gnu.org/licenses/gpl-3.0.en.html">
+<p>License</p>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</footer>
+</body></html>

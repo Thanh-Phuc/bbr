@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta charset="utf-8"/>
+<meta content="quarto-1.10.0" name="generator"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport"/>
+<title>Annotated References – Biostatistics for Biomedical Research</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta content="./" name="quarto:offset"/>
+<link href="figures.html" rel="prev"/>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet"/>
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-9c5e1a58ae97b3faeeb5cca0e0e2eaf1.css" id="quarto-text-highlighting-styles" rel="stylesheet"/>
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet"/>
+<link append-hash="true" data-mode="light" href="site_libs/bootstrap/bootstrap-39d25629837ca44e2eea0020ef944eda.min.css" id="quarto-bootstrap" rel="stylesheet"/>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FN79JJ28KR', { 'anonymize_ip': true});
+</script>
+<script class="js-hypothesis-config" type="application/json">
+{
+  "theme": "clean",
+  "openSidebar": false,
+  "enableExperimentalNewNoteButton": true
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+<link href="h.css" rel="stylesheet"/>
+<meta content="Annotated References – Biostatistics for Biomedical Research" name="twitter:title"/>
+<meta content="f2harrell" name="twitter:creator"/>
+<meta content="f2harrell" name="twitter:site"/>
+<meta content="summary" name="twitter:card"/>
+</head>
+<body class="nav-sidebar floating nav-fixed quarto-light">
+<div id="quarto-search-results"></div>
+<header class="headroom fixed-top" id="quarto-header">
+<nav class="navbar navbar-expand-xl" data-bs-theme="dark">
+<div class="navbar-container container-fluid">
+<div class="navbar-brand-container mx-auto">
+<a class="navbar-brand" href="index.html">
+<span class="navbar-title">Biostatistics for Biomedical Research</span>
+</a>
+</div>
+<div class="quarto-navbar-tools tools-end">
+</div>
+<div class="" id="quarto-search" title="Search"></div>
+</div> <!-- /container-fluid -->
+</nav>
+<nav class="quarto-secondary-nav">
+<div class="container-fluid d-flex">
+<button aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" class="quarto-btn-toggle btn" data-bs-target=".quarto-sidebar-collapse-item" data-bs-toggle="collapse" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }" role="button" type="button">
+<i class="bi bi-layout-text-sidebar-reverse"></i>
+</button>
+<nav aria-label="breadcrumb" class="quarto-page-breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="references.html">Annotated References</a></li></ol></nav>
+<a aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" class="flex-grow-1" data-bs-target=".quarto-sidebar-collapse-item" data-bs-toggle="collapse" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }" role="navigation">
+</a>
+</div>
+</nav>
+</header>
+<!-- content -->
+<div class="quarto-container page-columns page-rows-contents page-layout-article page-navbar" id="quarto-content">
+<!-- sidebar -->
+<nav class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" id="quarto-sidebar">
+<div class="sidebar-menu-container">
+<ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="index.html">
+<span class="menu-text">Preface</span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="r.html">
+<span class="menu-text"><span class="chapter-number">1</span>  <span class="chapter-title"><code>R</code></span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="algebra.html">
+<span class="menu-text"><span class="chapter-number">2</span>  <span class="chapter-title">Algebra Review</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="overview.html">
+<span class="menu-text"><span class="chapter-number">3</span>  <span class="chapter-title">General Overview of Biostatistics</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="descript.html">
+<span class="menu-text"><span class="chapter-number">4</span>  <span class="chapter-title">Descriptive Statistics, Distributions, and Graphics</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="htest.html">
+<span class="menu-text"><span class="chapter-number">5</span>  <span class="chapter-title">Statistical Inference</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="prop.html">
+<span class="menu-text"><span class="chapter-number">6</span>  <span class="chapter-title">Comparing Two Proportions</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="nonpar.html">
+<span class="menu-text"><span class="chapter-number">7</span>  <span class="chapter-title">Nonparametric Statistical Tests</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="corr.html">
+<span class="menu-text"><span class="chapter-number">8</span>  <span class="chapter-title">Correlation and Nonparametric Regression</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="rmsintro.html">
+<span class="menu-text"><span class="chapter-number">9</span>  <span class="chapter-title">Introduction to the <code>R</code> <code>rms</code> Package: The Linear Model</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="reg.html">
+<span class="menu-text"><span class="chapter-number">10</span>  <span class="chapter-title">Simple and Multiple Regression Models and Overview of Model Validation</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="multgroup.html">
+<span class="menu-text"><span class="chapter-number">11</span>  <span class="chapter-title">Multiple Groups</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="infreview.html">
+<span class="menu-text"><span class="chapter-number">12</span>  <span class="chapter-title">Statistical Inference Review</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="ancova.html">
+<span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Analysis of Covariance in Randomized Studies</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="change.html">
+<span class="menu-text"><span class="chapter-number">14</span>  <span class="chapter-title">Transformations, Measuring Change, and Regression to the Mean</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="serial.html">
+<span class="menu-text"><span class="chapter-number">15</span>  <span class="chapter-title">Serial Data</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="obsvar.html">
+<span class="menu-text"><span class="chapter-number">16</span>  <span class="chapter-title">Analysis of Observer Variability and Measurement Agreement</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="propensity.html">
+<span class="menu-text"><span class="chapter-number">17</span>  <span class="chapter-title">Modeling for Observational Treatment Comparisons</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="info.html">
+<span class="menu-text"><span class="chapter-number">18</span>  <span class="chapter-title">Information Loss</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="dx.html">
+<span class="menu-text"><span class="chapter-number">19</span>  <span class="chapter-title">Diagnosis</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="hdata.html">
+<span class="menu-text"><span class="chapter-number">20</span>  <span class="chapter-title">Challenges of Analyzing High-Dimensional Data</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="repro.html">
+<span class="menu-text"><span class="chapter-number">21</span>  <span class="chapter-title">Reproducible Research</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="alpha.html">
+<span class="menu-text"><span class="chapter-number">22</span>  <span class="chapter-title">Controlling α vs. Probability of a Decision Error</span></span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link" href="figures.html">
+<span class="menu-text">List of Figures</span></a>
+</div>
+</li>
+<li class="sidebar-item">
+<div class="sidebar-item-container">
+<a class="sidebar-item-text sidebar-link active" href="references.html">
+<span class="menu-text">Annotated References</span></a>
+</div>
+</li>
+</ul>
+</div>
+</nav>
+<div class="quarto-sidebar-collapse-item" data-bs-target=".quarto-sidebar-collapse-item" data-bs-toggle="collapse" id="quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+<div class="sidebar margin-sidebar zindex-bottom" id="quarto-margin-sidebar">
+</div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<header class="quarto-title-block default" id="title-block-header">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Annotated References</h1><button class="btn code-tools-button" id="quarto-code-tools-source" type="button"><i class="bi"></i> Code</button></div></div>
+</div>
+<div class="quarto-title-meta">
+</div>
+</header>
+<div class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" id="refs" role="list">
+<div class="csl-entry" id="ref-adc97sam" role="listitem">
+Adcock, C. J. (1997). Sample size determination: A review. <em>The
+Statistician</em>, <em>46</em>, 261–283.
+</div>
+<div class="csl-entry" id="ref-aka97pow" role="listitem">
+Akazawa, K., Nakamura, T., &amp; Palesch, Y. (1997). Power of logrank
+test and <span>Cox</span> regression model in clinical trials with
+heterogeneous samples. <em>Stat Med</em>, <em>16</em>, 583–597.
+</div>
+<div class="csl-entry" id="ref-ali09fac" role="listitem">
+Aliferis, C. F., Statnikov, A., Tsamardinos, I., Schildcrout, J. S.,
+Shepherd, B. E., &amp; Harrell, F. E. (2009). Factors influencing the
+statistical power of complex data analysis protocols for molecular
+signature development from microarray data. <em>PLoS ONE</em>,
+<em>4</em>(3).<div class="csl-block">refutation of mic05pre</div>
+</div>
+<div class="csl-entry" id="ref-alt95abs" role="listitem">
+Altman, D. G., &amp; Bland, J. M. (1995). Absence of evidence is not
+evidence of absence. <em>BMJ</em>, <em>311</em>, 485.
+</div>
+<div class="csl-entry" id="ref-amb02sim" role="listitem">
+Ambler, G., Brady, A. R., &amp; Royston, P. (2002). Simplifying a
+prognostic model: A simulation study based on clinical data. <em>Stat
+Med</em>, <em>21</em>(24), 3803–3822. <a href="https://doi.org/10.1002/sim.1422">https://doi.org/10.1002/sim.1422</a><div class="csl-block">ordinary backward stepdown worked well when there was
+a large fraction of truly irrelevant predictors</div>
+</div>
+<div class="csl-entry" id="ref-amb02sel" role="listitem">
+Ambroise, C., &amp; McLachlan, G. J. (2002). Selection bias in gene
+extraction on the basis of microarray gene-expression data.
+<em>PNASs</em>, <em>99</em>(10), 6562–6566. <a href="https://doi.org/10.1073/pnas.102102699">https://doi.org/10.1073/pnas.102102699</a><div class="csl-block">Relied on an improper accuracy score (proportion
+classified correct) so had to use the .632 bootstrap unnecessarily</div>
+</div>
+<div class="csl-entry" id="ref-and99tes" role="listitem">
+Andersen, P. K., Klein, J. P., &amp; Zhang, M.-J. (1999). Testing for
+centre effects in multi-centre survival studies: <span>A</span> monte
+carlo comparison of fixed and random effects tests. <em>Stat Med</em>,
+<em>18</em>, 1489–1500.
+</div>
+<div class="csl-entry" id="ref-and23wal" role="listitem">
+Andersson, P. G. (2023). The <span>Wald Confidence Interval</span> for a
+<span>Binomial</span> p as an <span>Illuminating</span>
+<span>“<span>Bad</span>”</span> <span>Example</span>. <em>The American
+Statistician</em>, <em>0</em>(0), 1–6. <a href="https://doi.org/10.1080/00031305.2023.2183257">https://doi.org/10.1080/00031305.2023.2183257</a>
+</div>
+<div class="csl-entry" id="ref-bes76dev" role="listitem">
+Best, W. R., Becktel, J. M., Singleton, J. W., &amp; Kern, F. (1976).
+Development of a <span>Crohn</span>’s disease activity index.
+<em>Gastroent</em>, <em>70</em>, 439–444.<div class="csl-block">development of CDAI</div>
+</div>
+<div class="csl-entry" id="ref-bla11com" role="listitem">
+Bland, J. M., &amp; Altman, D. G. (2011). Comparisons against baseline
+within randomised groups are often used and can be highly misleading.
+<em>Trials</em>, <em>12</em>(1), 264. <a href="https://doi.org/10.1186/1745-6215-12-264">https://doi.org/10.1186/1745-6215-12-264</a>
+</div>
+<div class="csl-entry" id="ref-bor07sta" role="listitem">
+Bordley, R. (2007). Statistical decisionmaking without math.
+<em>Chance</em>, <em>20</em>(3), 39–44.
+</div>
+<div class="csl-entry" id="ref-bra91usi" role="listitem">
+Brazer, S. R., Pancotto, F. S., Long III, T. T., Harrell, F. E., Lee, K.
+L., Tyor, M. P., &amp; Pryor, D. B. (1991). Using ordinal logistic
+regression to estimate the likelihood of colorectal neoplasia. <em>J
+Clin Epi</em>, <em>44</em>, 1263–1270.
+</div>
+<div class="csl-entry" id="ref-bri08ski" role="listitem">
+Briggs, W. M., &amp; Zaretzki, R. (2008). The skill plot: <span>A</span>
+graphical technique for evaluating continuous diagnostic tests (with
+discussion). <em>Biometrics</em>, <em>64</em>, 250–261.<div class="csl-block">"statistics such as the AUC are not especially
+relevant to someone who must make a decision about a particular x_c. ...
+ROC curves lack or obscure several quantities that are necessary for
+evaluating the operational effectiveness of diagnostic tests. ... ROC
+curves were first used to check how radio <span><span class="math inline">&lt;</span></span>i<span><span class="math inline">&gt;</span></span>receivers<span><span class="math inline">&lt;</span></span>/i<span><span class="math inline">&gt;</span></span> (like radar receivers) operated
+over a range of frequencies. ... This is not how most ROC curves are
+used now, particularly in medicine. The receiver of a diagnostic
+measurement ... wants to make a decision based on some x_c, and is not
+especially interested in how well he would have done had he used some
+different cutoff."; in the discussion David Hand states "when
+integrating to yield the overall AUC measure, it is necessary to decide
+what weight to give each value in the integration. The AUC implicitly
+does this using a weighting derived empirically from the data. This is
+nonsensical. The relative importance of misclassifying a case as a
+noncase, compared to the reverse, cannot come from the data itself. It
+must come externally, from considerations of the severity one attaches
+to the different kinds of misclassifications."; see Lin, Kvam, Lu Stat
+in Med 28:798-813;2009</div>
+</div>
+<div class="csl-entry" id="ref-cal89evo" role="listitem">
+Califf, R. M., Harrell, F. E., Lee, K. L., Rankin, J. S., &amp; Others.
+(1989). The evolution of medical and surgical therapy for coronary
+artery disease. <em>JAMA</em>, <em>261</em>, 2077–2086.
+</div>
+<div class="csl-entry" id="ref-cal82pro" role="listitem">
+Califf, R. M., McKinnis, R. A., Burks, J., Lee, K. L., Harrell FE, V.
+S., Pryor, D. B., Wagner, G. S., &amp; Rosati, R. A. (1982). Prognostic
+implications of ventricular arrhythmias during 24 hour ambulatory
+monitoring in patients undergoing cardiac catheterization for coronary
+artery disease. <em>Am J Card</em>, <em>50</em>, 23–31.
+</div>
+<div class="csl-entry" id="ref-cha16pri" role="listitem">
+Chang, M. (2016). <em>Principles of <span>Scientific
+Methods</span></em>. <span>Chapman and Hall/CRC</span>. <a href="https://doi.org/10.1201/b17167">https://doi.org/10.1201/b17167</a>
+</div>
+<div class="csl-entry" id="ref-che16too" role="listitem">
+Chen, Q., Nian, H., Zhu, Y., Talbot, H. K., Griffin, M. R., &amp;
+Harrell, F. E. (2016). Too many covariates and too few cases? - a
+comparative study. <em>Stat Med</em>, <em>35</em>(25), 4546–4558. <a href="https://doi.org/10.1002/sim.7021">https://doi.org/10.1002/sim.7021</a>
+</div>
+<div class="csl-entry" id="ref-cho15elu" role="listitem">
+Choi, L., Blume, J. D., &amp; Dupont, W. D. (2015). Elucidating the
+<span>Foundations</span> of <span>Statistical Inference</span> with 2 x
+2 <span>Tables</span>. <em>PLoS ONE</em>, <em>10</em>(4), e0121263+. <a href="https://doi.org/10.1371/journal.pone.0121263">https://doi.org/10.1371/journal.pone.0121263</a>
+</div>
+<div class="csl-entry" id="ref-cho17eff" role="listitem">
+Chotai, S., Devin, C. J., Archer, K. R., Bydon, M., McGirt, M. J., Nian,
+H., Harrell, F. E., Dittus, R. S., Asher, A. L., &amp; QOD Vanguard
+Sites. (2017). Effect of patients’ functional status on satisfaction
+with outcomes 12 months after elective spine surgery for lumbar
+degenerative disease. <em>Spine J</em>, <em>17</em>(12), 1783–1793. <a href="https://doi.org/10.1016/j.spinee.2017.05.027">https://doi.org/10.1016/j.spinee.2017.05.027</a>
+</div>
+<div class="csl-entry" id="ref-cle84graa" role="listitem">
+Cleveland, W. S. (1984). Graphs in scientific publications. <em>Am
+Statistician</em>, <em>38</em>, 261–269.
+</div>
+<div class="csl-entry" id="ref-cle94ele" role="listitem">
+Cleveland, W. S. (1994). <em>The <span>Elements</span> of <span>Graphing
+Data</span></em>. Hobart Press.
+</div>
+<div class="csl-entry" id="ref-com04poi" role="listitem">
+Committee for Proprietary Medicinal Products. (2004). Points to consider
+on adjustment for baseline covariates. <em>Stat Med</em>, <em>23</em>,
+701–709.
+</div>
+<div class="csl-entry" id="ref-coo96mul" role="listitem">
+Cook, R. J., &amp; Farewell, V. T. (1996). Multiplicity considerations
+in the design and analysis of clinical trials. <em>J Roy Stat Soc
+A</em>, <em>159</em>, 93–110.<div class="csl-block">argues that if
+results are intended to be interpreted marginally, there may be no need
+for controlling experimentwise error rate.  FH phrasing: Cook and
+Farewell point out that when a strong priority order is pre-specified
+for separate clinical questions, and that same order is also the
+reporting order (no cherry picking), there is no need for multiplicity
+adjustment.  This is in contrast with a study whose aim is to find an
+endpoint or find a patient subgroup that is benefited by treatment, a
+situation requiring conservative multiplicity adjustment.</div>
+</div>
+<div class="csl-entry" id="ref-davis-repmeas" role="listitem">
+Davis, C. S. (2002). <em>Statistical <span>Methods</span> for the
+<span>Analysis</span> of <span>Repeated Measurements</span></em>.
+Springer.
+</div>
+<div class="csl-entry" id="ref-dig02ana" role="listitem">
+Diggle, P. J., Heagerty, P., Liang, K.-Y., &amp; Zeger, S. L. (2002).
+<em>Analysis of <span>Longitudinal Data</span></em> (second). Oxford
+University Press.
+</div>
+<div class="csl-entry" id="ref-dup08sta" role="listitem">
+Dupont, W. D. (2008). <em>Statistical <span>Modeling</span> for
+<span>Biomedical Researchers</span></em> (second). Cambridge University
+Press.
+</div>
+<div class="csl-entry" id="ref-edw99mod" role="listitem">
+Edwards, D. (1999). On model pre-specification in confirmatory
+randomized studies. <em>Stat Med</em>, <em>18</em>, 771–785.
+</div>
+<div class="csl-entry" id="ref-efr77ste" role="listitem">
+Efron, B., &amp; Morris, C. (1977). Stein’s paradox in statistics.
+<em>Sci Am</em>, <em>236</em>(5), 119–127.
+</div>
+<div class="csl-entry" id="ref-fed09con" role="listitem">
+Fedorov, V., Mannino, F., &amp; Zhang, R. (2009). Consequences of
+dichotomization. <em>Pharm Stat</em>, <em>8</em>, 50–61. <a href="https://doi.org/10.1002/pst.331">https://doi.org/10.1002/pst.331</a><div class="csl-block">optimal cutpoint depends on unknown parameters;should
+only entertain dichotomization when "estimating a value of the
+cumulative distribution and when the assumed model is very different
+from the true model";nice graphics</div>
+</div>
+<div class="csl-entry" id="ref-for95mod" role="listitem">
+Ford, I., Norrie, J., &amp; Ahmadi, S. (1995). Model inconsistency,
+illustrated by the <span>Cox</span> proportional hazards model. <em>Stat
+Med</em>, <em>14</em>, 735–746.
+</div>
+<div class="csl-entry" id="ref-fri84var" role="listitem">
+Friedman, J. H. (1984). <em>A variable span smoother</em> (Technical
+Report No. 5). Laboratory for Computational Statistics, Department of
+Statistics, Stanford University.
+</div>
+<div class="csl-entry" id="ref-gai86adj" role="listitem">
+Gail, M. H. (1986). Adjusting for covariates that have the same
+distribution in exposed and unexposed cohorts. In S. H. Moolgavkar &amp;
+R. L. Prentice (Eds.), <em>Modern <span>Statistical Methods</span> in
+<span>Chronic Disease Epidemiology</span></em> (pp. 3–18). Wiley.<div class="csl-block">unadjusted test can have larger type I error than
+nominal</div>
+</div>
+<div class="csl-entry" id="ref-gai84bia" role="listitem">
+Gail, M. H., Wieand, S., &amp; Piantadosi, S. (1984). Biased estimates
+of treatment effect in randomized experiments with nonlinear regressions
+and omitted covariates. <em>Biometrika</em>, <em>71</em>, 431–444.<div class="csl-block">bias if omitted covariables and model is
+nonlinear</div>
+</div>
+<div class="csl-entry" id="ref-sensta" role="listitem">
+Gamalo-Siebers, M., Savic, J., Basu, C., Zhao, X., Gopalakrishnan, M.,
+Gao, A., Song, G., Baygani, S., Thompson, L., Xia, H. A., Price, K.,
+Tiwari, R., &amp; Carlin, B. P. (2017). Statistical modeling for
+<span>Bayesian</span> extrapolation of adult clinical trial information
+in pediatric drug evaluation. <em>Pharm Stat</em>. <a href="https://doi.org/10.1002/pst.1807">https://doi.org/10.1002/pst.1807</a>
+</div>
+<div class="csl-entry" id="ref-gel06dat" role="listitem">
+Gelman, A., &amp; Hill, J. (2006). <em>Data <span>Analysis Using
+Regression</span> and <span>Multilevel</span>/<span>Hierarchical
+Models</span></em> (1st ed.). Paperback; Cambridge University Press. <a href="http://www.amazon.com/exec/obidos/redirect?tag=citeulike07-20&amp;path=ASIN/052168689X">http://www.amazon.com/exec/obidos/redirect?tag=citeulike07-20&amp;path=ASIN/052168689X</a>
+</div>
+<div class="csl-entry" id="ref-gia14opt" role="listitem">
+Giannoni, A., Baruah, R., Leong, T., Rehman, M. B., Pastormerlo, L. E.,
+Harrell, F. E., Coats, A. J., &amp; Francis, D. P. (2014). Do optimal
+prognostic thresholds in continuous physiological variables really
+exist? <span>Analysis</span> of origin of apparent thresholds, with
+systematic review for peak oxygen consumption, ejection fraction and
+<span>BNP</span>. <em>PLoS ONE</em>, <em>9</em>(1). <a href="https://doi.org/10.1371/journal.pone.0081699">https://doi.org/10.1371/journal.pone.0081699</a>
+</div>
+<div class="csl-entry" id="ref-gla14exp" role="listitem">
+Glass, D. J. (2014). <em>Experimental <span>Design</span> for
+<span>Biologists</span></em> (2 edition). Cold Spring Harbor Laboratory
+Press.
+</div>
+<div class="csl-entry" id="ref-gne07str" role="listitem">
+Gneiting, T., &amp; Raftery, A. E. (2007). Strictly proper scoring
+rules, prediction, and estimation. <em>J Am Stat Assoc</em>,
+<em>102</em>, 359–378.<div class="csl-block">wonderful review article
+except missing references from Scandanavian and German medical decision
+making literature</div>
+</div>
+<div class="csl-entry" id="ref-gov18int" role="listitem">
+Govers, T. M., Rovers, M. M., Brands, M. T., Dronkers, E. A. C., Jong,
+R. J. B. de, Merkx, M. A. W., Takes, R. P., &amp; Grutters, J. P. C.
+(2018). Integrated prediction and decision models are valuable in
+informing personalized decision making. <em>Journal of Clinical
+Epidemiology</em>, <em>0</em>(0). <a href="https://doi.org/10.1016/j.jclinepi.2018.08.016">https://doi.org/10.1016/j.jclinepi.2018.08.016</a>
+</div>
+<div class="csl-entry" id="ref-gre00whe" role="listitem">
+Greenland, S. (2000). When should epidemiologic regressions use random
+coefficients? <em>Biometrics</em>, <em>56</em>, 915–921. <a href="https://doi.org/10.1111/j.0006-341X.2000.00915.x">https://doi.org/10.1111/j.0006-341X.2000.00915.x</a><div class="csl-block">use of statistics in epidemiology is largely
+primitive;stepwise variable selection on confounders leaves important
+confounders uncontrolled;composition matrix;example with far too many
+significant predictors with many regression coefficients absurdly
+inflated when overfit;lack of evidence for dietary effects mediated
+through constituents;shrinkage instead of variable selection;larger
+effect on confidence interval width than on point estimates with
+variable selection;uncertainty about variance of random effects is just
+uncertainty about prior opinion;estimation of variance is
+pointless;instead the analysis should be repeated using different
+values;"if one feels compelled to estimate $\tau^{2}$, I would recommend
+giving it a proper prior concentrated amount contextually reasonable
+values";claim about ordinary MLE being unbiased is misleading because it
+assumes the model is correct and is the only model entertained;shrinkage
+towards compositional model;"models need to be complex to capture
+uncertainty about the relations...an honest uncertainty assessment
+requires parameters for all effects that we know may be present. This
+advice is implicit in an antiparsimony principle often attributed to L.
+J. Savage ’All models should be as big as an elephant (see Draper,
+1995)’". See also gus06per.</div>
+</div>
+<div class="csl-entry" id="ref-gre16sta" role="listitem">
+Greenland, S., Senn, S. J., Rothman, K. J., Carlin, J. B., Poole, C.,
+Goodman, S. N., &amp; Altman, D. G. (2016). Statistical tests,
+<span>P</span> values, confidence intervals, and power: A guide to
+misinterpretations. <em>Eur J Epi</em>, <em>31</em>(4), 337–350. <a href="https://doi.org/10.1007/s10654-016-0149-3">https://doi.org/10.1007/s10654-016-0149-3</a><div class="csl-block">Best article on misinterpretation of p-values. Pithy
+summaries.</div>
+</div>
+<div class="csl-entry" id="ref-hac06tra" role="listitem">
+Hackam, D. G., &amp; Redelmeier, D. A. (2006). Translation of research
+evidence from animals to humans. <em>JAMA</em>, <em>296</em>,
+1731–1732.<div class="csl-block">review of basic science literature that
+documents systemic methodologic shortcomings. In a personal
+communication on 20Oct06 the authors reported that they found a few more
+biostatistical problems that could not make it into the JAMA article
+(for space constraints);none of the articles contained a sample size
+calculation;none of the articles identified a primary outcome
+measure;none of the articles mentioned whether they tested assumptions
+or did distributional testing (though a few used non-parametric
+tests);most articles had more than 30 endpoints (but few adjusted for
+multiplicity, as noted in the article)</div>
+</div>
+<div class="csl-entry" id="ref-Hmisc" role="listitem">
+Harrell, F. E. (2020a). <em>Hmisc: <span>A</span> package of
+miscellaneous <span>R</span> functions</em>. <a href="https://hbiostat.org/R/Hmisc">https://hbiostat.org/R/Hmisc</a>
+</div>
+<div class="csl-entry" id="ref-rrms" role="listitem">
+Harrell, F. E. (2020b). <em><span class="nocase">rms</span>: R functions
+for biostatistical/epidemiologic modeling, testing, estimation,
+validation, graphics, prediction, and typesetting by storing enhanced
+model design attributes in the fit</em>. <a href="https://hbiostat.org/R/rms">https://hbiostat.org/R/rms</a>
+</div>
+<div class="csl-entry" id="ref-har98dev" role="listitem">
+Harrell, F. E., Margolis, P. A., Gove, S., Mason, K. E., Mulholland, E.
+K., Lehmann, D., Muhe, L., Gatchalian, S., &amp; Eichenwald, H. F.
+(1998). Development of a clinical prediction model for an ordinal
+outcome: <span>The World Health Organization ARI Multicentre
+Study</span> of clinical signs and etiologic agents of pneumonia,
+sepsis, and meningitis in young infants. <em>Stat Med</em>, <em>17</em>,
+909–944. <a href="http://onlinelibrary.wiley.com/doi/10.1002/(SICI)1097-0258(19980430)17:8%3C909::AID-SIM753%3E3.0.CO;2-O/abstract">http://onlinelibrary.wiley.com/doi/10.1002/(SICI)1097-0258(19980430)17:8%3C909::AID-SIM753%3E3.0.CO;2-O/abstract</a>
+</div>
+<div class="csl-entry" id="ref-hau98sho" role="listitem">
+Hauck, W. W., Anderson, S., &amp; Marcus, S. M. (1998). Should we adjust
+for covariates in nonlinear regression analyses of randomized trials?
+<em>Controlled Clin Trials</em>, <em>19</em>, 249–256. <a href="https://doi.org/10.1016/S0197-2456(97)00147-5">https://doi.org/10.1016/S0197-2456(97)00147-5</a><div class="csl-block">"For use in a clinician-patient context, there is only
+a single person, that patient, of interest. The subject-specific measure
+then best reflects the risks or benefits for that patient. Gail has
+noted this previously [ENAR Presidential Invited Address, April 1990],
+arguing that one goal of a clinical trial ought to be to predict the
+direction and size of a treatment benefit for a patient with specific
+covariate values. In contrast, population-averaged estimates of
+treatment effect compare outcomes in groups of patients. The groups
+being compared are determined by whatever covariates are included in the
+model. The treatment effect is then a comparison of average outcomes,
+where the averaging is over all omitted covariates."</div>
+</div>
+<div class="csl-entry" id="ref-her23eff" role="listitem">
+Herschtal, A. (2023). The effect of dichotomization of skewed adjustment
+covariates in the analysis of clinical trials. <em>BMC Medical Research
+Methodology</em>, <em>23</em>(1), 60. <a href="https://doi.org/10.1186/s12874-023-01878-9">https://doi.org/10.1186/s12874-023-01878-9</a>
+</div>
+<div class="csl-entry" id="ref-hla09cri" role="listitem">
+Hlatky, M. A., Greenland, P., Arnett, D. K., Ballantyne, C. M., Criqui,
+M. H., Elkind, M. S., Go, A. S., Harrell, F. E., Hong, Y., Howard, B.
+V., Howard, V. J., Hsue, P. Y., Kramer, C. M., McConnell, J. P.,
+Normand, S. L., O’Donnell, C. J., Smith, S. C., &amp; Wilson, P. W.
+(2009). Criteria for evaluation of novel markers of cardiovascular risk:
+A scientific statement from the <span>American Heart Association</span>.
+<em>Circ</em>, <em>119</em>(17), 2408–2416.<div class="csl-block">graph
+with different symbols for diseased and non-diseased</div>
+</div>
+<div class="csl-entry" id="ref-hla84fac" role="listitem">
+Hlatky, M. A., Pryor, D. B., Harrell, F. E., Califf, R. M., Mark, D. B.,
+&amp; Rosati, R. A. (1984). Factors affecting the sensitivity and
+specificity of exercise electrocardiography. <span>Multivariable</span>
+analysis. <em>Am J Med</em>, <em>77</em>, 64–71. <a href="http://www.sciencedirect.com/science/article/pii/0002934384904376#">http://www.sciencedirect.com/science/article/pii/0002934384904376#</a>
+</div>
+<div class="csl-entry" id="ref-hoe48cla" role="listitem">
+Hoeffding, W. (1948). A class of statistics with asymptotically normal
+distributions. <em>Ann Math Stat</em>, <em>19</em>, 293–325.<div class="csl-block">Partially reprinted in: Kotz, S., Johnson, N.L. (1992)
+Breakthroughs in Statistics, Vol I, pp 308-334. Springer-Verlag. ISBN
+0-387-94037-5</div>
+</div>
+<div class="csl-entry" id="ref-hol04con" role="listitem">
+Holländer, N., Sauerbrei, W., &amp; Schumacher, M. (2004). Confidence
+intervals for the effect of a prognostic factor after selection of an
+<span>“optimal”</span> cutpoint. <em>Stat Med</em>, <em>23</em>,
+1701–1713. <a href="https://doi.org/10.1002/sim.1611">https://doi.org/10.1002/sim.1611</a><div class="csl-block">true type I error can be much greater than nominal
+level;one example where nominal is 0.05 and true is 0.5;minimum P-value
+method;CART;recursive partitioning;bootstrap method for correcting
+confidence interval;based on heuristic shrinkage coefficient;"It should
+be noted, however, that the optimal cutpoint approach has disadvantages.
+One of these is that in almost every study where this method is applied,
+another cutpoint will emerge. This makes comparisons across studies
+extremely difficult or even impossible. Altman et al. point out this
+problem for studies of the prognostic relevance of the S-phase fraction
+in breast cancer published in the literature. They identified 19
+different cutpoints used in the literature; some of them were solely
+used because they emerged as the <span>“optimal”</span> cutpoint in a
+specific data set. In a meta-analysis on the relationship between
+cathepsin-D content and disease-free survival in node-negative breast
+cancer patients, 12 studies were in included with 12 different cutpoints
+... Interestingly, neither cathepsin-D nor the S-phase fraction are
+recommended to be used as prognostic markers in breast cancer in the
+recent update of the American Society of Clinical Oncology.";
+dichotomization; categorizing continuous variables; refs alt94dan,
+sch94out, alt98sub</div>
+</div>
+<div class="csl-entry" id="ref-hul13des" role="listitem">
+Hulley, S. B., Cummings, S. R., Browner, W. S., Grady, D. G., &amp;
+Newman, T. B. (2013). <em>Designing <span>Clinical Research</span></em>
+(Fourth edition). LWW.
+</div>
+<div class="csl-entry" id="ref-inv89pre" role="listitem">
+Investigators, C. (1989). Preliminary report: <span>Effect</span> of
+<span>Encainide</span> and <span>Flecainide</span> on mortality in a
+randomized trial of arrhythmia suppression after myocardial infarction.
+<em>NEJM</em>, <em>321</em>(6), 406–412.
+</div>
+<div class="csl-entry" id="ref-ioa97imp" role="listitem">
+Ioannidis, J. P. A., &amp; Lau, J. (1997). The impact of high-risk
+patients on the results of clinical trials. <em>J Clin Epi</em>,
+<em>50</em>, 1089–1098. <a href="https://doi.org/10.1016/S0895-4356(97)00149-2">https://doi.org/10.1016/S0895-4356(97)00149-2</a><div class="csl-block">high risk patients can dominate clinical trials
+results;high risk patients may be imbalanced even if overall study is
+balanced;magnesium;differential treatment effect by patient
+risk;GUSTO;small vs. large trials vs. meta-analysis</div>
+</div>
+<div class="csl-entry" id="ref-ion10exp" role="listitem">
+Ionnidis, J. P. A. (2010). Expectations, validity, and reality in omics.
+<em>J Clin Epi</em>, <em>63</em>, 945–949.<div class="csl-block">"Each
+new field has a rapid exponential growth of its literature over 5–8
+years (<span>“new field phase”</span>), followed by an
+<span>“established field”</span> phase when growth rates are more
+modest, and then an <span>“over-maturity”</span> phase, where the rates
+of growth are similar to the growth of the scientific literature at
+large or even smaller. There is a parallel in the spread of an
+infectious epidemic that emerges rapidly and gets established when a
+large number of scientists (and articles) are infected with these
+concepts. Then momentum decreases, although many scientists remain
+infected and continue to work on this field. New omics infections
+continuously arise in the scientific community.";"A large number of
+personal genomic tests are already sold in the market, mostly with
+direct to consumer advertisement and for <span>“recreational
+genomics”</span> purposes (translate: information for the fun of
+information)."</div>
+</div>
+<div class="csl-entry" id="ref-ken07lim" role="listitem">
+Kent, D. M., &amp; Hayward, R. (2007). Limitations of applying summary
+results of clinical trials to individual patients. <em>JAMA</em>,
+<em>298</em>, 1209–1212. <a href="https://doi.org/10.1001/jama.298.10.1209">https://doi.org/10.1001/jama.298.10.1209</a><div class="csl-block">variation in absolute risk reduction in RCTs;failure
+of subgroup analysis;covariable adjustment;covariate adjustment;nice
+summary of individual patient absolute benefit vs. patient risk</div>
+</div>
+<div class="csl-entry" id="ref-kna93cli" role="listitem">
+Knaus, W. A., Harrell, F. E., Fisher, C. J., Wagner, D. P., Opan, S. M.,
+Sadoff, J. C., Draper, E. A., Walawander, C. A., Conboy, K., &amp;
+Grasela, T. H. (1993). The clinical evaluation of new drugs for sepsis:
+<span>A</span> prospective study design based on survival analysis.
+<em>JAMA</em>, <em>270</em>, 1233–1241. <a href="https://doi.org/10.1001/jama.270.10.1233">https://doi.org/10.1001/jama.270.10.1233</a>
+</div>
+<div class="csl-entry" id="ref-koe78reg" role="listitem">
+Koenker, R., &amp; Bassett, G. (1978). Regression quantiles.
+<em>Econometrica</em>, <em>46</em>, 33–50.
+</div>
+<div class="csl-entry" id="ref-kor90ran" role="listitem">
+Kornbrot, D. E. (1990). The rank difference test: <span>A</span> new and
+meaningful alternative to the <span>Wilcoxon</span> signed ranks test
+for ordinal data. <em>British Journal of Mathematical and Statistical
+Psychology</em>, <em>43</em>(2), 241–264. <a href="https://doi.org/10.1111/j.2044-8317.1990.tb00939.x">https://doi.org/10.1111/j.2044-8317.1990.tb00939.x</a>
+</div>
+<div class="csl-entry" id="ref-enc9" role="listitem">
+Kotz, S., &amp; Johnson, N. L. (Eds.). (1988). <em>Encyclopedia of
+<span>Statistical Sciences</span></em> (Vol. 9). Wiley.
+</div>
+<div class="csl-entry" id="ref-kro08why" role="listitem">
+Krouwer, J. S. (2008). Why <span>Bland-Altman</span> plots should use
+<span>X</span>, not (<span>Y</span>+<span>X</span>)/2 when
+<span>X</span> is a reference method. <em>Stat Med</em>, <em>27</em>(5),
+778–780. <a href="https://doi.org/10.1002/sim.3086">https://doi.org/10.1002/sim.3086</a>
+</div>
+<div class="csl-entry" id="ref-lee15wha" role="listitem">
+Leek, J. T., &amp; Peng, R. D. (2015). What is the question?
+<em>Science</em>, <em>347</em>(6228), 1314–1315. <a href="https://doi.org/10.1126/science.aaa6146">https://doi.org/10.1126/science.aaa6146</a>
+</div>
+<div class="csl-entry" id="ref-len01pra" role="listitem">
+Lenth, R. V. (2001). Some practical guidelines for effective sample size
+determination. <em>Am Statistician</em>, <em>55</em>, 187–193. <a href="https://doi.org/10.1198/000313001317098149">https://doi.org/10.1198/000313001317098149</a><div class="csl-block">problems with Cohen’s method</div>
+</div>
+<div class="csl-entry" id="ref-mac00sci" role="listitem">
+MacKay, R. J., &amp; Oldford, R. W. (2000). Scientific
+<span>Method</span>, <span>Statistical Method</span> and the
+<span>Speed</span> of <span>Light</span>. <em>Statist. Sci.</em>,
+<em>15</em>(3), 254–278. <a href="https://doi.org/10.1214/ss/1009212817">https://doi.org/10.1214/ss/1009212817</a>
+</div>
+<div class="csl-entry" id="ref-mat90ana" role="listitem">
+Matthews, J. N. S., Altman, D. G., Campbell, M. J., &amp; Royston, P.
+(1990). Analysis of serial measurements in medical research.
+<em>BMJ</em>, <em>300</em>, 230–235. <a href="https://doi.org/10.1136/bmj.300.6719.230">https://doi.org/10.1136/bmj.300.6719.230</a>
+</div>
+<div class="csl-entry" id="ref-mat15inc" role="listitem">
+Matthews, J. N. S., &amp; Badi, N. H. (2015). Inconsistent treatment
+estimates from mis-specified logistic regression analyses of randomized
+trials. <em>Stat Med</em>, <em>34</em>(19), 2681–2694. <a href="https://doi.org/10.1002/sim.6508">https://doi.org/10.1002/sim.6508</a>
+</div>
+<div class="csl-entry" id="ref-mic05pre" role="listitem">
+Michiels, S., Koscielny, S., &amp; Hill, C. (2005). Prediction of cancer
+outcome with microarrays: A multiple random validation strategy.
+<em>Lancet</em>, <em>365</em>, 488–492.<div class="csl-block">comment on
+p. 454;validation;microarray;bioinformatics;machine learning;nearest
+centroid;severe problems with data splitting;high variability of list of
+genes;problems with published studies;nice results for effect of
+training sample size on misclassification error;nice use of confidence
+intervals on accuracy estimates;unstable molecular signatures;high
+instability due to dependence on selection of training sample</div>
+</div>
+<div class="csl-entry" id="ref-moo03sen" role="listitem">
+Moons, K. G. M., &amp; Harrell, F. E. (2003). Sensitivity and
+specificity should be de-emphasized in diagnostic accuracy studies.
+<em>Acad Rad</em>, <em>10</em>, 670–672.
+</div>
+<div class="csl-entry" id="ref-moo97lim" role="listitem">
+Moons, K. G. M., van Es, G.-A., Deckers, J. W., Habbema, J. D. F., &amp;
+Grobbee, D. E. (1997). Limitations of sensitivity, specificity,
+likelihood ratio, and <span>Bayes</span>’ theorem in assessing
+diagnostic probabilities: <span>A</span> clinical example. <em>Epi</em>,
+<em>8</em>(1), 12–17.<div class="csl-block">non-constancy of
+sensitivity, specificity, likelihood ratio in a real example</div>
+</div>
+<div class="csl-entry" id="ref-moo95dea" role="listitem">
+Moore, T. J. (1995). <em>Deadly <span>Medicine</span>: <span>Why
+Tens</span> of <span>Thousands</span> of <span>Patients Died</span> in
+<span>America</span>’s <span>Worst Drug Disaster</span></em>. Simon
+&amp; Shuster.
+</div>
+<div class="csl-entry" id="ref-mul83ris" role="listitem">
+Multicenter Postinfarction Research Group. (1983). Risk stratification
+and survival after myocardial infarction. <em>NEJM</em>, <em>309</em>,
+331–336.<div class="csl-block">terrible example of dichotomizing
+continuous variables;figure ins Papers/modelingPredictors</div>
+</div>
+<div class="csl-entry" id="ref-mun17man" role="listitem">
+Munafò, M. R., Nosek, B. A., Bishop, D. V. M., Button, K. S., Chambers,
+C. D., Percie du Sert, N., Simonsohn, U., Wagenmakers, E.-J., Ware, J.
+J., &amp; Ioannidis, J. P. A. (2017). A manifesto for reproducible
+science. <em>Nat Hum Behav</em>, <em>1</em>(1), 0021+. <a href="https://doi.org/10.1038/s41562-016-0021">https://doi.org/10.1038/s41562-016-0021</a>
+</div>
+<div class="csl-entry" id="ref-mur13inf" role="listitem">
+Murrell, P. (2013). <span>InfoVis</span> and statistical graphics:
+<span>Comment</span>. <em>J Comp Graph Stat</em>, <em>22</em>(1), 33–37.
+<a href="https://doi.org/10.1080/10618600.2012.751875">https://doi.org/10.1080/10618600.2012.751875</a><div class="csl-block">Excellent brief how-to list; incorporated into
+graphscourse</div>
+</div>
+<div class="csl-entry" id="ref-nag11ana" role="listitem">
+Naggara, O., Raymond, J., Guilbert, F., Roy, D., Weill, A., &amp;
+Altman, D. G. (2011). Analysis by categorizing or dichotomizing
+continuous variables is inadvisable: <span>An</span> example from the
+natural history of unruptured aneurysms. <em>Am J Neuroradiol</em>,
+<em>32</em>(3), 437–440. <a href="https://doi.org/10.3174/ajnr.A2425">https://doi.org/10.3174/ajnr.A2425</a>
+</div>
+<div class="csl-entry" id="ref-neu98est" role="listitem">
+Neuhaus, J. M. (1998). Estimation efficiency with omitted covariates in
+generalized linear models. <em>J Am Stat Assoc</em>, <em>93</em>,
+1124–1129.<div class="csl-block">"to improve the efficiency of estimated
+covariate effects of interest, analysts of randomized clinical trial
+data should adjust for covariates that are strongly associated with the
+outcome, and ... analysts of observational data should not adjust for
+covariates that do not confound the association of interest"</div>
+</div>
+<div class="csl-entry" id="ref-new09evi" role="listitem">
+Newman, T. B., &amp; Kohn, M. A. (2009). <em>Evidence-<span>Based
+Diagnosis</span></em>. Cambridge University Press.
+</div>
+<div class="csl-entry" id="ref-nuz15how" role="listitem">
+Nuzzo, R. (2015). How scientists fool themselves — and how they can
+stop. <em>Nature</em>, <em>526</em>(7572), 182–185.
+</div>
+<div class="csl-entry" id="ref-obr88com" role="listitem">
+O’Brien, P. C. (1988). Comparing two samples: <span>Extensions</span> of
+the t, rank-sum, and log-rank test. <em>J Am Stat Assoc</em>,
+<em>83</em>, 52–61. <a href="https://doi.org/10.1080/01621459.1988.10478564">https://doi.org/10.1080/01621459.1988.10478564</a><div class="csl-block">see Hauck WW, Hyslop T, Anderson S (2000) Stat in Med
+19:887-899</div>
+</div>
+<div class="csl-entry" id="ref-ohm96car" role="listitem">
+Ohman, E. M., Armstrong, P. W., Christenson, R. H., Granger, C. B.,
+Katus, H. A., Hamm, C. W., O’Hannesian, M. A., Wagner, G. S., Kleiman,
+N. S., Harrell, F. E., Califf, R. M., Topol, E. J., Lee, K. L., &amp;
+Investigators, T. G. (1996). Cardiac troponin <span>T</span> levels for
+risk stratification in acute myocardial ischemia. <em>NEJM</em>,
+<em>335</em>, 1333–1341.
+</div>
+<div class="csl-entry" id="ref-par10eff" role="listitem">
+Paré, G., Mehta, S. R., Yusuf, S., &amp; Others. (2010). Effects of
+<span>CYP2C19</span> genotype on outcomes of clopidogrel treatment.
+<em>NEJM</em>, <em>online</em>.
+</div>
+<div class="csl-entry" id="ref-pau08pre" role="listitem">
+Paul, D., Bair, E., Hastie, T., &amp; Tibshirani, R. (2008).
+<span>“<span>Preconditioning</span>”</span> for feature selection and
+regression in high-dimensional problems. <em>Ann Stat</em>,
+<em>36</em>(4), 1595–1619. <a href="https://doi.org/10.1214/009053607000000578">https://doi.org/10.1214/009053607000000578</a><div class="csl-block">develop consistent Y using a latent variable
+structure, using for example supervised principal components. Then run
+stepwise regression or lasso predicting Y (lasso worked better). Can run
+into problems when a predictor has importance in an adjusted sense but
+has no marginal correlation with Y;model approximation;model
+simplification</div>
+</div>
+<div class="csl-entry" id="ref-pen08eva" role="listitem">
+Pencina, M. J., D’Agostino Sr, R. B., D’Agostino Jr, R. B., &amp; Vasan,
+R. S. (2008). Evaluating the added predictive ability of a new marker:
+<span>From</span> area under the <span>ROC</span> curve to
+reclassification and beyond. <em>Stat Med</em>, <em>27</em>,
+157–172.<div class="csl-block">small differences in ROC area can still
+be very meaningful;example of insignificant test for difference in ROC
+areas with very significant results from new method;Yates’
+discrimination slope;reclassification table;limiting version of this
+based on whether and amount by which probabilities rise for events and
+lower for non-events when compare new model to old;comparing two
+models;see letter to the editor by Van Calster and Van Huffel, Stat in
+Med 29:318-319, 2010 and by Cook and Paynter, Stat in Med 31:93-97,
+2012</div>
+</div>
+<div class="csl-entry" id="ref-pla64str" role="listitem">
+Platt, J. R. (1964). Strong inference. <em>Science</em>,
+<em>146</em>(3642), 347–353.
+</div>
+<div class="csl-entry" id="ref-pry83est" role="listitem">
+Pryor, D. B., Harrell, F. E., Lee, K. L., Califf, R. M., &amp; Rosati,
+R. A. (1983). Estimating the likelihood of significant coronary artery
+disease. <em>Am J Med</em>, <em>75</em>, 771–780.
+</div>
+<div class="csl-entry" id="ref-R" role="listitem">
+R Development Team. (2025). <em>R: <span>A</span> language and
+environment for statistical computing</em>. R Foundation for Statistical
+Computing; www.r-project.org. <a href="http://www.R-project.org">http://www.R-project.org</a>
+</div>
+<div class="csl-entry" id="ref-raa04how" role="listitem">
+Raab, G. M., Day, S., &amp; Sales, J. (2004). How to select covariates
+to include in the analysis of a clinical trial. <em>Controlled Clin
+Trials</em>, <em>21</em>, 330–342.<div class="csl-block">how correlated
+with outcome must a variable before adding it helps more than hurts, as
+a function of sample size;planning;design;variable selection</div>
+</div>
+<div class="csl-entry" id="ref-rob91sur" role="listitem">
+Robinson, L. D., &amp; Jewell, N. P. (1991). Some surprising results
+about covariate adjustment in logistic regression models. <em>Int Stat
+Rev</em>, <em>59</em>, 227–240.
+</div>
+<div class="csl-entry" id="ref-roy06dic" role="listitem">
+Royston, P., Altman, D. G., &amp; Sauerbrei, W. (2006). Dichotomizing
+continuous predictors in multiple regression: A bad idea. <em>Stat
+Med</em>, <em>25</em>, 127–141. <a href="https://doi.org/10.1002/sim.2331">https://doi.org/10.1002/sim.2331</a><div class="csl-block">destruction of statistical inference when cutpoints
+are chosen using the response variable; varying effect estimates when
+change cutpoints;difficult to interpret effects when dichotomize;nice
+plot showing effect of categorization; PBC data</div>
+</div>
+<div class="csl-entry" id="ref-rub07des" role="listitem">
+Rubin, D. B. (2007). The design versus the analysis of observational
+studies for causal effects: <span>Parallels</span> with the design of
+randomized studies. <em>Stat Med</em>, <em>26</em>, 20–36.
+</div>
+<div class="csl-entry" id="ref-rux17exp" role="listitem">
+Ruxton, Graeme D., &amp; Colegrave, Nick. (2017). <em>Experimental
+<span>Design</span> for the <span>Life Sciences</span></em> (Fourth
+Edition). Oxford University Press.
+</div>
+<div class="csl-entry" id="ref-sar96hie" role="listitem">
+Sargent, D. J., &amp; Hodges, J. S. (1996). <em>A hierarchical model
+method for subgroup analysis of time-to-event data in the
+<span>Cox</span> regression setting</em>.
+</div>
+<div class="csl-entry" id="ref-sch83sam" role="listitem">
+Schoenfeld, D. A. (1983). Sample size formulae for the proportional
+hazards regression model. <em>Biometrics</em>, <em>39</em>, 499–503.
+</div>
+<div class="csl-entry" id="ref-sch00gen" role="listitem">
+Schwemer, G. (2000). General linear models for multicenter clinical
+trials. <em>Controlled Clin Trials</em>, <em>21</em>, 21–29.
+</div>
+<div class="csl-entry" id="ref-sen04con" role="listitem">
+Senn, S. (2004). Controversies concerning randomization and additivity
+in clinical trials. <em>Stat Med</em>, <em>23</em>, 3729–3753. <a href="https://doi.org/10.1002/sim.2074">https://doi.org/10.1002/sim.2074</a><div class="csl-block">p. 3735: "in the pharmaceutical industry, in analyzing
+the data, if a linear model is employed, it is usual to fit centre as a
+factor but unusual to fit block.";p. 3739: a large trial "is not less
+vulnerable to chance covariate imbalance";p. 3741:"There is no place, in
+my view, for classical minimization" (vs. the method of Atkinson);"If an
+investigator uses such [allocation based on covariates] schemes, she or
+he is honour bound, in my opinion, as a very minimum, to adjust for the
+factors used to balance, since the fact that they are being used to
+balance is an implicit declaration that they will have prognostic
+value.";"The point of view is sometimes defended that analyses that
+ignore covariates are superior because they are simpler. I do not accept
+this. A value of $\pi=3$ is a simple one and accurate to one significant
+figure ... However very few would seriously maintain that if should
+generally be adopted by engineers.";p. 3742: "as Fisher pointed out ...
+if we balance by a predictive covariate but do not fit the covariate in
+the model, not only do we not exploit the covariate, we actually
+increase the expected declared standard error."; p. 3744:"I would like
+to see standard errors for group means abolished."; p. 3744:"A common
+habit, however, in analyzing trials with three or more arms is to pool
+the variances from all arms when calculating the standard error of a
+given contrast. In my view this is a curious practice ... it relies on
+an assumption of additivity of <span><span class="math inline">&lt;</span></span>i<span><span class="math inline">&gt;</span></span>all<span><span class="math inline">&lt;</span></span>/all<span><span class="math inline">&gt;</span></span> treatments when comparing only
+<span><span class="math inline">&lt;</span></span>i<span><span class="math inline">&gt;</span></span>two<span><span class="math inline">&lt;</span></span>/i<span><span class="math inline">&gt;</span></span>. ... a classical t-test is robust
+to heteroscedasticity provide that sample sizes are equal in the groups
+being compared and that the variance is internal to those two groups but
+is not robust where an external estimate is being used."; p. 3745: "By
+adjusting main effects for interactions a type III analysis is similarly
+illogical to Neyman’s hypothesis test."; "Guyatt <span><span class="math inline">&lt;</span></span>i<span><span class="math inline">&gt;</span></span>et al.<span><span class="math inline">&lt;</span></span>/i<span><span class="math inline">&gt;</span></span> ... found a ’method for
+estimating the proportion of patients who benefit from a treatment ...
+In fact they had done no such thing."; p. 3746: "When I checked the Web
+of Science on 29 June 2003, the paper by Horwitz <span><span class="math inline">&lt;</span></span>i<span><span class="math inline">&gt;</span></span>et al.<span><span class="math inline">&lt;</span></span>/i<span><span class="math inline">&gt;</span></span> had been cited 28 times and that
+by Guyatt <span><span class="math inline">&lt;</span></span>i<span><span class="math inline">&gt;</span></span>et al.<span><span class="math inline">&lt;</span></span>/i<span><span class="math inline">&gt;</span></span> had been cited 79 times. The
+letters pointing out the fallacies had been cited only 8 and 5 times
+respectively."; "if we pool heterogeneous strata, the odds ratio of the
+treatment effect will be different from that in every stratum, even if
+from stratum to stratum it does not vary."; p. 3747: "Part of the
+problem with Poisson, proportional hazard and logistic regression
+approaches is that they use a single parameter, the linear predictor,
+with no equivalent of the variance parameter in the Normal case. This
+means that lack of fit impacts on the estimate of the predictor. ...
+what is the value of randomization if, in all except the Normal case, we
+cannot guarantee to have unbiased estimates. My view ... was that the
+form of analysis envisaged (that is to say, which factors and covariates
+should be fitted) justified the allocation and <span><span class="math inline">&lt;</span></span>i<span><span class="math inline">&gt;</span></span>not vice versa<span><span class="math inline">&lt;</span></span>/i<span><span class="math inline">&gt;</span></span>."; "use the additive measure at
+the point of analysis and transform to the relevant scale at the point
+of implementation. This transformation at the point of medical
+decision-making will require auxiliary information on the level of
+background risk of the patient."; p. 3748:"The decision to fit
+prognostic factors has a far more dramatic effect on the precision of
+our inferences than the choice of an allocation based on covariates or
+randomization approach and one of my chief objections to the allocation
+based on covariates approach is that trialists have tended to use the
+fact that they have balanced as an excuse for not fitting. This is a
+grave mistake."</div>
+</div>
+<div class="csl-entry" id="ref-sen05dic" role="listitem">
+Senn, S. J. (2005). Dichotomania: An obsessive compulsive disorder that
+is badly affecting the quality of analysis of pharmaceutical trials.
+<em>Proceedings of the <span>International Statistical Institute</span>,
+55th <span>Session</span></em>. <a href="http://hbiostat.org/papers/Senn/dichotomania.pdf">http://hbiostat.org/papers/Senn/dichotomania.pdf</a>
+</div>
+<div class="csl-entry" id="ref-sen10com" role="listitem">
+Senn, S., Anisimov, V. V., &amp; Fedorov, V. V. (2010). Comparisons of
+minimization and <span>Atkinson</span>’s algorithm. <em>Stat Med</em>,
+<em>29</em>, 721–730.<div class="csl-block">"fitting covariates may make
+a more valuable and instructive contribution to inferences about
+treatment effects than only balancing them"</div>
+</div>
+<div class="csl-entry" id="ref-sen00rep" role="listitem">
+Senn, S., Stevens, L., &amp; Chaturvedi, N. (2000). Repeated measures in
+clinical trials: <span>Simple</span> strategies for analysis using
+summary measures. <em>Stat Med</em>, <em>19</em>, 861–877. <a href="https://doi.org/10.1002/(SICI)1097-0258(20000330)19:6&lt;861::AID-SIM407&gt;3.0.CO;2-F">https://doi.org/10.1002/(SICI)1097-0258(20000330)19:6&lt;861::AID-SIM407&gt;3.0.CO;2-F</a>
+</div>
+<div class="csl-entry" id="ref-she04inf" role="listitem">
+Shen, X., Huang, H.-C., &amp; Ye, J. (2004). Inference after model
+selection. <em>J Am Stat Assoc</em>, <em>99</em>, 751–762.<div class="csl-block">uses optimal approximation for estimating mean and
+variance of complex statistics adjusting for model selection</div>
+</div>
+<div class="csl-entry" id="ref-sig99tre" role="listitem">
+Sigueira, A. L., &amp; Taylor, J. M. G. (1999). Treatment effects in a
+logistic model involving the <span>Box-Cox</span> transformation. <em>J
+Am Stat Assoc</em>, <em>94</em>, 240–246.<div class="csl-block">Box-Cox
+transformation of a covariable;validity of inference for treatment
+effect when treat exponent for covariable as fixed</div>
+</div>
+<div class="csl-entry" id="ref-spa89dif" role="listitem">
+Spanos, A., Harrell, F. E., &amp; Durack, D. T. (1989). Differential
+diagnosis of acute meningitis: <span>An</span> analysis of the
+predictive value of initial observations. <em>JAMA</em>, <em>262</em>,
+2700–2707. <a href="https://doi.org/10.1001/jama.262.19.2700">https://doi.org/10.1001/jama.262.19.2700</a>
+</div>
+<div class="csl-entry" id="ref-ste18val" role="listitem">
+Steyerberg, E. W. (2018). Validation in prediction research: The waste
+by data-splitting. <em>Journal of Clinical Epidemiology</em>,
+<em>0</em>(0). <a href="https://doi.org/10.1016/j.jclinepi.2018.07.010">https://doi.org/10.1016/j.jclinepi.2018.07.010</a>
+</div>
+<div class="csl-entry" id="ref-ste00cli" role="listitem">
+Steyerberg, E. W., Bossuyt, P. M. M., &amp; Lee, K. L. (2000). Clinical
+trials in acute myocardial infarction: <span>Should</span> we adjust for
+baseline characteristics? <em>Am Heart J</em>, <em>139</em>, 745–751. <a href="https://doi.org/10.1016/S0002-8703(00)90001-2">https://doi.org/10.1016/S0002-8703(00)90001-2</a>
+</div>
+<div class="csl-entry" id="ref-sub10gen" role="listitem">
+Subramanian, J., &amp; Simon, R. (2010). Gene expression-based
+prognostic signatures in lung cancer: <span>Ready</span> for clinical
+use? <em>J Nat Cancer Inst</em>, <em>102</em>, 464–474.<div class="csl-block">none demonstrated to have clinical
+utility;bioinformatics;quality scoring of papers</div>
+</div>
+<div class="csl-entry" id="ref-ter22gui" role="listitem">
+Teresi, J. A., Yu, X., Stewart, A. L., &amp; Hays, R. D. (2022).
+Guidelines for <span>Designing</span> and <span>Evaluating Feasibility
+Pilot Studies</span>. <em>Medical Care</em>, <em>60</em>(1), 95. <a href="https://doi.org/10.1097/MLR.0000000000001664">https://doi.org/10.1097/MLR.0000000000001664</a>
+</div>
+<div class="csl-entry" id="ref-tuk93tig" role="listitem">
+Tukey, J. W. (1993). Tightening the <span>Clinical Trial</span>.
+<em>Controlled Clin Trials</em>, <em>14</em>, 266–285. <a href="https://doi.org/10.1016/0197-2456(93)90225-3">https://doi.org/10.1016/0197-2456(93)90225-3</a><div class="csl-block">showed that asking clinicians to make up regression
+coefficients out of thin air is better than not adjusting for
+covariables</div>
+</div>
+<div class="csl-entry" id="ref-plo14mod" role="listitem">
+van der Ploeg, T., Austin, P. C., &amp; Steyerberg, E. W. (2014). Modern
+modelling techniques are data hungry: A simulation study for predicting
+dichotomous endpoints. <em>BMC Medical Research Methodology</em>,
+<em>14</em>(1), 137+. <a href="https://doi.org/10.1186/1471-2288-14-137">https://doi.org/10.1186/1471-2288-14-137</a><div class="csl-block">Would be better to use proper accuracy scores in the
+assessment. Too much emphasis on optimism as opposed to final
+discrimination measure. But much good practical information. Recursive
+partitioning fared poorly.</div>
+</div>
+<div class="csl-entry" id="ref-kla15est" role="listitem">
+van Klaveren, D., Vergouwe, Y., Farooq, V., Serruys, P. W., &amp;
+Steyerberg, E. W. (2015). Estimates of absolute treatment benefit for
+individual patients required careful modeling of statistical
+interactions. <em>J Clin Epi</em>, <em>68</em>(11), 1366–1374. <a href="https://doi.org/10.1016/j.jclinepi.2015.02.012">https://doi.org/10.1016/j.jclinepi.2015.02.012</a>
+</div>
+<div class="csl-entry" id="ref-vic08dec" role="listitem">
+Vickers, A. J. (2008). Decision analysis for the evaluation of
+diagnostic tests, prediction models, and molecular markers. <em>Am
+Statistician</em>, <em>62</em>(4), 314–320.<div class="csl-block">limitations of accuracy metrics;incorporating clinical
+consequences;nice example of calculation of expected outcome;drawbacks
+of conventional decision analysis, especially because of the difficulty
+of eliciting the expected harm of a missed diagnosis;use of a threshold
+on the probability of disease for taking some action;decision curve;has
+other good references to decision analysis</div>
+</div>
+<div class="csl-entry" id="ref-vic08dia" role="listitem">
+Vickers, A. J., Basch, E., &amp; Kattan, M. W. (2008). Against
+diagnosis. <em>Ann Int Med</em>, <em>149</em>, 200–203.<div class="csl-block">"The act of diagnosis requires that patients be placed
+in a binary category of either having or not having a certain disease.
+Accordingly, the diseases of particular concern for industrialized
+countries—such as type 2 diabetes, obesity, or depression—require that a
+somewhat arbitrary cut-point be chosen on a continuous scale of
+measurement (for example, a fasting glucose level <span><span class="math inline">&gt;</span></span>6.9 mmol/L [<span><span class="math inline">&gt;</span></span>125 mg/dL] for type 2 diabetes).
+These cut-points do not ade- quately reflect disease biology, may
+inappropriately treat patients on either side of the cut-point as 2
+homogenous risk groups, fail to incorporate other risk factors, and are
+invariable to patient preference."</div>
+</div>
+<div class="csl-entry" id="ref-wai06fin" role="listitem">
+Wainer, H. (2006). Finding what is not there through the unfortunate
+binning of results: <span>The Mendel</span> effect. <em>Chance</em>,
+<em>19</em>(1), 49–56.<div class="csl-block">can find bins that yield
+either positive or negative association;especially pertinent when
+effects are small;"With four parameters, I can fit an elephant; with
+five, I can make it wiggle its trunk." - John von Neumann</div>
+</div>
+<div class="csl-entry" id="ref-whi21cov" role="listitem">
+White, I. R., Morris, T. P., &amp; Williamson, E. (2021). <em>Covariate
+adjustment in randomised trials: Canonical link functions protect
+against model mis-specification</em>. <a href="http://arxiv.org/abs/2107.07278">http://arxiv.org/abs/2107.07278</a><div class="csl-block">Comment: 10 pages, 1 figure</div>
+</div>
+<div class="csl-entry" id="ref-whi05adj" role="listitem">
+White, I. R., &amp; Thompson, S. G. (2005). Adjusting for partially
+missing baseline measurements in randomized trials. <em>Stat Med</em>,
+<em>24</em>, 993–1007.
+</div>
+<div class="csl-entry" id="ref-whi93sam" role="listitem">
+Whitehead, J. (1993). Sample size calculations for ordered categorical
+data. <em>Stat Med</em>, <em>12</em>, 2257–2271.
+</div>
+<div class="csl-entry" id="ref-wil13avo" role="listitem">
+Wilcox, R., Carlson, M., Azen, S., &amp; Clark, F. (2013). Avoid lost
+discoveries, because of violations of standard assumptions, by using
+modern robust statistical methods. <em>Journal of Clinical
+Epidemiology</em>, <em>66</em>(3), 319–329. <a href="https://doi.org/10.1016/j.jclinepi.2012.09.003">https://doi.org/10.1016/j.jclinepi.2012.09.003</a>
+</div>
+<div class="csl-entry" id="ref-xie15dyn" role="listitem">
+Xie, Y. (2015). <em>Dynamic <span>Documents</span> with <span>R</span>
+and knitr, second edition</em> (second). <span>Chapman and Hall</span>.
+</div>
+<div class="csl-entry" id="ref-yam99inv" role="listitem">
+Yamaguchi, T., &amp; Ohashi, Y. (1999). Investigating centre effects in
+a multi-centre clinical trial of superficial bladder cancer. <em>Stat
+Med</em>, <em>18</em>, 1961–1971.
+</div>
+</div>
+<!-- -->
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/hbiostat\.org\/bbr");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+        for (let i=0; i<annoteTargets.length; i++) {
+          const annoteTarget = annoteTargets[i];
+          const targetCell = annoteTarget.getAttribute("data-target-cell");
+          const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+          const contentFn = () => {
+            const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+            if (content) {
+              const tipContent = content.cloneNode(true);
+              tipContent.classList.add("code-annotation-tip-content");
+              return tipContent.outerHTML;
+            }
+          }
+          const config = {
+            allowHTML: true,
+            content: contentFn,
+            onShow: (instance) => {
+              selectCodeLines(instance.reference);
+              instance.reference.classList.add('code-annotation-active');
+              window.tippy.hideAll();
+            },
+            onHide: (instance) => {
+              unselectCodeLines();
+              instance.reference.classList.remove('code-annotation-active');
+            },
+            maxWidth: 300,
+            delay: [50, 0],
+            duration: [200, 0],
+            offset: [5, 10],
+            arrow: true,
+            appendTo: function(el) {
+              return el.parentElement.parentElement.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'quarto',
+            placement: 'right',
+            popperOptions: {
+              modifiers: [
+              {
+                name: 'flip',
+                options: {
+                  flipVariations: false, // true by default
+                  allowedAutoPlacements: ['right'],
+                  fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+                },
+              },
+              {
+                name: 'preventOverflow',
+                options: {
+                  mainAxis: false,
+                  altAxis: false
+                }
+              }
+              ]        
+            }      
+          };
+          window.tippy(annoteTarget, config); 
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+<div class="nav-page nav-page-previous">
+<a aria-label="List of Figures" class="pagination-link" href="figures.html">
+<i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">List of Figures</span>
+</a>
+</div>
+<div class="nav-page nav-page-next">
+</div>
+</nav><div aria-hidden="true" aria-labelledby="quarto-embedded-source-code-modal-label" class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" data-shortcodes="false" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a><span class="fu"># Annotated References {.unnumbered}</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a>:::</span></code></pre></div><button class="code-copy-button" data-in-quarto-modal="" title="Copy to Clipboard"><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+<div class="nav-footer">
+<div class="nav-footer-left">
+<ul class="footer-items list-unstyled">
+<li class="nav-item">
+ Copyright 2025, Frank E Harrell Jr
+  </li>
+</ul>
+</div>
+<div class="nav-footer-center">
+       
+    </div>
+<div class="nav-footer-right">
+<ul class="footer-items list-unstyled">
+<li class="nav-item">
+<a class="nav-link" href="https://www.gnu.org/licenses/gpl-3.0.en.html">
+<p>License</p>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</footer>
+</body></html>
